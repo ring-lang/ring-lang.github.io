@@ -1,0 +1,859 @@
+﻿aTeam = [
+				  [
+					'Mahmoud Samir Fayed<br/>Software Developer (The Creator of Ring)',
+					'<img src="fayed.jpg" width="150" height="170">'
+				  ],
+				  [
+					'Gal Zsolt (CalmoSoft)<br/>Software Developer (Samples Master)',
+					'<img src="GalZsolt.png" width="150" height="170">'
+				  ],
+				  [
+					'Bert Mariani<br/>Software Developer (Applications Master)',
+					'<img src="UmbertoMariani.png" width="150" height="170">'
+				  ],
+				  [
+                    			'José Rosado<br/>Software Developer',
+					'<img src="jose.jpg" width="150" height="170">'
+                  		  ],
+				  [
+                    			'Marino Esteban<br/>Software Developer',
+					'<img src="marino.jpg" width="150" height="170">'
+                  		  ]
+]
+aManyThanks = [
+				  [
+					'Prof. Dr. Atif M. Alamri',
+					'<img src="dratif.png" width="150" height="170">'
+				  ],
+  				  [
+					'Ahmed Hassouna',
+					'<img src="AhmedHassouna.jpg" width="150" height="170">'
+				  ],
+		  		  [
+                    			'Mansour Ayouni',
+		    			'<img src="mansour.jpg" width="150" height="170">'
+                  		  ],
+				  [
+					'Majdi Sobain',
+					'<img src="majdi.jpg" width="150" height="170">'
+				  ],
+				  [
+					'Mona Kamel',
+					'<img src="mona.png" width="150" height="170">'
+				  ],
+				  [
+					'Hebat Alla Ismail',
+					'<img src="heba.jpg" width="150" height="170">'
+				  ],
+  				  [
+					'Abdelrahman Mahmoud',
+					'<img src="abdelrahman.jpg" width="150" height="170">'
+				  ],				  
+				  [
+                    			'Amin Najah',
+					'<img src="amine.jpg" width="150" height="170">'
+                  		  ],				  
+				  [
+					'Nouran M. Radwan',
+					'<img src="nouran.png" width="150" height="170">'
+				  ],				  
+				  [
+                    			'Heba Omran',
+					'<img src="hebaomran.png" width="150" height="170">'
+                  		  ],
+		  		  [
+                    			'Ahmed Baryyan',
+		    			'<img src="ahmedbarayan1.jpg" width="150" height="170">'
+                  		  ]
+]
+aTeam2 = [
+				  [
+					'Mohammed Fayed',
+					'Domain'								
+				  ],
+					[
+						'Sara Hamdy Mohamed',
+						'Tutorials'
+					],
+					[
+						'Alaa Mohammed Elockle',
+						'Tutorials'
+					],
+					[
+						'Amr Essam',
+						'Tutorials'
+					],
+				  [
+					'Mohammed Ali Haggag',
+					'Graphic Designer'
+					
+				  ],			
+				  [
+					'Ahmad Fayed',
+					'Graphic Designer'
+					
+				  ],				  
+				  [
+					'Muhammad Wael',
+					'Graphic Designer'
+					
+				  ],
+				  [
+					'Sameh Salem',
+					'Graphic Designer'
+					
+				  ],
+				  [
+					'Mahmoud Hamdy',
+					'Graphic Designer'
+					
+				  ],
+				  [
+					'Islam Fawzi',
+					'Graphic Designer'
+					
+				  ],
+				  [
+					'Ashraf Nagy',
+					'Graphic Designer'
+					
+				  ],
+				  [
+					'Magdy Ragab',
+					'Tester'				
+				  ],
+				  [
+					'Ahmed Omar',
+					'Tester'				
+				  ],
+				  [
+					'Rashad Kamsheh',
+					'Tester'
+				  ],
+				  [
+                    			'Nehemiah Jacob',
+                    			'Tester'               
+                  		  ],
+                  		  [
+					'Muhammed Amr Elsayed',
+					'Tester'					
+		  		  ],
+		  		  [
+                    			'Abubakr Ahmed Fayez',
+                    			'Tester'                    			
+                  		  ],				  				  
+				  [
+					'Mohamed Elzainy',
+					'Tester'
+					
+				  ],
+				  [
+					'Ebrahim ELgeded',
+					'Tester'
+					
+				  ],
+				  [
+					'Amir Makram',
+					'Tester'
+					
+				  ],
+				  [
+					'Radwan Mohamed',
+					'Tester'
+					
+				  ],
+				  [
+					'Dachir Hicham',
+					'Tester'
+					
+				  ],
+				  [
+					'Ahmed Ibrahim',
+					'Tester'
+					
+				  ],
+				  [
+					'Hesham Ahmed',
+					'Tester'
+					
+				  ],
+				  [
+					'Alaa Ben Fatma',
+					'Tester'
+					
+				  ],
+				  [
+					'Osama Ali',
+					'Tester'
+					
+				  ],
+				  [
+					'Mohamed Abu Al-Ainin',
+					'Tester'
+					
+				  ],
+				  [
+					'Muhammad Mahmoud Attia',
+					'Tester'
+					
+				  ],
+				  [
+					'Mohammad Kamel Emam',
+					'Tester'
+					
+				  ],
+				  [
+					'Ahmed Shendy',
+					'Tester'
+					
+				  ],
+				  [
+					'Ragab Mustafa',
+					'Tester'
+					
+				  ],
+				  [
+					'Ahmed Ramzy',
+					'Tester'
+					
+				  ],
+				  [
+					'Khaled ABID',
+					'Tester'
+					
+				  ],
+				  [
+					'Abobakar Ahmad Jallo',
+					'Tester'
+					
+				  ],
+				  [
+					'El-tayeb Kamal Karrar',
+					'Tester'
+					
+				  ],
+				  [
+					'Mahmoud mohamed omar',
+					'Tester'
+					
+				  ],
+				  [
+					'Chetouani Mohammed Amine',
+					'Tester'
+					
+				  ],
+				  [
+					'Mahmoud elkhashab',
+					'Tester'
+					
+				  ],
+				  [
+					'Ayyad Shenouda ayyad',
+					'Tester'
+					
+				  ],
+				  [
+					'Mohamed Mamdouh Ahmed',
+					'Tester'
+					
+				  ],
+				  [
+					'Abdeltwab mohamd',
+					'Tester'
+					
+				  ],
+				  [
+					'Hesham Watany',
+					'Tester'
+					
+				  ],
+				  [
+					'Ahmad Elbadri',
+					'Tester'
+					
+				  ],
+				  [
+					'Sinan Q. Salih',
+					'Tester'
+					
+				  ],				  
+				  [
+					'Mohammed Aljazaeri',
+					'Tester'
+					
+				  ],
+				  [
+					'Belal Mohammed',
+					'Tester'
+					
+				  ],
+				  [
+					'Ahmed Refaie',
+					'Tester'
+					
+				  ],				  
+				  [
+					'Mohamad Hamad',
+					'Tester'
+					
+				  ],
+				  [
+					'Sam Goran',
+					'Tester'
+					
+				  ],
+				  [
+					'Montasir Mohamed Badreldin',
+					'Tester'
+					
+				  ],
+				  [
+					'Sofy Abbas',
+					'Tester'
+					
+				  ],
+				  [
+					'Ali Aliraqi',
+					'Tester'
+					
+				  ],
+				  [
+					'Mohamed Elkehlawy Mahmoud',
+					'Tester'
+					
+				  ],
+				  [
+					'Reem Basheer',
+					'Tester'
+					
+				  ],
+                  [
+                    'Yasmin Alwaan',
+                    'Tester'
+                    
+                  ],
+	          [
+                    'Mostafa Gaber',
+                    'Tester'
+                    
+                  ],
+                  [
+                    'Abdelraouf Mohamed',
+                    'Tester'
+                    
+                  ],
+                  [
+                    'Abdelrahman Fawzy Omar',
+                    'Tester'                    
+                  ],
+		  [
+                    'Ramy Elganzorey',
+                    'Tester'
+                    
+                  ],
+		  [
+                    'Kovács Attila',
+                    'Tester'
+                    
+                  ],
+		  [
+                    'Robert Philippe',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mohammed Tantawy',
+                    'Tester'
+                    
+                  ],
+		  [
+                    'Mahmood Bakr El-Sedeek',
+                    'Tester'
+                    
+                  ],
+		  [
+                    'Aziza Elhassi',
+                    'Tester'
+                    
+                  ],
+		  [
+                    'Ahmed Ali Halawa',
+                    'Tester'
+                    
+                  ],
+		  [
+                    'Mahmoud Adel Abd-Elsalam Elbaz',
+                    'Tester'
+                    
+                  ],
+		  [
+                    'Ayad ameen hama',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ahmad Hamdy Ali',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Alaa Abdelsamie',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Heba Elakhder',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mahmoud Ezat Mohamed EL-Sidek',
+                    'Tester'                    
+                  ],
+				  [
+                    'Shery Rajp',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ahmed Isam',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Tarek Kouskous	',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Asmaa Mohamed Elgezawy',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Abdelrahman Abdelhameed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ahmed Muhammed Khalid',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mohamed Ait Brahim',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Abdallah Ebrahim Abdallah Muhammed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Amera Hassan',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ahmed Elgendy',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ahmed Alsharawy',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Islam Fady',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Sayed Ragab Mohammed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Andro Nady',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ahmed Sami Mohammed Gonimy',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Gamal elsayed shabaan negm elden',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mostafa Abd Elazeem',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'mohammed hani elsayed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Gamal Ahmed Shehata',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mohamed Abd El-tawab Sayed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mohamed Saied Mohamed Ahmed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mohamed Magdy',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mohamed Ali Abd El-Hakeem Mohamed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ahmed Hany',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Esraa Omar abdelhameed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mahmoud Hamdii Elhamrawy',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Peter Tawfik',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Shadi Abo Oun',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Muhammad Habib	',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mohamed Gamal',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mohamed Mirghani Ali',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mohamed abdelbary',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ahmed Elzemrany',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'mahmoud mahran',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mhd Khir Hammadeh',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Atef Hakim',
+                    'Tester'
+                    
+                  ],				  
+				  [
+                    'Mamoud kotb abd diab',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'osama Kamel Abd El-hamed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mohamed Ibrahim',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ahmed Abaza',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'djouamaa hocine',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Maher khayyal',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Fayez Elkenawy',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ahmed Ali',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Essam Abdelrahman',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'AbdElrahman Mohamed Salah',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Hamza Elmouhtadi',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Thana Mohamed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Heba Elnabawy elsersy',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Abdallah Massad',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Yasser Ezzat Ragab',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mohamd Mahmoud Elsaid Elarousi',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ahmed Salem',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ameen Ahmed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mai mokhtar mostafa',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Khaled Hammad',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Osama Reda Elnabwy',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Mohamed magdy ahmed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Asmaa  Abdelghny Ali',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ramez Sabry Nageb',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Lobna ahmed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ehab Mosaad Mohamed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Abdo Kamr',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Abdelrahman Mostafa',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Moumen osama alisawe',
+                    'Tester'
+                    
+                  ],
+  				  [
+                    'Atya Adel Atya',
+                    'Tester'
+                    
+                  ],
+  				  [
+                    'Walid Mohammed Kamal',
+                    'Tester'
+                    
+                  ],
+  				  [
+                    'Mohamed Azzam',
+                    'Tester'
+                    
+                  ],
+  				  [
+                    'Eslam Shehata',
+                    'Tester'
+                    
+                  ],
+  				  [
+                    'Asmaa Ebrahym',
+                    'Tester'
+                    
+                  ],
+   				  [
+                    'Islam Hamdy',
+                    'Tester'
+                    
+                  ],
+   				  [
+                    'Sharaf Eldin Mohamed',
+                    'Tester'
+                    
+                  ],				  
+				  [
+                    'Mahmoud Mabrouk	',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Njlaa Ahmad Emam',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Hashem Alaya',
+                    'Tester'
+                    
+                  ],
+  				  [
+                    'Usama Mohammed Kabel',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Ahmed Elsayed Mohamed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Yaser Ba Matraf',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Shimoo Ali',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'John Storm (SienSystem)',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Hassan Ahmed',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Jamie Cooper',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Muhammad Goni',
+                    'Tester'
+                    
+                  ],
+  				  [
+                    'L Godioleskky',
+                    'Tester'
+                    
+                  ],
+   				  [
+                    'Mawko Pavel',
+                    'Tester'
+                    
+                  ],
+   				  [
+                    'Chris Bruner',
+                    'Tester'
+                    
+                  ],
+				  [
+                    'Peter Xiong',
+                    'Tester'                    
+                  ],
+		  [
+                    'Nestor Kuka',
+                    'Tester'                    
+                  ],
+		  [
+                    'Ilir Liburn',
+                    'Tester'                    
+                  ],
+		  [
+                	'Matthias Schuster',
+			'Tester'
+		  ]
+]
