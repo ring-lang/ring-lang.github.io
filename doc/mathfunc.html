@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Mathematical Functions &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Files" href="files.html" />
+    <link rel="prev" title="Check Data Type and Conversion" href="checkandconvert.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="files.html" title="Files"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="checkandconvert.html" title="Check Data Type and Conversion"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mathematical-functions">
+<h1>Mathematical Functions<a class="headerlink" href="#mathematical-functions" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about the mathematical functions</p>
+<div class="section" id="list-of-functions">
+<h2>List of functions<a class="headerlink" href="#list-of-functions" title="Permalink to this headline">¶</a></h2>
+<p>The Ring programming language comes with the next mathematical functions</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Function</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>sin(x)</td>
+<td>Returns the sine of an angle of x radians</td>
+</tr>
+<tr class="row-odd"><td>cos(x)</td>
+<td>Returns the cosine of an angle of x radians</td>
+</tr>
+<tr class="row-even"><td>tan(x)</td>
+<td>Returns the tangent of an angle of x radians</td>
+</tr>
+<tr class="row-odd"><td>asin(x)</td>
+<td>Returns the principal value of the arc sine of x, expressed in radians</td>
+</tr>
+<tr class="row-even"><td>acos(x)</td>
+<td>Returns the principal value of the arc cosine of x, expressed in radians</td>
+</tr>
+<tr class="row-odd"><td>atan(x)</td>
+<td>Returns the principal value of the arc tangent of x, expressed in radians</td>
+</tr>
+<tr class="row-even"><td>atan2(y,x)</td>
+<td>Returns the principal arc tangent of y/x, in the interval [-pi,+pi] radians</td>
+</tr>
+<tr class="row-odd"><td>sinh(x)</td>
+<td>Returns the hyperbolic sine of x radians</td>
+</tr>
+<tr class="row-even"><td>cosh(x)</td>
+<td>Returns the hyperbolic cosine of x radians</td>
+</tr>
+<tr class="row-odd"><td>tanh(x)</td>
+<td>Returns the hyperbolic tangent of x radians</td>
+</tr>
+<tr class="row-even"><td>exp(x)</td>
+<td>Returns the value of e raised to the xth power</td>
+</tr>
+<tr class="row-odd"><td>log(x)</td>
+<td>Returns the natural logarithm of x</td>
+</tr>
+<tr class="row-even"><td>log10(x)</td>
+<td>Returns the common logarithm (base-10 logarithm) of x</td>
+</tr>
+<tr class="row-odd"><td>ceil(x)</td>
+<td>Returns the smallest integer value greater than or equal to x</td>
+</tr>
+<tr class="row-even"><td>floor(x)</td>
+<td>Returns the largest integer value less than or equal to x</td>
+</tr>
+<tr class="row-odd"><td>fabs(x)</td>
+<td>Returns the absolute value of x.</td>
+</tr>
+<tr class="row-even"><td>pow(x,y)</td>
+<td>Returns x raised to the power of y</td>
+</tr>
+<tr class="row-odd"><td>sqrt(x)</td>
+<td>Returns the square root of x</td>
+</tr>
+<tr class="row-even"><td>random(x)</td>
+<td>Returns a random number in the range [0,x]</td>
+</tr>
+<tr class="row-odd"><td>unsigned(n,n,c)</td>
+<td>Perform operation using unsigned numbers</td>
+</tr>
+<tr class="row-even"><td>decimals(n)</td>
+<td>Determine the decimals digits after the point in float/double numbers</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;Mathematical Functions&quot; + nl
+See &quot;Sin(0) = &quot; + sin(0) + nl
+See &quot;Sin(90) radians = &quot; + sin(90) + nl
+See &quot;Sin(90) degree = &quot; + sin(90*3.14/180) + nl
+
+See &quot;Cos(0) = &quot; + cos(0) + nl
+See &quot;Cos(90) radians = &quot; + cos(90) + nl
+See &quot;Cos(90) degree = &quot; + cos(90*3.14/180) + nl
+
+See &quot;Tan(0) = &quot; + tan(0) + nl
+See &quot;Tan(90) radians = &quot; + tan(90) + nl
+See &quot;Tan(90) degree = &quot; + tan(90*3.14/180) + nl
+
+See &quot;asin(0) = &quot; + asin(0) + nl
+See &quot;acos(0) = &quot; + acos(0) + nl
+See &quot;atan(0) = &quot; + atan(0) + nl
+See &quot;atan2(1,1) = &quot; + atan2(1,1) + nl
+
+See &quot;sinh(0) = &quot; + sinh(0) + nl
+See &quot;sinh(1) = &quot; + sinh(1) + nl
+See &quot;cosh(0) = &quot; + cosh(0) + nl
+See &quot;cosh(1) = &quot; + cosh(1) + nl
+See &quot;tanh(0) = &quot; + tanh(0) + nl
+See &quot;tanh(1) = &quot; + tanh(1) + nl
+
+See &quot;exp(0) = &quot; + exp(0) + nl
+See &quot;exp(1) = &quot; + exp(1) + nl
+See &quot;log(1) = &quot; + log(1) + nl
+See &quot;log(2) = &quot; + log(2) + nl
+See &quot;log10(1) = &quot; + log10(1) + nl
+See &quot;log10(2) = &quot; + log10(2) + nl
+See &quot;log10(10) = &quot; + log10(10) + nl
+
+See &quot;Ceil(1.12) = &quot; + Ceil(1.12) + nl
+See &quot;Ceil(1.72) = &quot; + Ceil(1.72) + nl
+
+See &quot;Floor(1.12) = &quot; + floor(1.12) + nl
+See &quot;Floor(1.72) = &quot; + floor(1.72) + nl
+
+See &quot;fabs(1.12) = &quot; + fabs(1.12) + nl
+See &quot;fabs(1.72) = &quot; + fabs(1.72) + nl
+
+See &quot;pow(2,3) = &quot; + pow(2,3) + nl
+
+see &quot;sqrt(16) = &quot; + sqrt(16) + nl
+</pre></div>
+</div>
+<p>Program Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>Mathematical Functions
+Sin(0) = 0
+Sin(90) radians = 0.89
+Sin(90) degree = 1.00
+Cos(0) = 1
+Cos(90) radians = -0.45
+Cos(90) degree = 0.00
+Tan(0) = 0
+Tan(90) radians = -2.00
+Tan(90) degree = 1255.77
+asin(0) = 0
+acos(0) = 1.57
+atan(0) = 0
+atan2(1,1) = 0.79
+sinh(0) = 0
+sinh(1) = 1.18
+cosh(0) = 1
+cosh(1) = 1.54
+tanh(0) = 0
+tanh(1) = 0.76
+exp(0) = 1
+exp(1) = 2.72
+log(1) = 0
+log(2) = 0.69
+log10(1) = 0
+log10(2) = 0.30
+log10(10) = 1
+Ceil(1.12) = 2
+Ceil(1.72) = 2
+Floor(1.12) = 1
+Floor(1.72) = 1
+fabs(1.12) = 1.12
+fabs(1.72) = 1.72
+pow(2,3) = 8
+sqrt(16) = 4
+</pre></div>
+</div>
+</div>
+<div class="section" id="random-function">
+<h2>Random() Function<a class="headerlink" href="#random-function" title="Permalink to this headline">¶</a></h2>
+<p>The Random() function generate a random number and we can set the maximum value (optional).</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Random(x) ---&gt; Random number in the range [0,x]
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>for x = 1 to 20
+        see  &quot;Random number : &quot; + random() + nl +
+             &quot;Random number Max (100) : &quot; + random(100) + nl
+next
+</pre></div>
+</div>
+<p>Program Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>Random number : 31881
+Random number Max (100) : 80
+Random number : 5573
+Random number Max (100) : 63
+Random number : 2231
+Random number Max (100) : 43
+Random number : 12946
+Random number Max (100) : 39
+Random number : 22934
+Random number Max (100) : 48
+Random number : 4690
+Random number Max (100) : 52
+Random number : 13196
+Random number Max (100) : 65
+Random number : 30390
+Random number Max (100) : 87
+Random number : 4327
+Random number Max (100) : 77
+Random number : 12456
+Random number Max (100) : 17
+Random number : 28438
+Random number Max (100) : 13
+Random number : 30503
+Random number Max (100) : 6
+Random number : 31769
+Random number Max (100) : 94
+Random number : 8274
+Random number Max (100) : 65
+Random number : 14390
+Random number Max (100) : 90
+Random number : 28866
+Random number Max (100) : 12
+Random number : 24558
+Random number Max (100) : 70
+Random number : 29981
+Random number Max (100) : 77
+Random number : 12847
+Random number Max (100) : 63
+Random number : 6632
+Random number Max (100) : 60
+</pre></div>
+</div>
+</div>
+<div class="section" id="unsigned-function">
+<h2>Unsigned() Function<a class="headerlink" href="#unsigned-function" title="Permalink to this headline">¶</a></h2>
+<p>We can use unsigned numbers using the Unsigned() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Unsigned(nNum1,nNum2,cOperator) --&gt; result of cOperator operation on nNum1,nNum2
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see oat_hash(&quot;hello&quot;) + nl
+
+# Jenkins hash function - https://en.wikipedia.org/wiki/Jenkins_hash_function
+func oat_hash cKey
+        h = 0
+        for x in cKey
+                h = unsigned(h,ascii(x),&quot;+&quot;)
+                h = unsigned(h,unsigned(h,10,&quot;&lt;&lt;&quot;),&quot;+&quot;)
+                r = unsigned(h,6,&quot;&gt;&gt;&quot;)
+                h = unsigned(h, r,&quot;^&quot;)
+        next
+        h = unsigned(h,unsigned(h,3,&quot;&lt;&lt;&quot;),&quot;+&quot;)
+        h = unsigned(h,unsigned(h,11,&quot;&gt;&gt;&quot;),&quot;^&quot;)
+        h = unsigned(h,unsigned(h,15,&quot;&lt;&lt;&quot;),&quot;+&quot;)
+        return h
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>3372029979.00
+</pre></div>
+</div>
+</div>
+<div class="section" id="decimals-functions">
+<h2>Decimals() Functions<a class="headerlink" href="#decimals-functions" title="Permalink to this headline">¶</a></h2>
+<p>We can determine the decimals numbers count after the point in float/double numbers using the decimals() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Decimals(nDecimalsCount)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>x = 1.1234567890123
+for d = 0 to 14
+        decimals(d)
+        see x + nl
+next
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>1
+1.1
+1.12
+1.123
+1.1235
+1.12346
+1.123457
+1.1234568
+1.12345679
+1.123456789
+1.1234567890
+1.12345678901
+1.123456789012
+1.1234567890123
+1.12345678901230
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Mathematical Functions</a><ul>
+<li><a class="reference internal" href="#list-of-functions">List of functions</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#random-function">Random() Function</a></li>
+<li><a class="reference internal" href="#unsigned-function">Unsigned() Function</a></li>
+<li><a class="reference internal" href="#decimals-functions">Decimals() Functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="checkandconvert.html"
+                        title="previous chapter">Check Data Type and Conversion</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="files.html"
+                        title="next chapter">Files</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mathfunc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="files.html" title="Files"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="checkandconvert.html" title="Check Data Type and Conversion"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

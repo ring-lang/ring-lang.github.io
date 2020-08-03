@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>RingLibCurl Functions Reference &mdash; Ring 1.4.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.4.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.4.1 documentation" href="index.html" />
+    <link rel="next" title="RingLibZip Functions Reference" href="ringlibzipfuncsdoc.html" />
+    <link rel="prev" title="Code Generator for wrapping C/C++ Libraries" href="codegenerator.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ringlibzipfuncsdoc.html" title="RingLibZip Functions Reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="codegenerator.html" title="Code Generator for wrapping C/C++ Libraries"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.4.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ringlibcurl-functions-reference">
+<span id="index-0"></span><h1>RingLibCurl Functions Reference<a class="headerlink" href="#ringlibcurl-functions-reference" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>CURL <a href="#id1"><span class="problematic" id="id2">*</span></a>curl_easy_init(void)</li>
+<li>void curl_easy_cleanup(CURL * handle )</li>
+<li>CURLcode curl_easy_setopt(CURL <a href="#id3"><span class="problematic" id="id4">*</span></a>handle, CURLoption option, PARAMETER)</li>
+<li>CURLcode curl_easy_setopt_1(CURL <a href="#id5"><span class="problematic" id="id6">*</span></a>handle, CURLoption option, int)</li>
+<li>CURLcode curl_easy_setopt_2(CURL <a href="#id7"><span class="problematic" id="id8">*</span></a>handle, CURLoption option, const char <a href="#id9"><span class="problematic" id="id10">*</span></a>)</li>
+<li>CURLcode curl_easy_setopt_3(CURL <a href="#id11"><span class="problematic" id="id12">*</span></a>handle, CURLoption option, void <a href="#id13"><span class="problematic" id="id14">*</span></a>)</li>
+<li>CURLcode curl_easy_setopt_4(CURL <a href="#id15"><span class="problematic" id="id16">*</span></a>handle, CURLoption option, CURLLIST <a href="#id17"><span class="problematic" id="id18">*</span></a>)</li>
+<li>CURLcode curl_easy_perform(CURL * easy_handle )</li>
+<li>String <a href="#id19"><span class="problematic" id="id20">*</span></a>curl_easy_perform_silent(CURL * easy_handle )</li>
+<li>CURLcode curl_easy_getinfo_1(CURL <a href="#id21"><span class="problematic" id="id22">*</span></a>handle, CURLINFO info, char <a href="#id23"><span class="problematic" id="id24">**</span></a>urlp)</li>
+<li>CURLcode curl_easy_getinfo_2(CURL <a href="#id25"><span class="problematic" id="id26">*</span></a>handle, CURLINFO info, long <a href="#id27"><span class="problematic" id="id28">*</span></a>codep)</li>
+<li>CURLcode curl_easy_getinfo_3(CURL <a href="#id29"><span class="problematic" id="id30">*</span></a>handle, CURLINFO info, double <a href="#id31"><span class="problematic" id="id32">*</span></a>timep)</li>
+<li>CURLcode curl_easy_getinfo_4(CURL <a href="#id33"><span class="problematic" id="id34">*</span></a>handle, CURLINFO info, CURLLIST <a href="#id35"><span class="problematic" id="id36">**</span></a>engine_list)</li>
+<li>CURLcode curl_easy_getinfo_5(CURL <a href="#id37"><span class="problematic" id="id38">*</span></a>handle, CURLINFO info, struct curl_certinfo <a href="#id39"><span class="problematic" id="id40">*</span></a>chainp)</li>
+<li>CURLcode curl_easy_getinfo_6(CURL <a href="#id41"><span class="problematic" id="id42">*</span></a>handle, CURLINFO info, struct curl_tlssessioninfo <a href="#id43"><span class="problematic" id="id44">**</span></a>session)</li>
+<li>char <a href="#id45"><span class="problematic" id="id46">*</span></a>curl_version(void)</li>
+<li>time_t curl_getdate(char * datestring , time_t <a href="#id47"><span class="problematic" id="id48">*</span></a>now )</li>
+<li>CURLFORMcode curl_formadd_1(struct curl_httppost <a href="#id49"><span class="problematic" id="id50">**</span></a>firstitem, struct curl_httppost <a href="#id51"><span class="problematic" id="id52">**</span></a>lastitem, CURLformoption, const char <a href="#id53"><span class="problematic" id="id54">*</span></a>, CURLformoption, const char <a href="#id55"><span class="problematic" id="id56">*</span></a>, CURLformoption)</li>
+<li>CURLFORMcode curl_formadd_2(struct curl_httppost <a href="#id57"><span class="problematic" id="id58">**</span></a>firstitem, struct curl_httppost <a href="#id59"><span class="problematic" id="id60">**</span></a>lastitem, CURLformoption, const char <a href="#id61"><span class="problematic" id="id62">*</span></a>, CURLformoption, const char <a href="#id63"><span class="problematic" id="id64">*</span></a>,CURLformoption, const char <a href="#id65"><span class="problematic" id="id66">*</span></a>, CURLformoption)</li>
+<li>CURLFORMcode curl_formadd_3(struct curl_httppost <a href="#id67"><span class="problematic" id="id68">**</span></a>firstitem, struct curl_httppost <a href="#id69"><span class="problematic" id="id70">**</span></a>lastitem, CURLformoption, const char <a href="#id71"><span class="problematic" id="id72">*</span></a>, CURLformoption, void <a href="#id73"><span class="problematic" id="id74">*</span></a>, CURLformoption)</li>
+<li>CURLFORMcode curl_formadd_4(struct curl_httppost <a href="#id75"><span class="problematic" id="id76">**</span></a>firstitem, struct curl_httppost <a href="#id77"><span class="problematic" id="id78">**</span></a>lastitem, CURLformoption, const char <a href="#id79"><span class="problematic" id="id80">*</span></a>, CURLformoption, void <a href="#id81"><span class="problematic" id="id82">*</span></a>,CURLformoption, long , CURLformoption)</li>
+<li>CURLFORMcode curl_formadd_5(struct curl_httppost <a href="#id83"><span class="problematic" id="id84">**</span></a>firstitem, struct curl_httppost <a href="#id85"><span class="problematic" id="id86">**</span></a>lastitem, CURLformoption, const char <em>, CURLformoption, void *,CURLformoption, long , CURLformoption, const char</em> , CURLformoption)</li>
+<li>CURLFORMcode curl_formadd_6(struct curl_httppost <a href="#id87"><span class="problematic" id="id88">**</span></a>firstitem, struct curl_httppost <a href="#id89"><span class="problematic" id="id90">**</span></a>lastitem, CURLformoption, const char <a href="#id91"><span class="problematic" id="id92">*</span></a>, CURLformoption, const char <a href="#id93"><span class="problematic" id="id94">*</span></a>,CURLformoption, void * , CURLformoption, long , CURLformoption)</li>
+<li>CURLFORMcode curl_formadd_7(struct curl_httppost <a href="#id95"><span class="problematic" id="id96">**</span></a>firstitem, struct curl_httppost <a href="#id97"><span class="problematic" id="id98">**</span></a>lastitem, CURLformoption, const char <a href="#id99"><span class="problematic" id="id100">*</span></a>, CURLformoption,  struct curl_forms [], CURLformoption)</li>
+<li>void curl_formfree(struct curl_httppost * form)</li>
+<li>CURLLIST <a href="#id101"><span class="problematic" id="id102">*</span></a>curl_slist_append(CURLLIST * list, const char * string )</li>
+<li>void curl_slist_free_all(CURLLIST * list)</li>
+<li>char <a href="#id103"><span class="problematic" id="id104">*</span></a>curl_easy_escape( CURL * curl , const char * string , int length )</li>
+<li>char <a href="#id105"><span class="problematic" id="id106">*</span></a>curl_easy_unescape( CURL * curl , const char * url , int inlength , int * outlength )</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="codegenerator.html"
+                        title="previous chapter">Code Generator for wrapping C/C++ Libraries</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ringlibzipfuncsdoc.html"
+                        title="next chapter">RingLibZip Functions Reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ringlibcurlfuncsdoc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ringlibzipfuncsdoc.html" title="RingLibZip Functions Reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="codegenerator.html" title="Code Generator for wrapping C/C++ Libraries"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.4.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016-2017, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

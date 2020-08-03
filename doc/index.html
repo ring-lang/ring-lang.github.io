@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to Ring’s documentation! &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="#" />
+    <link rel="next" title="Introduction" href="introduction.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-ring-s-documentation">
+<h1>Welcome to Ring&#8217;s documentation!<a class="headerlink" href="#welcome-to-ring-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#motivation">Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#history">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#features">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#hello-world">Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#run-the-program">Run the program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#not-case-sensitive">Not Case-Sensitive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#multi-line-literals">Multi-Line literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#getting-input">Getting Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#no-explicit-end-for-statements">No Explicit End For Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#writing-comments">Writing Comments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variables.html#dynamic-typing">Dynamic Typing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables.html#deep-copy">Deep Copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variables.html#weakly-typed">Weakly Typed</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#arithmetic-operators">Arithmetic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#relational-operators">Relational Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#logical-operators">Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#bitwise-operators">Bitwise Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#assignment-operators">Assignment Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#misc-operators">Misc Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html#operators-precedence">Operators Precedence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="controlstructures.html#branching">Branching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlstructures.html#looping">Looping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlstructures.html#using-the-step-option-with-for-in">Using The Step option with For in</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlstructures.html#using-for-in-to-modify-lists">Using For in to modify lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlstructures.html#do-again-loop">Do Again Loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlstructures.html#exit-command">Exit Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlstructures.html#exit-from-two-loops">Exit from two loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlstructures.html#exit-loop-inside-sub-functions">Exit/Loop inside sub functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlstructures.html#short-circuit-evaluation">Short-circuit evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlstructures.html#comments-about-evaluation">Comments about evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getinput.html#give-command">Give Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getinput.html#getchar-function">GetChar() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getinput.html#input-function">Input() Function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#define-functions">Define Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#call-functions">Call Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#declare-parameters">Declare parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#send-parameters">Send Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#main-function">Main Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#variables-scope">Variables Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#program-structure">Program Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#return-value">Return Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html#recursion">Recursion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#create-lists">Create Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#add-items">Add Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#get-list-size">Get List Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#delete-item-from-list">Delete Item From List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#get-list-item">Get List Item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#set-list-item">Set List Item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#search">Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#sort">Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#reverse">Reverse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#insert-items">Insert Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#nested-lists">Nested Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#copy-lists">Copy Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#first-class-lists">First-class lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#using-lists-during-definition">Using Lists during definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#passing-lists-to-functions">Passing Lists to Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#access-list-items-by-string-index">Access List Items by String Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lists.html#passing-parameters-using-list">Passing Parameters Using List</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#string-literals">String Literals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#get-string-length">Get String Length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#convert-letters-case">Convert Letters Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#access-string-letters">Access String Letters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#left-function">Left() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#right-function">Right() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#trim-function">Trim() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#copy-function">Copy() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#lines-function">Lines() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#substr-function">Substr() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#find-substring">Find substring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#get-substring-from-position-to-end">Get substring from position to end</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#get-number-of-characters-from-position">Get Number of Characters From Position</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#transform-substring-to-another-substring">Transform Substring To Another Substring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#strcmp-function">strcmp() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strings.html#str2list-and-list2str-functions">str2list() and list2str() Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dateandtime.html#clock-function">Clock() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dateandtime.html#time-function">Time() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dateandtime.html#date-function">Date() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dateandtime.html#timelist-function">TimeList() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dateandtime.html#adddays-function">AddDays() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dateandtime.html#diffdays-function">DiffDays() Function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#check-data-type">Check Data Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#isstring-function">IsString() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#isnumber-function">IsNumber() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#islist-function">IsList() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#type-function">Type() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#isnull-function">IsNULL() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#check-character">Check Character</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#isalnum-function">IsAlNum() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#isalpha-function">IsAlpha() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#iscntrl-function">IsCntrl() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#isdigit-function">IsDigit() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#isgraph-function">IsGraph() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#islower-function">IsLower() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#isprint-function">IsPrint() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#ispunct-function">IsPunct() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#isspace-function">IsSpace() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#isupper-function">IsUpper() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#isxdigit-function">IsXdigit() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#conversion">Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#number-function">Number() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#string-function">String() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#ascii-function">Ascii() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#char-function">Char() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#hex-function">Hex() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#dec-function">Dec() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#str2hex-function">Str2hex() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="checkandconvert.html#hex2str-function">Hex2str() Function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mathfunc.html#list-of-functions">List of functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathfunc.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathfunc.html#random-function">Random() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathfunc.html#unsigned-function">Unsigned() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathfunc.html#decimals-functions">Decimals() Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="files.html#read-function">Read() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#write-function">Write() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#dir-function">Dir() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#rename-function">Rename() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#remove-function">Remove() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#fopen-function">Fopen() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#fclose-function">Fclose() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#fflush-function">Fflush() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#freopen-function">Freopen() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#tempfile-function">Tempfile() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#tempname-function">Tempname() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#fseek-function">Fseek() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#ftell-function">Ftell() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#rewind-function">Rewind() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#fgetpos-function">Fgetpos() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#fsetpos-function">Fsetpos() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#clearerr-function">Clearerr() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#feof-function">Feof() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#ferror-function">Ferror() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#perror-function">Perror() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#fgetc-function">Fgetc() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#fgets-function">Fgets() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#fputc-function">Fputc() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#fputs-function">Fputs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#ungetc-function">Ungetc() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#fread-function">Fread() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#fwrite-function">Fwrite() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#fexists-function">Fexists() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#system-function">System() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#get-function">Get() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#ismsdos">IsMSDOS()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#iswindows">IsWindows()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#iswindows64">IsWindows64()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#isunix">IsUnix()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#ismacosx">IsMacOSX()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#islinux">IsLinux()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#isfreebsd">IsFreeBSD()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#isandroid">IsAndroid()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#windowsnl">Windowsnl()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#get-command-line-arguments">Get Command Line Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="systemfunc.html#get-active-source-file-name">Get Active Source File Name</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="evaldebug.html#try-catch-done">Try/Catch/Done</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaldebug.html#eval-function">Eval() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaldebug.html#raise-function">Raise() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaldebug.html#assert-function">Assert() Function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="demo.html#language-shell">Language Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demo.html#main-menu">Main Menu</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-init-function">odbc_init() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-drivers-function">odbc_drivers() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-datasources-function">odbc_datasources() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-close-function">odbc_close() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#print-list-of-odbc-drivers">Print List of ODBC Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#print-list-of-odbc-data-sources">Print List of ODBC Data Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-connect-function">odbc_connect() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-disconnect-function">odbc_disconnect() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#open-and-close-connection">Open and Close Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-execute-function">odbc_execute() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-colcount-function">odbc_colcount() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-fetch-function">odbc_fetch() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-getdata-function">odbc_getdata() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#execute-query-and-print-result">Execute Query and Print Result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-tables-function">odbc_tables() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-columns-function">odbc_columns() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-autocommit-function">odbc_autocommit() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-commit-function">odbc_commit() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#odbc-rollback-function">odbc_rollback() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#transactions-and-using-commit-and-rollback">Transactions and Using Commit and Rollback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odbc.html#save-and-restore-images">Save and Restore images</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-info-function">MySQL_Info() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-init-function">MySQL_Init() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-error-function">MySQL_Error() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-connect-function">MySQL_Connect() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-close-function">MySQL_Close() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-query-function">MySQL_Query() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#create-database">Create Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#create-table-and-insert-data">Create Table and Insert Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-insert-id-function">MySQL_Insert_ID() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-result-function">MySQL_Result() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-next-result-function">MySQL_Next_Result() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#print-query-result">Print Query Result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-columns-function">MySQL_Columns() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-result2-function">MySQL_Result2() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-escape-string-function">MySQL_Escape_String() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#save-image-inside-the-database">Save Image inside the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#restore-image-from-the-database">Restore Image From The Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-autocommit-function">MySQL_AutoCommit() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-commit-function">MySQL_Commit() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#mysql-rollback-function">MySQL_Rollback() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mysql.html#transaction-example">Transaction Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#md5-function">MD5() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#sha1-function">SHA1() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#sha256-function">SHA256() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#sha512-function">SHA512() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#sha384-function">SHA384() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#sha224-function">SHA224() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#encrypt-function">Encrypt() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#decrypt-function">Decrypt() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#encryption-and-decryption-example">Encryption and Decryption Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#file-hash">File Hash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#randbytes-function">Randbytes() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#download-function">Download() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#sendemail-function">SendEmail() Function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oop.html#classes-and-objects">Classes and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop.html#access-objects-using-braces">Access Objects Using Braces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop.html#composition">Composition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop.html#setter-and-getter">Setter and Getter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop.html#private-attributes-and-methods">Private Attributes and Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop.html#operator-overloading">Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop.html#inheritance">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop.html#dynamic-attributes">Dynamic Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop.html#packages">Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oop.html#printing-objects">Printing Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="declarative.html#creating-objects-inside-lists">Creating Objects inside Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="declarative.html#composition-and-returning-objects-and-lists-by-reference">Composition and Returning Objects and Lists by Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="declarative.html#executing-code-after-the-end-of-object-access">Executing code after the end of object access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="declarative.html#declarative-programming-on-the-top-of-object-oriented">Declarative Programming on the top of Object-Oriented</a></li>
+<li class="toctree-l2"><a class="reference internal" href="declarative.html#more-beautiful-code">More beautiful Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="natural.html#history">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="natural.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fp.html#pure-functions">Pure Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp.html#first-class-functions">First-class Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp.html#higher-order-functions">Higher-order Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp.html#anonymous-and-nested-functions">Anonymous and Nested Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fp.html#equality-of-functions">Equality of functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#locals-function">locals() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#globals-function">globals() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#functions-function">functions() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#cfunctions-function">cfunctions() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#islocal-function">islocal() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#isglobal-function">isglobal() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#isfunction-function">isfunction() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#iscfunction-function">iscfunction() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#packages-function">packages() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#ispackage-function">ispackage() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#classes-function">classes() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#isclass-function">isclass() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#packageclasses-function">packageclasses() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#ispackageclass-function">ispackageclass() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#classname-function">classname() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#objectid-function">objectid() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#isobject-function">isobject() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#attributes-function">attributes() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#methods-function">methods() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#isattribute-function">isattribute() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#isprivateattribute-function">isprivateattribute() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#ismethod-function">ismethod() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#isprivatemethod-function">isprivatemethod() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#addattribute-function">addattribute() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#addmethod-function">addmethod() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#getattribute-function">getattribute() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#setattribute-function">setattribute() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metaprog.html#mergemethods-function">mergemethods() Function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#ring-ext-h">ring_ext.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#ring-ext-c">ring_ext.c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#module-organization">Module Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#function-structure">Function Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#check-parameters-count">Check Parameters Count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#display-error-message">Display Error Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#check-parameters-type">Check Parameters Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#get-parameters-values">Get Parameters Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#return-value">Return Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#function-prototype">Function Prototype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#sin-function-implementation">Sin() Function Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#fopen-and-fclose-functions-implementation">Fopen() and Fclose() Functions Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#ring-api-list-functions">Ring API - List Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#ring-api-string-functions">Ring API - String Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#mysql-columns-function-implementation">MySQL_Columns() Function Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#dynamic-shared-libraries-dll-so-and-loadlib-function">Dynamic/Shared Libraries (DLL/So) and LoadLib() function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Interpreter in C/C++ Programs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="embedding.html#ring-state">Ring State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="embedding.html#ring-state-functions">Ring State Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="embedding.html#ring-state-variables">Ring State Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interpreter.html">Command Line Options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interpreter.html#printing-tokens">Printing Tokens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter.html#printing-rules">Printing Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter.html#printing-intermediate-code">Printing Intermediate Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter.html#printing-final-intermediate-code">Printing Final Intermediate Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter.html#cgi-support">CGI Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter.html#no-run">No Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter.html#printing-instruction-operation-code">Printing Instruction Operation Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpreter.html#performance">Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="web.html#ring-cgi-hello-world-program">Ring CGI Hello World Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#hello-world-program-using-the-web-library">Hello World Program using the Web Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#web-library-features">Web Library Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#http-get-example">HTTP Get Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#http-post-example">HTTP POST Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#upload-files">Upload Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#cookies">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#url-encode">URL Encode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#html-special-characters">HTML Special Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#hash-functions">Hash Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#random-image">Random Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#html-lists">HTML Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#html-tables">HTML Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#gradient">Gradient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#generating-pages-using-objects">Generating Pages using Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#using-bootstrap-library-using-functions">Using Bootstrap Library using Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#using-bootstrap-library-using-objects">Using Bootstrap Library using Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#crud-example-using-mvc">CRUD Example using MVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#users-registration-and-login">Users registration and Login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#database-modelbase-controllerbase-classes">Database, ModelBase &amp; ControllerBase classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#weblib-api">WebLib API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#application-class">Application Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#page-class">Page Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#scriptfunctions-class">ScriptFunctions Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#stylefunctions-class">StyleFunctions Class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#using-the-tool">Using the tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#configuration-file">Configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#using-the-function-prototype">Using the function prototype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#adding-code-to-the-generated-code">Adding code to the generated code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#prefix-for-functions-names">Prefix for Functions Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#generate-function-to-wrap-structures">Generate function to wrap structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#register-new-functions">Register New Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#writing-comments-in-the-configuration-file">Writing comments in the configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#executing-code-during-code-generation">Executing code during code generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#configuration-file-for-the-allegro-library">Configuration file for the Allegro Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#threads-support">Threads Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#code-generator-rules-for-wrapping-c-classes">Code Generator Rules for Wrapping C++ Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#using-configuration-file-that-wrap-c-library">Using configuration file that wrap C++ Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codegenerator.html#configuration-file-for-the-qt-framework">Configuration file for the Qt Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="allegro.html#drawing-animation-and-input">Drawing, Animation and Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="allegro.html#using-truetype-fonts">Using TrueType Fonts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="allegro.html#playing-sound-files">Playing Sound Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="allegro.html#scaling-and-rotating-images">Scaling and Rotating Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="allegro.html#display-transparent-image">Display Transparent Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="allegro.html#using-threads">Using Threads</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop and Mobile development using RingQt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#the-first-gui-application">The First GUI Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-layout">Using Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-the-qtextedit-class">Using the QTextEdit Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-the-qlistwidget-class">Using the QListWidget Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qtreeview-and-qfilesystemmodel">Using QTreeView and QFileSystemModel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qtreewidget-and-qtreewidgetitem">Using QTreeWidget and QTreeWidgetItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qcombobox-class">Using QComboBox Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#creating-menubar">Creating Menubar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#creating-toolbar">Creating Toolbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#creating-statusbar">Creating StatusBar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qdockwidget">Using QDockWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qtabwidget">Using QTabWidget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qtableview">Using QTableView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qprogressbar">Using QProgressBar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qspinbox">Using QSpinBox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qslider">Using QSlider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qdateedit">Using QDateEdit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qdial">Using QDial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qwebview">Using QWebView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qcheckbox">Using QCheckBox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qradiobutton-and-qbuttongroup">Using QRadioButton and QButtonGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#adding-hyperlink-to-qlabel">Adding Hyperlink to QLabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#qvideowidget-and-qmediaplayer">QVideoWidget and QMediaPlayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qframe">Using QFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#display-image-using-qlabel">Display Image using QLabel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#menubar-and-stylesheet-example">Menubar and StyleSheet Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#qlineedit-events-and-qmessagebox">QLineEdit Events and QMessageBox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#other-widgets-events">Other Widgets Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-the-qtimer-class">Using the QTimer Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-the-qfiledialog-class">Using the QFileDialog Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#drawing-using-qpainter">Drawing using QPainter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#printing-using-qprinter">Printing using QPrinter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#creating-more-than-one-window">Creating More than one Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#playing-sound">Playing Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-the-qcolordialog-class">Using the QColorDialog Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qlcdnumber-class">Using qLCDNumber Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#movable-label-example">Movable Label Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#qmessagebox-example">QMessagebox Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qinputdialog-class">Using QInputDialog Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#keypress-and-mouse-move-events">KeyPress and Mouse Move Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#moving-objects-using-the-mouse">Moving Objects using the Mouse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#inheritance-from-gui-classes">Inheritance from GUI Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#using-qdesktopwidget-class">Using QDesktopWidget Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#simple-client-and-server-example">Simple Client and Server Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#notepad-application">Notepad Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#the-cards-game">The Cards Game</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources.html#ring-language-website">Ring Language Website</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources.html#ring-group">Ring Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources.html#contact-the-author">Contact the Author</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Next topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="next chapter">Introduction</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

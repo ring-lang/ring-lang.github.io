@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Control Structures &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Getting Input" href="getinput.html" />
+    <link rel="prev" title="Operators" href="operators.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="getinput.html" title="Getting Input"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="operators.html" title="Operators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="control-structures">
+<h1>Control Structures<a class="headerlink" href="#control-structures" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about the control structures provided by
+the Ring programming language.</p>
+<div class="section" id="branching">
+<span id="index-0"></span><h2>Branching<a class="headerlink" href="#branching" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>If Statement</li>
+</ul>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>if Expression
+        Block of statements
+but Expression
+        Block of statements
+else
+        Block of statements
+ok
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see &quot;
+        Main Menu
+        ---------
+        (1) Say Hello
+        (2) About
+        (3) Exit
+
+    &quot; give nOption
+
+if nOption = 1  see &quot;Enter your name : &quot; give name see &quot;Hello &quot; + name + nl
+but nOption = 2 see &quot;Sample : using if statement&quot; + nl
+but nOption = 3 bye
+else see &quot;bad option...&quot; + nl
+ok
+</pre></div>
+</div>
+<ul class="simple">
+<li>Switch Statement</li>
+</ul>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>switch Expression
+on Expression
+        Block of statements
+other
+        Block of statements
+off
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;
+        Main Menu
+        ---------
+        (1) Say Hello
+        (2) About
+        (3) Exit
+
+    &quot; Give nOption
+
+Switch nOption
+On 1 See &quot;Enter your name : &quot; Give name See &quot;Hello &quot; + name + nl
+On 2 See &quot;Sample : using switch statement&quot; + nl
+On 3 Bye
+Other See &quot;bad option...&quot; + nl
+Off
+</pre></div>
+</div>
+</div>
+<div class="section" id="looping">
+<span id="index-1"></span><h2>Looping<a class="headerlink" href="#looping" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>While Loop</li>
+</ul>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>while Expression
+        Block of statements
+end
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>While True
+
+        See &quot;
+                Main Menu
+                ---------
+                (1) Say Hello
+                (2) About
+                (3) Exit
+
+            &quot; Give nOption
+
+        Switch nOption
+        On 1
+                See &quot;Enter your name : &quot;
+                Give name
+                See &quot;Hello &quot; + name + nl
+        On 2
+                See &quot;Sample : using while loop&quot; + nl
+        On 3
+                Bye
+        Other
+                See &quot;bad option...&quot; + nl
+        Off
+End
+</pre></div>
+</div>
+<ul class="simple">
+<li>For Loop</li>
+</ul>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>for identifier=expression to expression [step expression]
+        Block of statements
+next
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># print numbers from 1 to 10
+for x = 1 to 10  see x + nl  next
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># Dynamic loop
+See &quot;Start : &quot; give nStart
+See &quot;End   : &quot; give nEnd
+See &quot;Step  : &quot; give nStep
+For x = nStart to nEnd Step nStep
+        see x + nl
+Next
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># print even numbers from 0 to 10
+for x = 0 to 10 step 2
+        see x + nl
+next
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># print even numbers from 10 to 0
+for x = 10 to 0 step -2
+        see x + nl
+next
+</pre></div>
+</div>
+<ul class="simple">
+<li>For in Loop</li>
+</ul>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>for identifier in List/String  [step expression]
+        Block of statements
+next
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = 1:10    # create list contains numbers from 1 to 10
+for x in aList  see x + nl  next  # print numbers from 1 to 10
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-step-option-with-for-in">
+<span id="index-2"></span><h2>Using The Step option with For in<a class="headerlink" href="#using-the-step-option-with-for-in" title="Permalink to this headline">¶</a></h2>
+<p>We can use the Step option with For in to skip number of items in each iteration</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = 1:10    # create list contains numbers from 1 to 10
+# print odd items inside the list
+for x in aList step 2
+        see x + nl
+next
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-for-in-to-modify-lists">
+<span id="index-3"></span><h2>Using For in to modify lists<a class="headerlink" href="#using-for-in-to-modify-lists" title="Permalink to this headline">¶</a></h2>
+<p>When we use (For in) we get items by reference.</p>
+<p>This means that we can read/edit items inside the loop.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = 1:5     # create list contains numbers from 1 to 5
+# replace list numbers with strings
+for x in aList
+        switch x
+        on 1  x = &quot;one&quot;
+        on 2  x = &quot;two&quot;
+        on 3  x = &quot;three&quot;
+        on 4  x = &quot;four&quot;
+        on 5  x = &quot;five&quot;
+        off
+next
+see aList       # print the list items
+</pre></div>
+</div>
+</div>
+<div class="section" id="do-again-loop">
+<span id="index-4"></span><h2>Do Again Loop<a class="headerlink" href="#do-again-loop" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>do
+        Block of statements
+again expression
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>x = 1
+do
+        see x + nl
+        x++
+again x &lt;= 10
+</pre></div>
+</div>
+</div>
+<div class="section" id="exit-command">
+<span id="index-5"></span><h2>Exit Command<a class="headerlink" href="#exit-command" title="Permalink to this headline">¶</a></h2>
+<p>Used to go outside one or more of loops.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>exit [expression]       # inside loop
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>for x = 1 to 10
+        see x + nl
+        if x = 5 exit ok
+next
+</pre></div>
+</div>
+</div>
+<div class="section" id="exit-from-two-loops">
+<h2>Exit from two loops<a class="headerlink" href="#exit-from-two-loops" title="Permalink to this headline">¶</a></h2>
+<p>The next example presents how to use the exit command to exit from two loops in one jump.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>for x = 1 to 10
+        for y = 1 to 10
+                see &quot;x=&quot; + x + &quot; y=&quot; + y + nl
+                if x = 3 and y = 5
+                        exit 2     # exit from 2 loops
+                ok
+        next
+next
+</pre></div>
+</div>
+<ul class="simple" id="index-6">
+<li>Loop Command</li>
+</ul>
+<p>Used to jump to the next iteration in the loop.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>loop [expression]       # inside loop
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>for x = 1 to 10
+        if x = 3
+                see &quot;Number Three&quot; + nl
+                loop
+        ok
+        see x + nl
+next
+</pre></div>
+</div>
+</div>
+<div class="section" id="exit-loop-inside-sub-functions">
+<h2>Exit/Loop inside sub functions<a class="headerlink" href="#exit-loop-inside-sub-functions" title="Permalink to this headline">¶</a></h2>
+<p>While we are inside a loop, we can call a function then use the exit and/or loop command
+inside that function and the command will work on the outer loop.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># print numbers from 1 to 10 except number 5.
+
+for x = 1 to 10
+        ignore(x,5)
+        see x + nl
+next
+
+func ignore x,y
+        if x = y
+                loop
+        ok
+</pre></div>
+</div>
+</div>
+<div class="section" id="short-circuit-evaluation">
+<span id="index-7"></span><h2>Short-circuit evaluation<a class="headerlink" href="#short-circuit-evaluation" title="Permalink to this headline">¶</a></h2>
+<p>The logical operators and/or follow the <a class="reference external" href="http://en.wikipedia.org/wiki/Short-circuit_evaluation">short-circuit evaluation</a>.</p>
+<p>If the first argument of the AND operator is zero, then there is no need to evaluate the second
+argument and the result will be zero.</p>
+<p>If the first argument of the OR operator is one, then there is no need to evaluate the second
+argument and the result will be one.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>/* output
+** nice
+** nice
+** great
+*/
+
+x = 0 y = 10
+
+if (x = 0 and nice()) and (y = 10 and nice())
+        see &quot;great&quot; + nl
+ok
+
+func nice  see &quot;nice&quot; + nl   return 1
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># No output
+
+x = 0 y = 10
+
+if (x = 1 and nice()) and (y = 10 and nice())
+        see &quot;great&quot; + nl
+ok
+
+func nice  see &quot;nice&quot; + nl   return 1
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>/* output
+** nice
+** great
+*/
+
+x = 0 y = 10
+
+if (x = 0 and nice()) or (y = 10 and nice())
+        see &quot;great&quot; + nl
+ok
+
+func nice  see &quot;nice&quot; + nl  return 1
+</pre></div>
+</div>
+</div>
+<div class="section" id="comments-about-evaluation">
+<h2>Comments about evaluation<a class="headerlink" href="#comments-about-evaluation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>True, False, nl &amp; NULL are variables defined by the language</li>
+<li>True = 1</li>
+<li>False = 0</li>
+<li>nl = new line</li>
+<li>NULL = empty string = &#8220;&#8221;</li>
+<li>Everything evaluates to true except 0 (False).</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># output = message from the if statement
+
+if 5    # 5 evaluates to true because it&#39;s not zero (0).
+        see &quot;message from the if statement&quot; + nl
+ok
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Control Structures</a><ul>
+<li><a class="reference internal" href="#branching">Branching</a></li>
+<li><a class="reference internal" href="#looping">Looping</a></li>
+<li><a class="reference internal" href="#using-the-step-option-with-for-in">Using The Step option with For in</a></li>
+<li><a class="reference internal" href="#using-for-in-to-modify-lists">Using For in to modify lists</a></li>
+<li><a class="reference internal" href="#do-again-loop">Do Again Loop</a></li>
+<li><a class="reference internal" href="#exit-command">Exit Command</a></li>
+<li><a class="reference internal" href="#exit-from-two-loops">Exit from two loops</a></li>
+<li><a class="reference internal" href="#exit-loop-inside-sub-functions">Exit/Loop inside sub functions</a></li>
+<li><a class="reference internal" href="#short-circuit-evaluation">Short-circuit evaluation</a></li>
+<li><a class="reference internal" href="#comments-about-evaluation">Comments about evaluation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="operators.html"
+                        title="previous chapter">Operators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="getinput.html"
+                        title="next chapter">Getting Input</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/controlstructures.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="getinput.html" title="Getting Input"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="operators.html" title="Operators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

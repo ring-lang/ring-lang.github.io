@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ODBC Functions &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="MySQL Functions" href="mysql.html" />
+    <link rel="prev" title="Demo Programs" href="demo.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mysql.html" title="MySQL Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="demo.html" title="Demo Programs"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="odbc-functions">
+<h1>ODBC Functions<a class="headerlink" href="#odbc-functions" title="Permalink to this headline">¶</a></h1>
+<p>This chapter contains the ODBC functions provided by the Ring programming language.</p>
+<ul class="simple">
+<li>odbc_init()</li>
+<li>odbc_drivers()</li>
+<li>odbc_datasources()</li>
+<li>odbc_close()</li>
+<li>odbc_connect()</li>
+<li>odbc_disconnect()</li>
+<li>odbc_execute()</li>
+<li>odbc_colcount()</li>
+<li>odbc_fetch()</li>
+<li>odbc_getdata()</li>
+<li>odbc_tables()</li>
+<li>odbc_columns()</li>
+<li>odbc_autocommit()</li>
+<li>odbc_commit()</li>
+<li>odbc_rollback()</li>
+</ul>
+<div class="section" id="odbc-init-function">
+<h2>odbc_init() Function<a class="headerlink" href="#odbc-init-function" title="Permalink to this headline">¶</a></h2>
+<p>We can create ODBC Handle using the odbc_init() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_init() ---&gt; ODBC Handle
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-drivers-function">
+<h2>odbc_drivers() Function<a class="headerlink" href="#odbc-drivers-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get a list of ODBC drivers using the odbc_drivers() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_drivers(ODBC Handle) ---&gt; List of Drivers
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-datasources-function">
+<h2>odbc_datasources() Function<a class="headerlink" href="#odbc-datasources-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get a list of ODBC data sources using the odbc_datasources() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_datasources(ODBC Handle) ---&gt; List of Data sources
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-close-function">
+<h2>odbc_close() Function<a class="headerlink" href="#odbc-close-function" title="Permalink to this headline">¶</a></h2>
+<p>After the end of using ODBC functions we can free resources using ODBC_Close() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_close(ODBC Handle)
+</pre></div>
+</div>
+</div>
+<div class="section" id="print-list-of-odbc-drivers">
+<h2>Print List of ODBC Drivers<a class="headerlink" href="#print-list-of-odbc-drivers" title="Permalink to this headline">¶</a></h2>
+<p>The next example print a list of ODBC drivers.</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;ODBC test 1&quot; + nl
+oODBC = odbc_init()
+See &quot;Drivers &quot; + nl
+see odbc_drivers(oODBC)
+odbc_close(oODBC)
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>ODBC test 1
+Drivers
+Microsoft Access-Treiber (*.mdb) - SQLLevel=0
+Driver do Microsoft Paradox (*.db ) - SQLLevel=0
+Driver do Microsoft Excel(*.xls) - SQLLevel=0
+Microsoft Text Driver (*.txt; *.csv) - SQLLevel=0
+Driver da Microsoft para arquivos texto (*.txt; *.csv) - SQLLevel=0
+Microsoft dBase-Treiber (*.dbf) - SQLLevel=0
+SQL Server - CPTimeout=60
+Microsoft Excel Driver (*.xls) - SQLLevel=0
+Driver do Microsoft dBase (*.dbf) - SQLLevel=0
+Microsoft Paradox-Treiber (*.db ) - SQLLevel=0
+Microsoft ODBC for Oracle - CPTimeout=120
+Microsoft Text-Treiber (*.txt; *.csv) - SQLLevel=0
+Microsoft Excel-Treiber (*.xls) - SQLLevel=0
+Microsoft Access Driver (*.mdb) - SQLLevel=0
+Driver do Microsoft Access (*.mdb) - SQLLevel=0
+Microsoft Paradox Driver (*.db ) - SQLLevel=0
+Microsoft dBase Driver (*.dbf) - SQLLevel=0
+Microsoft Access Driver (*.mdb, *.accdb) - UsageCount=3
+Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb) - UsageCount=3
+Microsoft Access Text Driver (*.txt, *.csv) - UsageCount=3
+SQL Server Native Client 10.0 - UsageCount=1
+SQL Server Native Client 11.0 - UsageCount=1
+Microsoft Access dBASE Driver (*.dbf, *.ndx, *.mdx) - UsageCount=3
+Microsoft Access Paradox Driver (*.db) - UsageCount=3
+MySQL ODBC 5.3 ANSI Driver - UsageCount=1
+MySQL ODBC 5.3 Unicode Driver - UsageCount=1
+ODBC Driver 11 for SQL Server - UsageCount=1
+Lianja ODBC Driver - CPTimeout=60
+Microsoft Visual FoxPro Driver - UsageCount=1
+Microsoft Visual FoxPro-Treiber - UsageCount=1
+Driver para o Microsoft Visual FoxPro - UsageCount=1
+Microsoft FoxPro VFP Driver (*.dbf) - UsageCount=1
+</pre></div>
+</div>
+</div>
+<div class="section" id="print-list-of-odbc-data-sources">
+<h2>Print List of ODBC Data Sources<a class="headerlink" href="#print-list-of-odbc-data-sources" title="Permalink to this headline">¶</a></h2>
+<p>The next example print a list of ODBC data sources.</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;ODBC test 2&quot; + nl
+pODBC = odbc_init()
+See &quot;Data Sources &quot; + nl
+see odbc_datasources(pODBC)
+odbc_close(pODBC)
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>ODBC test 2
+Data Sources
+Excel Files - Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)
+MS Access Database - Microsoft Access Driver (*.mdb, *.accdb)
+Customer - Microsoft Access Driver (*.mdb)
+IdCardData - Microsoft Access Driver (*.mdb)
+MyProjectData2 - Microsoft Access Driver (*.mdb)
+MyData - Microsoft Access Driver (*.mdb)
+MonprojetData - Microsoft Access Driver (*.mdb)
+dBASE Files - Microsoft Access dBASE Driver (*.dbf, *.ndx, *.mdx)
+myvfpdata - Microsoft Visual FoxPro Driver
+FACTORYDATA - Microsoft Access Driver (*.mdb)
+TRAININGSYSDATA - Microsoft Access Driver (*.mdb)
+RVCSYSDATASQLDB - SQL Server Native Client 11.0
+PWCTRVCDATA - Microsoft Access Driver (*.mdb)
+MyCompany - Microsoft Access Driver (*.mdb)
+HCS - Microsoft Access Driver (*.mdb)
+HCS2 - Microsoft Access Driver (*.mdb, *.accdb)
+MyProjectData - Microsoft Access Driver (*.mdb)
+Xtreme Sample Database 2008 - Microsoft Access Driver (*.mdb)
+Lianja_Southwind - Lianja ODBC Driver
+Visual FoxPro Database - Microsoft Visual FoxPro Driver
+Visual FoxPro Tables - Microsoft Visual FoxPro Driver
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-connect-function">
+<h2>odbc_connect() Function<a class="headerlink" href="#odbc-connect-function" title="Permalink to this headline">¶</a></h2>
+<p>We can connect to the database using the odbc_connect() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_connect(ODBC Handle, cConnectionString)
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-disconnect-function">
+<h2>odbc_disconnect() Function<a class="headerlink" href="#odbc-disconnect-function" title="Permalink to this headline">¶</a></h2>
+<p>We can close the connection to the database using the odbc_disconnect() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_disconnect(ODBC Handle)
+</pre></div>
+</div>
+</div>
+<div class="section" id="open-and-close-connection">
+<h2>Open and Close Connection<a class="headerlink" href="#open-and-close-connection" title="Permalink to this headline">¶</a></h2>
+<p>The next example connect to the database then close the connection</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;ODBC test 3&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+see odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+See &quot;disconnect&quot; + nl
+odbc_disconnect(pODBC)
+See &quot;Close database...&quot; + nl
+odbc_close(pODBC)
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>ODBC test 3
+Connect to database
+1
+disconnect
+Close database...
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-execute-function">
+<h2>odbc_execute() Function<a class="headerlink" href="#odbc-execute-function" title="Permalink to this headline">¶</a></h2>
+<p>We can execute SQL Statements on the database using the odbc_execute() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_execute(ODBC Handle, cSQLStatement)
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-colcount-function">
+<h2>odbc_colcount() Function<a class="headerlink" href="#odbc-colcount-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get columns count in the query result using the odbc_colcount() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_colcount(ODBC Handle) ---&gt; Columns Count as Number
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-fetch-function">
+<h2>odbc_fetch() Function<a class="headerlink" href="#odbc-fetch-function" title="Permalink to this headline">¶</a></h2>
+<p>We can fetch a row from the query result using the odbc_fetch() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_fetch(ODBC Handle)
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-getdata-function">
+<h2>odbc_getdata() Function<a class="headerlink" href="#odbc-getdata-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get column value from the fetched row using the odbc_getdata() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_getdata(ODBC Handle, nColumnNumber) ---&gt; Column Value
+</pre></div>
+</div>
+</div>
+<div class="section" id="execute-query-and-print-result">
+<h2>Execute Query and Print Result<a class="headerlink" href="#execute-query-and-print-result" title="Permalink to this headline">¶</a></h2>
+<p>The next example execute query then print the query result.</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;ODBC test 4&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+see odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+See &quot;Select data&quot; + nl
+see odbc_execute(pODBC,&quot;select * from person&quot;) + nl
+nMax = odbc_colcount(pODBC)
+See &quot;Columns Count : &quot; + nMax + nl
+while odbc_fetch(pODBC)
+        See &quot;Row data:&quot; + nl
+        for x = 1 to nMax
+                see odbc_getdata(pODBC,x) + &quot; - &quot;
+        next
+end
+See &quot;Close database...&quot; + nl
+odbc_disconnect(pODBC)
+odbc_close(pODBC)
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-tables-function">
+<h2>odbc_tables() Function<a class="headerlink" href="#odbc-tables-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get a list of tables inside the database using the odbc_tables() function.</p>
+<p>We can access the result of this function as we get any query result.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_tables(ODBC Handle)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;ODBC test - Get Database Tables&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+See &quot;Select data&quot; + nl
+odbc_tables(pODBC) + nl
+nMax = odbc_colcount(pODBC)
+See &quot;Columns Count : &quot; + nMax + nl
+while odbc_fetch(pODBC)
+        for x = 1 to nMax
+                see odbc_getdata(pODBC,x)
+                if x != nMax see &quot; - &quot; ok
+        next
+        See nl
+end
+See &quot;Close database...&quot;
+odbc_disconnect(pODBC)
+odbc_close(pODBC)
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>ODBC test - Get Database Tables
+Connect to database
+Select data
+Columns Count : 5
+.\test - NULL - Customer - TABLE - NULL
+.\test - NULL - employee - TABLE - NULL
+.\test - NULL - person - TABLE - NULL
+.\test - NULL - tel - TABLE - NULL
+Close database...
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-columns-function">
+<h2>odbc_columns() Function<a class="headerlink" href="#odbc-columns-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get a list of columns inside the table using the odbc_columns() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_columns(ODBC Handle, cTableName)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;ODBC test - Get Table Columns&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+See &quot;Get Columns inside the Person Table&quot; + nl
+odbc_columns(pODBC,&quot;person&quot;) + nl
+while odbc_fetch(pODBC)
+        see odbc_getdata(pODBC,4) + nl
+end
+See &quot;Close database...&quot; + nl
+odbc_disconnect(pODBC)
+odbc_close(pODBC)
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>ODBC test - Get Table Columns
+Connect to database
+Get Columns inside the Person Table
+FIRST
+LAST
+STREET
+CITY
+STATE
+ZIP
+HIREDATE
+MARRIED
+AGE
+SALARY
+NOTES
+Close database...
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-autocommit-function">
+<h2>odbc_autocommit() Function<a class="headerlink" href="#odbc-autocommit-function" title="Permalink to this headline">¶</a></h2>
+<p>We can enable or disable the auto commit feature using the odbc_autocommit() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_autocommit(ODBC Handle, lStatus)   # lStatus can be True or False
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-commit-function">
+<h2>odbc_commit() Function<a class="headerlink" href="#odbc-commit-function" title="Permalink to this headline">¶</a></h2>
+<p>We can commit updates to the database using the odbc_commit() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_commit(ODBC Handle)
+</pre></div>
+</div>
+</div>
+<div class="section" id="odbc-rollback-function">
+<h2>odbc_rollback() Function<a class="headerlink" href="#odbc-rollback-function" title="Permalink to this headline">¶</a></h2>
+<p>We can rollback updates to the database using the odbc_rollback() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>odbc_rollback(ODBC Handle)
+</pre></div>
+</div>
+</div>
+<div class="section" id="transactions-and-using-commit-and-rollback">
+<h2>Transactions and Using Commit and Rollback<a class="headerlink" href="#transactions-and-using-commit-and-rollback" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;ODBC Test - Transactions and using Commit and Rollback&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+see odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+see &quot;insert data...&quot; + nl
+odbc_autocommit(pODBC,0)
+for x = 1 to 10000
+        odbc_execute(pODBC,&quot;insert into tel values (&quot; + x + &quot;,&#39;mahmoud&#39;)&quot;)
+next
+for x = 10001 to 15000
+        odbc_execute(pODBC,&quot;insert into tel values (&quot; + x + &quot;,&#39;samir&#39;)&quot;)
+next
+odbc_commit(pODBC)
+
+for x = 15001 to 20000
+        odbc_execute(pODBC,&quot;insert into tel values (&quot; + x + &quot;,&#39;fayed&#39;)&quot;)
+next
+
+ODBC_ROLLBACK(pODBC)
+odbc_execute(pODBC,&quot;insert into tel values (&quot; + x + &quot;,&#39;fayed&#39;)&quot;)
+odbc_commit(pODBC)
+
+See &quot;Close database...&quot; + nl
+odbc_disconnect(pODBC)
+odbc_close(pODBC)
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>ODBC Test - Transactions and using Commit and Rollback
+Connect to database
+1
+insert data...
+Close database...
+</pre></div>
+</div>
+</div>
+<div class="section" id="save-and-restore-images">
+<h2>Save and Restore images<a class="headerlink" href="#save-and-restore-images" title="Permalink to this headline">¶</a></h2>
+<p>The next example save an image inside the database</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;ODBC test - Save image in the database&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+see odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+see &quot;Read Image File...&quot; + nl
+cFile = str2hex(read(&quot;tests\mahmoud.jpg&quot;))
+see &quot;size &quot; + len(CFile)+nl
+see &quot;Save image in the database...&quot; + nl
+stmt = &quot;insert into tel values (20000,&#39;mahmoud&#39;,&#39;&quot; + cFile + &quot;&#39;);&quot;
+odbc_execute(pODBC,stmt)
+See &quot;Close database...&quot; + nl
+odbc_disconnect(pODBC)
+odbc_close(pODBC)
+</pre></div>
+</div>
+<p>The next example restore the image from the database</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;ODBC Test - Restore image from the database&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+see odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+See &quot;Select data&quot; + nl
+see odbc_execute(pODBC,&quot;select * from tel&quot;) + nl
+nMax = odbc_colcount(pODBC)
+See &quot;Columns Count : &quot; + nMax + nl
+while odbc_fetch(pODBC)
+        See &quot;Write image file&quot; + nl
+        write(&quot;tests\great.jpg&quot;,hex2str( odbc_getdata(pODBC,3) ) )
+end
+See &quot;Close database...&quot; + nl
+odbc_disconnect(pODBC)
+odbc_close(pODBC)
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ODBC Functions</a><ul>
+<li><a class="reference internal" href="#odbc-init-function">odbc_init() Function</a></li>
+<li><a class="reference internal" href="#odbc-drivers-function">odbc_drivers() Function</a></li>
+<li><a class="reference internal" href="#odbc-datasources-function">odbc_datasources() Function</a></li>
+<li><a class="reference internal" href="#odbc-close-function">odbc_close() Function</a></li>
+<li><a class="reference internal" href="#print-list-of-odbc-drivers">Print List of ODBC Drivers</a></li>
+<li><a class="reference internal" href="#print-list-of-odbc-data-sources">Print List of ODBC Data Sources</a></li>
+<li><a class="reference internal" href="#odbc-connect-function">odbc_connect() Function</a></li>
+<li><a class="reference internal" href="#odbc-disconnect-function">odbc_disconnect() Function</a></li>
+<li><a class="reference internal" href="#open-and-close-connection">Open and Close Connection</a></li>
+<li><a class="reference internal" href="#odbc-execute-function">odbc_execute() Function</a></li>
+<li><a class="reference internal" href="#odbc-colcount-function">odbc_colcount() Function</a></li>
+<li><a class="reference internal" href="#odbc-fetch-function">odbc_fetch() Function</a></li>
+<li><a class="reference internal" href="#odbc-getdata-function">odbc_getdata() Function</a></li>
+<li><a class="reference internal" href="#execute-query-and-print-result">Execute Query and Print Result</a></li>
+<li><a class="reference internal" href="#odbc-tables-function">odbc_tables() Function</a></li>
+<li><a class="reference internal" href="#odbc-columns-function">odbc_columns() Function</a></li>
+<li><a class="reference internal" href="#odbc-autocommit-function">odbc_autocommit() Function</a></li>
+<li><a class="reference internal" href="#odbc-commit-function">odbc_commit() Function</a></li>
+<li><a class="reference internal" href="#odbc-rollback-function">odbc_rollback() Function</a></li>
+<li><a class="reference internal" href="#transactions-and-using-commit-and-rollback">Transactions and Using Commit and Rollback</a></li>
+<li><a class="reference internal" href="#save-and-restore-images">Save and Restore images</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="demo.html"
+                        title="previous chapter">Demo Programs</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mysql.html"
+                        title="next chapter">MySQL Functions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/odbc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mysql.html" title="MySQL Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="demo.html" title="Demo Programs"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

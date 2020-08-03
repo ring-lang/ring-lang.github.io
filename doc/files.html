@@ -1,0 +1,625 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Files &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="System Functions" href="systemfunc.html" />
+    <link rel="prev" title="Mathematical Functions" href="mathfunc.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="systemfunc.html" title="System Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mathfunc.html" title="Mathematical Functions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="files">
+<h1>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about files functions.</p>
+<ul class="simple">
+<li>Read()</li>
+<li>Write()</li>
+<li>Dir()</li>
+<li>Rename()</li>
+<li>Remove()</li>
+<li>fopen()</li>
+<li>fclose()</li>
+<li>fflush()</li>
+<li>freopen()</li>
+<li>tempfile()</li>
+<li>tempname()</li>
+<li>fseek()</li>
+<li>ftell()</li>
+<li>rewind()</li>
+<li>fgetpos()</li>
+<li>fsetpos()</li>
+<li>clearerr()</li>
+<li>feof()</li>
+<li>ferror()</li>
+<li>perror()</li>
+<li>fgetc()</li>
+<li>fgets()</li>
+<li>fputc()</li>
+<li>fputs()</li>
+<li>ungetc()</li>
+<li>fread()</li>
+<li>fwrite()</li>
+<li>fexists()</li>
+</ul>
+<div class="section" id="read-function">
+<span id="index-0"></span><h2>Read() Function<a class="headerlink" href="#read-function" title="Permalink to this headline">¶</a></h2>
+<p>We can read the file content using the Read() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Read(cFileName) ---&gt; String contains the file content
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see read(&quot;myfile.txt&quot;)
+</pre></div>
+</div>
+<p>The read function can read binary files too</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see read(&quot;myapp.exe&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="write-function">
+<span id="index-1"></span><h2>Write() Function<a class="headerlink" href="#write-function" title="Permalink to this headline">¶</a></h2>
+<p>We can write string to file using the Write() function</p>
+<p>The write function can write binary data to binary files.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Write(cFileName,cString)        # write string cString to file cFileName
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># copy file
+cFile = read(&quot;ring.exe&quot;)
+write(&quot;ring2.exe&quot;,cFile)
+</pre></div>
+</div>
+</div>
+<div class="section" id="dir-function">
+<span id="index-2"></span><h2>Dir() Function<a class="headerlink" href="#dir-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get the folder contents (files &amp; sub folders) using the Dir() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Dir(cFolderPath) ---&gt; List contains files &amp; sub folders.
+</pre></div>
+</div>
+<p>This function returns a list and each list item is a list of two items</p>
+<ul class="simple">
+<li>File/sub folder name</li>
+<li>Type (0 = File , 1 = Folder/Directory)</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see &quot;Testing DIR() &quot; + nl
+mylist = dir(&quot;C:\myfolder&quot;)
+for x in mylist
+        if x[2]
+                see &quot;Directory : &quot; + x[1] + nl
+        else
+                see &quot;File : &quot; + x[1] + nl
+        ok
+next
+see &quot;Files count : &quot; + len(mylist)
+</pre></div>
+</div>
+</div>
+<div class="section" id="rename-function">
+<h2>Rename() Function<a class="headerlink" href="#rename-function" title="Permalink to this headline">¶</a></h2>
+<p>We can rename files using the Rename() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Rename(cOldFileName,cNewFileName)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>rename(&quot;file.txt&quot;,&quot;help.txt&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="remove-function">
+<h2>Remove() Function<a class="headerlink" href="#remove-function" title="Permalink to this headline">¶</a></h2>
+<p>We can delete a file using the Remove() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Remove(cFileName)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>remove(&quot;test.txt&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="fopen-function">
+<h2>Fopen() Function<a class="headerlink" href="#fopen-function" title="Permalink to this headline">¶</a></h2>
+<p>We can open a file using the Fopen() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Fopen(cFileName,cMode) ---&gt; File Handle
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="89%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Mode</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&#8220;r&#8221;</td>
+<td>Reading (The file must exist)</td>
+</tr>
+<tr class="row-odd"><td>&#8220;w&#8221;</td>
+<td>Writing (create empty file / overwrite)</td>
+</tr>
+<tr class="row-even"><td>&#8220;a&#8221;</td>
+<td>Appends (create file if it doesn&#8217;t exist)</td>
+</tr>
+<tr class="row-odd"><td>&#8220;r+&#8221;</td>
+<td>update (reading/writing)</td>
+</tr>
+<tr class="row-even"><td>&#8220;w+&#8221;</td>
+<td>Create empty file (reading/writing)</td>
+</tr>
+<tr class="row-odd"><td>&#8220;a+&#8221;</td>
+<td>reading &amp; appending</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="fclose-function">
+<h2>Fclose() Function<a class="headerlink" href="#fclose-function" title="Permalink to this headline">¶</a></h2>
+<p>When we open a file using fopen() function, we can close it
+using the Fclose() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Fclose(file handle)
+</pre></div>
+</div>
+</div>
+<div class="section" id="fflush-function">
+<h2>Fflush() Function<a class="headerlink" href="#fflush-function" title="Permalink to this headline">¶</a></h2>
+<p>We can flushes the output buffer of a stream using the Fflush() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Fflush(file handle)
+</pre></div>
+</div>
+</div>
+<div class="section" id="freopen-function">
+<h2>Freopen() Function<a class="headerlink" href="#freopen-function" title="Permalink to this headline">¶</a></h2>
+<p>We can open another file using the same file handle and at the same file close
+the old file</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Freopen(cFileName,cMode,file handle) ---&gt; file handle
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>freopen(&quot;myprogoutput.txt&quot;,&quot;w+&quot;,stdout)
+see &quot;welcome&quot; + nl
+for x = 1 to 10
+        see x + nl
+next
+
+/*
+** Read : https://en.wikipedia.org/wiki/Device_file#Device_files
+** The next code is not portable, we can use iswindows() before
+** using it and we can write special code for each operating system.
+*/
+
+freopen(&quot;CON&quot;,&quot;w&quot;,stdout)       # For Microsoft Windows
+see &quot;Done&quot; + nl                 # print to stdout again
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre># Output to stdout
+Done
+
+# Output to file : myprogoutput.txt
+welcome
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></div>
+</div>
+</div>
+<div class="section" id="tempfile-function">
+<h2>Tempfile() Function<a class="headerlink" href="#tempfile-function" title="Permalink to this headline">¶</a></h2>
+<p>The function Tempfile() creates a temp. file (binary).</p>
+<p>The file will be deleted automatically when the stream is closed</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>TempFile() ---&gt; file handle
+</pre></div>
+</div>
+</div>
+<div class="section" id="tempname-function">
+<h2>Tempname() Function<a class="headerlink" href="#tempname-function" title="Permalink to this headline">¶</a></h2>
+<p>We can generate temp. file name using the Tempname() function</p>
+<p>The generated name will be different from the name of any existing file</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Tempname() ---&gt; generated file name as string
+</pre></div>
+</div>
+</div>
+<div class="section" id="fseek-function">
+<h2>Fseek() Function<a class="headerlink" href="#fseek-function" title="Permalink to this headline">¶</a></h2>
+<p>We can set the file position of the stream using the Fseek() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Fseek(file handle, nOffset, nWhence) ---&gt; zero if successful
+</pre></div>
+</div>
+<p>The next table presents the nWhence values</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Beginning of file</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Current position</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>End of file</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ftell-function">
+<h2>Ftell() Function<a class="headerlink" href="#ftell-function" title="Permalink to this headline">¶</a></h2>
+<p>We can know the current file position of a stream using the Ftell() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Ftell(file handle) ---&gt; file position as number
+</pre></div>
+</div>
+</div>
+<div class="section" id="rewind-function">
+<h2>Rewind() Function<a class="headerlink" href="#rewind-function" title="Permalink to this headline">¶</a></h2>
+<p>We can set the file position to the beginning of the file using the Rewind() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Rewind(file handle)
+</pre></div>
+</div>
+</div>
+<div class="section" id="fgetpos-function">
+<h2>Fgetpos() Function<a class="headerlink" href="#fgetpos-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get handle to the current file position using the Fgetpos() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Fgetpos(file handle) ---&gt; position handle
+</pre></div>
+</div>
+</div>
+<div class="section" id="fsetpos-function">
+<h2>Fsetpos() Function<a class="headerlink" href="#fsetpos-function" title="Permalink to this headline">¶</a></h2>
+<p>We can set the current file position using the Fgetpos() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Fsetpos(file handle,position handle)
+</pre></div>
+</div>
+</div>
+<div class="section" id="clearerr-function">
+<h2>Clearerr() Function<a class="headerlink" href="#clearerr-function" title="Permalink to this headline">¶</a></h2>
+<p>We can clear the EOF error and the error indicators of a stream using the clearerr()
+function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Clearerr(file handle)
+</pre></div>
+</div>
+</div>
+<div class="section" id="feof-function">
+<h2>Feof() Function<a class="headerlink" href="#feof-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test the end-of-file indicator using the Feof() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Feof(file handle) ---&gt; returns 1 if EOF and 0 if not
+</pre></div>
+</div>
+</div>
+<div class="section" id="ferror-function">
+<h2>Ferror() Function<a class="headerlink" href="#ferror-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test the error indicator of a given stream using the Ferror() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Ferror(file handle) ---&gt; returns 1 if error and 0 if not
+</pre></div>
+</div>
+</div>
+<div class="section" id="perror-function">
+<h2>Perror() Function<a class="headerlink" href="#perror-function" title="Permalink to this headline">¶</a></h2>
+<p>We can print error message to the stderr using the Perror() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Perror(cErrorMessage)
+</pre></div>
+</div>
+</div>
+<div class="section" id="fgetc-function">
+<h2>Fgetc() Function<a class="headerlink" href="#fgetc-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get the next character from the stream using the Fgetc() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Fgetc(file handle) ---&gt; returns character or EOF
+</pre></div>
+</div>
+</div>
+<div class="section" id="fgets-function">
+<h2>Fgets() Function<a class="headerlink" href="#fgets-function" title="Permalink to this headline">¶</a></h2>
+<p>We can read new line from the stream using the Fgets() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Fgets(file handle,nSize) ---&gt; string
+</pre></div>
+</div>
+<p>The function stop when nSize characters are read, new line character is read or EOF.</p>
+</div>
+<div class="section" id="fputc-function">
+<h2>Fputc() Function<a class="headerlink" href="#fputc-function" title="Permalink to this headline">¶</a></h2>
+<p>We can write a character to the stream using the Fputc() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Fputc(file handle,cChar)
+</pre></div>
+</div>
+</div>
+<div class="section" id="fputs-function">
+<h2>Fputs() Function<a class="headerlink" href="#fputs-function" title="Permalink to this headline">¶</a></h2>
+<p>We can write a string to the stream using the Fputs() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Fputs(file handle,cString)
+</pre></div>
+</div>
+</div>
+<div class="section" id="ungetc-function">
+<h2>Ungetc() Function<a class="headerlink" href="#ungetc-function" title="Permalink to this headline">¶</a></h2>
+<p>We can push a character to the stream using the Ungetc() function</p>
+<p>The character will be available for the next read</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Ungetc(file handle,character)
+</pre></div>
+</div>
+</div>
+<div class="section" id="fread-function">
+<h2>Fread() Function<a class="headerlink" href="#fread-function" title="Permalink to this headline">¶</a></h2>
+<p>We can read data from a stream using the Fread() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Fread(file handle,nSize)
+</pre></div>
+</div>
+</div>
+<div class="section" id="fwrite-function">
+<h2>Fwrite() Function<a class="headerlink" href="#fwrite-function" title="Permalink to this headline">¶</a></h2>
+<p>We can write data to a stream using the Fwrite() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Fwrite(file handle,cString)
+</pre></div>
+</div>
+</div>
+<div class="section" id="fexists-function">
+<h2>Fexists() Function<a class="headerlink" href="#fexists-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if a file exists using the Fexists() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Fexists(cFileName) ---&gt; returns 1 if the file exists
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see fexists(&quot;b:\mahmoud\apps\ring\ring.exe&quot;) + nl +
+    fexists(&quot;b:\mahmoud\apps\ring\ring2.exe&quot;) + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>1
+0
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>The next program test some of the file functions</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;Testing file functions&quot; + nl
+
+See &quot;open file&quot; + nl
+fp = fopen(&quot;tests\s65.ring&quot;,&quot;r&quot;)
+
+See &quot;reopen&quot; + nl
+fp = freopen(&quot;tests\s78.ring&quot;,&quot;r&quot;,fp)
+See &quot;close file&quot; + nl
+fclose(fp)
+
+see &quot;temp file&quot; + nl
+fp = tempfile()
+fclose(fp)
+
+see &quot;temp name&quot; + nl
+see tempname() + nl
+
+remove(&quot;tests\mytest1.txt&quot;)
+write(&quot;tests\test1.txt&quot;,&quot;hello&quot;)
+rename(&quot;tests\test1.txt&quot;,&quot;tests\mytest2.txt&quot;)
+
+see &quot;print file&quot; + nl
+fp = fopen(&quot;tests\file.ring&quot;,&quot;r&quot;)
+r = fgetc(fp)
+while isstring(r)
+        see r
+        r = fgetc(fp)
+end
+fclose(fp)
+
+see nl+&quot;print line from the file&quot; + nl
+fp = fopen(&quot;tests\file.ring&quot;,&quot;r&quot;)
+r = fgets(fp,100)
+see r
+fclose(fp)
+
+fp = fopen(&quot;tests\myfile.txt&quot;,&quot;rw+&quot;)
+fseek(fp,0,2) # goto end of file
+fputc(fp,&quot;t&quot;)
+fputc(fp,&quot;e&quot;)
+fputc(fp,&quot;s&quot;)
+fputc(fp,&quot;t&quot;)
+fputs(fp,&quot;test2&quot;)
+fclose(fp)
+
+see &quot;print file&quot; + nl
+see read(&quot;tests\myfile.txt&quot;)
+
+fp = fopen(&quot;tests\myfile.txt&quot;,&quot;r&quot;)
+see &quot;testing ungetc() &quot; + nl
+for x = 1 to 3
+        r = fgetc(fp)
+        see r + nl
+        ungetc(fp,r)
+next
+fclose(fp)
+
+see &quot;testing fread() &quot; + nl
+fp = fopen(&quot;ring.exe&quot;,&quot;r&quot;)
+r = fread(fp,100)
+see r + nl
+fclose(fp)
+
+see &quot;testing fwrite() &quot; + nl
+fp = fopen(&quot;tests\myfile.txt&quot;,&quot;wb&quot;)
+fwrite(fp,r)
+fclose(fp)
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Files</a><ul>
+<li><a class="reference internal" href="#read-function">Read() Function</a></li>
+<li><a class="reference internal" href="#write-function">Write() Function</a></li>
+<li><a class="reference internal" href="#dir-function">Dir() Function</a></li>
+<li><a class="reference internal" href="#rename-function">Rename() Function</a></li>
+<li><a class="reference internal" href="#remove-function">Remove() Function</a></li>
+<li><a class="reference internal" href="#fopen-function">Fopen() Function</a></li>
+<li><a class="reference internal" href="#fclose-function">Fclose() Function</a></li>
+<li><a class="reference internal" href="#fflush-function">Fflush() Function</a></li>
+<li><a class="reference internal" href="#freopen-function">Freopen() Function</a></li>
+<li><a class="reference internal" href="#tempfile-function">Tempfile() Function</a></li>
+<li><a class="reference internal" href="#tempname-function">Tempname() Function</a></li>
+<li><a class="reference internal" href="#fseek-function">Fseek() Function</a></li>
+<li><a class="reference internal" href="#ftell-function">Ftell() Function</a></li>
+<li><a class="reference internal" href="#rewind-function">Rewind() Function</a></li>
+<li><a class="reference internal" href="#fgetpos-function">Fgetpos() Function</a></li>
+<li><a class="reference internal" href="#fsetpos-function">Fsetpos() Function</a></li>
+<li><a class="reference internal" href="#clearerr-function">Clearerr() Function</a></li>
+<li><a class="reference internal" href="#feof-function">Feof() Function</a></li>
+<li><a class="reference internal" href="#ferror-function">Ferror() Function</a></li>
+<li><a class="reference internal" href="#perror-function">Perror() Function</a></li>
+<li><a class="reference internal" href="#fgetc-function">Fgetc() Function</a></li>
+<li><a class="reference internal" href="#fgets-function">Fgets() Function</a></li>
+<li><a class="reference internal" href="#fputc-function">Fputc() Function</a></li>
+<li><a class="reference internal" href="#fputs-function">Fputs() Function</a></li>
+<li><a class="reference internal" href="#ungetc-function">Ungetc() Function</a></li>
+<li><a class="reference internal" href="#fread-function">Fread() Function</a></li>
+<li><a class="reference internal" href="#fwrite-function">Fwrite() Function</a></li>
+<li><a class="reference internal" href="#fexists-function">Fexists() Function</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mathfunc.html"
+                        title="previous chapter">Mathematical Functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="systemfunc.html"
+                        title="next chapter">System Functions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/files.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="systemfunc.html" title="System Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mathfunc.html" title="Mathematical Functions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

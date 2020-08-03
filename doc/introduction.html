@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Getting Started" href="getting_started.html" />
+    <link rel="prev" title="Welcome to Ring’s documentation!" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="getting_started.html" title="Getting Started"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Ring’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<span id="index-0"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the Ring programming language!</p>
+<p>In this chapter we are going to discuss the goals behind the language design and implementation.</p>
+<div class="section" id="motivation">
+<span id="index-1"></span><h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>In Nov. 2011, I started to think about creating a new version of the
+<a class="reference external" href="http://doublesvsoop.sf.net/">Programming Without Coding Technology (PWCT)</a> software from scratch.</p>
+<p>I was interested in creating multi-platform edition of the software beside adding support for
+Web &amp; Mobile development.
+Most of the PWCT source code was written in VFP and the software comes with a simple scripting language for creating the components called (RPWI).
+The software contains components that support code generation in programming languages
+like Harbour, C, Supernova &amp; Python.</p>
+<p>What i was looking for is a programming language that can be used to build the development
+environment, provides multi-platform support, more productivity, better performance, can be used for components
+scripting &amp; can be used for developing different kinds of applications.</p>
+<p>Instead of using a mix of programming languages, I decided to use one programming language
+for creating the development environment, for components scripting &amp; for creating the applications.</p>
+<p>I looked at many programming languages like C, C++, Java, C#, Lua, PHP, Python &amp; Ruby.
+I avoided using C or C++ directly because i want high-level of productivity more than the level
+provided by these languages, also a language behind visual programming environment for novice programmers
+or professionals must be easy to use &amp; productive.</p>
+<p>Java &amp; C# are avoided for some reason too!
+I wanted to use a dynamic programming language and these languages are static typing, Java is multi-platform,
+also C# through Mono, but the use of huge number of classes and forcing the use of Object-Orientation, using
+a verbose language is not right for me. I need a small language, but fast and productive, also I need
+better control on the Garbage Collector (GC), I need a better one that is designed for fast applications.</p>
+<p>Lua is small and fast, but it&#8217;s avoided because I need more powerful language for large applications.</p>
+<p>PHP is a Web programming language and it&#8217;s syntax is very similar to C, this leads to a language not
+general as I want and not simple as I need to have.</p>
+<p>Python &amp; Ruby are more like what I need, but I need something more simple, smaller, faster &amp; productive.</p>
+<p>Python and Ruby are Case-Sensitive, the list index start counting from 0, you have to define the function
+before calling it, Ruby usage of Object-Orientation and message passing is more than what I need and
+decrease performance, Python syntax (indentation, using self, :, pass &amp; _) is not good for my goals.</p>
+<p>All of these languages are successful languages, and very good for their domains, but what I need
+is a different language that comes with new ideas and intelligent implementation (Innovative, Ready, Simple, Small, Flexiable and Fast).</p>
+</div>
+<div class="section" id="history">
+<span id="index-2"></span><h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
+<p>In Sept. 2013 I started the design and the implementation of the Ring programming language.
+After 21 months of development, In May 2015 the language Compiler &amp; Virtual Machine were ready for use!</p>
+<p>After that i spent three months testing the language again, trying to discover any bug to fix, writing better tests,
+by the end of August 2015, all know bugs were fixed, Writing many tests and testing automation using batch files and
+diff.exe helped a lot in getting a stable product.</p>
+<p>In 12 September 2015, most of the documentation was written. Before releasing the language i started the marketing by
+writing a post in Arabic language about it to my facebook profile page asking for contributors interested in the language
+idea after reading a short description, in the same day i got a lot of emails from developers and friends interested to contribute!</p>
+<p>The first version of the language Ring 1.0 is released in January 25, 2016</p>
+</div>
+<div class="section" id="features">
+<span id="index-3"></span><h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>The Ring language comes with the next features</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">One of the main goals behind the first release is creating a useful language ready for production!</p>
+</div>
+<ul>
+<li><p class="first">Free Open Source (MIT License)</p>
+</li>
+<li><p class="first">Interpreter - Hybrid Implementation (Compiler+VM)</p>
+</li>
+<li><p class="first">Declarative programming on the top of Object-Oriented programming</p>
+</li>
+<li><p class="first">No explicit end for statements (No ; or ENTER is required)</p>
+</li>
+<li><dl class="first docutils">
+<dt>A small language (Around 100,000 lines of code)</dt>
+<dd><ul class="first last">
+<li><p class="first">The compiler + The Virtual Machine are 15,000 lines of C code</p>
+</li>
+<li><dl class="first docutils">
+<dt>The other 85,000 lines of code are related to libraries!</dt>
+<dd><ul class="first last simple">
+<li>10,000 lines of C code</li>
+<li>50,000 lines of C++ code</li>
+<li>25,000 lines of Ring code</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Writen in ANSI C (The code is generated)</p>
+</li>
+<li><p class="first">Developed using Visual Programming (PWCT)</p>
+</li>
+<li><p class="first">Optional Printing for Tokens/Grammar/Byte-Code during execution</p>
+</li>
+<li><p class="first">Portable (Windows, Linux &amp; Mac OS X)</p>
+</li>
+<li><p class="first">Comments (One line &amp; Multi-lines)</p>
+</li>
+<li><p class="first">Not Case-Sensitive</p>
+</li>
+<li><p class="first">Dynamic Typing</p>
+</li>
+<li><p class="first">Weakly typed</p>
+</li>
+<li><p class="first">Lexical Scoping (Global, Local &amp; Object State)</p>
+</li>
+<li><p class="first">Default scope for variables inside functions (Local)</p>
+</li>
+<li><p class="first">Default scope for variables outside functions (global)</p>
+</li>
+<li><p class="first">Garbage Collector - Automatic Memory Management (Escape Analysis and Reference Counting)</p>
+</li>
+<li><p class="first">Structure Programming</p>
+</li>
+<li><p class="first">Rich control structures &amp; Operators</p>
+</li>
+<li><p class="first">For in get item by reference not value, you can read/edit the item</p>
+</li>
+<li><p class="first">Use exit to go outside from more than one loop</p>
+</li>
+<li><p class="first">Procedures/Functions</p>
+</li>
+<li><p class="first">Main Function (optional)</p>
+</li>
+<li><p class="first">Call Function before the definition</p>
+</li>
+<li><p class="first">Recursion</p>
+</li>
+<li><p class="first">Multi-line literals</p>
+</li>
+<li><p class="first">Access (read/write) string letter by index</p>
+</li>
+<li><p class="first">The list index start by 1</p>
+</li>
+<li><p class="first">No keyword to end Functions/Classes/Packages</p>
+</li>
+<li><p class="first">Range operator ex: 1:10 and &#8220;a&#8221;:&#8221;z&#8221;</p>
+</li>
+<li><p class="first">First Class Variables, Lists, Objects and Functions</p>
+</li>
+<li><p class="first">Store/Copy Lists/Objects by value (Deep Copy)</p>
+</li>
+<li><p class="first">Pass Lists/Objects by reference</p>
+</li>
+<li><p class="first">Native Object-Oriented Support</p>
+<blockquote>
+<div><ul class="simple">
+<li>Encapsulation</li>
+<li>Setter/Getter (optional)</li>
+<li>private state (optional)</li>
+<li>Instantiation</li>
+<li>Polymorphism</li>
+<li>Composition</li>
+<li>Inheritance (Single Inheritance)</li>
+<li>Operator Overloading</li>
+<li>Packages</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">using { } to access objects and use attributes/methods as variables/functions</p>
+</li>
+<li><p class="first">Reflection and Meta-programming</p>
+</li>
+<li><p class="first">Clear program structure (Statements then functions then packages &amp; classes)</p>
+</li>
+<li><p class="first">Exception Handling</p>
+</li>
+<li><p class="first">Eval() to execute code during run-time</p>
+</li>
+<li><p class="first">8-bit clean, work on binary data directly</p>
+</li>
+<li><p class="first">I/O commands</p>
+</li>
+<li><p class="first">Math functions</p>
+</li>
+<li><p class="first">String functions</p>
+</li>
+<li><p class="first">List functions</p>
+</li>
+<li><p class="first">File processing functions</p>
+</li>
+<li><p class="first">Database support (ODBC &amp; MySQL)</p>
+</li>
+<li><p class="first">Security Functions (OpenSSL)</p>
+</li>
+<li><p class="first">Internet Functions (LibCurl)</p>
+</li>
+<li><p class="first">CGI Library (Written in Ring)</p>
+<blockquote>
+<div><ul class="simple">
+<li>HTTP Get</li>
+<li>HTTP Post</li>
+<li>File upload</li>
+<li>Cookies</li>
+<li>URL Encode</li>
+<li>HTML Templates</li>
+<li>HTML Special Characters</li>
+<li>HTML Generation using Functions</li>
+<li>HTML Generation using Classes</li>
+<li>CRUD Example (using MVC)</li>
+<li>Users Example (Register, Login and Check)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Extension using C/C++ (Simple API)</p>
+</li>
+<li><p class="first">Embedding the language in C/C++ programs</p>
+</li>
+<li><dl class="first docutils">
+<dt>Comes with code generator (Written in Ring) to quickly wrap C/C++ Libraries</dt>
+<dd><ul class="first last simple">
+<li>Used to Support Allegro by creating RingAllegro</li>
+<li>Used to Support Qt by creating RingQt</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Create 2D Games (Using the Allegro Library)</p>
+</li>
+<li><p class="first">Create GUI Applications for Desktop and Mobile (Using the Qt Framework)</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#motivation">Motivation</a></li>
+<li><a class="reference internal" href="#history">History</a></li>
+<li><a class="reference internal" href="#features">Features</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to Ring&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="getting_started.html"
+                        title="next chapter">Getting Started</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/introduction.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="getting_started.html" title="Getting Started"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Ring’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

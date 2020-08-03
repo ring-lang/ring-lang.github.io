@@ -1,0 +1,3069 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Desktop and Mobile development using RingQt &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Resources" href="resources.html" />
+    <link rel="prev" title="Graphics and 2D Games programming using RingAllegro" href="allegro.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="resources.html" title="Resources"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="allegro.html" title="Graphics and 2D Games programming using RingAllegro"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="desktop-and-mobile-development-using-ringqt">
+<h1>Desktop and Mobile development using RingQt<a class="headerlink" href="#desktop-and-mobile-development-using-ringqt" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn how to use the Qt framework classes
+in our Ring applications to create Desktop and Mobile Applications.</p>
+<div class="section" id="the-first-gui-application">
+<span id="index-0"></span><h2>The First GUI Application<a class="headerlink" href="#the-first-gui-application" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will create an application to ask the user about his/her name.
+When the user type the name in the textbox then click on &#8220;Say Hello&#8221; button, the textbox
+value will be updated by adding &#8220;Hello &#8221; to the name.</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+MyApp = New qApp {
+
+        win1 = new qWidget() {
+
+                setwindowtitle(&quot;Hello World&quot;)
+                setGeometry(100,100,370,250)
+
+                label1 = new qLabel(win1) {
+                        settext(&quot;What is your name ?&quot;)
+                        setGeometry(10,20,350,30)
+                        setalignment(Qt_AlignHCenter)
+                }
+
+                btn1 = new qpushbutton(win1) {
+                        setGeometry(10,200,100,30)
+                        settext(&quot;Say Hello&quot;)
+                        setclickevent(&quot;pHello()&quot;)
+                }
+
+                btn1 = new qpushbutton(win1) {
+                        setGeometry(150,200,100,30)
+                        settext(&quot;Close&quot;)
+                        setclickevent(&quot;pClose()&quot;)
+                }
+
+                lineedit1 = new qlineedit(win1) {
+                        setGeometry(10,100,350,30)
+                }
+
+                show()
+        }
+
+        exec()
+}
+
+Func pHello
+        lineedit1.settext( &quot;Hello &quot; + lineedit1.text())
+
+Func pClose
+        MyApp.quit()
+</pre></div>
+</div>
+<p>Program Output:</p>
+<p>At first we type the name in the textbox</p>
+<img alt="Enter the name in the textbox" src="_images/ringqt_shot1.jpg" />
+<p>Then we click on the say hello button</p>
+<img alt="Click on the button" src="_images/ringqt_shot2.jpg" />
+</div>
+<div class="section" id="using-layout">
+<h2>Using Layout<a class="headerlink" href="#using-layout" title="Permalink to this headline">¶</a></h2>
+<p>The next example is just an upgrade to the previous application to use the vertical layout.</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+MyApp = New qApp {
+
+        win1 = new qWidget() {
+
+                setwindowtitle(&quot;Hello World&quot;)
+                setGeometry(100,100,400,130)
+                label1 = new qLabel(win1) {
+                        settext(&quot;What is your name ?&quot;)
+                        setGeometry(10,20,350,30)
+                        setalignment(Qt_AlignHCenter)
+                }
+                btn1 = new qpushbutton(win1) {
+                        setGeometry(10,200,100,30)
+                        settext(&quot;Say Hello&quot;)
+                        setclickevent(&quot;pHello()&quot;)
+                }
+                btn2 = new qpushbutton(win1) {
+                        setGeometry(150,200,100,30)
+                        settext(&quot;Close&quot;)
+                        setclickevent(&quot;pClose()&quot;)
+                }
+                lineedit1 = new qlineedit(win1) {
+                        setGeometry(10,100,350,30)
+                }
+                layout1 = new qVBoxLayout() {
+                        addwidget(label1)
+                        addwidget(lineedit1)
+                        addwidget(btn1)
+                        addwidget(btn2)
+                }
+                win1.setlayout(layout1)
+                show()
+        }
+
+        exec()
+
+}
+
+Func pHello
+        lineedit1.settext( &quot;Hello &quot; + lineedit1.text())
+
+Func pClose
+        MyApp.quit()
+</pre></div>
+</div>
+<p>The application during the runtime!</p>
+<img alt="Vertical Layout" src="_images/ringqt_shot3.jpg" />
+</div>
+<div class="section" id="using-the-qtextedit-class">
+<h2>Using the QTextEdit Class<a class="headerlink" href="#using-the-qtextedit-class" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will use the QTextEdit Class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = new qWidget() {
+
+                setwindowtitle(&quot;QTextEdit Class&quot;)
+                setGeometry(100,100,500,500)
+
+                new qtextedit(win1) {
+                        setGeometry(10,10,480,480)
+
+                }
+
+                show()
+        }
+
+        exec()
+}
+</pre></div>
+</div>
+<p>During the runtime we can paste rich text in the qtextedit widget</p>
+<img alt="QTextEdit Class" src="_images/ringqt_shot4.jpg" />
+</div>
+<div class="section" id="using-the-qlistwidget-class">
+<h2>Using the QListWidget Class<a class="headerlink" href="#using-the-qlistwidget-class" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will use the QListWidget Class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = new qWidget() {
+
+                setGeometry(100,100,400,400)
+
+                list1 = new qlistwidget(win1) {
+                        setGeometry(150,100,200,200)
+                        alist = [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;four&quot;,&quot;five&quot;]
+                        for x in alist additem(x) next
+                        setcurrentrow(3,2)
+                        win1.setwindowtitle(&quot;Items Count : &quot; + count() )
+                }
+
+                btn1 = new qpushbutton(win1) {
+                        setGeometry(10,200,100,30)
+                        settext(&quot;selected item&quot;)
+                        setclickevent(&quot;pWork()&quot;)
+                }
+
+                btn2 = new qpushbutton(win1) {
+                        setGeometry(10,240,100,30)
+                        settext(&quot;Delete item&quot;)
+                        setclickevent(&quot;pWork2()&quot;)
+                }
+
+                show()
+        }
+
+        exec()
+}
+
+func pWork
+        btn1.settext(string(list1.currentrow()))
+
+func pWork2
+        list1 {
+                takeitem(currentrow())
+        }
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QListWidget Class" src="_images/ringqt_shot5.jpg" />
+</div>
+<div class="section" id="using-qtreeview-and-qfilesystemmodel">
+<h2>Using QTreeView and QFileSystemModel<a class="headerlink" href="#using-qtreeview-and-qfilesystemmodel" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn how to use the QTreeView widget to represent the File System</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = New qWidget() {
+
+                setwindowtitle(&quot;Using QTreeView and QFileSystemModel&quot;)
+                setGeometry(100,100,500,400)
+
+                New qtreeview(win1) {
+                        setGeometry(00,00,500,400)
+                        oDir = new QDir()
+                        ofile = new QFileSystemModel()
+                        ofile.setrootpath(oDir.currentpath())
+                        setmodel(ofile)
+                }
+
+                show()
+        }
+
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QTreeView and QFileSystemModel" src="_images/ringqt_shot6.jpg" />
+</div>
+<div class="section" id="using-qtreewidget-and-qtreewidgetitem">
+<h2>Using QTreeWidget and QTreeWidgetItem<a class="headerlink" href="#using-qtreewidget-and-qtreewidgetitem" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QTreeWidget and QTreeWidgetItem classes</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = new qWidget() {
+
+                setwindowtitle(&quot;TreeWidget&quot;)
+                setGeometry(100,100,400,400)
+
+                layout1 = new qvboxlayout(win1)
+
+                tree1 = new qtreewidget(win1) {
+                        setGeometry(00,00,400,400)
+                        setcolumncount(1)
+                        myitem = new qtreewidgetitem()
+                        myitem.settext(0,&quot;The First Step&quot;)
+                        addtoplevelitem(myitem)
+                        for  x = 1 to 10
+                                myitem2 = new qtreewidgetitem()
+                                myitem2.settext(0,&quot;hello&quot;+x)
+                                myitem.addchild(myitem2)
+                                for  y = 1 to 10
+                                        myitem3 = new qtreewidgetitem()
+                                        myitem3.settext(0,&quot;hello&quot;+x)
+                                        myitem2.addchild(myitem3)
+                                next
+                        next
+                        setheaderlabel(&quot;Steps Tree&quot;)
+                }
+
+                layout1.addwidget(tree1)
+                setlayout(layout1)
+
+                show()
+        }
+
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QTreeWidget and QTreeWidgetItem" src="_images/ringqt_shot7.jpg" />
+</div>
+<div class="section" id="using-qcombobox-class">
+<h2>Using QComboBox Class<a class="headerlink" href="#using-qcombobox-class" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QComboBox class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = new qWidget() {
+
+                setwindowtitle(&quot;Using QComboBox&quot;)
+                setGeometry(100,100,400,400)
+
+                New QComboBox(win1) {
+                        setGeometry(150,100,200,30)
+                        alist = [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;four&quot;,&quot;five&quot;]
+                        for x in aList additem(x,0) next
+                }
+
+                show()
+        }
+
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QComboBox" src="_images/ringqt_shot8.jpg" />
+</div>
+<div class="section" id="creating-menubar">
+<h2>Creating Menubar<a class="headerlink" href="#creating-menubar" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QMenuBar class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+MyApp = New qApp {
+
+        win1 = new qWidget() {
+
+                setwindowtitle(&quot;Using QMenubar&quot;)
+                setGeometry(100,100,400,400)
+
+                menu1 = new qmenubar(win1) {
+                        sub1 = addmenu(&quot;File&quot;)
+                        sub2 = addmenu(&quot;Edit&quot;)
+                        sub3 = addmenu(&quot;Help&quot;)
+                        sub1 {
+                                oAction = new qAction(win1) {
+                                        settext(&quot;New&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        settext(&quot;Open&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        settext(&quot;Save&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        settext(&quot;Save As&quot;)
+                                }
+                                addaction(oAction)
+                                addseparator()
+                                oAction = new qaction(win1) {
+                                        settext(&quot;Exit&quot;)
+                                        setclickevent(&quot;myapp.quit()&quot;)
+                                }
+                                addaction(oAction)
+                        }
+                        sub2 {
+                                oAction = new qAction(win1) {
+                                        settext(&quot;Cut&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        settext(&quot;Copy&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        settext(&quot;Paste&quot;)
+                                }
+                                addaction(oAction)
+                                addseparator()
+                                oAction = new qAction(win1) {
+                                        settext(&quot;Select All&quot;)
+                                }
+                                addaction(oAction)
+                        }
+                        sub3 {
+                                oAction = new qAction(win1) {
+                                        settext(&quot;Reference&quot;)
+                                }
+                                addaction(oAction)
+                                sub4 = addmenu(&quot;Sub Menu&quot;)
+                                sub4 {
+                                        oAction = new qAction(win1) {
+                                                settext(&quot;Website&quot;)
+                                        }
+                                        addaction(oAction)
+                                        oAction = new qAction(win1) {
+                                                settext(&quot;Forum&quot;)
+                                        }
+                                        addaction(oAction)
+                                        oAction = new qAction(win1) {
+                                                settext(&quot;Blog&quot;)
+                                        }
+                                        addaction(oAction)
+                                }
+                                addseparator()
+                                        oAction = new qAction(win1) {
+                                                settext(&quot;About&quot;)
+                                        }
+                                        addaction(oAction)
+                        }
+                }
+                show()
+        }
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QMenuBar" src="_images/ringqt_shot9.jpg" />
+</div>
+<div class="section" id="creating-toolbar">
+<h2>Creating Toolbar<a class="headerlink" href="#creating-toolbar" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QToolBar class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = new qMainWindow() {
+
+                setwindowtitle(&quot;Using QToolbar&quot;)
+                setGeometry(100,100,600,400)
+
+                abtns = [
+                                new qpushbutton(win1) { settext(&quot;Add&quot;) } ,
+                                new qpushbutton(win1) { settext(&quot;Edit&quot;) } ,
+                                new qpushbutton(win1) { settext(&quot;Find&quot;) } ,
+                                new qpushbutton(win1) { settext(&quot;Delete&quot;) } ,
+                                new qpushbutton(win1) { settext(&quot;Exit&quot;)
+                                                        setclickevent(&quot;win1.close()&quot;) }
+                        ]
+
+                tool1 = new qtoolbar(win1) {
+                        for x in abtns addwidget(x) addseparator() next
+                        setmovable(true)
+                        setGeometry(0,0,500,30)
+                        setFloatable(true)
+                }
+
+                show()
+        }
+
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QToolBar" src="_images/ringqt_shot10.jpg" />
+</div>
+<div class="section" id="creating-statusbar">
+<h2>Creating StatusBar<a class="headerlink" href="#creating-statusbar" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QStatusBar class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = new qMainWindow() {
+
+                setwindowtitle(&quot;Using QStatusbar&quot;)
+                setGeometry(100,100,400,400)
+
+                status1 = new qstatusbar(win1) {
+                        showmessage(&quot;Ready!&quot;,0)
+                }
+
+                setstatusbar(status1)
+                show()
+        }
+
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QStatusBar" src="_images/ringqt_shot11.jpg" />
+</div>
+<div class="section" id="using-qdockwidget">
+<h2>Using QDockWidget<a class="headerlink" href="#using-qdockwidget" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QDockWidget class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = new qMainWindow() {
+
+                setwindowtitle(&quot;QDockWidget&quot;)
+                setGeometry(100,100,400,400)
+
+                label1 = new qlabel(win1) {
+                        settext(&quot;Hello&quot;)
+                        setGeometry(300,300,100,100)
+                }
+
+                label2 = new qlabel(win1) {
+                        settext(&quot;How are you ?&quot;)
+                        setGeometry(100,100,100,100)
+                }
+
+                dock1 = new qdockwidget(win1,0) {
+                        setwidget(label1)
+                        SetAllowedAreas(1)
+                }
+
+                dock2 = new qdockwidget(win1,0) {
+                        setwidget(label2)
+                        SetAllowedAreas(2)
+                }
+
+                adddockwidget(Qt_LeftDockWidgetArea,dock1,Qt_Horizontal)
+                adddockwidget(Qt_LeftDockWidgetArea,dock2,Qt_Vertical)
+
+                show()
+        }
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QDockWidget" src="_images/ringqt_shot12.jpg" />
+</div>
+<div class="section" id="using-qtabwidget">
+<h2>Using QTabWidget<a class="headerlink" href="#using-qtabwidget" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QTabWidget class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = new qMainWindow() {
+
+                setwindowtitle(&quot;Using QTabWidget&quot;)
+                setGeometry(100,100,400,400)
+
+                page1 = new qwidget() {
+                        new qpushbutton(page1) {
+                                settext(&quot;The First Page&quot;)
+                        }
+                }
+
+                page2 = new qwidget() {
+                        new qpushbutton(page2) {
+                                settext(&quot;The Second Page&quot;)
+                        }
+                }
+
+                page3 = new qwidget() {
+                        new qpushbutton(page3) {
+                                settext(&quot;The Third Page&quot;)
+                        }
+                }
+
+                tab1 = new qtabwidget(win1) {
+                        inserttab(0,page1,&quot;Page 1&quot;)
+                        inserttab(1,page2,&quot;Page 2&quot;)
+                        inserttab(2,page3,&quot;Page 3&quot;)
+                        setGeometry(100,100,400,400)
+                }
+
+                status1 = new qstatusbar(win1) {
+                        showmessage(&quot;Ready!&quot;,0)
+                }
+
+                setstatusbar(status1)
+                showMaximized()
+        }
+
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QTabWidget" src="_images/ringqt_shot13.jpg" />
+</div>
+<div class="section" id="using-qtableview">
+<h2>Using QTableView<a class="headerlink" href="#using-qtableview" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QTableView class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = new qMainWindow() {
+
+                setGeometry(100,100,1100,370)
+                setwindowtitle(&quot;Using QTableWidget&quot;)
+
+                Table1 = new qTableWidget(win1) {
+
+                        setrowcount(10) setcolumncount(10)
+                        setGeometry(0,0,800,400)
+                        setselectionbehavior(QAbstractItemView_SelectRows)
+
+                        for x = 1 to 10
+                                for y = 1 to 10
+                                        item1 = new qtablewidgetitem(&quot;R&quot;+X+&quot;C&quot;+Y)
+                                        setitem(x-1,y-1,item1)
+                                next
+                        next
+
+                }
+
+                setcentralwidget(table1)
+                show()
+
+        }
+
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QTableView" src="_images/ringqt_shot14.jpg" />
+</div>
+<div class="section" id="using-qprogressbar">
+<h2>Using QProgressBar<a class="headerlink" href="#using-qprogressbar" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QProgressBar class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+        win1 = new qMainWindow() {
+
+                setGeometry(100,100,600,150)
+                setwindowtitle(&quot;Using QProgressBar&quot;)
+
+                for x = 10 to 100 step 10
+                        new qprogressbar(win1) {
+                                setGeometry(100,x,350,30)
+                                setvalue(x)
+                        }
+                next
+
+                show()
+        }
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QProgressBar" src="_images/ringqt_shot15.jpg" />
+</div>
+<div class="section" id="using-qspinbox">
+<h2>Using QSpinBox<a class="headerlink" href="#using-qspinbox" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QSpinBox class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+        win1 = new qMainWindow() {
+                setGeometry(100,100,450,260)
+                setwindowtitle(&quot;Using QSpinBox&quot;)
+                        new qspinbox(win1) {
+                                setGeometry(50,100,350,30)
+                                setvalue(50)
+                        }
+                show()
+        }
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QSpinBox" src="_images/ringqt_shot16.jpg" />
+</div>
+<div class="section" id="using-qslider">
+<h2>Using QSlider<a class="headerlink" href="#using-qslider" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QSlider class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = new qMainWindow() {
+
+                setGeometry(100,100,500,400)
+                setwindowtitle(&quot;Using QSlider&quot;)
+
+                new qslider(win1) {
+                        setGeometry(100,100,50,130)
+                        settickinterval(50)
+                }
+
+                new qslider(win1) {
+                        setGeometry(100,250,250,30)
+                        settickinterval(50)
+                        setorientation(Qt_Horizontal)
+                }
+
+                show()
+
+        }
+
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QSlider" src="_images/ringqt_shot17.jpg" />
+</div>
+<div class="section" id="using-qdateedit">
+<h2>Using QDateEdit<a class="headerlink" href="#using-qdateedit" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QDateEdit class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+        win1 = new qMainWindow() {
+                setwindowtitle(&quot;Using QDateEdit&quot;)
+                setGeometry(100,100,250,100)
+                new qdateedit(win1) {
+                        setGeometry(20,40,220,30)
+                }
+                show()
+        }
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QDateEdit" src="_images/ringqt_shot18.jpg" />
+</div>
+<div class="section" id="using-qdial">
+<h2>Using QDial<a class="headerlink" href="#using-qdial" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QDial class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+        win1 = new qMainWindow() {
+                setGeometry(100,100,450,500)
+                setwindowtitle(&quot;Using QDial&quot;)
+                new qdial(win1) {
+                        setGeometry(100,100,250,300)
+                }
+                show()
+        }
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QDial" src="_images/ringqt_shot19.jpg" />
+</div>
+<div class="section" id="using-qwebview">
+<h2>Using QWebView<a class="headerlink" href="#using-qwebview" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QWebView class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+        win1 = new qMainWindow() {
+                setwindowtitle(&quot;QWebView&quot;)
+                myweb = new qwebview(win1) {
+                        setGeometry(10,10,600,600)
+                        loadpage(new qurl(&quot;http://google.com&quot;))
+                }
+                setcentralwidget(myweb)
+                showMaximized()
+        }
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QWebView" src="_images/ringqt_shot20.jpg" />
+</div>
+<div class="section" id="using-qcheckbox">
+<h2>Using QCheckBox<a class="headerlink" href="#using-qcheckbox" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QCheckBox class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+        win1 = new qMainWindow() {
+                setwindowtitle(&quot;Using QCheckBox&quot;)
+                new qcheckbox(win1) {
+                        setGeometry(100,100,100,30)
+                        settext(&quot;New Customer!&quot;)
+                }
+                showMaximized()
+        }
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QCheckBox" src="_images/ringqt_shot21.jpg" />
+</div>
+<div class="section" id="using-qradiobutton-and-qbuttongroup">
+<h2>Using QRadioButton and QButtonGroup<a class="headerlink" href="#using-qradiobutton-and-qbuttongroup" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QRadioButton and QButtonGroup classes</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = new qMainWindow() {
+
+                setwindowtitle(&quot;Using QRadioButton&quot;)
+
+                new qradiobutton(win1) {
+                        setGeometry(100,100,100,30)
+                        settext(&quot;One&quot;)
+                }
+                new qradiobutton(win1) {
+                        setGeometry(100,150,100,30)
+                        settext(&quot;Two&quot;)
+                }
+                new qradiobutton(win1) {
+                        setGeometry(100,200,100,30)
+                        settext(&quot;Three&quot;)
+                }
+
+
+                group2  = new qbuttongroup(win1) {
+                        btn4 = new qradiobutton(win1) {
+                                setGeometry(200,150,100,30)
+                                settext(&quot;Four&quot;)
+                        }
+                        btn5 = new qradiobutton(win1) {
+                                setGeometry(200,200,100,30)
+                                settext(&quot;Five&quot;)
+                        }
+                        addbutton(btn4,0)
+                        addbutton(btn5,0)
+
+                }
+
+                showMaximized()
+
+        }
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QRadioButton and QButtonGroup classes" src="_images/ringqt_shot22.jpg" />
+</div>
+<div class="section" id="adding-hyperlink-to-qlabel">
+<h2>Adding Hyperlink to QLabel<a class="headerlink" href="#adding-hyperlink-to-qlabel" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about creating Hyperlink using the QLabel class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+        win1 = new qMainWindow() {
+                setwindowtitle(&quot;QLabel - Hyperlink&quot;)
+                new qlabel(win1) {
+                        setGeometry(100,100,100,30)
+                        setopenexternallinks(true)
+                        settext(&#39;&lt;a href=&quot;http://google.com&quot;&gt;Google&lt;/a&gt;&#39;)
+                }
+                showMaximized()
+        }
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="Hyperlink" src="_images/ringqt_shot23.jpg" />
+</div>
+<div class="section" id="qvideowidget-and-qmediaplayer">
+<h2>QVideoWidget and QMediaPlayer<a class="headerlink" href="#qvideowidget-and-qmediaplayer" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QVideoWidget and QMediaPlayer classes to play
+a group of movies from different positions at the same time</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = new qMainWindow() {
+
+                setwindowtitle(&quot;QVideoWidget&quot;)
+
+                btn1 = new qpushbutton(win1)    {
+                        setGeometry(0,0,100,30)
+                        settext(&quot;play&quot;)
+                        setclickevent(&quot;player.play() player2.play()
+                                                   player3.play() player4.play()&quot;)
+                }
+
+                videowidget = new qvideowidget(win1) {
+                        setGeometry(50,50,600,300)
+                        setstylesheet(&quot;background-color: black&quot;)
+                }
+
+                videowidget2 = new qvideowidget(win1) {
+                        setGeometry(700,50,600,300)
+                        setstylesheet(&quot;background-color: black&quot;)
+                }
+
+
+                videowidget3 = new qvideowidget(win1) {
+                        setGeometry(50,370,600,300)
+                        setstylesheet(&quot;background-color: black&quot;)
+                }
+
+                videowidget4 = new qvideowidget(win1) {
+                        setGeometry(700,370,600,300)
+                        setstylesheet(&quot;background-color: black&quot;)
+                }
+
+                player = new qmediaplayer() {
+                        setmedia(new qurl(&quot;1.mp4&quot;))
+                        setvideooutput(videowidget)
+                        setposition(35*60*1000)
+
+                }
+
+                player2 = new qmediaplayer() {
+                        setmedia(new qurl(&quot;2.mp4&quot;))
+                        setvideooutput(videowidget2)
+                        setposition(23*60*1000)
+                }
+
+                player3 = new qmediaplayer() {
+                        setmedia(new qurl(&quot;3.mp4&quot;))
+                        setvideooutput(videowidget3)
+                        setposition(14.22*60*1000)
+                }
+
+                player4 = new qmediaplayer() {
+                        setmedia(new qurl(&quot;4.avi&quot;))
+                        setvideooutput(videowidget4)
+                        setposition(8*60*1000)
+                }
+
+                showfullscreen()
+
+        }
+
+        exec()
+
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QVideoWidget" src="_images/ringqt_shot24.jpg" />
+</div>
+<div class="section" id="using-qframe">
+<h2>Using QFrame<a class="headerlink" href="#using-qframe" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QFrame class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+        win1 = new qMainWindow() {
+                setwindowtitle(&quot;Using QFrame&quot;)
+                for x = 0 to 10
+                        frame1 = new qframe(win1,0) {
+                                setGeometry(100,20+50*x,400,30)
+                                setframestyle(QFrame_Raised | QFrame_WinPanel)
+                        }
+                next
+                showMaximized()
+        }
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QFrame" src="_images/ringqt_shot25.jpg" />
+</div>
+<div class="section" id="display-image-using-qlabel">
+<h2>Display Image using QLabel<a class="headerlink" href="#display-image-using-qlabel" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about displaying an image using the QLabel widget</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+        win1 = new qMainWindow() {
+                setwindowtitle(&quot;QLabel - Display image&quot;)
+                new qlabel(win1) {
+                        image = new qpixmap(&quot;b:/mahmoud/photo/advice.jpg&quot;)
+                        setpixmap(image)
+                        setGeometry(0,0,image.width(),image.height())
+                }
+                showMaximized()
+        }
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="Display Image" src="_images/ringqt_shot26.jpg" />
+</div>
+<div class="section" id="menubar-and-stylesheet-example">
+<h2>Menubar and StyleSheet Example<a class="headerlink" href="#menubar-and-stylesheet-example" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about creating menubar and setting the window stylesheet</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+
+        win1 = new qMainWindow() {
+
+                setwindowtitle(&quot;Menubar&quot;)
+
+                menu1 = new qmenubar(win1) {
+                        sub1 = addmenu(&quot;File&quot;)
+                        sub1 {
+                                oAction = new qAction(win1) {
+                                        settext(&quot;New&quot;)
+                                        setenabled(false)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        settext(&quot;Open&quot;)
+                                        setcheckable(true)
+                                        setchecked(true)
+                                        setstatustip(&quot;open new file&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        settext(&quot;Save&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        settext(&quot;Save As&quot;)
+                                }
+                                addaction(oAction)
+
+                                addseparator()
+                                oAction = new qaction(win1)
+                                oAction.settext(&quot;Exit&quot;)
+                                oAction.setclickevent(&quot;myapp.quit()&quot;)
+                                addaction(oAction)
+                        }
+
+                }
+                status1 = new qstatusbar(win1) {
+                        showmessage(&quot;Ready!&quot;,0)
+                }
+                setmenubar(menu1)
+                setmousetracking(true)
+                setstatusbar(status1)
+                setStyleSheet(&quot;color: black; selection-color: black;
+                selection-background-color:white ;
+                background: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                stop: 0 #eef, stop: 1 #ccf);&quot;)
+                showmaximized()
+        }
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="Menubar" src="_images/ringqt_shot27.jpg" />
+</div>
+<div class="section" id="qlineedit-events-and-qmessagebox">
+<h2>QLineEdit Events and QMessageBox<a class="headerlink" href="#qlineedit-events-and-qmessagebox" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using QLineEdit Events and displaying a Messagebox</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+MyApp = New qApp {
+
+        win1 = new qWidget() {
+
+                setwindowtitle(&quot;Welcome&quot;)
+                setGeometry(100,100,400,300)
+
+
+                label1 = new qLabel(win1) {
+                        settext(&quot;What is your name ?&quot;)
+                        setGeometry(10,20,350,30)
+                        setalignment(Qt_AlignHCenter)
+                }
+
+                btn1 = new qpushbutton(win1) {
+                        setGeometry(10,200,100,30)
+                        settext(&quot;Say Hello&quot;)
+                        setclickevent(&quot;pHello()&quot;)
+                }
+
+                btn1 = new qpushbutton(win1) {
+                        setGeometry(150,200,100,30)
+                        settext(&quot;Close&quot;)
+                        setclickevent(&quot;pClose()&quot;)
+                }
+
+                lineedit1 = new qlineedit(win1) {
+                        setGeometry(10,100,350,30)
+                        settextchangedevent(&quot;pChange()&quot;)
+                        setreturnpressedevent(&quot;penter()&quot;)
+                }
+
+                show()
+        }
+
+        exec()
+}
+
+Func pHello
+        lineedit1.settext( &quot;Hello &quot; + lineedit1.text())
+
+Func pClose
+        MyApp.quit()
+
+Func pChange
+        win1 { setwindowtitle( lineedit1.text() ) }
+
+Func pEnter
+        new qmessagebox(win1) {
+                setwindowtitle(&quot;Thanks&quot;)
+                settext(&quot;Hi &quot; + lineedit1.text() )
+                setstylesheet(&quot;background-color : white&quot;)
+                show()
+        }
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="qLineEdit events and qMessagebox" src="_images/ringqt_shot28.jpg" />
+<img alt="qLineEdit events and qMessagebox" src="_images/ringqt_shot29.jpg" />
+</div>
+<div class="section" id="other-widgets-events">
+<h2>Other Widgets Events<a class="headerlink" href="#other-widgets-events" title="Permalink to this headline">¶</a></h2>
+<p>Each Qt signal can be used in RingQt, just add Set before the signal name and add event after
+the signal name to get the method that can be used to determine the event code.</p>
+<p>For example the QProgressBar class contains a signal named valueChanged()
+To use it just use the function setValueChangedEvent()</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+        win1 = new qMainWindow() {
+
+                setwindowtitle(&quot;QProgressBar valueChanged Event&quot;)
+
+                progress1 = new qprogressbar(win1) {
+                        setGeometry(100,100,350,30)
+                        setvalue(10)
+                        setvaluechangedevent(&quot;pChange()&quot;)
+                }
+
+                new qpushbutton(win1) {
+                        setGeometry(10,10,100,30)
+                        settext(&quot;increase&quot;)
+                        setclickevent(&quot;pIncrease()&quot;)
+                }
+
+                showMaximized()
+
+        }
+
+        exec()
+}
+
+func pIncrease
+        progress1 { setvalue(value()+1)  }
+
+func pchange
+        win1.setwindowtitle(&quot;value : &quot; + progress1.value() )
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="qProgressBar valueChanged event" src="_images/ringqt_shot30.jpg" />
+<p>Another example for the stateChanged event of the QCheckBox class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+        win1 = new qMainWindow() {
+                setwindowtitle(&quot;QCheckBox&quot;)
+                new qcheckbox(win1) {
+                        setGeometry(100,100,100,30)
+                        settext(&quot;New Customer!&quot;)
+                        setstatechangedevent(&quot;pchange()&quot;)
+                }
+                showMaximized()
+        }
+        exec()
+}
+
+Func pChange
+
+        new qMessageBox(Win1) {
+                setWindowTitle(&quot;Checkbox&quot;)
+                settext(&quot;State Changed!&quot;)
+                show()
+        }
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="qProgressBar valueChanged event" src="_images/ringqt_shot31.jpg" />
+</div>
+<div class="section" id="using-the-qtimer-class">
+<h2>Using the QTimer Class<a class="headerlink" href="#using-the-qtimer-class" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the QTimer class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+new qApp {
+        win1 = new qwidget() {
+                setgeometry(100,100,200,70)
+                setwindowtitle(&quot;Timer&quot;)
+                label1 = new qlabel(win1) {
+                        setgeometry(10,10,200,30)
+                        settext(thetime())
+                }
+                new qtimer(win1) {
+                        setinterval(1000)
+                        settimeoutevent(&quot;pTime()&quot;)
+                        start()
+                }
+                show()
+        }
+        exec()
+}
+
+func ptime
+        label1.settext(thetime())
+
+Func thetime
+        return &quot;Time : &quot; + Time()
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QTimer Class" src="_images/ringqt_shot32.jpg" />
+</div>
+<div class="section" id="using-the-qfiledialog-class">
+<h2>Using the QFileDialog Class<a class="headerlink" href="#using-the-qfiledialog-class" title="Permalink to this headline">¶</a></h2>
+<p>Example</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qapp {
+        win1 = new qwidget() {
+                setwindowtitle(&quot;open file&quot;)
+                setgeometry(100,100,400,400)
+                new qpushbutton(win1) {
+                        setgeometry(10,10,200,30)
+                        settext(&quot;open file&quot;)
+                        setclickevent(&quot;pOpen()&quot;)
+                }
+                show()
+        }
+        exec()
+}
+
+Func pOpen
+        new qfiledialog(win1) {
+                cName = getopenfilename(win1,&quot;open file&quot;,&quot;c:\&quot;,&quot;source files(*.ring)&quot;)
+                win1.setwindowtitle(cName)
+        }
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QFileDialog Class" src="_images/ringqt_shot33.jpg" />
+</div>
+<div class="section" id="drawing-using-qpainter">
+<h2>Drawing using QPainter<a class="headerlink" href="#drawing-using-qpainter" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about drawing using the QPainter class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+New qapp {
+        win1 = new qwidget() {
+                setwindowtitle(&quot;Drawing using QPainter&quot;)
+                setgeometry(100,100,500,500)
+                label1 = new qlabel(win1) {
+                        setgeometry(10,10,400,400)
+                        settext(&quot;&quot;)
+                }
+                new qpushbutton(win1) {
+                        setgeometry(200,400,100,30)
+                        settext(&quot;draw&quot;)
+                        setclickevent(&quot;draw()&quot;)
+                }
+
+                show()
+        }
+        exec()
+}
+
+Func draw
+                p1 = new qpicture()
+                color = new qcolor() {
+                        setrgb(0,0,255,255)
+                }
+                pen = new qpen() {
+                        setcolor(color)
+                        setwidth(10)
+                }
+                new qpainter() {
+                        begin(p1)
+                        setpen(pen)
+                        drawline(500,150,950,450)
+                        drawline(950,550,500,150)
+                        endpaint()
+                }
+                label1 { setpicture(p1) show() }
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QPainter Class" src="_images/ringqt_shot34.jpg" />
+</div>
+<div class="section" id="printing-using-qprinter">
+<h2>Printing using QPrinter<a class="headerlink" href="#printing-using-qprinter" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn how to print to PDF file using QPrinter</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+new qApp {
+        win1 = new qwidget() {
+                setwindowtitle(&quot;Printer&quot;)
+                setgeometry(100,100,500,500)
+                myweb = new qwebview(win1) {
+                        setgeometry(100,100,1000,500)
+                        loadpage(new qurl(&quot;http://google.com&quot;))
+                }
+                new qpushbutton(win1) {
+                        setGeometry(20,20,100,30)
+                        settext(&quot;Print&quot;)
+                        setclickevent(&quot;print()&quot;)
+                }
+                showmaximized()
+        }
+        exec()
+}
+
+func print
+        printer1 = new qPrinter(0) {
+                setoutputformat(1)      # 1 = pdf
+                setoutputfilename(&quot;test.pdf&quot;)
+                painter = new qpainter() {
+                        begin(printer1)
+                        myfont = new qfont(&quot;Times&quot;,50,-1,0)
+                        setfont(myfont)
+                        drawtext(100,100,&quot;test&quot;)
+                        printer1.newpage()
+                        drawtext(100,100,&quot;test2&quot;)
+                        endpaint()
+                }
+        }
+
+        printer1 = new qPrinter(0) {
+                setoutputformat(1)
+                setoutputfilename(&quot;test2.pdf&quot;)
+                myweb.print(printer1)
+                myweb.show()
+        }
+
+        system (&quot;test.pdf&quot;)
+        system (&quot;test2.pdf&quot;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-more-than-one-window">
+<h2>Creating More than one Window<a class="headerlink" href="#creating-more-than-one-window" title="Permalink to this headline">¶</a></h2>
+<p>The next example demonstrates how to create more than one window</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+app1 = new qapp {
+        win1 = new qwidget() {
+                setwindowtitle(&quot;First&quot;)
+                setgeometry(100,100,500,500)
+
+                new qpushbutton(win1) {
+                        setgeometry(100,100,100,30)
+                        settext(&quot;close&quot;)
+                        setclickevent(&quot;app1.quit()&quot;)
+                }
+
+                new qpushbutton(win1) {
+                        setgeometry(250,100,100,30)
+                        settext(&quot;Second&quot;)
+                        setclickevent(&quot;second()&quot;)
+                }
+
+                showmaximized()
+        }
+        exec()
+}
+
+func second
+        win2 = new qwidget() {
+                setwindowtitle(&quot;Second&quot;)
+                setgeometry(100,100,500,500)
+                setwindowflags(Qt_dialog)
+                show()
+        }
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="More than one window" src="_images/ringqt_shot35.jpg" />
+</div>
+<div class="section" id="playing-sound">
+<h2>Playing Sound<a class="headerlink" href="#playing-sound" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+new qapp {
+        win1 = new qwidget() {
+                setwindowtitle(&quot;play sound!&quot;) show()
+        }
+        new qmediaplayer(win1)  {
+                setmedia(new qurl(&quot;footstep.wav&quot;))
+                setvolume(50) play()
+        }
+        exec()
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-qcolordialog-class">
+<h2>Using the QColorDialog Class<a class="headerlink" href="#using-the-qcolordialog-class" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+oApp = new myapp { start() }
+
+Class MyApp
+
+        oColor  win1
+
+        Func start
+
+                myapp = new qapp
+
+                win1 = new qMainWindow() {
+                        setwindowtitle(&quot;Color Dialog&quot;)
+                        setgeometry(100,100,400,400)
+                }
+
+                new qpushbutton(win1) {
+                        setgeometry(10,10,100,30)
+                        settext(&quot;Get Color&quot;)
+                        setclickevent(&quot;oApp.pColor()&quot;)
+                }
+
+                win1.show()
+                myapp.exec()
+
+
+        Func pColor
+                myobj = new qcolordialog()
+                aColor = myobj.GetColor()
+                r=acolor[1] g=acolor[2] b=acolor[3]
+                win1.setstylesheet(&quot;background-color: rgb(&quot;+r+&quot;, &quot; + g+ &quot;,&quot; + b + &quot;)&quot;)
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QColorDialog Class" src="_images/ringqt_shot37.jpg" />
+</div>
+<div class="section" id="using-qlcdnumber-class">
+<h2>Using qLCDNumber Class<a class="headerlink" href="#using-qlcdnumber-class" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn about using the qLCDNumber class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp
+{
+        win1 = new qWidget()
+        {
+                setwindowtitle(&quot;LCD Number&quot;)
+                setgeometry(100,100,250,120)
+
+                new qLCDNumber(win1)
+                {
+                        setgeometry(10,10,100,40)
+                        display(100)
+
+                }
+
+                new qLCDNumber(win1)
+                {
+                        setgeometry(10,60,100,40)
+                        display(80)
+
+                }
+
+                show()
+        }
+
+        exec()
+}
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QLCDNumber Class" src="_images/ringqt_shot38.jpg" />
+</div>
+<div class="section" id="movable-label-example">
+<h2>Movable Label Example<a class="headerlink" href="#movable-label-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+new qApp {
+
+        win1 = new qWidget()
+        {
+
+                label1 = new qLabel(win1)
+                {
+                        setText(&quot;Welcome&quot;)
+                        setgeometry(10,10,200,50)
+                        setstylesheet(&quot;color: purple ; font-size: 30pt;&quot;)
+                }
+
+                new qTimer(win1)
+                {
+                        setInterVal(10)
+                        setTimeOutEvent(&quot;pMove()&quot;)
+                        start()
+                }
+
+                setWindowTitle(&quot;Movable Label&quot;)
+                setgeometry(100,100,600,80)
+                setStyleSheet(&quot;background-color: white;&quot;)
+                show()
+
+        }
+
+        exec()
+}
+
+Func pMove
+        label1
+        {
+                move(x()+1,y())
+                if x() &gt; 600
+                        move(10,y())
+                ok
+        }
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="Movable label" src="_images/ringqt_shot39.jpg" />
+</div>
+<div class="section" id="qmessagebox-example">
+<h2>QMessagebox Example<a class="headerlink" href="#qmessagebox-example" title="Permalink to this headline">¶</a></h2>
+<p>In this section we will learn how to check the output of the Message box</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+new qApp {
+        win1 = new qWidget()
+        {
+                label1 = new qpushbutton(win1)
+                {
+                        setText(&quot;Test&quot;)
+                        setgeometry(10,10,200,50)
+                        setstylesheet(&quot;color: purple ; font-size: 30pt;&quot;)
+                        setclickevent(&quot;pWork()&quot;)
+                }
+                setWindowTitle(&quot;Messagebox&quot;)
+                setgeometry(100,100,600,80)
+                setStyleSheet(&quot;background-color: white;&quot;)
+                show()
+        }
+        exec()
+}
+
+func pWork
+        new qmessagebox(win1)
+        {
+                setwindowtitle(&quot;messagebox title&quot;)
+                settext(&quot;messagebox text&quot;)
+                setInformativeText(&quot;Do you want to save your changes?&quot;)
+                setstandardbuttons(QMessageBox_Yes | QMessageBox_No | QMessageBox_Close)
+                result = exec()
+                win1 {
+                        if result = QMessageBox_Yes
+                                setwindowtitle(&quot;Yes&quot;)
+                        but result = QMessageBox_No
+                                setwindowtitle(&quot;No&quot;)
+                        but result = QMessageBox_Close
+                                setwindowtitle(&quot;Close&quot;)
+                        ok
+                }
+        }
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QMessageBox output" src="_images/ringqt_shot40.jpg" />
+</div>
+<div class="section" id="using-qinputdialog-class">
+<h2>Using QInputDialog Class<a class="headerlink" href="#using-qinputdialog-class" title="Permalink to this headline">¶</a></h2>
+<p>In the next example we will learn about using the QInputDialog class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New QApp {
+
+        Win1 = New QWidget () {
+
+                SetGeometry(100,100,400,400)
+                SetWindowTitle(&quot;Input Dialog&quot;)
+
+                New QPushButton(win1)
+                {
+
+                        SetText (&quot;Input Dialog&quot;)
+                        SetGeometry(100,100,100,30)
+                        SetClickEvent(&quot;pWork()&quot;)
+                }
+
+                Show()
+        }
+
+        exec()
+}
+
+Func pWork
+        oInput = New QInputDialog(win1)
+        {
+                setwindowtitle(&quot;What is your name?&quot;)
+                setgeometry(100,100,400,50)
+                setlabeltext(&quot;User Name&quot;)
+                settextvalue(&quot;Mahmoud&quot;)
+                lcheck = exec()
+                if lCheck win1.setwindowtitle(oInput.textvalue()) ok
+        }
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="QInputDialog" src="_images/ringqt_shot41.jpg" />
+</div>
+<div class="section" id="keypress-and-mouse-move-events">
+<h2>KeyPress and Mouse Move Events<a class="headerlink" href="#keypress-and-mouse-move-events" title="Permalink to this headline">¶</a></h2>
+<p>In this example we will learn how to use the Events Filter to know about KeyPress and Mouse Move
+Events</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+new qApp {
+
+        win1 = new qWidget()
+        {
+                setWindowTitle(&quot;Test using Event Filter!&quot;)
+                setGeometry(100,100,400,400)
+                setmousetracking(true)
+                myfilter = new qallevents(win1)
+                myfilter.setKeyPressEvent(&quot;pWork()&quot;)
+                myfilter.setMouseButtonPressevent(&quot;pClick()&quot;)
+                myfilter.setmousemoveevent(&quot;pMove()&quot;)
+
+                installeventfilter(myfilter)
+
+                show()
+        }
+
+        exec()
+}
+
+func pWork
+        win1.setwindowtitle(&#39;KeyPress! : &#39; + myfilter.getkeycode())
+
+func pClick
+        new qmessagebox(win1) {
+                setgeometry(100,100,400,100)
+                setwindowtitle(&quot;click event!&quot;)
+                settext(&quot;x : &quot; + myfilter.getx() +
+                        &quot; y : &quot; + myfilter.gety() + &quot; button : &quot; +
+                         myfilter.getbutton() )
+                show()
+        }
+
+func pMove
+        win1.setwindowtitle(&quot;Mouse Move , X : &quot; + myfilter.getx() +
+                            &quot; Y : &quot; + myfilter.gety() )
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="KeyPress and Mouse Move Events" src="_images/ringqt_shot42.jpg" />
+</div>
+<div class="section" id="moving-objects-using-the-mouse">
+<h2>Moving Objects using the Mouse<a class="headerlink" href="#moving-objects-using-the-mouse" title="Permalink to this headline">¶</a></h2>
+<p>In the next example we will learn how to program movable objects where the user can move a label</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+lPress = false
+nX = 0
+nY = 0
+
+new qApp {
+
+        win1 = new qWidget()
+        {
+
+                setWindowTitle(&quot;Move this label!&quot;)
+                setGeometry(100,100,400,400)
+                setstylesheet(&quot;background-color:white;&quot;)
+
+                Label1 = new qLabel(Win1){
+                        setGeometry(100,100,200,50)
+                        setText(&quot;Welcome&quot;)
+                        setstylesheet(&quot;font-size: 30pt&quot;)
+                        myfilter = new qallevents(label1)
+                        myfilter.setEnterevent(&quot;pEnter()&quot;)
+                        myfilter.setLeaveevent(&quot;pLeave()&quot;)
+                        myfilter.setMouseButtonPressEvent(&quot;pPress()&quot;)
+                        myfilter.setMouseButtonReleaseEvent(&quot;pRelease()&quot;)                                                               myfilter.setMouseMoveEvent(&quot;pMove()&quot;)
+                        installeventfilter(myfilter)
+                }
+
+                show()
+        }
+
+        exec()
+}
+
+Func pEnter
+        Label1.setStyleSheet(&quot;background-color: purple; color:white;font-size: 30pt;&quot;)
+
+Func pLeave
+        Label1.setStyleSheet(&quot;background-color: white; color:black;font-size: 30pt;&quot;)
+
+Func pPress
+        lPress = True
+        nX = myfilter.getglobalx()
+        ny = myfilter.getglobaly()
+
+Func pRelease
+        lPress = False
+        pEnter()
+
+Func pMove
+        nX2 = myfilter.getglobalx()
+        ny2 = myfilter.getglobaly()
+        ndiffx = nX2 - nX
+        ndiffy = nY2 - nY
+        if lPress
+                Label1 {
+                        move(x()+ndiffx,y()+ndiffy)
+                        setStyleSheet(&quot;background-color: Green;
+                                 color:white;font-size: 30pt;&quot;)
+                        nX = nX2
+                        ny = nY2
+                }
+
+        ok
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="Moving object using the mouse" src="_images/ringqt_shot43.jpg" />
+<img alt="Moving object using the mouse" src="_images/ringqt_shot44.jpg" />
+<img alt="Moving object using the mouse" src="_images/ringqt_shot45.jpg" />
+</div>
+<div class="section" id="inheritance-from-gui-classes">
+<h2>Inheritance from GUI Classes<a class="headerlink" href="#inheritance-from-gui-classes" title="Permalink to this headline">¶</a></h2>
+<p>Example :</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New MyWindow()
+
+new qApp { exec() }
+
+class mywindow from qwidget
+        Func init
+                super.init()
+                setwindowtitle(&quot;First Window&quot;)
+                setgeometry(100,100,400,400)
+                setstylesheet(&quot;background-color: purple;&quot;)
+                settooltip(&quot;my first window!&quot;)
+                show()
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="Inheritance from GUI Classes" src="_images/ringqt_shot46.jpg" />
+</div>
+<div class="section" id="using-qdesktopwidget-class">
+<h2>Using QDesktopWidget Class<a class="headerlink" href="#using-qdesktopwidget-class" title="Permalink to this headline">¶</a></h2>
+<p>In the next example we will learn about using the QDesktopWidget class</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+New qApp {
+        win1 = New qWidget()
+        {
+                resize(400,400)
+                btn1 = new qPushbutton(win1)
+                {
+                        setText(&quot;Center&quot;)
+                        move(100,100)
+                        resize(100,30)
+                        setClickEvent(&quot;pCenter()&quot;)
+                }
+
+                Show()
+        }
+
+        exec()
+}
+
+Func pCenter
+        oDesktop  = new qDesktopWidget()
+        oRect = oDesktop.screenGeometry( oDesktop.primaryScreen()  )
+        win1.move((oRect.width()-win1.width()) /2 , (oRect.Height()-win1.Height())/2 )
+        win1.show()
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="Using QDesktopWidget Class" src="_images/ringqt_shot47.jpg" />
+</div>
+<div class="section" id="simple-client-and-server-example">
+<h2>Simple Client and Server Example<a class="headerlink" href="#simple-client-and-server-example" title="Permalink to this headline">¶</a></h2>
+<p>In this section we will learn about creating simple Client and Server Application</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+new qApp {
+        oClient = new Client { client() }
+        oServer = new Server { server() }
+        exec()
+}
+
+Class Client
+
+        win1 lineedit1  cOutput=&quot;&quot;
+        oTcpSocket
+
+        func client
+
+                win1 = new qwidget()
+
+                new qpushbutton(win1) {
+                        setgeometry(50,50,100,30)
+                        settext(&quot;connect&quot;)
+                        setclickevent(&quot;oClient.Connect()&quot;)
+                }
+
+                lineedit1 = new qtextedit(win1) {
+                        setGeometry(150,50,200,300)
+                }
+
+                win1 {
+                        setwindowtitle(&quot;client&quot;)
+                        setgeometry(10,100,400,400)
+                        show()
+                }
+
+        func connect
+                cOutput = &quot;Connect to host 127.0.0.1 port 9999&quot; + nl
+                lineedit1.settext(cOutput)
+                oTcpSocket = new qTcpSocket(win1) {
+                        setconnectedevent(&quot;oClient.pConnected()&quot;)
+                        setreadyreadevent(&quot;oClient.pRead()&quot;)
+                        connecttohost(&quot;127.0.0.1&quot;,9999,3,0)
+                        waitforconnected(5000)
+                }
+
+        func pConnected
+
+                cOutput += &quot;Connected!&quot; + nl
+                lineedit1.settext(cOutput)
+
+        func pRead
+
+                cOutput += &quot;Ready Read!&quot; + nl
+                lineedit1.settext(cOutput)
+                cOutput += oTcpSocket.readall().data() + nl
+                lineedit1.settext(cOutput)
+
+Class Server
+
+        win1 lineedit1
+        oTcpServer oTcpClient
+        cOutput = &quot;&quot;
+
+        func server
+
+                win1 = new qwidget()
+
+                lineedit1 = new qtextedit(win1) {
+                        setGeometry(150,50,200,300)
+                }
+
+                win1 {
+                        setwindowtitle(&quot;Server&quot;)
+                        setgeometry(450,100,400,400)
+                        show()
+                }
+
+                oTcpServer = new qTcpServer(win1) {
+                        setNewConnectionEvent(&quot;oServer.pNewConnection()&quot;)
+                        oHostAddress = new qHostAddress()
+                        oHostAddress.SetAddress(&quot;127.0.0.1&quot;)
+                        listen(oHostAddress,9999)
+                }
+                cOutput = &quot;Server Started&quot; + nl +
+                           &quot;listen to port 9999&quot; + nl
+
+                lineedit1.settext(cOutput)
+
+        Func pNewConnection
+
+                oTcpClient = oTcpServer.nextPendingConnection()
+                cOutput += &quot;Accept Connection&quot; + nl
+                lineedit1.settext(cOutput)
+                oTcpClient {
+                        cStr =&quot;Hello from server to client!&quot;+char(13)+char(10)
+                        write(cStr,len(cStr))
+                        flush()
+                        waitforbyteswritten(300000)
+                        close()
+                }
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="Client and Server Example" src="_images/ringqt_shot36.jpg" />
+</div>
+<div class="section" id="notepad-application">
+<span id="index-1"></span><h2>Notepad Application<a class="headerlink" href="#notepad-application" title="Permalink to this headline">¶</a></h2>
+<p>In the next example we will see simple Notepad developed using the RingQt</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+cActiveFileName = &quot;&quot;
+aTextColor = [0,0,0]
+aBackColor = [255,255,255]
+cFont = &quot;MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0&quot;
+cWebsite = &quot;http://www.google.com&quot;
+
+oSearch = NULL
+oSearchValue = NULL
+oSearchCase = NULL
+oSearchFilter = NULL
+oReplaceValue = NULL
+
+lAskToSave = false
+
+MyApp = New qApp {
+        win1 = new qMainWindow() {
+
+                setwindowtitle(&quot;Ring Notepad&quot;)
+                setGeometry(100,100,400,400)
+                aBtns = [
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/new.png&quot;)
+                                        setclickevent(&quot;pNew()&quot;)
+                                        settooltip(&quot;New File&quot;)
+                                } ,
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/open.png&quot;)
+                                        setclickevent(&quot;pOpen()&quot;)
+                                        settooltip(&quot;Open File&quot;)
+                                } ,
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/save.png&quot;)
+                                        setclickevent(&quot;pSave()&quot;)
+                                        settooltip(&quot;Save&quot;)
+                                 } ,
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/saveas.png&quot;)
+                                        setclickevent(&quot;pSaveAs()&quot;)
+                                        settooltip(&quot;Save As&quot;)
+                                 } ,
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/cut.png&quot;)
+                                        setclickevent(&quot;pCut()&quot;)
+                                        settooltip(&quot;Cut&quot;)
+                                 } ,
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/copy.png&quot;)
+                                        setclickevent(&quot;pCopy()&quot;)
+                                        settooltip(&quot;Copy&quot;)
+                                } ,
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/paste.png&quot;)
+                                        setclickevent(&quot;pPaste()&quot;)
+                                        settooltip(&quot;Paste&quot;)
+                                } ,
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/font.png&quot;)
+                                        setclickevent(&quot;pFont()&quot;)
+                                        settooltip(&quot;Font&quot;)
+                                } ,
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/colors.jpg&quot;)
+                                        setclickevent(&quot;pColor()&quot;)
+                                        settooltip(&quot;Text Color&quot;)
+                                } ,
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/search.png&quot;)
+                                        setclickevent(&quot;pFind()&quot;)
+                                        settooltip(&quot;Find and Replace&quot;)
+                                } ,
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/print.png&quot;)
+                                        setclickevent(&quot;pPrint()&quot;)
+                                        settooltip(&quot;Print&quot;)
+                                } ,
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/debug.png&quot;)
+                                        setclickevent(&quot;pDebug()&quot;)
+                                        settooltip(&quot;Debug (Run then wait!)&quot;)
+                                } ,
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/run.png&quot;)
+                                        setclickevent(&quot;pRun()&quot;)
+                                        settooltip(&quot;Run the program&quot;)
+                                } ,
+                                new qpushbutton(win1) {
+                                        setbtnimage(self,&quot;image/close.png&quot;)
+                                        setclickevent(&quot;pQuit()&quot;)
+                                        settooltip(&quot;Quit&quot;)
+                                }
+                        ]
+
+                tool1 = addtoolbar(&quot;files&quot;)  {
+                        for x in aBtns addwidget(x) addseparator() next
+                }
+
+                menu1 = new qmenubar(win1) {
+                        sub1 = addmenu(&quot;File&quot;)
+                        sub2 = addmenu(&quot;Edit&quot;)
+                        sub3 = addmenu(&quot;View&quot;)
+                        sub4 = addmenu(&quot;Help&quot;)
+                        sub1 {
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+n&quot;))
+                                        setbtnimage(self,&quot;image/new.png&quot;)
+                                        settext(&quot;New&quot;)
+                                        setclickevent(&quot;pNew()&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+o&quot;))
+                                        setbtnimage(self,&quot;image/open.png&quot;)
+                                        settext(&quot;Open&quot;)
+                                        setclickevent(&quot;pOpen()&quot;)
+                                }
+                                addaction(oAction)
+                                addseparator()
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+s&quot;))
+                                        setbtnimage(self,&quot;image/save.png&quot;)
+                                        settext(&quot;Save&quot;)
+                                        setclickevent(&quot;pSave()&quot;)
+                                }
+                                addaction(oAction)
+                                addseparator()
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+e&quot;))
+                                        setbtnimage(self,&quot;image/saveas.png&quot;)
+                                        settext(&quot;Save As&quot;)
+                                        setclickevent(&quot;pSaveAs()&quot;)
+                                }
+                                addaction(oAction)
+                                addseparator()
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+p&quot;))
+                                        setbtnimage(self,&quot;image/print.png&quot;)
+                                        settext(&quot;Print to PDF&quot;)
+                                        setclickevent(&quot;pPrint()&quot;)
+                                }
+                                addaction(oAction)
+                                addseparator()
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+d&quot;))
+                                        setbtnimage(self,&quot;image/debug.png&quot;)
+                                        settext(&quot;Debug (Run then wait!)&quot;)
+                                        setclickevent(&quot;pDebug()&quot;)
+                                }
+                                addaction(oAction)
+                                addseparator()
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+r&quot;))
+                                        setbtnimage(self,&quot;image/run.png&quot;)
+                                        settext(&quot;Run&quot;)
+                                        setclickevent(&quot;pRun()&quot;)
+                                }
+                                addaction(oAction)
+                                addseparator()
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+F5&quot;))
+                                        setbtnimage(self,&quot;image/run.png&quot;)
+                                        settext(&quot;Run GUI Application (No Console)&quot;)
+                                        setclickevent(&quot;pRunNoConsole()&quot;)
+                                }
+                                addaction(oAction)
+                                addseparator()
+                                oAction = new qaction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+q&quot;))
+                                        setbtnimage(self,&quot;image/close.png&quot;)
+                                        settext(&quot;Exit&quot;)
+                                        setstatustip(&quot;Exit&quot;)
+                                        setclickevent(&quot;pQuit()&quot;)
+                                }
+                                addaction(oAction)
+                        }
+                        sub2 {
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+x&quot;))
+                                        setbtnimage(self,&quot;image/cut.png&quot;)
+                                        settext(&quot;Cut&quot;)
+                                        setclickevent(&quot;pCut()&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+c&quot;))
+                                        setbtnimage(self,&quot;image/copy.png&quot;)
+                                        settext(&quot;Copy&quot;)
+                                        setclickevent(&quot;pCopy()&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+v&quot;))
+                                        setbtnimage(self,&quot;image/paste.png&quot;)
+                                        settext(&quot;Paste&quot;)
+                                        setclickevent(&quot;pPaste()&quot;)
+                                }
+                                addaction(oAction)
+                                addseparator()
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+i&quot;))
+                                        setbtnimage(self,&quot;image/font.png&quot;)
+                                        settext(&quot;Font&quot;)
+                                        setclickevent(&quot;pFont()&quot;)
+                                }
+                                addseparator()
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+t&quot;))
+                                        setbtnimage(self,&quot;image/colors.jpg&quot;)
+                                        settext(&quot;Text Color&quot;)
+                                        setclickevent(&quot;pColor()&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+b&quot;))
+                                        setbtnimage(self,&quot;image/colors.jpg&quot;)
+                                        settext(&quot;Back Color&quot;)
+                                        setclickevent(&quot;pColor2()&quot;)
+                                }
+                                addaction(oAction)
+                                addseparator()
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+g&quot;))
+                                        settext(&quot;Go to line&quot;)
+                                        setclickevent(&quot;pGoto()&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+f&quot;))
+                                        setbtnimage(self,&quot;image/search.png&quot;)
+                                        settext(&quot;Find and Replace&quot;)
+                                        setclickevent(&quot;pFind()&quot;)
+                                }
+                                addaction(oAction)
+                        }
+                        sub3 {
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+p&quot;))
+                                        setbtnimage(self,&quot;image/project.png&quot;)
+                                        settext(&quot;Project Files&quot;)
+                                        setclickevent(&quot;pProject()&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+u&quot;))
+                                        setbtnimage(self,&quot;image/source.png&quot;)
+                                        setclickevent(&quot;pSourceCode()&quot;)
+                                        settext(&quot;Source Code&quot;)
+                                }
+                                addaction(oAction)
+                                oAction = new qAction(win1) {
+                                        setShortcut(new QKeySequence(&quot;Ctrl+w&quot;))
+                                        setbtnimage(self,&quot;image/richtext.png&quot;)
+                                        setclickevent(&quot;pWebBrowser()&quot;)
+                                        settext(&quot;Web Browser&quot;)
+                                }
+                                addaction(oAction)
+                        }
+                        sub4 {
+                                sub5 = addmenu(&quot;Development Tools&quot;)
+                                sub5 {
+
+                                        oAction = new qAction(win1) {
+                                                settext(&quot;Programming Language&quot;)
+                                                setclickevent(&quot;pLang()&quot;)
+                                        }
+                                        addaction(oAction)
+                                        oAction = new qAction(win1) {
+                                                settext(&quot;GUI Library&quot;)
+                                                setclickevent(&quot;pGUI()&quot;)
+                                        }
+                                        addaction(oAction)
+                                }
+                                addseparator()
+                                        oAction = new qAction(win1) {
+                                                settext(&quot;About&quot;)
+                                                setclickevent(&quot;pAbout()&quot;)
+                                        }
+                                        addaction(oAction)
+                        }
+                }
+
+                setmenubar(menu1)
+
+                status1 = new qstatusbar(win1) {
+                        showmessage(&quot;Ready!&quot;,0)
+                }
+
+                setstatusbar(status1)
+
+                tree1 = new qtreeview(win1) {
+                        setclickedevent(&quot;pChangeFile()&quot;)
+                        setGeometry(00,00,200,400)
+                        oDir = new QDir()
+                        ofile = new QFileSystemModel() {
+                                setrootpath(oDir.currentpath())
+                                myfiles = new qstringlist()
+                                myfiles.append(&quot;*.ring&quot;)
+                                myfiles.append(&quot;*.rh&quot;)
+                                setnamefilters(myfiles)
+                                setNameFilterDisables(false)
+                        }
+                        setmodel(ofile)
+                        myindex = ofile.index(oDir.currentpath(),0)
+                        for x = 1 to ofile.columncount()
+                                hidecolumn(x)
+                        next
+                        setcurrentindex(myindex)
+                        setexpanded(myindex,true)
+                        header().hide()
+                }
+
+                oDock1 = new qdockwidget(win1,0) {
+                        setGeometry(00,00,200,200)
+                        setwindowtitle(&quot;Project Files&quot;)
+                        setwidget(tree1)
+                }
+
+                textedit1 = new qtextedit(win1) {
+                        setCursorPositionChangedevent(&quot;pCursorPositionChanged()&quot;)
+                        setLineWrapMode(QTextEdit_NoWrap)
+                        setAcceptRichText(false)
+                        setTextChangedEvent(&quot;lAskToSave = true&quot;)
+                }
+
+
+                oDock2 = new qdockwidget(win1,0) {
+                        setwidget(textedit1)
+                        setwindowtitle(&quot;Source Code&quot;)
+                }
+
+                oWebBrowser = new qWidget() {
+                        setWindowFlags(Qt_SubWindow)
+                        oWBLabel = new qLabel(win1) {
+                                setText(&quot;Website: &quot;)
+                        }
+                        oWBText = new qLineEdit(win1) {
+                                setText(cWebSite)
+                                setReturnPressedEvent(&quot;pWebGo()&quot;)
+                        }
+                        oWBGo = new qPushButton(win1) {
+                                setText(&quot;Go&quot;)
+                                setClickEvent(&quot;pWebGo()&quot;)
+                        }
+                        oWBBack = new qPushButton(win1) {
+                                setText(&quot;Back&quot;)
+                                setClickEvent(&quot;pWebBack()&quot;)
+                        }
+                        oWBLayout1 = new qHBoxLayout(win1) {
+                                addWidget(oWBLabel)
+                                addWidget(oWBText)
+                                addWidget(oWBGo)
+                                addWidget(oWBBack)
+                        }
+                        oWebView = new qWebView(win1) {
+                                loadpage(new qurl(cWebSite))
+                        }
+                        oWBlayout2 = new qVBoxLayout(win1) {
+                                addLayout(oWBLayout1)
+                                addWidget(oWebView)
+                        }
+                        setLayout(oWBLayout2)
+                }
+
+                oDock3 = new qdockwidget(win1,0) {
+                        setwidget(oWebBrowser)
+                        setwindowtitle(&quot;Web Browser&quot;)
+                        setFeatures(QDockWidget_DocWidgetClosable)
+                }
+
+                adddockwidget(1,oDock1,1)
+                adddockwidget(2,oDock2,2)
+                adddockwidget(2,oDock3,1)
+
+                setwinicon(self,&quot;image/notepad.png&quot;)
+
+                showmaximized()
+        }
+        RestoreSettings()
+        exec()
+}
+
+func pWebGo
+        cWebsite = oWBText.text()
+        oWebView.LoadPage( new qurl( cWebSite ) )
+
+func pWebBack
+        oWebView.Back()
+
+func pProject
+        oDock1.Show()
+
+func pSourceCode
+        oDock2.Show()
+
+func pWebBrowser
+        oDock3.Show()
+
+func pChangeFile
+        myitem = tree1.currentindex()
+        if ofile.isdir(myitem)
+                return
+        ok
+        cActiveFileName = ofile.filepath(myitem)
+        textedit1.settext(read(cActiveFileName))
+        textedit1.setfocus(0)
+        pCursorPositionChanged()
+        pSetActiveFileName()
+
+func pSetActiveFileName
+        oDock2.setWindowTitle(&quot;Source Code : &quot; + cActiveFileName)
+
+func pCursorPositionChanged
+        status1.showmessage(&quot; Line : &quot;+(textedit1.textcursor().blocknumber()+1)+
+                        &quot; Column : &quot; +(textedit1.textcursor().columnnumber()+1) +
+                        &quot; Total Lines : &quot; + textedit1.document().linecount() ,0)
+
+func pGoto
+        oInput = New QInputDialog(win1)
+        {
+                setwindowtitle(&quot;Enter the line number?&quot;)
+                setgeometry(100,100,400,50)
+                setlabeltext(&quot;Line&quot;)
+                settextvalue(&quot;1&quot;)
+                exec()
+                nLine = 0 + oInput.textvalue()
+                oBlock = textedit1.document().findBlockByLineNumber(nLine-1)
+                oCursor = textedit1.textcursor()
+                oCursor.setposition(oBlock.position(),0)
+                textedit1.settextcursor(oCursor)
+        }
+
+func pFind
+        if isobject(oSearch)
+                oSearch.activatewindow()
+                return
+        ok
+        oSearch = new qWidget()
+        {
+                new qLabel(oSearch)
+                {
+                        setText(&quot;Find What : &quot;)
+                        setgeometry(10,10,50,30)
+                }
+                oSearchValue = new qlineedit(oSearch)
+                {
+                        setgeometry(80,10,460,30)
+                        setReturnPressedEvent(&quot;pFindValue()&quot;)
+                }
+                new qLabel(oSearch)
+                {
+                        setText(&quot;Replace with &quot;)
+                        setgeometry(10,45,80,30)
+                }
+                oReplaceValue = new qlineedit(oSearch)
+                {
+                        setgeometry(80,45,460,30)
+                }
+                oSearchCase = new qCheckbox(oSearch)
+                {
+                        setText(&quot;Case Sensitive&quot;)
+                        setgeometry(80,85,100,30)
+                }
+                new qPushButton(oSearch)
+                {
+                        setText(&quot;Find/Find Next&quot;)
+                        setgeometry(80,120,100,30)
+                        setclickevent(&quot;pFindValue()&quot;)
+                }
+                new qPushButton(oSearch)
+                {
+                        setText(&quot;Replace&quot;)
+                        setgeometry(200,120,100,30)
+                        setclickevent(&quot;pReplace()&quot;)
+                }
+                new qPushButton(oSearch)
+                {
+                        setText(&quot;Replace All&quot;)
+                        setgeometry(320,120,100,30)
+                        setclickevent(&quot;pReplaceAll()&quot;)
+                }
+                new qPushButton(oSearch)
+                {
+                        setText(&quot;Close&quot;)
+                        setgeometry(440,120,100,30)
+                        setclickevent(&quot;pSearchClose()&quot;)
+                }
+
+                setwinicon(oSearch,&quot;image/notepad.png&quot;)
+                setWindowTitle(&quot;Find/Replace&quot;)
+                setStyleSheet(&quot;background-color:white;&quot;)
+                setFixedsize(550,160)
+                setwindowflags( Qt_CustomizeWindowHint |
+                                Qt_WindowTitleHint | Qt_WindowStaysOnTopHint)
+
+                oSearchFilter = new qallevents(oSearch)
+                oSearchFilter.setKeyPressEvent(&quot;pSearchKeyPress()&quot;)
+                installeventfilter(oSearchFilter)
+
+                show()
+        }
+
+Func pReplace
+        oCursor = textedit1.textCursor()
+        if oCursor.HasSelection() = false
+                new qMessagebox(oSearch)
+                {
+                        SetWindowTitle(&quot;Replace&quot;)
+                        SetText(&quot;No Selection&quot;)
+                        show()
+                }
+                return false
+        ok
+        cValue = oSearchValue.text()
+        cSelected = oCursor.SelectedText()
+        if oSearchCase.checkState() = Qt_Unchecked
+                cValue = lower(cValue)
+                cSelected = lower(cSelected)
+        ok
+        if cSelected != cValue
+                new qMessagebox(oSearch)
+                {
+                        SetWindowTitle(&quot;Replace&quot;)
+                        SetText(&quot;No Match&quot;)
+                        show()
+                }
+                return false
+        ok
+        cValue = oReplaceValue.text()
+        nStart = oCursor.SelectionStart()
+        nEnd = oCursor.SelectionEnd()
+        cStr = textedit1.toPlainText()
+        cStr = left(cStr,nStart)+cValue+substr(cStr,nEnd+1)
+        textedit1.setText(cStr)
+        return pFindValue()
+
+Func pReplaceAll
+        cStr = textedit1.toPlainText()
+        cOldValue = oSearchValue.text()
+        cNewValue = oReplaceValue.text()
+        if oSearchCase.checkState() = Qt_Unchecked
+                # Not Case Sensitive
+                cStr = SubStr(cStr,cOldValue,cNewValue,true)
+        else
+                # Case Sensitive
+                cStr = SubStr(cStr,cOldValue,cNewValue)
+        ok
+        textedit1.setText(cStr)
+        new qMessagebox(oSearch)
+        {
+                SetWindowTitle(&quot;Replace All&quot;)
+                SetText(&quot;Operation Done&quot;)
+                show()
+        }
+
+Func pSearchClose
+        oSearch.close()
+        oSearch = NULL
+
+func pSearchKeyPress
+        if oSearchFilter.getKeyCode() = Qt_Key_Escape
+                pSearchClose()
+        ok
+
+func pFindValue
+        oCursor = textedit1.textcursor()
+        nPosStart = oCursor.Position() + 1
+        cValue = oSearchValue.text()
+        cStr = textedit1.toplaintext()
+        cStr = substr(cStr,nPosStart)
+        if oSearchCase.checkState() = Qt_Unchecked
+                cStr = lower(cStr)  cValue = lower(cValue)
+        ok
+        nPos = substr(cStr,cValue)
+        if nPos &gt; 0
+                nPos += nPosStart - 2
+                oCursor = textedit1.textcursor()
+                oCursor.setposition(nPos,0)
+                textedit1.settextcursor(oCursor)
+                oCursor = textedit1.textcursor()
+                oCursor.setposition(nPos+len(cValue),1)
+                textedit1.settextcursor(oCursor)
+                return true
+        else
+                new qMessagebox(oSearch)
+                {
+                        SetWindowTitle(&quot;Search&quot;)
+                        SetText(&quot;Cannot find :&quot; + cValue)
+                        show()
+                }
+                return false
+        ok
+
+func pNofileopened
+        New qMessageBox(win1) {
+                setWindowTitle(&quot;Sorry&quot;)
+                setText(&quot;Save the file first!&quot;)
+                show()
+        }
+
+func pDebug
+        if cActiveFileName = Null return pNofileopened() ok
+        cCode = &quot;start run &quot; + cActiveFileName + nl
+        system(cCode)
+
+func pRun
+        if cActiveFileName = Null return pNofileopened() ok
+        cCode = &quot;start ring &quot; + cActiveFileName + nl
+        system(cCode)
+
+func pRunNoConsole
+        if cActiveFileName = Null return pNofileopened() ok
+        cCode = &quot;start /b ring &quot; + cActiveFileName + nl
+        system(cCode)
+
+func pSave
+        if cActiveFileName = NULL return pSaveAs() ok
+        writefile(cActiveFileName,textedit1.toplaintext())
+        status1.showmessage(&quot;File : &quot; + cActiveFileName + &quot; saved!&quot;,0)
+        lAskToSave = false
+
+func pSaveAs
+        new qfiledialog(win1) {
+                cName = getsavefilename(win1,&quot;Save As&quot;,&quot;&quot;,&quot;source files(*.ring)&quot;)
+                if cName != NULL
+                        cActiveFileName = cName
+                        writefile(cActiveFileName,textedit1.toplaintext())
+                        status1.showmessage(&quot;File : &quot; + cActiveFileName + &quot; saved!&quot;,0)
+                        pSetActiveFileName()
+                        lAskToSave = false
+                ok
+        }
+
+func pPrint
+        status1.showmessage(&quot;Printing to File : RingDoc.pdf&quot;,0)
+        printer1 = new qPrinter(0) {
+                setoutputformat(1)      # 1 = pdf
+                setoutputfilename(&quot;RingDoc.pdf&quot;)
+                textedit1.print(printer1)
+        }
+        status1.showmessage(&quot;Done!&quot;,0)
+        system(&quot;RingDoc.pdf&quot;)
+
+func pCut
+        textedit1.cut()
+        status1.showmessage(&quot;Cut!&quot;,0)
+
+func pCopy
+        textedit1.copy()
+        status1.showmessage(&quot;Copy!&quot;,0)
+
+func pPaste
+        textedit1.paste()
+        status1.showmessage(&quot;Paste!&quot;,0)
+
+func pFont
+        oFontDialog = new qfontdialog(win1) {
+                aFont = getfont()
+        }
+        textedit1.selectall()
+        cFont = aFont[1]
+        pSetFont()
+
+Func pSetFont
+        myfont = new qfont(&quot;&quot;,0,0,0)
+        myfont.fromstring(cFont)
+        textedit1.setcurrentfont(myfont)
+
+Func pColor
+        new qcolordialog() { aTextColor = GetColor() }
+        pSetColors()
+
+Func pColor2
+        new qcolordialog() { aBackColor = GetColor() }
+        pSetColors()
+
+Func pSetColors
+        textedit1.setstylesheet(&quot;color: rgb(&quot; + aTextColor[1] + &quot;,&quot; + aTextColor[2] +
+                                &quot;,&quot; + aTextColor[3] + &quot;);&quot; + &quot;background-color: rgb(&quot; +
+                                aBackColor[1] + &quot;,&quot; + aBackColor[2] + &quot;,&quot; +
+                                aBackColor[3] + &quot;)&quot;)
+
+func pOpen
+        new qfiledialog(win1) {
+                cName = getopenfilename(win1,&quot;open file&quot;,&quot;c:\&quot;,&quot;source files(*.ring)&quot;)
+                if cName != NULL
+                        cActiveFileName = cName
+                        textedit1.settext(read(cActiveFileName))
+                ok
+        }
+
+func pNew
+        new qfiledialog(win1) {
+                cName = getsavefilename(win1,&quot;New file&quot;,&quot;&quot;,&quot;source files(*.ring)&quot;)
+                if cName != NULL
+                        write(cName,&quot;&quot;)
+                        cActiveFileName = cName
+                        textedit1.settext(read(cActiveFileName))
+
+                ok
+        }
+
+Func WriteFile cFileName,cCode
+        aCode = str2list(cCode)
+        fp = fopen(cFileName,&quot;wb&quot;)
+        for cLine in aCode
+                fwrite(fp,cLine+char(13)+char(10))
+        next
+        fclose(fp)
+
+Func MsgBox cTitle,cMessage
+        new qMessagebox(win1) {
+                setwindowtitle(cTitle)
+                setText(cMessage)
+                show()
+        }
+
+
+Func pLang
+        MsgBox(&quot;Programming Language&quot;,
+                &quot;This application developed using the Ring programming language&quot;)
+
+Func pGUI
+        MsgBox(&quot;GUI Library&quot;,
+                &quot;This application uses the Qt GUI Library through RingQt&quot;)
+
+Func pAbout
+        MsgBox(&quot;About&quot;,
+                &quot;2016, Mahmoud Fayed &lt;msfclipper@yahoo.com&gt;&quot;)
+
+Func pSaveSettings
+        cSettings = &quot;aTextColor = [&quot;+aTextColor[1]+&quot;,&quot;+aTextColor[2]+
+                        &quot;,&quot;+aTextColor[3]+&quot;]&quot; + nl +
+                        &quot;aBackColor = [&quot;+aBackColor[1]+&quot;,&quot;+aBackColor[2]+
+                        &quot;,&quot;+aBackColor[3]+&quot;]&quot; + nl +
+                        &quot;cFont = &#39;&quot; + cFont + &quot;&#39;&quot; + nl +
+                        &quot;cWebSite = &#39;&quot; + cWebsite + &quot;&#39;&quot; + nl
+        cSettings = substr(cSettings,nl,char(13)+char(10))
+        write(&quot;ringnotepad.ini&quot;,cSettings)
+        if lAsktoSave
+                new qmessagebox(win1)
+                {
+                        setwindowtitle(&quot;Save Changes?&quot;)
+                        settext(&quot;Some changes are not saved!&quot;)
+                        setInformativeText(&quot;Do you want to save your changes?&quot;)
+                        setstandardbuttons(QMessageBox_Yes |
+                                           QMessageBox_No | QMessageBox_Cancel)
+                        result = exec()
+                        win1 {
+                        if result = QMessageBox_Yes
+                                pSave()
+                        but result = QMessageBox_Cancel
+                                return false
+                        ok
+                }
+        }
+        ok
+        return true
+
+Func pSetWebsite
+        oWebView { loadpage(new qurl(cWebSite)) }
+        oWBText  { setText(cWebSite) }
+
+Func RestoreSettings
+        eval(read(&quot;ringnotepad.ini&quot;))
+        pSetColors()
+        pSetFont()
+        pSetWebsite()
+
+Func pQuit
+        if pSaveSettings()
+                myapp.quit()
+        ok
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<p>The next screen shot demonstrates the &#8220;File&#8221; menu</p>
+<img alt="Ring Notepad - File Menu" src="_images/ringqt_shot50.jpg" />
+<p>The next window for &#8220;search and replace&#8221;</p>
+<img alt="Ring Notepad - Search and replace" src="_images/ringqt_shot51.jpg" />
+<p>The next screen shot demonstrates the application main window</p>
+<img alt="Ring Notepad - The Main Window" src="_images/ringqt_shot49.jpg" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">the functions pDebug(), pRun() and pRunNoConsole() in the previous sample are not portable!
+They are written in this sample for MS-Windows and we can update them for other operating systems.</p>
+</div>
+</div>
+<div class="section" id="the-cards-game">
+<span id="index-2"></span><h2>The Cards Game<a class="headerlink" href="#the-cards-game" title="Permalink to this headline">¶</a></h2>
+<p>In the next example we will see a simple Cards game developed using RingQt</p>
+<p>Each player get 5 cards, the cards are unknown to any one. each time one player click on one card
+to see it. if the card is identical to another card the play get point for each card.
+if the card value is &#8220;5&#8221; the player get points for all visible cards.</p>
+<div class="highlight-none"><div class="highlight"><pre>Load &quot;guilib.ring&quot;
+
+nScale = 1
+
+app1 = new qApp
+
+mypic = new QPixmap(&quot;cards.jpg&quot;)
+
+mypic2 = mypic.copy(0,(124*4)+1,79,124)
+Player1EatPic = mypic.copy(80,(124*4)+1,79,124)
+Player2EatPic= mypic.copy(160,(124*4)+1,79,124)
+
+aMyCards = []
+aMyValues = []
+for x1 = 0 to 3
+        for y1 = 0 to 12
+          temppic = mypic.copy((79*y1)+1,(124*x1)+1,79,124)
+                  aMyCards + temppic
+                  aMyValues + (y1+1)
+        next
+next
+
+nPlayer1Score = 0   nPlayer2Score=0
+
+do
+        Page1 = new Game
+        Page1.Start()
+again Page1.lnewgame
+
+mypic.delete()
+mypic2.delete()
+Player1EatPic.delete()
+Player2EatPic.delete()
+
+for t in aMyCards
+          t.delete()
+next
+
+func gui_setbtnpixmap pBtn,pPixmap
+        pBtn {
+                setIcon(new qicon(pPixmap.scaled(width(),height(),0,0)))
+                setIconSize(new QSize(width(),height()))
+        }
+
+Class Game
+
+        nCardsCount = 10
+        win1 layout1 label1 label2 layout2 layout3 aBtns aBtns2
+        aCards nRole=1 aStatus = list(nCardsCount) aStatus2 = aStatus
+        aValues        aStatusValues = aStatus  aStatusValues2 = aStatus
+        Player1EatPic   Player2EatPic
+        lnewgame = false
+        nDelayEat = 0.5
+        nDelayNewGame = 1
+
+        func start
+
+                win1 = new qWidget() {
+                        setwindowtitle(&quot;Five&quot;)
+                        setstylesheet(&quot;background-color: White&quot;)
+                        showfullscreen()
+                }
+
+                layout1 = new qvboxlayout()
+
+                label1 = new qlabel(win1) {
+                        settext(&quot;Player (1) - Score : &quot; + nPlayer1Score)
+                        setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                        setstylesheet(&quot;color: White; background-color: Purple;
+                                         font-size:20pt&quot;)
+                        setfixedheight(200)
+                }
+
+                closebtn = new qpushbutton(win1)  {
+                        settext(&quot;Close Application&quot;)
+                        setstylesheet(&quot;font-size: 18px ; color : white ;
+                                         background-color: black ;&quot;)
+                        setclickevent(&quot;Page1.win1.close()&quot;)
+                }
+
+                aCards = aMyCards
+                aValues = aMyValues
+
+                layout2 = new qhboxlayout()
+
+                aBtns = []
+
+                for x = 1 to nCardsCount
+                        aBtns + new qpushbutton(win1)
+                        aBtns[x].setfixedwidth(79*nScale)
+                        aBtns[x].setfixedheight(124*nScale)
+                        gui_setbtnpixmap(aBtns[x],mypic2)
+                        layout2.addwidget(aBtns[x])
+                        aBtns[x].setclickevent(&quot;Page1.Player1click(&quot;+x+&quot;)&quot;)
+                next
+
+                layout1.addwidget(label1)
+                layout1.addlayout(layout2)
+
+                label2 = new qlabel(win1) {
+                        settext(&quot;Player (2) - Score : &quot; + nPlayer2Score)
+                        setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+                        setstylesheet(&quot;color: white; background-color: red;
+                                         font-size:20pt&quot;)
+                        setfixedheight(200)
+                }
+
+                layout3 = new qhboxlayout()
+
+                aBtns2 = []
+                for x = 1 to nCardsCount
+                        aBtns2 + new qpushbutton(win1)
+                        aBtns2[x].setfixedwidth(79*nScale)
+                        aBtns2[x].setfixedheight(124*nScale)
+                        gui_setbtnpixmap(aBtns2[x],mypic2)
+                        layout3.addwidget(aBtns2[x])
+                        aBtns2[x].setclickevent(&quot;Page1.Player2click(&quot;+x+&quot;)&quot;)
+                next
+
+                layout1.addwidget(label2)
+                layout1.addlayout(layout3)
+                layout1.addwidget(closebtn)
+
+                win1.setlayout(layout1)
+
+                app1.exec()
+
+        Func Player1Click x
+                if nRole = 1 and aStatus[x] = 0
+                        nPos = ((random(100)+clock())%(len(aCards)-1)) + 1
+                        gui_setbtnpixmap(aBtns[x],aCards[nPos])
+                        del(aCards,nPos)
+                        nRole = 2
+                        aStatus[x] = 1
+                        aStatusValues[x] = aValues[nPos]
+                        del(aValues,nPos)
+                        Player1Eat(x,aStatusValues[x])
+                        checknewgame()
+                ok
+
+        Func Player2Click x
+                if nRole = 2 and aStatus2[x] = 0
+                        nPos = ((random(100)+clock())%(len(aCards)-1)) + 1
+                        gui_setbtnpixmap(aBtns2[x],aCards[nPos])
+                        del(aCards,nPos)
+                        nRole = 1
+                        aStatus2[x] = 1
+                        aStatusValues2[x] = aValues[nPos]
+                        del(aValues,nPos)
+                        Player2Eat(x,aStatusValues2[x])
+                        checknewgame()
+                ok
+
+        Func Player1Eat nPos,nValue
+
+                 app1.processEvents()
+
+                 delay(nDelayEat)
+                 lEat = false
+                 for x = 1 to nCardsCount
+                         if aStatus2[x] = 1 and (aStatusValues2[x] = nValue or nValue=5)
+                                aStatus2[x] = 2
+                                gui_setbtnpixmap(aBtns2[x],Player1EatPic)
+                                lEat = True
+                                nPlayer1Score++
+                         ok
+                         if (x != nPos) and (aStatus[x] = 1) and
+                                (aStatusValues[x] = nValue or nValue=5)
+                                aStatus[x] = 2
+                                gui_setbtnpixmap(aBtns[x],Player1EatPic)
+                                lEat = True
+                                nPlayer1Score++
+                         ok
+                 next
+                 if lEat
+                                nPlayer1Score++
+                                gui_setbtnpixmap(aBtns[nPos],Player1EatPic)
+                                aStatus[nPos] = 2
+                                label1.settext(&quot;Player (1) - Score : &quot; + nPlayer1Score)
+                 ok
+
+        Func Player2Eat nPos,nValue
+
+                 app1.processEvents()
+
+                 delay(nDelayEat)
+                 lEat = false
+                 for x = 1 to  nCardsCount
+                         if aStatus[x] = 1 and (aStatusValues[x] = nValue or nValue = 5)
+                                aStatus[x] = 2
+                                gui_setbtnpixmap(aBtns[x],Player2EatPic)
+                                lEat = True
+                                nPlayer2Score++
+                         ok
+
+                         if (x != nPos) and (aStatus2[x] = 1) and
+                                (aStatusValues2[x] = nValue or nValue=5 )
+                                aStatus2[x] = 2
+                                gui_setbtnpixmap(aBtns2[x],Player2EatPic)
+                                lEat = True
+                                nPlayer2Score++
+                         ok
+                 next
+                 if lEat
+                                nPlayer2Score++
+                                gui_setbtnpixmap(aBtns2[nPos],Player2EatPic)
+                                aStatus2[nPos] = 2
+                                label2.settext(&quot;Player (2) - Score : &quot; + nPlayer2Score)
+                 ok
+
+        Func checknewgame
+                if isnewgame()
+                                  lnewgame = true
+
+                                  if nPlayer1Score &gt; nPlayer2Score
+                                         label1.settext(&quot;Player (1) Wins!!!&quot;)
+                                  ok
+                                  if nPlayer2Score &gt; nPlayer1Score
+                                         label2.settext(&quot;Player (2) Wins!!!&quot;)
+                                  ok
+
+                                  app1.processEvents()
+                                  delay(nDelayNewGame)
+
+                                  win1.delete()
+                                  app1.quit()
+                ok
+
+        Func isnewgame
+                for t in aStatus
+                        if t = 0
+                                return false
+                        ok
+                next
+                for t in aStatus2
+                        if t = 0
+                                return false
+                        ok
+                next
+                return true
+
+        Func delay x
+        nTime = x * 1000
+        oTest = new qTest
+        oTest.qsleep(nTime)
+</pre></div>
+</div>
+<p>The application during the runtime</p>
+<img alt="The Cards Game" src="_images/ringqt_shot48.jpg" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">in the previous screen shot the player get the card number &#8216;5&#8217; but his score
+is not increased because he opened this card while no other cards are visible!</p>
+</div>
+<p>The next screen shot while running the game using a Mobile (Android)</p>
+<img alt="The Cards Game" src="_images/ringqt_shot52.jpg" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">using Qt we can run the same application on other Mobile systems</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Desktop and Mobile development using RingQt</a><ul>
+<li><a class="reference internal" href="#the-first-gui-application">The First GUI Application</a></li>
+<li><a class="reference internal" href="#using-layout">Using Layout</a></li>
+<li><a class="reference internal" href="#using-the-qtextedit-class">Using the QTextEdit Class</a></li>
+<li><a class="reference internal" href="#using-the-qlistwidget-class">Using the QListWidget Class</a></li>
+<li><a class="reference internal" href="#using-qtreeview-and-qfilesystemmodel">Using QTreeView and QFileSystemModel</a></li>
+<li><a class="reference internal" href="#using-qtreewidget-and-qtreewidgetitem">Using QTreeWidget and QTreeWidgetItem</a></li>
+<li><a class="reference internal" href="#using-qcombobox-class">Using QComboBox Class</a></li>
+<li><a class="reference internal" href="#creating-menubar">Creating Menubar</a></li>
+<li><a class="reference internal" href="#creating-toolbar">Creating Toolbar</a></li>
+<li><a class="reference internal" href="#creating-statusbar">Creating StatusBar</a></li>
+<li><a class="reference internal" href="#using-qdockwidget">Using QDockWidget</a></li>
+<li><a class="reference internal" href="#using-qtabwidget">Using QTabWidget</a></li>
+<li><a class="reference internal" href="#using-qtableview">Using QTableView</a></li>
+<li><a class="reference internal" href="#using-qprogressbar">Using QProgressBar</a></li>
+<li><a class="reference internal" href="#using-qspinbox">Using QSpinBox</a></li>
+<li><a class="reference internal" href="#using-qslider">Using QSlider</a></li>
+<li><a class="reference internal" href="#using-qdateedit">Using QDateEdit</a></li>
+<li><a class="reference internal" href="#using-qdial">Using QDial</a></li>
+<li><a class="reference internal" href="#using-qwebview">Using QWebView</a></li>
+<li><a class="reference internal" href="#using-qcheckbox">Using QCheckBox</a></li>
+<li><a class="reference internal" href="#using-qradiobutton-and-qbuttongroup">Using QRadioButton and QButtonGroup</a></li>
+<li><a class="reference internal" href="#adding-hyperlink-to-qlabel">Adding Hyperlink to QLabel</a></li>
+<li><a class="reference internal" href="#qvideowidget-and-qmediaplayer">QVideoWidget and QMediaPlayer</a></li>
+<li><a class="reference internal" href="#using-qframe">Using QFrame</a></li>
+<li><a class="reference internal" href="#display-image-using-qlabel">Display Image using QLabel</a></li>
+<li><a class="reference internal" href="#menubar-and-stylesheet-example">Menubar and StyleSheet Example</a></li>
+<li><a class="reference internal" href="#qlineedit-events-and-qmessagebox">QLineEdit Events and QMessageBox</a></li>
+<li><a class="reference internal" href="#other-widgets-events">Other Widgets Events</a></li>
+<li><a class="reference internal" href="#using-the-qtimer-class">Using the QTimer Class</a></li>
+<li><a class="reference internal" href="#using-the-qfiledialog-class">Using the QFileDialog Class</a></li>
+<li><a class="reference internal" href="#drawing-using-qpainter">Drawing using QPainter</a></li>
+<li><a class="reference internal" href="#printing-using-qprinter">Printing using QPrinter</a></li>
+<li><a class="reference internal" href="#creating-more-than-one-window">Creating More than one Window</a></li>
+<li><a class="reference internal" href="#playing-sound">Playing Sound</a></li>
+<li><a class="reference internal" href="#using-the-qcolordialog-class">Using the QColorDialog Class</a></li>
+<li><a class="reference internal" href="#using-qlcdnumber-class">Using qLCDNumber Class</a></li>
+<li><a class="reference internal" href="#movable-label-example">Movable Label Example</a></li>
+<li><a class="reference internal" href="#qmessagebox-example">QMessagebox Example</a></li>
+<li><a class="reference internal" href="#using-qinputdialog-class">Using QInputDialog Class</a></li>
+<li><a class="reference internal" href="#keypress-and-mouse-move-events">KeyPress and Mouse Move Events</a></li>
+<li><a class="reference internal" href="#moving-objects-using-the-mouse">Moving Objects using the Mouse</a></li>
+<li><a class="reference internal" href="#inheritance-from-gui-classes">Inheritance from GUI Classes</a></li>
+<li><a class="reference internal" href="#using-qdesktopwidget-class">Using QDesktopWidget Class</a></li>
+<li><a class="reference internal" href="#simple-client-and-server-example">Simple Client and Server Example</a></li>
+<li><a class="reference internal" href="#notepad-application">Notepad Application</a></li>
+<li><a class="reference internal" href="#the-cards-game">The Cards Game</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="allegro.html"
+                        title="previous chapter">Graphics and 2D Games programming using RingAllegro</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="resources.html"
+                        title="next chapter">Resources</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/qt.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="resources.html" title="Resources"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="allegro.html" title="Graphics and 2D Games programming using RingAllegro"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

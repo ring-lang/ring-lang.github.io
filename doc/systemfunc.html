@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>System Functions &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Eval() and Debugging" href="evaldebug.html" />
+    <link rel="prev" title="Files" href="files.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="evaldebug.html" title="Eval() and Debugging"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="files.html" title="Files"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="system-functions">
+<h1>System Functions<a class="headerlink" href="#system-functions" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about the system functions</p>
+<ul class="simple">
+<li>System()</li>
+<li>Get()</li>
+<li>IsMSDOS()</li>
+<li>IsWindows()</li>
+<li>IsWindows64()</li>
+<li>IsUnix()</li>
+<li>IsMacOSX()</li>
+<li>IsLinux()</li>
+<li>IsFreeBSD()</li>
+<li>IsAndroid()</li>
+<li>Windowsnl()</li>
+<li>Get Command Line Arguments</li>
+<li>Get Active Source File Name</li>
+</ul>
+<div class="section" id="system-function">
+<h2>System() Function<a class="headerlink" href="#system-function" title="Permalink to this headline">¶</a></h2>
+<p>We can execute system commands using the system() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>System(cCommand)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>System(&quot;myapp.exe&quot;)     # Run myapp.exe
+System(&quot;ls&quot;)            # print list of files
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-function">
+<h2>Get() Function<a class="headerlink" href="#get-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get environment variables using the Get() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Get(cVariable)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see get(&quot;path&quot;)         # print system path information
+</pre></div>
+</div>
+</div>
+<div class="section" id="ismsdos">
+<h2>IsMSDOS()<a class="headerlink" href="#ismsdos" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is MSDOS or not using the IsMSDOS() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>IsMSDOS() ---&gt; Returns 1 if the operating system is MS-DOS, Returns 0 if it&#39;s not
+</pre></div>
+</div>
+</div>
+<div class="section" id="iswindows">
+<h2>IsWindows()<a class="headerlink" href="#iswindows" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Windows or not using the IsWindows() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>IsWindows() ---&gt; Returns 1 if the operating system is Windows, Returns 0 if it&#39;s not
+</pre></div>
+</div>
+</div>
+<div class="section" id="iswindows64">
+<h2>IsWindows64()<a class="headerlink" href="#iswindows64" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Windows 64bit or not using the IsWindows64() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>IsWindows64() ---&gt; Returns 1 if the operating system is Windows64, Returns 0 if it&#39;s not
+</pre></div>
+</div>
+</div>
+<div class="section" id="isunix">
+<h2>IsUnix()<a class="headerlink" href="#isunix" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Unix or not using the IsUnix() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>IsUnix() ---&gt; Returns 1 if the operating system is Unix, Returns 0 if it&#39;s not
+</pre></div>
+</div>
+</div>
+<div class="section" id="ismacosx">
+<h2>IsMacOSX()<a class="headerlink" href="#ismacosx" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Mac OS X or not using the IsMacOSX() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>IsMacOSX() ---&gt; Returns 1 if the operating system is Mac OS X, Returns 0 if it&#39;s not
+</pre></div>
+</div>
+</div>
+<div class="section" id="islinux">
+<h2>IsLinux()<a class="headerlink" href="#islinux" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Linux or not using the IsLinux() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>IsLinux() ---&gt; Returns 1 if the operating system is Linux, Returns 0 if it&#39;s not
+</pre></div>
+</div>
+</div>
+<div class="section" id="isfreebsd">
+<h2>IsFreeBSD()<a class="headerlink" href="#isfreebsd" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is FreeBSD or not using the IsFreeBSD() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>IsFreeBSD() ---&gt; Returns 1 if the operating system is FreeBSD, Returns 0 if it&#39;s not
+</pre></div>
+</div>
+</div>
+<div class="section" id="isandroid">
+<h2>IsAndroid()<a class="headerlink" href="#isandroid" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Android or not using the IsAndroid() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>IsAndroid() ---&gt; Returns 1 if the operating system is Android, Returns 0 if it&#39;s not
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none"><div class="highlight"><pre>see &quot;IsMSDOS()     --&gt; &quot; + ismsdos()     + nl
+see &quot;IsWindows()   --&gt; &quot; + iswindows()   + nl
+see &quot;IsWindows64() --&gt; &quot; + iswindows64() + nl
+see &quot;IsUnix()      --&gt; &quot; + isunix()      + nl
+see &quot;IsMacOSX()    --&gt; &quot; + ismacosx()    + nl
+see &quot;IsLinux()     --&gt; &quot; + islinux()     + nl
+see &quot;IsFreeBSD()   --&gt; &quot; + isfreebsd()   + nl
+see &quot;IsAndroid()   --&gt; &quot; + isandroid()   + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>IsMSDOS()     --&gt; 0
+IsWindows()   --&gt; 1
+IsWindows64() --&gt; 0
+IsUnix()      --&gt; 0
+IsMacOSX()    --&gt; 0
+IsLinux()     --&gt; 0
+IsFreeBSD()   --&gt; 0
+IsAndroid()   --&gt; 0
+</pre></div>
+</div>
+</div>
+<div class="section" id="windowsnl">
+<h2>Windowsnl()<a class="headerlink" href="#windowsnl" title="Permalink to this headline">¶</a></h2>
+<p>We can get the windows new line string using the Windowsnl() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>WindowsNL() ---&gt; Returns a string contains CR+LF = CHAR(13) + CHAR(10)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>cStr = read(&quot;input.txt&quot;)
+
+if iswindows()
+        cStr = substr(cStr,windowsnl(),nl)
+ok
+
+aList = str2list(cStr)
+# to do - list items processing using &quot;for in&quot;
+cStr = list2str(aList)
+
+if iswindows()
+        cStr = substr(cStr,nl,windowsnl())
+ok
+
+write(&quot;ouput.txt&quot;,cStr)
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-command-line-arguments">
+<h2>Get Command Line Arguments<a class="headerlink" href="#get-command-line-arguments" title="Permalink to this headline">¶</a></h2>
+<p>We can get the command line arguments passed to the ring script using the sysargv variable.</p>
+<p>The sysargv variable is a list contains the command line parameters.</p>
+<p>Example</p>
+<div class="highlight-none"><div class="highlight"><pre>see copy(&quot;=&quot;,30) + nl
+see &quot;Command Line Parameters&quot; + nl
+see &quot;Size : &quot; + len(sysargv) + nl
+see sysargv
+see copy(&quot;=&quot;,30) + nl
+nStart = sysargv[3]
+nEnd = sysargv[4]
+for x = nStart to nEnd
+        see x + nl
+next
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-none"><div class="highlight"><pre>b:\mahmoud\apps\ring&gt;ring tests\syspara.ring 1 10
+==============================
+Command Line Parameters
+Size : 4
+ring
+tests\syspara.ring
+1
+10
+==============================
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-active-source-file-name">
+<h2>Get Active Source File Name<a class="headerlink" href="#get-active-source-file-name" title="Permalink to this headline">¶</a></h2>
+<p>We can get the active source file name (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring) using the filename() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>filename() ---&gt; String contains the active source file name.
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see &quot;Active Source File Name : &quot; + filename() + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>Active Source File Name : tests\filename.ring
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>if sysargv[2] = filename()
+        see &quot;I&#39;m the main program file!&quot; + nl
+        # we can run tests here!
+else
+        see &quot;I&#39;m a sub file in a program&quot; + nl
+ok
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">System Functions</a><ul>
+<li><a class="reference internal" href="#system-function">System() Function</a></li>
+<li><a class="reference internal" href="#get-function">Get() Function</a></li>
+<li><a class="reference internal" href="#ismsdos">IsMSDOS()</a></li>
+<li><a class="reference internal" href="#iswindows">IsWindows()</a></li>
+<li><a class="reference internal" href="#iswindows64">IsWindows64()</a></li>
+<li><a class="reference internal" href="#isunix">IsUnix()</a></li>
+<li><a class="reference internal" href="#ismacosx">IsMacOSX()</a></li>
+<li><a class="reference internal" href="#islinux">IsLinux()</a></li>
+<li><a class="reference internal" href="#isfreebsd">IsFreeBSD()</a></li>
+<li><a class="reference internal" href="#isandroid">IsAndroid()</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#windowsnl">Windowsnl()</a></li>
+<li><a class="reference internal" href="#get-command-line-arguments">Get Command Line Arguments</a></li>
+<li><a class="reference internal" href="#get-active-source-file-name">Get Active Source File Name</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="files.html"
+                        title="previous chapter">Files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="evaldebug.html"
+                        title="next chapter">Eval() and Debugging</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/systemfunc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="evaldebug.html" title="Eval() and Debugging"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="files.html" title="Files"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

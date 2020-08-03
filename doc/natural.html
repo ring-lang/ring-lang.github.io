@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Natural Language Programming &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Functional Programming" href="fp.html" />
+    <link rel="prev" title="Declarative Programming using Nested Structures" href="declarative.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="fp.html" title="Functional Programming"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="declarative.html" title="Declarative Programming using Nested Structures"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="natural-language-programming">
+<h1>Natural Language Programming<a class="headerlink" href="#natural-language-programming" title="Permalink to this headline">¶</a></h1>
+<p>Using the Ring programming language, we can create Natural programming languages based
+on classes and objects.</p>
+<div class="section" id="history">
+<h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
+<p>In 2010, I developed a new programming language called Supernova (developed using PWCT).
+This language uses a code that looks similar to Natural Language statements to create simple GUI applications.
+Now after five years, In the Ring programming language, we can get similar results, but now we have the ability
+to create/use code similar to Natural language statements in any domain that we like or need.</p>
+<p>The Ring programming language comes with the Supernova sprite, but with more generalization and with mix of other languages
+sprites.</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>The next example presents how to create a class that define two instructions</p>
+<p>The first instruction is : I want window</p>
+<p>The second instruction is : Window title = &lt;expr&gt;</p>
+<p>Also keywords that can be ignored like the &#8216;the&#8217; keyword</p>
+<div class="highlight-none"><div class="highlight"><pre>New App
+{
+        I want window
+        The window title = &quot;hello world&quot;
+}
+
+Class App
+
+        func geti
+                if nIwantwindow = 0
+                        nIwantwindow++
+                ok
+
+        func getwant
+                if nIwantwindow = 1
+                        nIwantwindow++
+                ok
+
+        func getwindow
+                if nIwantwindow = 2
+                        nIwantwindow= 0
+                        see &quot;Instruction : I want window&quot; + nl
+                ok
+                if nWindowTitle = 0
+                        nWindowTitle++
+                ok
+
+        func settitle cValue
+                if nWindowTitle = 1
+                        nWindowTitle=0
+                        see &quot;Instruction : Window Title = &quot; + cValue + nl
+                ok
+
+        private
+
+                # Attributes for the instruction I want window
+                        i want window
+                        nIwantwindow = 0
+                # Attributes for the instruction Window title
+                # Here we don&#39;t define the window attribute again
+                        title
+                        nWindowTitle = 0
+                # Keywords to ignore, just give them any value
+                        the=0
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>Instruction : I want window
+Instruction : Window Title = hello world
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Natural Language Programming</a><ul>
+<li><a class="reference internal" href="#history">History</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="declarative.html"
+                        title="previous chapter">Declarative Programming using Nested Structures</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fp.html"
+                        title="next chapter">Functional Programming</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/natural.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="fp.html" title="Functional Programming"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="declarative.html" title="Declarative Programming using Nested Structures"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

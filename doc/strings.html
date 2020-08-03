@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Strings &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Date and Time" href="dateandtime.html" />
+    <link rel="prev" title="Lists" href="lists.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="dateandtime.html" title="Date and Time"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="lists.html" title="Lists"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="strings">
+<h1>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about strings creation and manipulation.</p>
+<div class="section" id="string-literals">
+<h2>String Literals<a class="headerlink" href="#string-literals" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>cStr = &quot;This is a string&quot;
+cStr2 = &#39;Another string&#39;
+cStr3 = :JustAnotherString
+cStr4 = `Yet &quot;another&quot; &#39;string&#39; ! `
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-string-length">
+<h2>Get String Length<a class="headerlink" href="#get-string-length" title="Permalink to this headline">¶</a></h2>
+<p>We can get the string length (letters count inside a string) using the len() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>len(string) ---&gt; string length
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>cStr = &quot;How are you?&quot;
+see cStr + nl
+see &quot;String size : &quot; + len(cStr) + nl
+</pre></div>
+</div>
+</div>
+<div class="section" id="convert-letters-case">
+<h2>Convert Letters Case<a class="headerlink" href="#convert-letters-case" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>lower(string) ---&gt; convert string letters to lower case
+upper(string) ---&gt; convert string letters to UPPER case
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>cStr = &quot;Welcome To The Ring Programming Language&quot;
+see cStr + nl + upper(cStr) + nl + lower(cStr)
+</pre></div>
+</div>
+</div>
+<div class="section" id="access-string-letters">
+<h2>Access String Letters<a class="headerlink" href="#access-string-letters" title="Permalink to this headline">¶</a></h2>
+<p>We can access a letter inside a string by the letter index</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>string[index] ---&gt; get string letter
+string[index] = letter  # set string letter
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># print user name letter by letter (each letter in new line)
+
+See &quot;Hello, Enter your name : &quot; give cName
+for x = 1 to len(cName)
+        see nl + cName[x]
+next
+</pre></div>
+</div>
+<p>We can use for in to get string letters.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># print user name letter by letter (each letter in new line)
+
+See &quot;Hello, Enter your name : &quot; give cName
+for x in cName
+        see nl + x
+next
+</pre></div>
+</div>
+<p>We can modify the string letters</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># convert the first letter to UPPER case
+
+See &quot;Enter your name : &quot; give cName
+cName[1] = upper(cName[1])
+see &quot;Hello &quot; + cName
+</pre></div>
+</div>
+</div>
+<div class="section" id="left-function">
+<h2>Left() Function<a class="headerlink" href="#left-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get a specified number of characters from a string using the Left() function.</p>
+<p>The starting position is 1.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Left(string,count)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see left(&quot;Hello World!&quot;,5) # print Hello
+</pre></div>
+</div>
+</div>
+<div class="section" id="right-function">
+<h2>Right() Function<a class="headerlink" href="#right-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get a specified number of characters from a string using the Right() function.</p>
+<p>The starting position is the last character on the right.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Right(string,count)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see Right(&quot;Hello World!&quot;,6) # print World!
+</pre></div>
+</div>
+</div>
+<div class="section" id="trim-function">
+<h2>Trim() Function<a class="headerlink" href="#trim-function" title="Permalink to this headline">¶</a></h2>
+<p>We can remove all leading and trailing spaces from a string using the Trim() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>trim(string)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>cMsg = &quot;     Welcome      &quot;
+see trim(cMsg)                  # print Welcome
+</pre></div>
+</div>
+</div>
+<div class="section" id="copy-function">
+<h2>Copy() Function<a class="headerlink" href="#copy-function" title="Permalink to this headline">¶</a></h2>
+<p>We can duplicate a string more than one time using the copy() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>copy(string,nCount) ---&gt; string replicated nCount times
+</pre></div>
+</div>
+<p>Example</p>
+<div class="highlight-none"><div class="highlight"><pre>see copy(&quot;***hello***&quot;,3) # print ***hello******hello******hello***
+</pre></div>
+</div>
+</div>
+<div class="section" id="lines-function">
+<h2>Lines() Function<a class="headerlink" href="#lines-function" title="Permalink to this headline">¶</a></h2>
+<p>We can count the number of lines inside a string using the Lines() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>lines(string) ---&gt; Number of lines inside the string
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>cStr = &quot;Hello
+How are you?
+are you fine?&quot;
+see lines(cStr)         # print 3
+</pre></div>
+</div>
+</div>
+<div class="section" id="substr-function">
+<h2>Substr() Function<a class="headerlink" href="#substr-function" title="Permalink to this headline">¶</a></h2>
+<p>We can work on sub strings inside a string using the substr() function.
+Using Substr() we can</p>
+<ul class="simple">
+<li>Find substring</li>
+<li>Get substring from position to end</li>
+<li>Get Number of characters from position</li>
+<li>Transform Substring To Another Substring</li>
+</ul>
+</div>
+<div class="section" id="find-substring">
+<h2>Find substring<a class="headerlink" href="#find-substring" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>substr(string,substring)  ---&gt; the starting position of substring in string
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>cStr = &quot;Welcome to the Ring programming language&quot;
+see substr(cStr,&quot;Ring&quot;)         # print 16
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-substring-from-position-to-end">
+<h2>Get substring from position to end<a class="headerlink" href="#get-substring-from-position-to-end" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>substr(string,position)  ---&gt; Get substring starting from position to end
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>cStr = &quot;Welcome to the Ring programming language&quot;
+nPos = substr(cStr,&quot;Ring&quot;)      # nPos = 16
+see substr(cStr,nPos)           # print Ring programming language
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-number-of-characters-from-position">
+<h2>Get Number of Characters From Position<a class="headerlink" href="#get-number-of-characters-from-position" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>substr(string,position,count)  ---&gt; Get characters starting from position
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>cStr = &quot;Welcome to the Ring programming language&quot;
+nPos = substr(cStr,&quot;Ring&quot;)      # nPos = 16
+see substr(cStr,nPos,4)         # print Ring
+</pre></div>
+</div>
+</div>
+<div class="section" id="transform-substring-to-another-substring">
+<h2>Transform Substring To Another Substring<a class="headerlink" href="#transform-substring-to-another-substring" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>substr(string,substring,newsubstring)  ---&gt; Transformed string (Match case)
+substr(string,substring,newsubstring,1)  ---&gt; Transformed string (Ignore case)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>cStr = &quot;Welcome to the New programming language&quot;
+see substr(cStr,&quot;New&quot;,&quot;Ring&quot;) + nl  # print Welcome to the Ring programming language
+see substr(cStr,&quot;new&quot;,&quot;Ring&quot;,1)+ nl # print Welcome to the Ring programming language
+</pre></div>
+</div>
+</div>
+<div class="section" id="strcmp-function">
+<h2>strcmp() Function<a class="headerlink" href="#strcmp-function" title="Permalink to this headline">¶</a></h2>
+<p>We can compare between two strings using the strcmp() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>strcmp(cString1,cString2) ---&gt; value = 0 if cString1 = cString2
+                               value &lt; 0 if cString1 &lt; cString2
+                               value &gt; 0 if cString1 &gt; cString2
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see strcmp(&quot;hello&quot;,&quot;hello&quot;) + nl +
+    strcmp(&quot;abc&quot;,&quot;bcd&quot;) + nl +
+    strcmp(&quot;bcd&quot;,&quot;abc&quot;) + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>0
+-1
+1
+</pre></div>
+</div>
+</div>
+<div class="section" id="str2list-and-list2str-functions">
+<h2>str2list() and list2str() Functions<a class="headerlink" href="#str2list-and-list2str-functions" title="Permalink to this headline">¶</a></h2>
+<p>We can convert string lines to list items using the str2list() function.
+Also we can convert the list to a string using list2str() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>str2list(string) ---&gt; list contains the string lines
+list2str(list)   ---&gt; string contains the list items
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>/* output:
+** Items : 4
+** Item : Hello
+** Item : How are you ?
+** Item : are you fine ?
+** Item : ok
+** list2Str result = Hello
+** How are you ?
+** are you fine ?
+** ok
+** Done
+*/
+
+mystr = &quot;Hello
+How are you ?
+are you fine ?
+ok&quot;
+
+mylist = str2list(mystr)
+see &quot;Items : &quot; + len(mylist) + nl
+
+for x in mylist
+        see &quot;Item : &quot; + x + nl
+next
+
+newstr = list2str(mylist)
+see &quot;list2Str result = &quot; + newstr
+
+if mystr = newstr
+        see nl + &quot;Done&quot;
+else
+        see nl + &quot;Error!&quot;
+ok
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Strings</a><ul>
+<li><a class="reference internal" href="#string-literals">String Literals</a></li>
+<li><a class="reference internal" href="#get-string-length">Get String Length</a></li>
+<li><a class="reference internal" href="#convert-letters-case">Convert Letters Case</a></li>
+<li><a class="reference internal" href="#access-string-letters">Access String Letters</a></li>
+<li><a class="reference internal" href="#left-function">Left() Function</a></li>
+<li><a class="reference internal" href="#right-function">Right() Function</a></li>
+<li><a class="reference internal" href="#trim-function">Trim() Function</a></li>
+<li><a class="reference internal" href="#copy-function">Copy() Function</a></li>
+<li><a class="reference internal" href="#lines-function">Lines() Function</a></li>
+<li><a class="reference internal" href="#substr-function">Substr() Function</a></li>
+<li><a class="reference internal" href="#find-substring">Find substring</a></li>
+<li><a class="reference internal" href="#get-substring-from-position-to-end">Get substring from position to end</a></li>
+<li><a class="reference internal" href="#get-number-of-characters-from-position">Get Number of Characters From Position</a></li>
+<li><a class="reference internal" href="#transform-substring-to-another-substring">Transform Substring To Another Substring</a></li>
+<li><a class="reference internal" href="#strcmp-function">strcmp() Function</a></li>
+<li><a class="reference internal" href="#str2list-and-list2str-functions">str2list() and list2str() Functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="lists.html"
+                        title="previous chapter">Lists</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="dateandtime.html"
+                        title="next chapter">Date and Time</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/strings.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="dateandtime.html" title="Date and Time"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="lists.html" title="Lists"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

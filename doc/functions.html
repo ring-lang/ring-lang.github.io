@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Functions &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Lists" href="lists.html" />
+    <link rel="prev" title="Getting Input" href="getinput.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="lists.html" title="Lists"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="getinput.html" title="Getting Input"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about the next topics :-</p>
+<ul class="simple">
+<li>Define functions</li>
+<li>Call functions</li>
+<li>Declare parameters</li>
+<li>Send parameters</li>
+<li>Main Function</li>
+<li>Variables Scope</li>
+<li>Program structure</li>
+<li>Return Value</li>
+<li>Recursion</li>
+</ul>
+<div class="section" id="define-functions">
+<span id="index-0"></span><h2>Define Functions<a class="headerlink" href="#define-functions" title="Permalink to this headline">¶</a></h2>
+<p>To define new function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>func &lt;function_name&gt; [parameters]
+        Block of statements
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">No keyword is required to end the function definition.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>func hello
+        see &quot;Hello from function&quot; + nl
+</pre></div>
+</div>
+</div>
+<div class="section" id="call-functions">
+<span id="index-1"></span><h2>Call Functions<a class="headerlink" href="#call-functions" title="Permalink to this headline">¶</a></h2>
+<p>To call function without parameters, we type the function name then ()</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">We can call the function before the function definition and the function code.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>hello()
+
+func hello
+        see &quot;Hello from function&quot; + nl
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>first()  second()
+
+func first   see &quot;message from the first function&quot; + nl
+
+func second  see &quot;message from the second function&quot; + nl
+</pre></div>
+</div>
+</div>
+<div class="section" id="declare-parameters">
+<h2>Declare parameters<a class="headerlink" href="#declare-parameters" title="Permalink to this headline">¶</a></h2>
+<p>To declare the function parameters, after the function name type the list of parameters as a group
+of identifiers separated by comma.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>func sum x,y
+        see x+y+nl
+</pre></div>
+</div>
+</div>
+<div class="section" id="send-parameters">
+<h2>Send Parameters<a class="headerlink" href="#send-parameters" title="Permalink to this headline">¶</a></h2>
+<p>To send parameters to function, type the parameters inside () after the function name</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>funcname(parameters)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>/* output
+** 8
+** 3000
+*/
+
+sum(3,5) sum(1000,2000)
+
+func sum x,y see x+y+nl
+</pre></div>
+</div>
+</div>
+<div class="section" id="main-function">
+<h2>Main Function<a class="headerlink" href="#main-function" title="Permalink to this headline">¶</a></h2>
+<p>Using the Ring programming language, the Main Function is optional,
+when it&#8217;s defined, it will be executed after the end of other statements.</p>
+<p>if no other statements comes alone, the main function will be the first <a class="reference external" href="http://en.wikipedia.org/wiki/Entry_point">entry point</a></p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># this program will print the hello world message first then execute the main function
+
+See &quot;Hello World!&quot; + nl
+
+func main
+        see &quot;Message from the main function&quot; + nl
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables-scope">
+<h2>Variables Scope<a class="headerlink" href="#variables-scope" title="Permalink to this headline">¶</a></h2>
+<p>The Ring programming language uses <a class="reference external" href="http://en.wikipedia.org/wiki/Scope_%28computer_science%29#Lexical_scope_vs._dynamic_scope">lexical scoping</a> to
+determine the scope of a variable.</p>
+<p>Variables defined inside functions (including function parameters) are local variables.
+Variables defined outside functions (before any function) are global variables.</p>
+<p>Inside any function we can access the variables defined inside this function beside the global variables.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># the program will print numbers from 10 to 1
+
+x = 10                          # x is a global variable.
+
+func main
+
+        for t = 1 to 10         # t is a local variable
+                mycounter()     # call function
+        next
+
+func mycounter
+
+        see x + nl              # print the global variable value
+        x--                     # decrement
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Using the main function before the for loop declare the t variable as a local variable,
+It&#8217;s recommended to use the main functions instead of typing the instructions directly to set the scope
+of the new variables to local.</p>
+</div>
+</div>
+<div class="section" id="program-structure">
+<h2>Program Structure<a class="headerlink" href="#program-structure" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Source Code File Sections</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Load Files</td>
+</tr>
+<tr class="row-odd"><td>Statements and Global Variables</td>
+</tr>
+<tr class="row-even"><td>Functions</td>
+</tr>
+<tr class="row-odd"><td>Packages and Classes</td>
+</tr>
+</tbody>
+</table>
+<p>The application maybe one or more of files.</p>
+<p>to include another source file in the project, just use the load command.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Load  &quot;filename.ring&quot;
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># File : Start.ring
+
+Load &quot;sub.ring&quot;
+
+sayhello(&quot;Mahmoud&quot;)
+</pre></div>
+</div>
+<div class="highlight-none"><div class="highlight"><pre># File : sub.ring
+
+func sayhello cName
+        see &quot;Hello &quot; + cName + nl
+</pre></div>
+</div>
+</div>
+<div class="section" id="return-value">
+<h2>Return Value<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<p>The function can return a value using the Return command.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Return [Expression]
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">the Expression after the return command is optional and we can use the return command
+to end the function execution without returning any value.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">if the function doesn&#8217;t return explicit value, it will return NULL (empty string = &#8220;&#8221; ).</p>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>if novalue() = NULL
+        See &quot;the function doesn&#39;t return a value&quot; + nl
+ok
+
+func novalue
+</pre></div>
+</div>
+</div>
+<div class="section" id="recursion">
+<h2>Recursion<a class="headerlink" href="#recursion" title="Permalink to this headline">¶</a></h2>
+<p>The Ring programming language support <a class="reference external" href="http://en.wikipedia.org/wiki/Recursion_%28computer_science%29">Recursion</a>
+and the function can call itself using different parameters.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see fact(5)     # output = 120
+
+func fact x if x = 1 return 1 else return x * fact(x-1) ok
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Functions</a><ul>
+<li><a class="reference internal" href="#define-functions">Define Functions</a></li>
+<li><a class="reference internal" href="#call-functions">Call Functions</a></li>
+<li><a class="reference internal" href="#declare-parameters">Declare parameters</a></li>
+<li><a class="reference internal" href="#send-parameters">Send Parameters</a></li>
+<li><a class="reference internal" href="#main-function">Main Function</a></li>
+<li><a class="reference internal" href="#variables-scope">Variables Scope</a></li>
+<li><a class="reference internal" href="#program-structure">Program Structure</a></li>
+<li><a class="reference internal" href="#return-value">Return Value</a></li>
+<li><a class="reference internal" href="#recursion">Recursion</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="getinput.html"
+                        title="previous chapter">Getting Input</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="lists.html"
+                        title="next chapter">Lists</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/functions.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="lists.html" title="Lists"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="getinput.html" title="Getting Input"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

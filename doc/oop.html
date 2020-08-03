@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Object Oriented Programming (OOP) &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Declarative Programming using Nested Structures" href="declarative.html" />
+    <link rel="prev" title="Security and Internet Functions" href="secfunc.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="declarative.html" title="Declarative Programming using Nested Structures"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="secfunc.html" title="Security and Internet Functions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="object-oriented-programming-oop">
+<h1>Object Oriented Programming (OOP)<a class="headerlink" href="#object-oriented-programming-oop" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn how to use the Object-Oriented programming paradigm
+inside the Ring programming language.</p>
+<p>We will learn about</p>
+<ul class="simple">
+<li>Classes and Objects</li>
+<li>Access Objects Using Braces</li>
+<li>Composition</li>
+<li>Setter and Getter</li>
+<li>Private Attributes and Methods</li>
+<li>Operator Overloading</li>
+<li>Inheritance</li>
+<li>Dynamic Attributes</li>
+<li>Packages</li>
+</ul>
+<div class="section" id="classes-and-objects">
+<span id="index-0"></span><h2>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this headline">¶</a></h2>
+<p>We can define new classes using the next syntax</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Class &lt;Class Name&gt; [From &lt;Parent Class Name&gt;]
+        [Attributes]
+        [Methods]
+        [Private
+          [Attributes]
+          [Methods]
+        ]
+</pre></div>
+</div>
+<p>And we can create objects using the next syntax</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>New &lt;Object Name&gt; [ (init method parameters) ] |
+                  [ { access object data and methods } ]   ---&gt; Object
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>New point { x=10  y=20  z=30  print() }
+Class Point x y z func print see x + nl + y + nl + z + nl
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We can use { } to access object data and methods.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">we can declare the class attributes directly after the class name.</p>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>10
+20
+30
+</pre></div>
+</div>
+<p>We can rewrite the same program in another style</p>
+<div class="highlight-none"><div class="highlight"><pre>New point                       # create new object using the point class
+{                               # access the new object attributes and methods
+        x = 10                  # set the x attribute to 10
+        y = 20                  # set the y attribute to 20
+        z = 30                  # set the z attribute to 30
+        print()                 # call the print method
+}                               # end of object access
+
+
+Class Point                     # define the Point class
+        x y z                   # the class contains three attributes x, y &amp; z
+        func print              # define the print method
+                see x + nl +    # print the x attribute
+                    y + nl +    # print the y attribute
+                    z + nl      # print the z attribute
+</pre></div>
+</div>
+<p>Also we can write the same program in another way</p>
+<div class="highlight-none"><div class="highlight"><pre>P1 = New Point
+P1.x = 10
+P1.y = 20
+P1.z = 30
+P1.Print()
+Class Point x y z func print see x + nl + y + nl + z + nl
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">we can use the dot operator after the object name to access object members.</p>
+</div>
+<p>Also we can write the same program in another way</p>
+<div class="highlight-none"><div class="highlight"><pre>new point { print() }
+Class Point
+        x = 10  y = 20  z = 30
+        func print see x + nl + y + nl + z + nl
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">we can set the default values for the class attributes when we declare them.</p>
+</div>
+<p>Also we can write the same program in another way</p>
+<div class="highlight-none"><div class="highlight"><pre>new point(10,20,30)
+Class Point
+        x y z
+        func init p1,p2,p3 x=p1 y=p2 z=p3 print()
+        func print see x + nl + y + nl + z + nl
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">we can call the init method directly using () when we create new objects</p>
+</div>
+<p>Also we can write the same program in another way</p>
+<div class="highlight-none"><div class="highlight"><pre>new point( [ :x = 10 , :y = 20 , :z = 30 ] )
+Class Point x y z
+      func init aPara x = aPara[:x] y = aPara[:y] z = aPara[:z] print()
+      func print see x + nl + y + nl + z + nl
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">using Hash for passing method parameters enable us to create optional
+parameters and change the order of parameters when adding them to the Hash.</p>
+</div>
+</div>
+<div class="section" id="access-objects-using-braces">
+<h2>Access Objects Using Braces<a class="headerlink" href="#access-objects-using-braces" title="Permalink to this headline">¶</a></h2>
+<p>We can access the object at any time using braces { }</p>
+<p>Inside the braces we can use the object attributes and methods directly</p>
+<p>This can be done when we create the object using the New keyword or at any time using the next syntax</p>
+<div class="highlight-none"><div class="highlight"><pre>ObjectName { access object data and methods }
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;Creating the Object&quot; + nl
+o1 = new Point
+See &quot;Using the Object&quot; + nl
+o1 {
+        x=5
+        y=15
+        z=25
+        print()
+}
+Class Point x y z func print see x + nl + y + nl + z
+</pre></div>
+</div>
+<p>We can use braces to access objects when we call functions or methods</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new Point
+
+print( o1 { x=10 y=20 z=30 } )
+
+func print object
+        see object.x + nl +
+            object.y + nl +
+            object.z
+
+Class Point x y z
+</pre></div>
+</div>
+<p>We can mix between using braces and the dot operator to access the object in the same expression.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new Point
+
+O1 { x=10 y=20 z=30 }.print()
+
+Class Point x y z
+        func print see x + nl + y + nl + z
+</pre></div>
+</div>
+</div>
+<div class="section" id="composition">
+<h2>Composition<a class="headerlink" href="#composition" title="Permalink to this headline">¶</a></h2>
+<p>The object may contains other objects as attributes.</p>
+<p>Using braces to access objects can be nested.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>R1 = New Rectangle
+{
+
+        Name = &quot;Rectangle 1&quot;
+
+        P1
+        {
+                X = 10
+                Y = 20
+        }
+
+        P2
+        {
+                X = 200
+                Y = 300
+        }
+
+        Color = &quot;Blue&quot;
+
+}
+
+see &quot;Name : &quot; + R1.Name + nl +
+    &quot;Color: &quot; + R1.Color + nl +
+    &quot;P1   : (&quot; + R1.P1.X + &quot;,&quot; + R1.P1.Y + &quot;)&quot; + nl +
+    &quot;P2   : (&quot; + R1.P2.X + &quot;,&quot; + R1.P2.Y + &quot;)&quot;
+
+Class Rectangle
+        name  color
+        p1 = new Point
+        p2 = new Point
+
+Class Point x y
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>Name : Rectangle 1
+Color: Blue
+P1   : (10,20)
+P2   : (200,300)
+</pre></div>
+</div>
+</div>
+<div class="section" id="setter-and-getter">
+<h2>Setter and Getter<a class="headerlink" href="#setter-and-getter" title="Permalink to this headline">¶</a></h2>
+<p>We can define methods to be used when we set and get object attributes.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Class ClassName
+
+        AttributeName
+        ...
+
+        Func SetAttributeName
+                ...
+
+        Func GetAttributeName
+                ...
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new person
+
+o1.name = &quot;Mahmoud&quot;  see o1.name + nl
+
+o1 { name = &quot;Ahmed&quot;  see name }
+
+Class Person
+
+        name family = &quot;Fayed&quot;
+
+        func setname value
+                see &quot;Message from SetName() Function!&quot; + nl
+                name = value + &quot; &quot; + family
+
+        func getname
+                see &quot;Message from GetName() Function!&quot; + nl
+                return &quot;Mr. &quot; + name
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>Message from SetName() Function!
+Message from GetName() Function!
+Mr. Mahmoud Fayed
+Message from SetName() Function!
+Message from GetName() Function!
+Mr. Ahmed Fayed
+</pre></div>
+</div>
+</div>
+<div class="section" id="private-attributes-and-methods">
+<h2>Private Attributes and Methods<a class="headerlink" href="#private-attributes-and-methods" title="Permalink to this headline">¶</a></h2>
+<p>We can define private attributes and methods after the keyword private inside the class body</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new person {
+        name = &quot;Test&quot;
+        age = 20
+        print()
+        o1.printsalary()
+}
+
+try
+        see o1.salary
+catch
+        see cCatchError + nl
+done
+
+try
+        o1.increasesalary(1000)
+catch
+        see cCatchError + nl
+done
+
+Class Person
+
+        name age
+
+        func print
+                see &quot;Name   : &quot; + name + nl +
+                    &quot;Age    : &quot; + age + nl
+
+        func printsalary
+                see &quot;Salary : &quot; + salary + nl
+
+        private
+
+        salary = 15000
+
+        func increasesalary x
+                salary += x
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>Name   : Test
+Age    : 20
+Salary : 15000
+Error (R27) : Using private attribute from outside the class : salary
+Error (R26) : Calling private method from outside the class : increasesalary
+</pre></div>
+</div>
+</div>
+<div class="section" id="operator-overloading">
+<h2>Operator Overloading<a class="headerlink" href="#operator-overloading" title="Permalink to this headline">¶</a></h2>
+<p>We can add the operator method to our class to enable using operators with the class objects.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Class ClassName
+
+        ...
+
+        Func operator cOperator,Para
+
+                ...
+</pre></div>
+</div>
+<p>The function operator takes two paramters, the first represent the operator
+and the second represent the second parameter after the operator.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new point { x = 10 y = 10 print(&quot;P1    : &quot;) }
+o2 = new point { x = 20 y = 40 print(&quot;P2    : &quot;) }
+
+o3 = o1 + o2
+o3.print(&quot;P1+P2 : &quot;)
+
+class point x y
+
+        func operator cOperator,Para
+                result = new point
+                switch cOperator
+                on &quot;+&quot;
+                        result.x = x + Para.x
+                        result.y = y + Para.y
+                on &quot;-&quot;
+                        result.x = x - Para.x
+                        result.y = y - Para.y
+                off
+                return result
+
+        func print cPoint
+                see cPoint + &quot;X : &quot; + x + &quot; Y : &quot; + y + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>P1    : X : 10 Y : 10
+P2    : X : 20 Y : 40
+P1+P2 : X : 30 Y : 50
+</pre></div>
+</div>
+</div>
+<div class="section" id="inheritance">
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h2>
+<p>We can create class from another class in the class definition using the keyword from.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Class &lt;Class Name&gt; [From &lt;Parent Class Name&gt;]
+</pre></div>
+</div>
+<p>We can call a method in the parent class from the child class using the super object.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>func methodname
+        ...
+        super.methodname()
+        ...
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>Func main
+        e1 = new Employee {
+                Name = &quot;test&quot;
+                age = 20
+                job = &quot;programmer&quot;
+                salary = 20000000
+                print()
+        }
+
+
+Class Human
+        Name Age
+        func print
+                see &quot;Name : &quot; + name + nl + &quot;Age  : &quot; + age + nl
+
+Class Employee from Human
+        Job Salary
+        func print
+                super.print()
+                see &quot;Job  : &quot; + job + nl + &quot;Salary : &quot; + salary + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>Name : test
+Age  : 20
+Job  : programmer
+Salary : 20000000
+</pre></div>
+</div>
+</div>
+<div class="section" id="dynamic-attributes">
+<h2>Dynamic Attributes<a class="headerlink" href="#dynamic-attributes" title="Permalink to this headline">¶</a></h2>
+<p>We can write instructions after the class name to be executed when we create new objects</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new dynamicClass
+see o1.var5 + nl        # output 5
+
+Class DynamicClass
+        for x = 1 to 10
+                cStr = &quot;var&quot; + x + &quot; = &quot; + x
+                eval(cStr)
+        next
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">in the previous example var1, var2, ..., var10 will be defined as attributes.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">The problem with the previous example is that x and cStr will be defined as attributes too!</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">we can write class definitions inside a string then
+using eval() we can execute the string to define the classes</p>
+</div>
+</div>
+<div class="section" id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
+<p>We can create a package (a group of classes under a common name) using the next syntax</p>
+<div class="highlight-none"><div class="highlight"><pre>package PackageName
+        Class Class1
+                ...
+        Class Class2
+                ...
+        Class Class3
+                ...
+        ...
+</pre></div>
+</div>
+<p>Example</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new System.output.console
+o1.print(&quot;Hello World&quot;)
+
+Package System.Output
+        Class Console
+                Func Print cText
+                        see cText + nl
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">we can use the dot operator as part of the package name</p>
+</div>
+<p>Instead of typing the long name PackageName.ClassName we can use the import command</p>
+<p>When we import a package, we can use any class inside this package directly.</p>
+<p>Example</p>
+<div class="highlight-none"><div class="highlight"><pre>import system.output
+o1 = new console {
+        print(&quot;Hello World&quot;)
+}
+Package System.Output
+        Class Console
+                Func Print cText
+                        see cText + nl
+</pre></div>
+</div>
+</div>
+<div class="section" id="printing-objects">
+<h2>Printing Objects<a class="headerlink" href="#printing-objects" title="Permalink to this headline">¶</a></h2>
+<p>We can print the object state (attributes and values) using the see command.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see new point { x=10 y=20 z=30 }
+class point x y z
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>x: 10.000000
+y: 20.000000
+z: 30.000000
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Object Oriented Programming (OOP)</a><ul>
+<li><a class="reference internal" href="#classes-and-objects">Classes and Objects</a></li>
+<li><a class="reference internal" href="#access-objects-using-braces">Access Objects Using Braces</a></li>
+<li><a class="reference internal" href="#composition">Composition</a></li>
+<li><a class="reference internal" href="#setter-and-getter">Setter and Getter</a></li>
+<li><a class="reference internal" href="#private-attributes-and-methods">Private Attributes and Methods</a></li>
+<li><a class="reference internal" href="#operator-overloading">Operator Overloading</a></li>
+<li><a class="reference internal" href="#inheritance">Inheritance</a></li>
+<li><a class="reference internal" href="#dynamic-attributes">Dynamic Attributes</a></li>
+<li><a class="reference internal" href="#packages">Packages</a></li>
+<li><a class="reference internal" href="#printing-objects">Printing Objects</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="secfunc.html"
+                        title="previous chapter">Security and Internet Functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="declarative.html"
+                        title="next chapter">Declarative Programming using Nested Structures</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/oop.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="declarative.html" title="Declarative Programming using Nested Structures"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="secfunc.html" title="Security and Internet Functions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

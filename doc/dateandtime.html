@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Date and Time &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Check Data Type and Conversion" href="checkandconvert.html" />
+    <link rel="prev" title="Strings" href="strings.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="checkandconvert.html" title="Check Data Type and Conversion"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="strings.html" title="Strings"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="date-and-time">
+<h1>Date and Time<a class="headerlink" href="#date-and-time" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about the date and time functions.</p>
+<div class="section" id="clock-function">
+<span id="index-0"></span><h2>Clock() Function<a class="headerlink" href="#clock-function" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Clock() ---&gt; The number of clock ticks from program start
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;Calculate performance&quot; + nl
+t1 = clock()
+for x = 1 to 1000000 next
+see clock() - t1
+</pre></div>
+</div>
+</div>
+<div class="section" id="time-function">
+<span id="index-1"></span><h2>Time() Function<a class="headerlink" href="#time-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get the system time using the Time() function.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;Time : &quot; + time()
+</pre></div>
+</div>
+</div>
+<div class="section" id="date-function">
+<span id="index-2"></span><h2>Date() Function<a class="headerlink" href="#date-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get the date using the Date() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Date() ---&gt; String represent the date &quot;dd/mm/yyyy&quot;
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;Date : &quot; + date()  # Date : 24/05/2015
+</pre></div>
+</div>
+</div>
+<div class="section" id="timelist-function">
+<span id="index-3"></span><h2>TimeList() Function<a class="headerlink" href="#timelist-function" title="Permalink to this headline">¶</a></h2>
+<p>We can print the date and the time information using the TimeList() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>TimeList() ---&gt; List contains the time and date information.
+</pre></div>
+</div>
+<p>The next table presents the list items</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">index</th>
+<th class="head">value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>abbreviated weekday name</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>full weekday name</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>abbreviated month name</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>full month name</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>Date &amp; Time</td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>Day of the month</td>
+</tr>
+<tr class="row-even"><td>7</td>
+<td>Hour (24)</td>
+</tr>
+<tr class="row-odd"><td>8</td>
+<td>Hour (12)</td>
+</tr>
+<tr class="row-even"><td>9</td>
+<td>Day of the year</td>
+</tr>
+<tr class="row-odd"><td>10</td>
+<td>Month of the year</td>
+</tr>
+<tr class="row-even"><td>11</td>
+<td>Minutes after hour</td>
+</tr>
+<tr class="row-odd"><td>12</td>
+<td>AM or PM</td>
+</tr>
+<tr class="row-even"><td>13</td>
+<td>Seconds after the hour</td>
+</tr>
+<tr class="row-odd"><td>14</td>
+<td>Week of the year (sun-sat)</td>
+</tr>
+<tr class="row-even"><td>15</td>
+<td>day of the week</td>
+</tr>
+<tr class="row-odd"><td>16</td>
+<td>date</td>
+</tr>
+<tr class="row-even"><td>17</td>
+<td>time</td>
+</tr>
+<tr class="row-odd"><td>18</td>
+<td>year of the century</td>
+</tr>
+<tr class="row-even"><td>19</td>
+<td>year</td>
+</tr>
+<tr class="row-odd"><td>20</td>
+<td>time zone</td>
+</tr>
+<tr class="row-even"><td>21</td>
+<td>percent sign</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>/* Output:
+** Sun                  abbreviated weekday name
+** Sunday               full weekday name
+** May                  abbreviated month name
+** May                  full month name
+** 05/24/15 09:58:38    Date &amp; Time
+** 24                   Day of the month
+** 09                   Hour (24)
+** 09                   Hour (12)
+** 144                  Day of the year
+** 05                   Month of the year
+** 58                   Minutes after hour
+** AM                   AM or PM
+** 38                   Seconds after the hour
+** 21                   Week of the year (sun-sat)
+** 0                    day of the week
+** 05/24/15             date
+** 09:58:38             time
+** 15                   year of the century
+** 2015                 year
+** Arab Standard Time   time zone
+** %                    percent sign
+*/
+
+See TimeList()
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;Day Name : &quot; + TimeList()[2]       # Sunday
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>See &quot;Month Name : &quot; + TimeList()[4]     # May
+</pre></div>
+</div>
+</div>
+<div class="section" id="adddays-function">
+<span id="index-4"></span><h2>AddDays() Function<a class="headerlink" href="#adddays-function" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>AddDays(cDate,nDays) ---&gt; Date from cDate and after nDays
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>cDate = date()
+see cDate + nl                  # 24/05/2015
+cDate = adddays(cDate,10)
+see cDate + nl                  # 03/06/2015
+</pre></div>
+</div>
+</div>
+<div class="section" id="diffdays-function">
+<span id="index-5"></span><h2>DiffDays() Function<a class="headerlink" href="#diffdays-function" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>DiffDays(cDate1,cDate2) ---&gt; number of days (Date1 - Date2)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>cDate1 = date()
+see cDate1 + nl                                         # 24/05/2015
+cDate2 = adddays(cDate1,10)
+see cDate2 + nl                                         # 03/06/2015
+see &quot;DiffDays = &quot; + diffdays(cDate1,cDate2) + nl        # -10
+see &quot;DiffDays = &quot; + diffdays(cDate2,cDate1) + nl        # 10
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Date and Time</a><ul>
+<li><a class="reference internal" href="#clock-function">Clock() Function</a></li>
+<li><a class="reference internal" href="#time-function">Time() Function</a></li>
+<li><a class="reference internal" href="#date-function">Date() Function</a></li>
+<li><a class="reference internal" href="#timelist-function">TimeList() Function</a></li>
+<li><a class="reference internal" href="#adddays-function">AddDays() Function</a></li>
+<li><a class="reference internal" href="#diffdays-function">DiffDays() Function</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="strings.html"
+                        title="previous chapter">Strings</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="checkandconvert.html"
+                        title="next chapter">Check Data Type and Conversion</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dateandtime.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="checkandconvert.html" title="Check Data Type and Conversion"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="strings.html" title="Strings"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

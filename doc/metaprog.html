@@ -1,0 +1,998 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Reflection and Meta-programming &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Extension using the C/C++ languages" href="extension.html" />
+    <link rel="prev" title="Functional Programming" href="fp.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="extension.html" title="Extension using the C/C++ languages"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="fp.html" title="Functional Programming"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="reflection-and-meta-programming">
+<h1>Reflection and Meta-programming<a class="headerlink" href="#reflection-and-meta-programming" title="Permalink to this headline">¶</a></h1>
+<p>Since the Ring programming language is a dynamic language, we can get answers about
+the program code and we can modify our code during the runtime.</p>
+<p>In this chapter we will learn about this and the available functions to use.</p>
+<div class="section" id="locals-function">
+<h2>locals() Function<a class="headerlink" href="#locals-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get a list of variables names in the current scope using the locals() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>locals() --&gt; a list contains the variables names in the current scope
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>test(&quot;hello&quot;)
+
+func test cMsg
+
+        see cMsg + nl
+
+        x = 10
+        y = 20
+        z = 30
+
+        see locals()
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>hello
+cmsg
+x
+y
+z
+</pre></div>
+</div>
+</div>
+<div class="section" id="globals-function">
+<h2>globals() Function<a class="headerlink" href="#globals-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get a list of variables names in the global scope using the globals() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>globals() --&gt; a list contains variables names in the global scope
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>x=10 y=20 z=30
+test()
+
+func test
+        see &quot;message from test()&quot; + nl +
+            &quot;Global Variables:&quot; + nl
+        see globals()
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>message from test()
+Global Variables:
+x
+y
+z
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-function">
+<h2>functions() Function<a class="headerlink" href="#functions-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get a list of functions names written in the Ring language using the functions() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>functions() --&gt; a list contains functions names
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see functions()
+
+func f1
+        see &quot;f1&quot; + nl
+
+func f2
+        see &quot;f2&quot; + nl
+
+func f3
+        see &quot;f3&quot; + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>f1
+f2
+f3
+</pre></div>
+</div>
+</div>
+<div class="section" id="cfunctions-function">
+<h2>cfunctions() Function<a class="headerlink" href="#cfunctions-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get a list of functions names written in the C language using the cfunctions() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>cfunctions() --&gt; a list contains functions names
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList =  cfunctions()
+See &quot;Count : &quot; + len(aList) + nl
+for x in aList
+        see x + &quot;()&quot; + nl
+next
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>Count : 186
+len()
+add()
+del()
+get()
+clock()
+...
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The complete list is removed from the previous output.</p>
+</div>
+</div>
+<div class="section" id="islocal-function">
+<h2>islocal() Function<a class="headerlink" href="#islocal-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if a variable is defined in the local scope or not using the islocal() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>islocal(cVariableName) --&gt; returns 1 if the variable is defined in the local scope
+                           returns 0 if the variable is not defined in the local scope
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>test()
+
+func test
+        x=10 y=20
+        see islocal(&quot;x&quot;) + nl +
+            islocal(&quot;y&quot;) + nl +
+            islocal(&quot;z&quot;) + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>1
+1
+0
+</pre></div>
+</div>
+</div>
+<div class="section" id="isglobal-function">
+<h2>isglobal() Function<a class="headerlink" href="#isglobal-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if a variable is defined in the global scope or not using the isglobal() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>isglobal(cVariableName) --&gt; returns 1 if the variable is defined in the global scope
+                            returns 0 if the variable is not defined in the global scope
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>x=10 y=20
+
+test()
+
+func test
+        see isglobal(&quot;x&quot;) + nl +
+            isglobal(&quot;y&quot;) + nl +
+            isglobal(&quot;z&quot;) + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>1
+1
+0
+</pre></div>
+</div>
+</div>
+<div class="section" id="isfunction-function">
+<h2>isfunction() Function<a class="headerlink" href="#isfunction-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if a Ring function is defined or not using the isfunction() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>isfunction(cFunctionName) --&gt; returns 1 if the Ring function is defined
+                              returns 0 if the Ring function is not defined
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see isfunction(&quot;f1&quot;) + nl +
+    isfunction(&quot;f2&quot;) + nl +
+    isfunction(&quot;f3&quot;) + nl
+
+func f1
+        see &quot;message from f1()&quot; + nl
+
+func f2
+        see &quot;message from f2()&quot; + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>1
+1
+0
+</pre></div>
+</div>
+</div>
+<div class="section" id="iscfunction-function">
+<h2>iscfunction() Function<a class="headerlink" href="#iscfunction-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if a C function is defined or not using the iscfunction() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>iscfunction(cFunctionName) --&gt; returns 1 if the C function is defined
+                               returns 0 if the C function is not defined
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see iscfunction(&quot;len&quot;) + nl +
+    iscfunction(&quot;add&quot;) + nl +
+    iscfunction(&quot;test&quot;) + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>1
+1
+0
+</pre></div>
+</div>
+</div>
+<div class="section" id="packages-function">
+<h2>packages() Function<a class="headerlink" href="#packages-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get a list of packages names using the packages() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>packages() --&gt; a list contains packages names
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>See packages()
+
+Package Package1
+        Class class1
+                Func f1
+
+Package Package2
+        Class class1
+                Func f1
+
+Package Package3
+        Class class1
+                Func f1
+
+Package Package4
+        Class class1
+                Func f1
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>package1
+package2
+package3
+package4
+</pre></div>
+</div>
+</div>
+<div class="section" id="ispackage-function">
+<h2>ispackage() Function<a class="headerlink" href="#ispackage-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if a package is defined or not using the ispackage() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>ispackage(cPackageName) --&gt; returns 1 if the Package is defined
+                            returns 0 if the Package is not defined
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>See ispackage(&quot;package1&quot;) + nl +
+    ispackage(&quot;package4&quot;) + nl +
+    ispackage(&quot;package5&quot;) + nl +
+    ispackage(&quot;package3&quot;) + nl
+
+Package Package1
+        Class class1
+                Func f1
+
+Package Package2
+        Class class1
+                Func f1
+
+Package Package3
+        Class class1
+                Func f1
+
+Package Package4
+        Class class1
+                Func f1
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>1
+1
+0
+1
+</pre></div>
+</div>
+</div>
+<div class="section" id="classes-function">
+<h2>classes() Function<a class="headerlink" href="#classes-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get a list of classes names using the classes() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>classes() --&gt; a list contains classes names
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>See classes()
+
+Class class1
+        Func f1
+
+Class class2
+        Func f1
+
+Class class3
+        Func f1
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>class1
+class2
+class3
+</pre></div>
+</div>
+</div>
+<div class="section" id="isclass-function">
+<h2>isclass() Function<a class="headerlink" href="#isclass-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if a class is defined or not using the isclass() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>isclass(cClassName) --&gt;  returns 1 if the Class is defined
+                         returns 0 if the Class is not defined
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see isclass(&quot;class4&quot;) + nl +
+    isclass(&quot;class3&quot;) + nl +
+    isclass(&quot;class2&quot;) + nl
+
+Class class1
+        func f1
+
+class class2
+        func f1
+
+class class3
+        func f1
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>0
+1
+1
+</pre></div>
+</div>
+</div>
+<div class="section" id="packageclasses-function">
+<h2>packageclasses() Function<a class="headerlink" href="#packageclasses-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get a list of classes names inside a package using the packageclasses() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>packageclasses(cPackageName) --&gt; a list contains classes names inside the package
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see &quot;classes in Package1&quot; + nl
+see packageclasses(&quot;Package1&quot;)
+see &quot;classes in Package2&quot; + nl
+see packageclasses(&quot;Package2&quot;)
+
+Package Package1
+        Class class1
+                Func f1
+
+Package Package2
+        Class class1
+                Func f1
+        Class class2
+                Func f1
+        Class class3
+                func f1
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>classes in Package1
+class1
+classes in Package2
+class1
+class2
+class3
+</pre></div>
+</div>
+</div>
+<div class="section" id="ispackageclass-function">
+<h2>ispackageclass() Function<a class="headerlink" href="#ispackageclass-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if a class is defined inside package or not using the ispackageclass() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>ispackageclass(cPackageName,cClassName) --&gt;  returns 1 if the Class is defined
+                                             returns 0 if the Class is not defined
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>see ispackageclass(&quot;package1&quot;,&quot;class1&quot;) + nl +
+    ispackageclass(&quot;package1&quot;,&quot;class2&quot;) + nl +
+    ispackageclass(&quot;package2&quot;,&quot;class1&quot;) + nl +
+    ispackageclass(&quot;package2&quot;,&quot;class2&quot;) + nl
+
+Package Package1
+        Class class1
+                Func f1
+
+Package Package2
+        Class class1
+                Func f1
+        Class class2
+                Func f1
+        Class class3
+                func f1
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>1
+0
+1
+1
+</pre></div>
+</div>
+</div>
+<div class="section" id="classname-function">
+<h2>classname() Function<a class="headerlink" href="#classname-function" title="Permalink to this headline">¶</a></h2>
+<p>We can know the class name of an object using the classname() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>classname(object) --&gt; Returns the object class name
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new point
+o2 = new rect
+
+see classname(o1) + nl          # print point
+see classname(o2) + nl          # print rect
+
+class point
+class rect
+</pre></div>
+</div>
+</div>
+<div class="section" id="objectid-function">
+<h2>objectid() Function<a class="headerlink" href="#objectid-function" title="Permalink to this headline">¶</a></h2>
+<p>We can know the object id using the objectid() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>objectid(object) --&gt; Returns the object id
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new point
+see objectid(o1) + nl
+test(o1)
+
+func test v
+        see objectid(v) + nl
+
+Class point x y z
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>021B5808
+021B5808
+</pre></div>
+</div>
+</div>
+<div class="section" id="isobject-function">
+<h2>isobject() Function<a class="headerlink" href="#isobject-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check the variable to know if it&#8217;s an object or not using the isobject() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>isobject(variable) --&gt; Returns True if it&#39;s an object, False if it&#39;s not
+</pre></div>
+</div>
+</div>
+<div class="section" id="attributes-function">
+<h2>attributes() Function<a class="headerlink" href="#attributes-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get the object attributes using the attributes() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>attributes(object) --&gt; Returns a list contains the object attributes
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new point
+aList = attributes(o1)          # we can use see attributes(o1)
+for t in aList see t next       # print xyz
+Class Point x y z
+</pre></div>
+</div>
+</div>
+<div class="section" id="methods-function">
+<h2>methods() Function<a class="headerlink" href="#methods-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get the object methods using the methods() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>methods(object) --&gt; Returns a list contains the object methods
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new test
+aList = methods(o1)
+
+for x in aList
+        cCode = &quot;o1.&quot;+x+&quot;()&quot;
+        eval(cCode)
+next
+
+Class Test
+        func f1
+                see &quot;hello from f1&quot; + nl
+        func f2
+                see &quot;hello from f2&quot; + nl
+        func f3
+                see &quot;hello from f3&quot; + nl
+        func f4
+                see &quot;hello from f4&quot; + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>hello from f1
+hello from f2
+hello from f3
+hello from f4
+</pre></div>
+</div>
+</div>
+<div class="section" id="isattribute-function">
+<h2>isattribute() Function<a class="headerlink" href="#isattribute-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test if the object contains an attribute or not using the isattribute() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>isattribute(object,cAttributeName) --&gt; Returns True if the object contains the attribute
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new point
+
+see isattribute(o1,&quot;x&quot;) + nl    # print 1
+see isattribute(o1,&quot;t&quot;) + nl    # print 0
+see isattribute(o1,&quot;y&quot;) + nl    # print 1
+see isattribute(o1,&quot;z&quot;) + nl    # print 1
+
+class point x y z
+</pre></div>
+</div>
+</div>
+<div class="section" id="isprivateattribute-function">
+<h2>isprivateattribute() Function<a class="headerlink" href="#isprivateattribute-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test if the object contains a private attribute or not using the isprivateattribute() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>isprivateattribute(object,cAttributeName) --&gt; Returns True if the object
+                                              contains the private attribute
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new person
+
+see isprivateattribute(o1,&quot;name&quot;) + nl +
+    isprivateattribute(o1,&quot;address&quot;) + nl +
+    isprivateattribute(o1,&quot;phone&quot;) + nl +
+    isprivateattribute(o1,&quot;job&quot;) + nl +
+    isprivateattribute(o1,&quot;salary&quot;)
+
+Class Person
+        name address phone
+        private
+                job salary
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>0
+0
+0
+1
+1
+</pre></div>
+</div>
+</div>
+<div class="section" id="ismethod-function">
+<h2>ismethod() Function<a class="headerlink" href="#ismethod-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test if the object class contains a method or not using the ismethod() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>ismethod(object,cMethodName) --&gt; Returns True if the object class contains the method
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new point
+
+see ismethod(o1,&quot;print&quot;) + nl           # print 1
+
+mylist = []
+mylist + new point
+
+see ismethod(mylist[1],&quot;print&quot;) + nl    # print 1
+
+class point x y z
+        func print
+                see x + nl + y + nl + z + nl
+</pre></div>
+</div>
+</div>
+<div class="section" id="isprivatemethod-function">
+<h2>isprivatemethod() Function<a class="headerlink" href="#isprivatemethod-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test if the object class contains a private method or not using the isprivatemethod() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>isprivatemethod(object,cMethodName) --&gt; Returns True if the object class contains
+                                        the private method
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new Test
+
+see isprivatemethod(o1,&quot;f1&quot;) + nl +
+    isprivatemethod(o1,&quot;f2&quot;)
+
+Class Test
+        func  f1
+                see &quot;message from f1()&quot; + nl
+        private
+                func f2
+                        see &quot;message from f2()&quot; + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>0
+1
+</pre></div>
+</div>
+</div>
+<div class="section" id="addattribute-function">
+<h2>addattribute() Function<a class="headerlink" href="#addattribute-function" title="Permalink to this headline">¶</a></h2>
+<p>We can add an attribute (or a group of attributes) to the object state (not the class) using
+the addattribute() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>AddAttribute(object,cAttributeName|aAttributesList)
+</pre></div>
+</div>
+<p>Example(1):</p>
+<div class="highlight-none"><div class="highlight"><pre>see new point {x=10 y=20 z=30}
+Class Point
+        AddAttribute(self,[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;])
+</pre></div>
+</div>
+<p>Example(2):</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new point
+addattribute(o1,&quot;x&quot;)
+addattribute(o1,&quot;y&quot;)
+addattribute(o1,&quot;z&quot;)
+see o1 {x=10 y=20 z=30}
+class point
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>x: 10.000000
+y: 20.000000
+z: 30.000000
+</pre></div>
+</div>
+</div>
+<div class="section" id="addmethod-function">
+<h2>addmethod() Function<a class="headerlink" href="#addmethod-function" title="Permalink to this headline">¶</a></h2>
+<p>We can add a method to the object class using the addmethod() function
+This method can be used with any object from the same class.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>AddMethod(Object,cNewMethodName,cMethodName|AnonymousFunction)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new point { x=10 y=20 z=30 }
+
+addmethod(o1,&quot;print&quot;, func { see x + nl + y + nl + z + nl } )
+
+o1.print()
+
+Class point
+        x y z
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>10
+20
+30
+</pre></div>
+</div>
+<p>Instead of using anonymous function to add new method to the class, we can use the function name</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new point { x=10 y=20 z=30 }
+
+myfunc = func { see x + nl + y + nl + z + nl }
+
+addmethod(o1,&quot;print&quot;, myfunc )
+addmethod(o1,&quot;display&quot;, myfunc )
+addmethod(o1,&quot;show&quot;, myfunc )
+
+o1.print()
+o1.display()
+o1.show()
+
+Class point
+        x y z
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>10
+20
+30
+10
+20
+30
+10
+20
+30
+</pre></div>
+</div>
+<p>Since we add the method to the class, any object from that class can use this method</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new point { x=10 y=20 z=30 }
+o2 = new point { x=100 y=200 z=300 }
+o3 = new point { x=50 y=150 z=250 }
+
+addmethod(o1,&quot;print&quot;, func { see x + nl + y + nl + z + nl } )
+
+o1.print()
+o2.print()
+o3.print()
+
+Class point
+        x y z
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>10
+20
+30
+100
+200
+300
+50
+150
+250
+</pre></div>
+</div>
+</div>
+<div class="section" id="getattribute-function">
+<h2>getattribute() function<a class="headerlink" href="#getattribute-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get the object attribute value using the getattribute() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>GetAttribute(oObject,cAttributeName) ---&gt; Attribute Value
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new point
+
+see getattribute(o1,&quot;name&quot;) + nl +
+    getattribute(o1,&quot;x&quot;) + nl +
+    getattribute(o1,&quot;y&quot;) + nl +
+    getattribute(o1,&quot;z&quot;) + nl
+
+Class Point
+        x=10 y=20 z=30
+        name = &quot;3D-Point&quot;
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>3D-Point
+10
+20
+30
+</pre></div>
+</div>
+</div>
+<div class="section" id="setattribute-function">
+<h2>setattribute() function<a class="headerlink" href="#setattribute-function" title="Permalink to this headline">¶</a></h2>
+<p>We can set the object attribute value using the setattribute() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>SetAttribute(oObject,cAttributeName,Value)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new person
+setattribute(o1,&quot;cName&quot;,&quot;Mahmoud&quot;)
+setattribute(o1,&quot;nSalary&quot;,1000000)
+setattribute(o1,&quot;aColors&quot;,[&quot;white&quot;,&quot;blue&quot;,&quot;yellow&quot;])
+
+see o1
+see o1.aColors
+
+Class Person
+        cName
+        nSalary
+        aColors
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>cname: Mahmoud
+nsalary: 1000000.000000
+acolors: List...
+white
+blue
+yellow
+</pre></div>
+</div>
+</div>
+<div class="section" id="mergemethods-function">
+<h2>mergemethods() Function<a class="headerlink" href="#mergemethods-function" title="Permalink to this headline">¶</a></h2>
+<p>We can share methods between classes without inheritance using the MergeMethods() function</p>
+<p>This function merge class methods to another class.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>MergeMethods(cClassNameDestination,cClassNameSource)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>mergemethods(&quot;count&quot;,&quot;share&quot;)
+mergemethods(&quot;count2&quot;,&quot;share&quot;)
+
+o1 = new count  { test() }
+o1 = new count2 { test() }
+
+Class Share
+        func one
+                see &quot;one&quot; + nl
+        func two
+                see &quot;two&quot; + nl
+        func three
+                see &quot;three&quot; + nl
+
+Class Display
+        Func printline
+                see copy(&quot;*&quot;,20) + nl
+
+Class Count from Display
+        Func test
+                printline()
+                one()
+                two()
+                three()
+                printline()
+
+Class Count2 from Display
+        Func test
+                three()
+                two()
+                one()
+                printline()
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>********************
+one
+two
+three
+********************
+three
+two
+one
+********************
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Reflection and Meta-programming</a><ul>
+<li><a class="reference internal" href="#locals-function">locals() Function</a></li>
+<li><a class="reference internal" href="#globals-function">globals() Function</a></li>
+<li><a class="reference internal" href="#functions-function">functions() Function</a></li>
+<li><a class="reference internal" href="#cfunctions-function">cfunctions() Function</a></li>
+<li><a class="reference internal" href="#islocal-function">islocal() Function</a></li>
+<li><a class="reference internal" href="#isglobal-function">isglobal() Function</a></li>
+<li><a class="reference internal" href="#isfunction-function">isfunction() Function</a></li>
+<li><a class="reference internal" href="#iscfunction-function">iscfunction() Function</a></li>
+<li><a class="reference internal" href="#packages-function">packages() Function</a></li>
+<li><a class="reference internal" href="#ispackage-function">ispackage() Function</a></li>
+<li><a class="reference internal" href="#classes-function">classes() Function</a></li>
+<li><a class="reference internal" href="#isclass-function">isclass() Function</a></li>
+<li><a class="reference internal" href="#packageclasses-function">packageclasses() Function</a></li>
+<li><a class="reference internal" href="#ispackageclass-function">ispackageclass() Function</a></li>
+<li><a class="reference internal" href="#classname-function">classname() Function</a></li>
+<li><a class="reference internal" href="#objectid-function">objectid() Function</a></li>
+<li><a class="reference internal" href="#isobject-function">isobject() Function</a></li>
+<li><a class="reference internal" href="#attributes-function">attributes() Function</a></li>
+<li><a class="reference internal" href="#methods-function">methods() Function</a></li>
+<li><a class="reference internal" href="#isattribute-function">isattribute() Function</a></li>
+<li><a class="reference internal" href="#isprivateattribute-function">isprivateattribute() Function</a></li>
+<li><a class="reference internal" href="#ismethod-function">ismethod() Function</a></li>
+<li><a class="reference internal" href="#isprivatemethod-function">isprivatemethod() Function</a></li>
+<li><a class="reference internal" href="#addattribute-function">addattribute() Function</a></li>
+<li><a class="reference internal" href="#addmethod-function">addmethod() Function</a></li>
+<li><a class="reference internal" href="#getattribute-function">getattribute() function</a></li>
+<li><a class="reference internal" href="#setattribute-function">setattribute() function</a></li>
+<li><a class="reference internal" href="#mergemethods-function">mergemethods() Function</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fp.html"
+                        title="previous chapter">Functional Programming</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="extension.html"
+                        title="next chapter">Extension using the C/C++ languages</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/metaprog.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="extension.html" title="Extension using the C/C++ languages"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="fp.html" title="Functional Programming"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Demo Programs &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="ODBC Functions" href="odbc.html" />
+    <link rel="prev" title="Eval() and Debugging" href="evaldebug.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="odbc.html" title="ODBC Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="evaldebug.html" title="Eval() and Debugging"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="demo-programs">
+<h1>Demo Programs<a class="headerlink" href="#demo-programs" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will see simple demo programs</p>
+<ul class="simple">
+<li>Language Shell</li>
+<li>Main Menu</li>
+</ul>
+<div class="section" id="language-shell">
+<span id="index-0"></span><h2>Language Shell<a class="headerlink" href="#language-shell" title="Permalink to this headline">¶</a></h2>
+<p>We can create simple interactive programming environment using the next program</p>
+<div class="highlight-none"><div class="highlight"><pre>while true
+        see nl + &quot;code:&gt; &quot;
+        give cCode
+        try
+                eval(cCode)
+        catch
+                see cCatchError
+        done
+end
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>code:&gt; see &quot;hello world&quot;
+hello world
+code:&gt; for x = 1 to 10 see x + nl next
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+code:&gt; func test see &quot;Hello from test&quot; + nl
+
+code:&gt; test()
+Hello from test
+
+code:&gt; bye
+</pre></div>
+</div>
+</div>
+<div class="section" id="main-menu">
+<span id="index-1"></span><h2>Main Menu<a class="headerlink" href="#main-menu" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># Demo Program
+
+while true
+
+        see &quot;
+
+        Main Menu
+        ===========
+        [1] Say Hello
+        [2] Sum two numbers
+        [3] Stars
+        [4] Fact
+        [5] Exit
+
+        &quot; give nMenu see nl
+
+        # we can use Switch-ON-Other-OFF instead of IF-BUT-ELSE-OK
+
+        if nMenu = 1 sayhello()
+        but nMenu = 2 Sum()
+        but nMenu = 3 Stars()
+        but nMenu = 4
+                see &quot;Enter Number : &quot; give x
+                see &quot;Output : &quot;
+
+                Try
+                        see Fact(number(x))
+                Catch
+                        see &quot;Error in parameters!&quot; + nl
+                Done
+
+        but nMenu = &quot;5&quot; return
+        else see &quot;bad option&quot; + nl
+        ok
+
+end
+
+func sayhello
+        see &quot;Enter your name ? &quot; give fname
+        see &quot;Hello &quot; + fname + nl
+
+func sum
+        see &quot;number 1 : &quot; give num1 see &quot;number 2 : &quot; give num2
+        see &quot;Sum : &quot; see 0 + num1 + num2
+
+func stars
+        for x = 1 to 10
+                see space(8)
+                for y = 1 to x see &quot;*&quot; next see nl
+        next
+
+func fact x if x = 1 return 1 else return x * fact(x-1) ok
+
+func space x y = &quot;&quot; for t=1 to x y += &quot; &quot; next return y
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>        Main Menu
+        ===========
+        [1] Say Hello
+        [2] Sum two numbers
+        [3] Stars
+        [4] Fact
+        [5] Exit
+
+        1
+
+Enter your name ? Mahmoud Fayed
+Hello Mahmoud Fayed
+
+
+        Main Menu
+        ===========
+        [1] Say Hello
+        [2] Sum two numbers
+        [3] Stars
+        [4] Fact
+        [5] Exit
+
+        2
+
+number 1 : 3
+number 2 : 4
+Sum : 7
+
+        Main Menu
+        ===========
+        [1] Say Hello
+        [2] Sum two numbers
+        [3] Stars
+        [4] Fact
+        [5] Exit
+
+        3
+
+        *
+        **
+        ***
+        ****
+        *****
+        ******
+        *******
+        ********
+        *********
+        **********
+
+
+        Main Menu
+        ===========
+        [1] Say Hello
+        [2] Sum two numbers
+        [3] Stars
+        [4] Fact
+        [5] Exit
+
+        4
+
+Enter Number : 5
+Output : 120
+
+        Main Menu
+        ===========
+        [1] Say Hello
+        [2] Sum two numbers
+        [3] Stars
+        [4] Fact
+        [5] Exit
+
+        5
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Demo Programs</a><ul>
+<li><a class="reference internal" href="#language-shell">Language Shell</a></li>
+<li><a class="reference internal" href="#main-menu">Main Menu</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="evaldebug.html"
+                        title="previous chapter">Eval() and Debugging</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="odbc.html"
+                        title="next chapter">ODBC Functions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/demo.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="odbc.html" title="ODBC Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="evaldebug.html" title="Eval() and Debugging"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

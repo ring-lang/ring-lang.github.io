@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Low Level Functions &mdash; Ring 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.1 documentation" href="index.html" />
+    <link rel="next" title="Extension using the C/C++ languages" href="extension.html" />
+    <link rel="prev" title="Command Line Options" href="compiler.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="extension.html" title="Extension using the C/C++ languages"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="compiler.html" title="Command Line Options"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="low-level-functions">
+<span id="index-0"></span><h1>Low Level Functions<a class="headerlink" href="#low-level-functions" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about the low level functions provided by Ring</p>
+<ul class="simple">
+<li>callgc()</li>
+<li>varptr()</li>
+<li>space()</li>
+<li>nullpointer()</li>
+<li>object2pointer()</li>
+<li>pointer2object()</li>
+</ul>
+<div class="section" id="callgc-function">
+<span id="index-1"></span><h2>callgc() function<a class="headerlink" href="#callgc-function" title="Permalink to this headline">¶</a></h2>
+<p>Use this function to force calling the garbage collector during function execution when you
+use a loop that create temp. variables that you don&#8217;t free using the assignment operation.</p>
+<p>It&#8217;s very rare to need this function but it&#8217;s useful when you create something like event-loop
+for your game engine and start creating lists on the fly when you call functions.</p>
+<p>Example</p>
+<div class="highlight-ring"><div class="highlight"><pre><span class="k">While</span> <span class="kp">True</span>
+
+        <span class="c"># process events</span>
+        <span class="c"># call functions using temp. lists like myfunc([&quot;temp list&quot;])</span>
+
+        <span class="c"># call the garbage collector</span>
+        <span class="n">callgc</span><span class="p">()</span>
+<span class="k">End</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">In Ring the garbage collector works automatically in the end of function execution or
+when you use the assignment statement.</p>
+</div>
+</div>
+<div class="section" id="varptr-function">
+<span id="index-2"></span><h2>varptr() function<a class="headerlink" href="#varptr-function" title="Permalink to this headline">¶</a></h2>
+<p>Use the varptr() function when you need to pass a pointer to a C/C++ function.</p>
+<p>Syntax:</p>
+<blockquote>
+<div>varptr(cVariableName,cPointerType) &#8212;&gt; Low Level Object (C Pointer)</div></blockquote>
+<p>example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span class="n">r</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">varptr</span><span class="p">(</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="s">&quot;int&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">varptr</span><span class="p">(</span><span class="s">&quot;z&quot;</span><span class="p">,</span><span class="s">&quot;int&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre>10
+00E3C740
+int
+2
+00E3BEC0
+int
+2
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">the low level object is a list contains three items (The Pointer, The Type, The Status)</p>
+</div>
+</div>
+<div class="section" id="space-function">
+<span id="index-3"></span><h2>space() function<a class="headerlink" href="#space-function" title="Permalink to this headline">¶</a></h2>
+<p>Use the space function to allocate a specific number of bytes in Memory.</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span class="n">Space</span><span class="p">(</span><span class="n">nBytesCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span class="n">mystring</span> <span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;String Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">mystring</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;String : &quot;</span> <span class="o">+</span> <span class="n">mystring</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;String Pointer : &quot;</span>
+<span class="k">See</span> <span class="n">varptr</span><span class="p">(</span><span class="s">&quot;mystring&quot;</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre>String Size : 200
+String :
+String Pointer : 00FF8FE8
+char *
+2
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may need the space() and VarPtr() functions to pass buffers to C functions.</p>
+</div>
+</div>
+<div class="section" id="nullpointer-function">
+<span id="index-4"></span><h2>nullpointer() function<a class="headerlink" href="#nullpointer-function" title="Permalink to this headline">¶</a></h2>
+<p>You may need to pass the NULL pointer to a C function that may expect a pointer as parameter
+and accept NULL pointers for optional parameters.</p>
+<p>Example:</p>
+<p>The next example uses the SDL_BlitSurface() function from the LibSDL Library through RingSDL
+The function accept SDL_Rect pointers in the second and the last parameter.
+Also the function accept NULL pointers, so we can pass them using the NULLPointer() Function.</p>
+<div class="highlight-ring"><div class="highlight"><pre><span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">nullpointer</span><span class="p">(),</span> <span class="n">surface</span><span class="p">,</span> <span class="n">nullpointer</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The previous code doesn&#8217;t work alone, you need to learn how to use RingSDL first.</p>
+</div>
+</div>
+<div class="section" id="object2pointer-function">
+<span id="index-5"></span><h2>object2pointer() function<a class="headerlink" href="#object2pointer-function" title="Permalink to this headline">¶</a></h2>
+<p>Use this function to get a C pointer for Ring lists and objects</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span class="n">object2pointer</span><span class="p">(</span><span class="kt">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pointer2object-function">
+<span id="index-6"></span><h2>pointer2object() function<a class="headerlink" href="#pointer2object-function" title="Permalink to this headline">¶</a></h2>
+<p>Use this function to get the Ring list and/or object from the low level object (C Pointer)</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span class="n">pointer2object</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span><span class="o">|</span><span class="n">Object</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span class="c"># Create the list</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+
+<span class="c"># Create pointer to the list</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">object2pointer</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">x</span>
+
+<span class="k">see</span> <span class="n">nl</span>
+
+<span class="c"># Add items to the list</span>
+<span class="n">mylist</span> <span class="o">+</span> <span class="s">&quot;welcome&quot;</span>
+
+<span class="c"># print the list items</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">pointer2object</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre>0069A5D8
+OBJECTPOINTER
+0
+
+1
+2
+3
+4
+5
+welcome
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In Ring the assignment operator copy lists and objects by value, to copy by reference
+Just use the object2pointer() and pointer2object() functions.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">The object2pointer() and pointer2object() are used in the stdlib - Tree Class implementation
+to create a reference for the parent node (object) in the child node (another object).</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Low Level Functions</a><ul>
+<li><a class="reference internal" href="#callgc-function">callgc() function</a></li>
+<li><a class="reference internal" href="#varptr-function">varptr() function</a></li>
+<li><a class="reference internal" href="#space-function">space() function</a></li>
+<li><a class="reference internal" href="#nullpointer-function">nullpointer() function</a></li>
+<li><a class="reference internal" href="#object2pointer-function">object2pointer() function</a></li>
+<li><a class="reference internal" href="#pointer2object-function">pointer2object() function</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="compiler.html"
+                        title="previous chapter">Command Line Options</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="extension.html"
+                        title="next chapter">Extension using the C/C++ languages</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/lowlevel.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="extension.html" title="Extension using the C/C++ languages"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="compiler.html" title="Command Line Options"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Eng. Mahmoud Fayed and Dr. Atif Alamri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

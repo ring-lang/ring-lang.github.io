@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lists &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Strings" href="strings.html" />
+    <link rel="prev" title="Functions" href="functions.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="strings.html" title="Strings"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="functions.html" title="Functions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="lists">
+<h1>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn how to deal with lists.</p>
+<div class="section" id="create-lists">
+<h2>Create Lists<a class="headerlink" href="#create-lists" title="Permalink to this headline">¶</a></h2>
+<p>We can create new lists by defining the list items inside square bracts.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [1,2,3,4,5]
+</pre></div>
+</div>
+<p>Also we can create new lists using the : operator</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = 1:5
+aList2 = &quot;a&quot;:&quot;z&quot;
+</pre></div>
+</div>
+<p>Also we can create lists using the list() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>list = list(size)
+</pre></div>
+</div>
+<p>Example</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = list(10)        # aList contains 10 items
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">the list index start from 1</p>
+</div>
+</div>
+<div class="section" id="add-items">
+<h2>Add Items<a class="headerlink" href="#add-items" title="Permalink to this headline">¶</a></h2>
+<p>To add new items to the list, we can use the Add() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Add(List,Item)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [&quot;one&quot;,&quot;two&quot;]
+add(aList,&quot;three&quot;)
+</pre></div>
+</div>
+<p>Also we can do that using the + operator.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>List + item
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = 1:10    # create list contains numbers from 1 to 10
+aList + 11      # add number 11 to the list
+see aList       # print the list
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-list-size">
+<h2>Get List Size<a class="headerlink" href="#get-list-size" title="Permalink to this headline">¶</a></h2>
+<p>We can get the list size using the len() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Len(List)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = 1:20  see len(aList)  # print 20
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-item-from-list">
+<h2>Delete Item From List<a class="headerlink" href="#delete-item-from-list" title="Permalink to this headline">¶</a></h2>
+<p>To delete an item from the list, we can use the del() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>del(list,index)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [&quot;one&quot;,&quot;two&quot;,&quot;other&quot;,&quot;three&quot;]
+Del(aList,3)    # delete item number three
+see aList       # print one two three
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-list-item">
+<h2>Get List Item<a class="headerlink" href="#get-list-item" title="Permalink to this headline">¶</a></h2>
+<p>To get an item from the list, we uses the next syntax</p>
+<div class="highlight-none"><div class="highlight"><pre>List[Index]
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [&quot;Cairo&quot;,&quot;Riyadh&quot;]
+see &quot;Egypt : &quot; + aList[1] + nl +
+    &quot;KSA   : &quot; + aList[2] + nl
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-list-item">
+<h2>Set List Item<a class="headerlink" href="#set-list-item" title="Permalink to this headline">¶</a></h2>
+<p>To set the value of an item inside the list, we can use the next syntax</p>
+<div class="highlight-none"><div class="highlight"><pre>List[Index] = Expression
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = list(3) # create list contains three items
+aList[1] = &quot;one&quot; aList[2] = &quot;two&quot; aList[3] = &quot;three&quot;
+see aList
+</pre></div>
+</div>
+</div>
+<div class="section" id="search">
+<h2>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h2>
+<p>To find an item inside the list we can use the find() function</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Find(List,ItemValue) ---&gt; Item Index
+Find(List,ItemValue,nColumn) ---&gt; Search in nColumn, returns the Item Index
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;four&quot;,&quot;five&quot;]
+see find(aList,&quot;three&quot;)         # print 3
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>mylist = [[&quot;one&quot;,1],
+          [&quot;two&quot;,2],
+          [&quot;three&quot;,3]]
+
+see find(mylist,&quot;two&quot;,1) + nl           # print 2
+see find(mylist,2,2) + nl               # print 2
+</pre></div>
+</div>
+<p>Also we can use the binarysearch() function to search in sorted list.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>BinarySearch(List,ItemValue) ---&gt; Item Index
+BinarySearch(List,ItemValue,nColumn) ---&gt; Search in nColumn, returns the Item Index
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;four&quot;,&quot;five&quot;]
+aList = sort(aList)
+see binarysearch(aList,&quot;three&quot;)
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>five
+four
+one
+three
+two
+4
+</pre></div>
+</div>
+</div>
+<div class="section" id="sort">
+<h2>Sort<a class="headerlink" href="#sort" title="Permalink to this headline">¶</a></h2>
+<p>We can sort the list using the sort() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Sort(List) ---&gt; Sorted List
+Sort(List,nColumn) ---&gt; Sorted List based on nColumn
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [10,12,3,5,31,15]
+aList = sort(aList) see aList # print 3 5 10 12 15 31
+</pre></div>
+</div>
+<p>We can sort list of strings</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>mylist = [&quot;mahmoud&quot;,&quot;samir&quot;,&quot;ahmed&quot;,&quot;ibrahim&quot;,&quot;mohammed&quot;]
+see mylist                # print list before sorting
+mylist = sort(mylist)     # sort list
+see &quot;list after sort&quot;+nl
+see mylist                # print ahmed ibrahim mahmoud mohammed samir
+</pre></div>
+</div>
+<p>We can sort a list based on a specific column.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [ [&quot;mahmoud&quot;,15000] ,
+          [&quot;ahmed&quot;, 14000 ] ,
+          [&quot;samir&quot;, 16000 ] ,
+          [&quot;mohammed&quot;, 12000 ] ,
+          [&quot;ibrahim&quot;,11000 ] ]
+
+aList2 = sort(aList,1)
+see aList2
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>ahmed
+14000
+ibrahim
+11000
+mahmoud
+15000
+mohammed
+12000
+samir
+16000
+</pre></div>
+</div>
+</div>
+<div class="section" id="reverse">
+<h2>Reverse<a class="headerlink" href="#reverse" title="Permalink to this headline">¶</a></h2>
+<p>We can reverse a list using the reverse() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Reverse(List) ---&gt; Reversed List
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [10,20,30,40,50]
+aList = reverse(aList)
+see aList       # print 50 40 30 20 10
+</pre></div>
+</div>
+</div>
+<div class="section" id="insert-items">
+<h2>Insert Items<a class="headerlink" href="#insert-items" title="Permalink to this headline">¶</a></h2>
+<p>To insert an item in the list we can use the insert() function.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Insert(List,Index,Item)
+</pre></div>
+</div>
+<p>The inserted item will be after the index</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [1,2,4,5]
+insert(aList,2,3)
+see aList         # print 1 2 3 4 5
+</pre></div>
+</div>
+</div>
+<div class="section" id="nested-lists">
+<h2>Nested Lists<a class="headerlink" href="#nested-lists" title="Permalink to this headline">¶</a></h2>
+<p>The list may contain other lists</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [ 1 , [10,20,30] , 5 , [100,1000,5000] ]
+aList2 = [
+&quot;one&quot;,&quot;two&quot;,
+[3,4],
+[20,30], [&quot;three&quot;,
+          &quot;four&quot;,
+          &quot;five&quot;,[100,200,300]
+         ]
+]
+
+see aList[2]            # print 10 20 30
+see aList[4][3] + nl    # print 5000
+see aList2[5][2] + nl   # print four
+see aList2[5][4][3]     # print 300
+</pre></div>
+</div>
+</div>
+<div class="section" id="copy-lists">
+<h2>Copy Lists<a class="headerlink" href="#copy-lists" title="Permalink to this headline">¶</a></h2>
+<p>We can copy lists (including nested lists) using the Assignment operator.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [
+&quot;one&quot;,&quot;two&quot;,
+[3,4],
+[20,30], [&quot;three&quot;,
+          &quot;four&quot;,
+          &quot;five&quot;,[100,200,300]
+         ]
+]
+
+aList2 = aList          # Copy aList to aList2
+aList2[5] = &quot;other&quot;     # modify item number five
+see aList2[5] + nl      # print other
+see aList[5]            # print three four five 100 200 300
+</pre></div>
+</div>
+</div>
+<div class="section" id="first-class-lists">
+<h2>First-class lists<a class="headerlink" href="#first-class-lists" title="Permalink to this headline">¶</a></h2>
+<p>Lists are <a class="reference external" href="http://en.wikipedia.org/wiki/First-class_citizen">first-class citizens</a> where we can store
+lists in varaibles, pass lists to functions, and return lists from functions.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = duplicate( [1,2,3,4,5] )
+see aList[10] + nl                # print 5
+
+see mylist()                      # print 10 20 30 40 50
+
+func duplicate list
+        nMax = len(list)
+        for x = 1 to nMax
+                list + list[x]
+        next
+        return list
+
+func mylist return [10,20,30,40,50]
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-lists-during-definition">
+<h2>Using Lists during definition<a class="headerlink" href="#using-lists-during-definition" title="Permalink to this headline">¶</a></h2>
+<p>We can use the list items while we are defining the list for the first time.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
+see aList       # print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+</pre></div>
+</div>
+</div>
+<div class="section" id="passing-lists-to-functions">
+<h2>Passing Lists to Functions<a class="headerlink" href="#passing-lists-to-functions" title="Permalink to this headline">¶</a></h2>
+<p>Lists are passed to functions by reference, This means that the called
+function will work on the same list and can modify it.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>func main
+        aList = [1,2,3,4,5]     # create list, local in function main
+        myfunc(aList)           # call function, pass list by reference
+        see aList               # print 1 2 3 4 5 6 7 8 9 10
+
+func myfunc list
+        list + [6,7,8,9,10]
+</pre></div>
+</div>
+</div>
+<div class="section" id="access-list-items-by-string-index">
+<h2>Access List Items by String Index<a class="headerlink" href="#access-list-items-by-string-index" title="Permalink to this headline">¶</a></h2>
+<p>Instead of using numbers to determine the item index when we get item value or set item value,
+We can access items using string index if the item is a list contains two items and
+the first item is a string.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [ [&quot;one&quot;,1] , [&quot;two&quot;,2] , [&quot;three&quot;,3] ]
+see aList[&quot;one&quot;] + nl +
+    aList[&quot;two&quot;] + nl +
+    aList[&quot;three&quot;]      # print 1 2 3
+</pre></div>
+</div>
+<p>This type of lists can be defined in a better syntax using the : and = operators.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = [ :one = 1 , :two = 2 , :three = 3 ]
+see aList[&quot;one&quot;] + nl +
+    aList[&quot;two&quot;] + nl +
+    aList[&quot;three&quot;] + nl # print 1 2 3
+see aList[1]            # print one 1
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">using : before identifier (one word) means literal</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">using = inside list definition create a list of two items where
+the first item is the left side and the second item is the right side.</p>
+</div>
+<p>We can add new items to the list using the string index</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList = []
+aList[&quot;Egypt&quot;] = &quot;Cairo&quot;
+aList[&quot;KSA&quot;] = &quot;Riyadh&quot;
+see aList[&quot;Egypt&quot;] + nl +       # print Cairo
+    aList[&quot;KSA&quot;] + nl           # print Riyadh
+</pre></div>
+</div>
+</div>
+<div class="section" id="passing-parameters-using-list">
+<h2>Passing Parameters Using List<a class="headerlink" href="#passing-parameters-using-list" title="Permalink to this headline">¶</a></h2>
+<p>This type of lists is very good for passing parameters to functions
+Where the order of parameters will not be important (we can change the order).</p>
+<p>Also some parameters maybe optional.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>myconnect (  [ :server = &quot;myserver.com&quot; , :port = 80 ,
+               :username = &quot;mahmoud&quot; , :password = &quot;password&quot; ] )
+
+func myconnect mypara
+
+        # print connection details
+        see &quot;User Name : &quot; + mypara[:username] + nl +
+            &quot;Password  : &quot; + mypara[:password] + nl +
+            &quot;Server    : &quot; + mypara[:server] + nl +
+            &quot;Port      : &quot; + mypara[:port]
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Lists</a><ul>
+<li><a class="reference internal" href="#create-lists">Create Lists</a></li>
+<li><a class="reference internal" href="#add-items">Add Items</a></li>
+<li><a class="reference internal" href="#get-list-size">Get List Size</a></li>
+<li><a class="reference internal" href="#delete-item-from-list">Delete Item From List</a></li>
+<li><a class="reference internal" href="#get-list-item">Get List Item</a></li>
+<li><a class="reference internal" href="#set-list-item">Set List Item</a></li>
+<li><a class="reference internal" href="#search">Search</a></li>
+<li><a class="reference internal" href="#sort">Sort</a></li>
+<li><a class="reference internal" href="#reverse">Reverse</a></li>
+<li><a class="reference internal" href="#insert-items">Insert Items</a></li>
+<li><a class="reference internal" href="#nested-lists">Nested Lists</a></li>
+<li><a class="reference internal" href="#copy-lists">Copy Lists</a></li>
+<li><a class="reference internal" href="#first-class-lists">First-class lists</a></li>
+<li><a class="reference internal" href="#using-lists-during-definition">Using Lists during definition</a></li>
+<li><a class="reference internal" href="#passing-lists-to-functions">Passing Lists to Functions</a></li>
+<li><a class="reference internal" href="#access-list-items-by-string-index">Access List Items by String Index</a></li>
+<li><a class="reference internal" href="#passing-parameters-using-list">Passing Parameters Using List</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="functions.html"
+                        title="previous chapter">Functions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="strings.html"
+                        title="next chapter">Strings</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/lists.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="strings.html" title="Strings"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="functions.html" title="Functions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

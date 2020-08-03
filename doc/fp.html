@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Functional Programming &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Reflection and Meta-programming" href="metaprog.html" />
+    <link rel="prev" title="Natural Language Programming" href="natural.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="metaprog.html" title="Reflection and Meta-programming"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="natural.html" title="Natural Language Programming"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="functional-programming">
+<h1>Functional Programming<a class="headerlink" href="#functional-programming" title="Permalink to this headline">¶</a></h1>
+<p>In previous chapters we learned about Functions and Recursion.</p>
+<p>In this chapter we are going to learn about more Functional Programming (FP) concepts like</p>
+<ul class="simple">
+<li>Pure Functions</li>
+<li>First-class functions</li>
+<li>Higher-order functions</li>
+<li>Anonymous and nested functions.</li>
+<li>Equality of functions</li>
+</ul>
+<div class="section" id="pure-functions">
+<span id="index-0"></span><h2>Pure Functions<a class="headerlink" href="#pure-functions" title="Permalink to this headline">¶</a></h2>
+<p>We can create pure functions (functions that doesn&#8217;t change the state) by the help of the assignment operator to
+copy variables (Lists &amp; Objects) by value to create new variables instead of working on the original data that are passed
+to the function by reference.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>Func Main
+        aList = [1,2,3,4,5]
+        aList2 = square(aList)
+        see &quot;aList&quot; + nl
+        see aList
+        see &quot;aList2&quot; + nl
+        see aList2
+
+Func Square aPara
+        a1 = aPara              # copy the list
+        for x in a1
+                x *= x
+        next
+        return a1               # return new list
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>aList
+1
+2
+3
+4
+5
+aList2
+1
+4
+9
+16
+25
+</pre></div>
+</div>
+</div>
+<div class="section" id="first-class-functions">
+<span id="index-1"></span><h2>First-class Functions<a class="headerlink" href="#first-class-functions" title="Permalink to this headline">¶</a></h2>
+<p>Functions inside the Ring programming language are first-class citizens, you can pass functions as parameters, return them as
+value or store them in variables.</p>
+<p>We can pass/return the function by typing the function name as literal like &#8220;FunctionName&#8221; or :FunctionName for example.</p>
+<p>We can pass/return functions using the variable that contains the function name.</p>
+<p>We can call function from variables contains the function name using the Call command</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Call Variable([Parameters])
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>Func Main
+        see &quot;before test2()&quot; + nl
+        f = Test2(:Test)
+        see &quot;after test2()&quot; + nl
+        call f()
+
+Func Test
+        see &quot;Message from test!&quot; + nl
+
+Func Test2 f1
+        call f1()
+        See &quot;Message from test2!&quot; + nl
+        return f1
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>before test2()
+Message from test!
+Message from test2!
+after test2()
+Message from test!
+</pre></div>
+</div>
+</div>
+<div class="section" id="higher-order-functions">
+<span id="index-2"></span><h2>Higher-order Functions<a class="headerlink" href="#higher-order-functions" title="Permalink to this headline">¶</a></h2>
+<p>Higher-order functions are the functions that takes other functions as parameters.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>Func Main
+        times(5,:test)
+
+Func Test
+        see &quot;Message from the test function!&quot; + nl
+
+Func Times nCount,F
+
+        for x = 1 to nCount
+                Call F()
+        next
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>Message from the test function!
+Message from the test function!
+Message from the test function!
+Message from the test function!
+Message from the test function!
+</pre></div>
+</div>
+</div>
+<div class="section" id="anonymous-and-nested-functions">
+<span id="index-3"></span><h2>Anonymous and Nested Functions<a class="headerlink" href="#anonymous-and-nested-functions" title="Permalink to this headline">¶</a></h2>
+<p>Anonymous Functions are functions without names that can be passed as parameters to other functions or stored in variables.</p>
+<p>Syntax:</p>
+<div class="highlight-none"><div class="highlight"><pre>Func [Parameters] { [statements] }
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>test( func x,y {
+                        see &quot;hello&quot; + nl
+                        see &quot;Sum : &quot; + (x+y) + nl
+               } )
+
+new great { f1() }
+
+times(3, func { see &quot;hello world&quot; + nl } )
+
+func test x
+        call x(3,3)
+        see &quot;wow!&quot; + nl
+
+func times n,x
+        for t=1 to n
+                call x()
+        next
+
+Class great
+        func f1
+                f2( func { see &quot;Message from f1&quot; + nl } )
+
+        func f2 x
+                call x()
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>hello
+Sum : 6
+wow!
+Message from f1
+hello world
+hello world
+hello world
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>Func Main
+        aList = [1,2,3,4]
+        Map (aList , func x {
+                                return x*x
+                            } )
+        see aList
+        aList = [4,9,14,25]
+        Map(aList, :myfilter )
+        see aList
+        aList = [11,12,13,14]
+        Map (aList , func x {
+                if x%2=0
+                        return &quot;even&quot;
+                else
+                        return &quot;odd&quot;
+                ok
+        })
+        see aList
+
+Func myfilter x
+        if x = 9
+                return &quot;True&quot;
+        else
+                return &quot;False&quot;
+        ok
+
+Func Map aList,cFunc
+        for x in aList
+                x = call cFunc(x)
+        next
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>1
+4
+9
+16
+False
+True
+False
+False
+odd
+even
+odd
+even
+</pre></div>
+</div>
+</div>
+<div class="section" id="equality-of-functions">
+<h2>Equality of functions<a class="headerlink" href="#equality-of-functions" title="Permalink to this headline">¶</a></h2>
+<p>We can test if function = function or not using the &#8216;=&#8217; or &#8216;!=&#8217; operators</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>f1 = func { see &quot;hello&quot; + nl }
+
+f2 = func { see &quot;how are you?&quot; + nl }
+
+f3 = f1
+
+call f1()
+call f2()
+call f3()
+
+see (f1 = f2) + nl
+see (f2 = f3) + nl
+see (f1 = f3) + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>hello
+how are you?
+hello
+0
+0
+1
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Functional Programming</a><ul>
+<li><a class="reference internal" href="#pure-functions">Pure Functions</a></li>
+<li><a class="reference internal" href="#first-class-functions">First-class Functions</a></li>
+<li><a class="reference internal" href="#higher-order-functions">Higher-order Functions</a></li>
+<li><a class="reference internal" href="#anonymous-and-nested-functions">Anonymous and Nested Functions</a></li>
+<li><a class="reference internal" href="#equality-of-functions">Equality of functions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="natural.html"
+                        title="previous chapter">Natural Language Programming</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="metaprog.html"
+                        title="next chapter">Reflection and Meta-programming</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/fp.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="metaprog.html" title="Reflection and Meta-programming"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="natural.html" title="Natural Language Programming"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

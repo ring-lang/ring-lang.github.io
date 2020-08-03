@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Declarative Programming using Nested Structures &mdash; Ring 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Ring 1.0 documentation" href="index.html" />
+    <link rel="next" title="Natural Language Programming" href="natural.html" />
+    <link rel="prev" title="Object Oriented Programming (OOP)" href="oop.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="natural.html" title="Natural Language Programming"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="oop.html" title="Object Oriented Programming (OOP)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="declarative-programming-using-nested-structures">
+<h1>Declarative Programming using Nested Structures<a class="headerlink" href="#declarative-programming-using-nested-structures" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">In this chapter we are going to learn how to build declarative programming world using nested structures on the top
+of object oriented.</p>
+<p>We will learn about</p>
+<ul class="simple">
+<li>Creating Objects inside Lists</li>
+<li>Composition and Returning Objects and Lists by Reference</li>
+<li>Executing code after the end of object access</li>
+<li>Declarative Programming on the top of Object-Oriented</li>
+</ul>
+<div class="section" id="creating-objects-inside-lists">
+<span id="index-1"></span><h2>Creating Objects inside Lists<a class="headerlink" href="#creating-objects-inside-lists" title="Permalink to this headline">¶</a></h2>
+<p>We can create objects inside lists during list definition.
+Also we can add objects to the list at any time using the Add() function or the + operator.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>alist = [new point, new point, new point]       # create list contains three objects
+
+alist + [1,2,3]                                 # add another item to the list
+
+see &quot;Item 4 is a list contains 3 items&quot; + nl
+see alist[4]
+
+add(alist , new point)
+alist + new point
+
+alist[5] { x = 100 y = 200 z = 300 }
+alist[6] { x = 50 y = 150 z = 250 }
+
+see &quot;Object inside item 5&quot; + nl
+see alist[5]
+see &quot;Object inside item 6&quot; + nl
+see alist[6]
+
+class point x y z
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>Item 4 is a list contains 3 items
+1
+2
+3
+Object inside item 5
+x: 100.000000
+y: 200.000000
+z: 300.000000
+Object inside item 6
+x: 50.000000
+y: 150.000000
+z: 250.000000
+</pre></div>
+</div>
+</div>
+<div class="section" id="composition-and-returning-objects-and-lists-by-reference">
+<span id="index-2"></span><h2>Composition and Returning Objects and Lists by Reference<a class="headerlink" href="#composition-and-returning-objects-and-lists-by-reference" title="Permalink to this headline">¶</a></h2>
+<p>When we use composition and have object as one of the class attributes, when we return that object it will be returned by reference.</p>
+<p>if the called used the assignment operator, another copy of the object will be created.</p>
+<p>The caller can avoid using the assignment operator and use the returned reference directly to access the object.</p>
+<p>The same is done also if the attribute is a list (not object).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Objects and Lists are treated using the same rules. When you pass them to function they are passed by reference,</p>
+</div>
+<p>when you return them from functions they are returned by value except if it&#8217;s an object attribute where a return by reference
+will be done.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>o1 = new Container
+myobj = o1.addobj()     # the assignment will create another copy
+myobj.x = 100
+myobj.y = 200
+myobj.z = 300
+see o1.aobjs[1]         # print the object inside the container
+see myobj               # print the copy
+
+Class Container
+        aObjs = []
+        func addobj
+                aobjs + new point
+                return aobjs[len(aobjs)]        # return object by reference
+
+Class point
+        x  = 10
+        y  = 20
+        z  = 30
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>x: 10.000000
+y: 20.000000
+z: 30.000000
+x: 100.000000
+y: 200.000000
+z: 300.000000
+</pre></div>
+</div>
+<p>Example(2):</p>
+<div class="highlight-none"><div class="highlight"><pre>func main
+        o1 = new screen  {
+                content[point()] {
+                        x = 100
+                        y = 200
+                        z = 300
+                }
+                content[point()] {
+                        x = 50
+                        y = 150
+                        z = 250
+                }
+        }
+        see o1.content[1]
+        see o1.content[2]
+
+Class Screen
+        content = []
+        func point
+                content + new point
+                return len(content)
+
+Class point
+        x  = 10
+        y  = 20
+        z  = 30
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>x: 100.000000
+y: 200.000000
+z: 300.000000
+x: 50.000000
+y: 150.000000
+z: 250.000000
+</pre></div>
+</div>
+<p>Example(3):</p>
+<div class="highlight-none"><div class="highlight"><pre>func main
+        o1 = New Screen  {
+                point() {               # access the object using reference
+                        x = 100
+                        y = 200
+                        z = 300
+                }
+                point() {               # access the object using reference
+                        x = 50
+                        y = 150
+                        z = 250
+                }
+        }
+        see o1.content[1]
+        see o1.content[2]
+
+Class Screen
+        content = []
+        func point
+                content + new point
+                return content[len(content)]    # return the object by reference
+
+Class point x=10 y=20 z=30
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>x: 100.000000
+y: 200.000000
+z: 300.000000
+x: 50.000000
+y: 150.000000
+z: 250.000000
+</pre></div>
+</div>
+</div>
+<div class="section" id="executing-code-after-the-end-of-object-access">
+<span id="index-3"></span><h2>Executing code after the end of object access<a class="headerlink" href="#executing-code-after-the-end-of-object-access" title="Permalink to this headline">¶</a></h2>
+<p>We can access an object using { } to use object attributes and methods.</p>
+<p>if the object contains a method called BraceEnd(), it will be executed before the end of the object access.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>New Point { See &quot;How are you?&quot; + nl }
+
+Class Point x y z
+        func braceend
+                see &quot;I&#39;m fine, Thank you!&quot; + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>How are you?
+I&#39;m fine, Thank you!
+</pre></div>
+</div>
+</div>
+<div class="section" id="declarative-programming-on-the-top-of-object-oriented">
+<span id="index-4"></span><h2>Declarative Programming on the top of Object-Oriented<a class="headerlink" href="#declarative-programming-on-the-top-of-object-oriented" title="Permalink to this headline">¶</a></h2>
+<p>The next features enable us to build and use declartive programming environment using nested structures on the top of object oriented</p>
+<ul class="simple">
+<li>using {} to access the object attributes and methods</li>
+<li>BraceEnd() Method</li>
+<li>returning objects by reference</li>
+<li>Setter/Getter Methods (optional)</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre># Declartive Programming (Nested Structures)
+
+Screen()
+{
+
+        point()
+        {
+                x = 100
+                y = 200
+                z = 300
+        }
+
+        point()
+        {
+                x = 50
+                y = 150
+                z = 250
+        }
+}
+
+# Functions and Classes
+
+Func screen return new screen
+
+Class Screen
+
+        content = []
+
+        func point
+                content + new point
+                return content[len(content)]
+
+        func braceend
+                see &quot;I have &quot; + len(content) + &quot; points!&quot;
+
+Class point
+
+        x=10 y=20 z=30
+
+        func braceend
+                see self
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre>x: 100.000000
+y: 200.000000
+z: 300.000000
+x: 50.000000
+y: 150.000000
+z: 250.000000
+I have 2 points!
+</pre></div>
+</div>
+</div>
+<div class="section" id="more-beautiful-code">
+<span id="index-5"></span><h2>More beautiful Code<a class="headerlink" href="#more-beautiful-code" title="Permalink to this headline">¶</a></h2>
+<p>We can get better results and a more beautiful code when we can avoid writing () after the method name
+when the methods doesn&#8217;t take parameters.
+This feature is not provided directly by the Ring language because there is a difference between object methods
+and object attributes. We can get a similar effect on the syntax of the code when we define a getter method for
+the object attribute. For example instead of defining the point() method. we will define the point attribute then
+the getpoint() method that will be executed once you try to get the value of the point attribute.
+since we write the variable name direcly without () we can write point instead of point() and the method getpoint()
+will create the object and return the object reference for us.</p>
+<p>Example:</p>
+<div class="highlight-none"><div class="highlight"><pre>new Container
+{
+        Point
+        {
+                x=10
+                y=20
+                z=30
+        }
+}
+
+Class Container
+        aObjs = []
+        point
+        func getpoint
+                aObjs + new Point
+                return aObjs[len(aObjs)]
+
+Class Point x y z
+        func braceend
+                see &quot;3D Point&quot; + nl + x + nl + y + nl + z + nl
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-none"><div class="highlight"><pre>3D Point
+10
+20
+30
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Declarative Programming using Nested Structures</a><ul>
+<li><a class="reference internal" href="#creating-objects-inside-lists">Creating Objects inside Lists</a></li>
+<li><a class="reference internal" href="#composition-and-returning-objects-and-lists-by-reference">Composition and Returning Objects and Lists by Reference</a></li>
+<li><a class="reference internal" href="#executing-code-after-the-end-of-object-access">Executing code after the end of object access</a></li>
+<li><a class="reference internal" href="#declarative-programming-on-the-top-of-object-oriented">Declarative Programming on the top of Object-Oriented</a></li>
+<li><a class="reference internal" href="#more-beautiful-code">More beautiful Code</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="oop.html"
+                        title="previous chapter">Object Oriented Programming (OOP)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="natural.html"
+                        title="next chapter">Natural Language Programming</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/declarative.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="natural.html" title="Natural Language Programming"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="oop.html" title="Object Oriented Programming (OOP)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Mahmoud Samir Fayed.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
