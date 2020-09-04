@@ -17,6 +17,7 @@ Ring 1.13 comes with the next features!
 
 * New Book by Apress
 * Ring For WebAssembly
+* Better Threads Support
 * Laser Game
 * Magic Balls Game
 * MoneyBoxes Game
@@ -76,6 +77,19 @@ Ring support distributing applications for WebAssembly (Using Qt for WebAssembly
 
 .. image:: othelloweb.png
 	:alt: Othello Game
+
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Better Threads Support
+
+Better Threads Support
+======================
+
+Ring 1.13 provides better support for threads
+
+(1) Ring VM is updated to use a memory pool for each thread (Faster)
+(2) More tests for RingAllegro threads functions
+(3) RingLibUV is updated to be thread safe when using callback functions
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Laser Game
@@ -281,11 +295,11 @@ The application user interface is updated for better productivity!
 Better RingRayLib
 =================
 
-1- All functions return objects instead of pointers
+(1) All functions return objects instead of pointers
 
-2- Support RayMath libary functions
+(2) Support RayMath libary functions
 
-3- More Samples are ported from RayLib to RingRayLib
+(3) More Samples are ported from RayLib to RingRayLib
 
 * Scissor Test
 * Input Gestures Detection
@@ -352,6 +366,7 @@ For more information see the Low Level Functions chapter in the documentation
 	setpointer(pointer,nNewAddress)
 	getpointer(pointer) ---> nAddress
 	pointer2string(pointer,nStart,nCount) ---> cString
+	memcpy(pDestinationPointer,cSourceString,nSize)
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Better Organization
@@ -386,11 +401,14 @@ More Improvements
 	* Lottery Game
 	* Nim Game
 	* Eight Queens Game
+	* Typing Quiz
+	* Pong 2 Game
 
 * More Samples
 	* ring/samples/Language/HelloWorld folder
 	* ring/samples/Language/ChangeIsNULL folder
 	* ring/samples/Language/Console/customsee.ring 
+	* ring/samples/Language/Numbers/decimalscount.ring
 	* ring/samples/Language/EvalInScope/swap.ring
 	* ring/samples/Language/EvalInScope/global.ring
 	* ring/samples/Language/EvalInScope/enum.ring
@@ -399,6 +417,7 @@ More Improvements
 	* ring/samples/Language/VariablePointer/varptr5.ring 
 	* ring/samples/Language/DebugCode folder
 	* ring/samples/Language/ClassMethods folder
+	* ring/samples/Language/Lists/CheckHashTableAttribute.ring
 	* ring/samples/Language/RingFileTokens folder (Ring Compiler - Scanner Output)
 	* ring/samples/ProblemSolving/Fib folder
 	* ring/samples/ProblemSolving/ArrayPathDest/solveArrayPathDest.ring
@@ -428,6 +447,7 @@ More Improvements
 * Ring Notepad - Keyboard shortcuts for different styles
 * Ring Notepad - Support saving files in folders contains the dot character
 * Ring Notepad - Browser Window - Set colors based on the current style
+* Ring Notepad - Functions List - Display functions defined using "def" 
 * Ring Notepad - Distribute Menu - Distribute for Web Browser using WebAssembly (RingQt)
 * Form Designer - ToolBox - Larger width in Windows style  
 * Form Designer - ToolBar - New icon for the (Select Objects) button
@@ -464,7 +484,11 @@ More Improvements
 * Ring Compiler - ring_state.c - Flag for the (Not Case Sensitive) feature
 * Ring Compiler - Load Command - Support loading libraries from ring/bin/load folder
 * Ring Compiler - LoadSyntax Command - Support loading libraries from ring/bin/load folder
+* Ring Compiler - Command: ? <expr> - Clear error message when the expression is missing
+* Ring Compiler - Better Error Messages
+* Ring VM - Using lists during definition - Support using the list itself (not only items)
 * Ring VM - List() Function - Support List(nRow,nCols) to create 2D lists
+* Ring VM - List() Function - Better Performance 
 * Ring VM - Object File - Save/Restore the files list 
 * Ring VM - ring_vmexpr.c - Better Code - Avoid magic numbers
 * Ring VM - ring_state_filetokens() - Optional parameter for the (Not Case Sensitive) feature.
