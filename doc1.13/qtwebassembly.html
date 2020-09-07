@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Scope Rules for Functions and Methods &mdash; Ring 1.13 documentation</title>
+  <title>Building RingQt Applications for WebAssembly &mdash; Ring 1.13 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Syntax Flexibility" href="syntaxflexibility.html" />
-    <link rel="prev" title="Scope Rules for Variables and Attributes" href="scope.html" /> 
+    <link rel="next" title="Web Development (CGI Library)" href="web.html" />
+    <link rel="prev" title="Building RingQt Applications for Mobile" href="qtmobile.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -121,12 +121,7 @@
 <li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Scope Rules for Functions and Methods</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#how-ring-find-the-functions-and-methods">How Ring find the Functions and Methods?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example-about-sharing-names-between-functions-and-methods">Example about Sharing Names between Functions and Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#calling-a-function-sharing-the-name-with-a-method-in-the-current-class">Calling a function sharing the name with a method in the current class</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
@@ -139,7 +134,15 @@
 <li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building RingQt Applications for WebAssembly</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#download-requirements">Download Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-ring2exe">Using Ring2EXE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-qt-project-for-your-ring-application">The Qt project for your Ring application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comments-about-developing-for-webassembly-using-ringqt">Comments about developing for WebAssembly using RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dialogs">Dialogs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#online-applications">Online Applications</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
@@ -244,7 +247,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Scope Rules for Functions and Methods</li>
+      <li>Building RingQt Applications for WebAssembly</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -261,168 +264,176 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="scope-rules-for-functions-and-methods">
-<span id="index-0"></span><h1>Scope Rules for Functions and Methods<a class="headerlink" href="#scope-rules-for-functions-and-methods" title="Permalink to this headline">¶</a></h1>
-<p>In this chapter we will learn about the scope rules for functions and methods.</p>
-<p>You need to know the next information once you started using Ring for large applications.</p>
-<p>These applications may contains and use</p>
+  <div class="section" id="building-ringqt-applications-for-webassembly">
+<span id="index-0"></span><h1>Building RingQt Applications for WebAssembly<a class="headerlink" href="#building-ringqt-applications-for-webassembly" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about Building RingQt Applications for WebAssembly.</p>
+<div class="section" id="download-requirements">
+<span id="index-1"></span><h2>Download Requirements<a class="headerlink" href="#download-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Check the next link : <a class="reference external" href="https://doc.qt.io/qt-5/wasm.html">https://doc.qt.io/qt-5/wasm.html</a></p>
+<p>Tested using</p>
 <ul class="simple">
-<li><p>Many Packages and Classes written in Ring</p></li>
-<li><p>Many Functions written in Ring</p></li>
-<li><p>Standard Ring Functions (Written in C language)</p></li>
-<li><p>Functions and Classes written in C/C++ languages</p></li>
+<li><p>Qt (5.15.0) : <a class="reference external" href="https://www.qt.io/blog/qt-5.15-released">https://www.qt.io/blog/qt-5.15-released</a></p></li>
+<li><p>Emscripten (1.39.7) : <a class="reference external" href="https://emscripten.org/docs/getting_started/index.html">https://emscripten.org/docs/getting_started/index.html</a></p></li>
 </ul>
-<div class="section" id="how-ring-find-the-functions-and-methods">
-<span id="index-1"></span><h2>How Ring find the Functions and Methods?<a class="headerlink" href="#how-ring-find-the-functions-and-methods" title="Permalink to this headline">¶</a></h2>
-<p>When you call a method or function, Ring will start a search process to find this function</p>
-<p>If found –&gt; Call the function and store the function pointer in the cache so Ring can use it again with doing another search.</p>
-<p>If not found —&gt; Runtime error message (That you can avoid using Try/Catch)</p>
-<p>How the search process is done?</p>
-<p>Search for functions/methods follow the next order</p>
-<p>1 - Search in methods (if we are inside class method or object using braces {})</p>
-<p>2 - Search in functions written by the programmer using Ring Code</p>
-<p>3 - Search in functions written in C/C++ like standard Ring functions</p>
-<p>This enable us to write clean code inside classes methods and avoid any conflict with functions.</p>
-<p>If we want to call a function with the same name as a method in the class we will need a wrapper function or we will access a temp. object using { } then call that function there.</p>
-<p>We can replace C/C++ Functions with Ring Functions.</p>
-<p>We can replace Ring Functions with Ring Methods.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>emsdk install sdk-fastcomp-1.39.7-64bit
+emsdk activate sdk-fastcomp-1.39.7-64bit
+</pre></div>
+</div>
+<p>Check Emscripten installation</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">em</span><span class="o">++</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>emcc (Emscripten gcc/clang-like replacement) 1.39.7
+(commit 24d88487f47629fac9d4acd231497a3a412bdee8)
+Copyright (C) 2014 the Emscripten authors (see AUTHORS.txt)
+This is free and open source software under the MIT license.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-ring2exe">
+<span id="index-2"></span><h2>Using Ring2EXE<a class="headerlink" href="#using-ring2exe" title="Permalink to this headline">¶</a></h2>
+<p>We can use Ring2EXE to quickly prepare Qt project for our application</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring2exe myapp.ring -dist -webassemblyqt
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Using self.method() is not necessary in any use case.</p>
+<p>We can use the Distribute Menu in Ring Notepad</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>We can use this.method() to escape from the current active scope that we access using braces {} and call a method in the class that we are inside.</p>
+<p>The option ( Prepare Qt project for WebAssembly ) in the Distribute Menu</p>
 </div>
 </div>
-<div class="section" id="example-about-sharing-names-between-functions-and-methods">
-<span id="index-2"></span><h2>Example about Sharing Names between Functions and Methods<a class="headerlink" href="#example-about-sharing-names-between-functions-and-methods" title="Permalink to this headline">¶</a></h2>
-<p>Look at the next example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
-        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="n">test2</span><span class="p">()</span> <span class="p">}</span>
-        <span class="n">test2</span><span class="p">()</span>
-
-<span class="k">func</span> <span class="n">f1</span>
-        <span class="k">see</span> <span class="s">&quot;f1 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-
-<span class="k">func</span> <span class="n">f2</span>
-        <span class="k">see</span> <span class="s">&quot;f2 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-
-<span class="k">func</span> <span class="n">f3</span>
-        <span class="k">see</span> <span class="s">&quot;f3 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-
-<span class="k">func</span> <span class="n">test2</span>
-        <span class="n">myline</span><span class="p">()</span>
-        <span class="k">see</span> <span class="s">&quot;test2 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span>
-                <span class="n">f1</span><span class="p">()</span>
-                <span class="n">f2</span><span class="p">()</span>
-                <span class="n">f3</span><span class="p">()</span>
-                <span class="n">self</span><span class="p">.</span><span class="n">f3</span><span class="p">()</span>
-        <span class="p">}</span>
-        <span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myclass</span>
-        <span class="n">myobj</span><span class="p">.</span><span class="n">f3</span><span class="p">()</span>
-        <span class="n">myline</span><span class="p">()</span>
-
-<span class="k">func</span> <span class="n">myline</span>
-        <span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-
-<span class="k">Class</span> <span class="n">myclass</span>
-
-        <span class="k">func</span> <span class="n">test</span>
-                <span class="n">myline</span><span class="p">()</span>
-                <span class="k">see</span> <span class="s">&quot;test method&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="n">f1</span><span class="p">()</span>
-                <span class="n">f2</span><span class="p">()</span>
-                <span class="n">f3</span><span class="p">()</span>
-                <span class="n">myline</span><span class="p">()</span>
-
-        <span class="k">func</span> <span class="n">f3</span>
-                <span class="k">see</span> <span class="s">&quot;f3 method&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-
-        <span class="k">func</span> <span class="n">test2</span>
-                <span class="n">myline</span><span class="p">()</span>
-                <span class="k">see</span> <span class="s">&quot;test2 method&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="n">self</span> <span class="p">{</span>
-                        <span class="n">f1</span><span class="p">()</span>
-                        <span class="n">f2</span><span class="p">()</span>
-                        <span class="n">f3</span><span class="p">()</span>
-                <span class="p">}</span>
-                <span class="n">myline</span><span class="p">()</span>
+<div class="section" id="the-qt-project-for-your-ring-application">
+<span id="index-3"></span><h2>The Qt project for your Ring application<a class="headerlink" href="#the-qt-project-for-your-ring-application" title="Permalink to this headline">¶</a></h2>
+<p>After using Ring2EXE or the Distribute Menu in Ring Notepad</p>
+<ul>
+<li><p>Using the Qt Creator Open the generated Qt project</p>
+<blockquote>
+<div><p>Folder : target/webassembly/qtproject</p>
+<p>Project file : project.pro</p>
+</div></blockquote>
+</li>
+<li><p>Using Qt Creator, You will find the compiled Ring application in the resources (YourAppName.ringo)</p>
+<blockquote>
+<div><p>This file (Ring Object File) is generated by the Ring compiler using</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring YourAppName.ring -go -norun
 </pre></div>
 </div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>========================================
-test method
-f1 function
-f2 function
-f3 method
-========================================
-========================================
-test2 method
-f1 function
-f2 function
-f3 method
-========================================
-========================================
-test2 function
-f1 function
-f2 function
-f3 method
-f3 method
-f3 method
-========================================
+<ul class="simple">
+<li><p>You can build your application using Qt Creator</p></li>
+</ul>
+<ol class="arabic">
+<li><p>You can add your application images to the resources</p>
+<blockquote>
+<div><p>Or You can use any text editor (Notepad) and modify : project.qrc</p>
+</div></blockquote>
+</li>
+<li><p>To find images from your Ring application, You need to use the file name in resources</p>
+<blockquote>
+<div><p>Example</p>
+</div></blockquote>
+</li>
+</ol>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">isWebAssembly</span><span class="p">()</span>
+        <span class="n">mypic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="s">&quot;:/cards.jpg&quot;</span><span class="p">)</span>
+<span class="k">else</span>
+        <span class="n">mypic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="s">&quot;cards.jpg&quot;</span><span class="p">)</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="calling-a-function-sharing-the-name-with-a-method-in-the-current-class">
-<span id="index-3"></span><h2>Calling a function sharing the name with a method in the current class<a class="headerlink" href="#calling-a-function-sharing-the-name-with-a-method-in-the-current-class" title="Permalink to this headline">¶</a></h2>
-<p>In the previous example we have a function called f3() and we have a method called f3()</p>
-<p>How we can call the f3() function from the test() method ?</p>
-<p>Solution (1) : Change the current object scope to another object scope</p>
-<p>In this solution we will have an empty class called local that we will use to change the current object scope.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
-        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">test</span><span class="p">()}</span>
-
-<span class="k">func</span> <span class="n">f1</span>
-        <span class="k">see</span> <span class="s">&quot;f1 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-
-<span class="k">func</span> <span class="n">f2</span>
-        <span class="k">see</span> <span class="s">&quot;f2 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-
-<span class="k">func</span> <span class="n">f3</span>
-        <span class="k">see</span> <span class="s">&quot;f3 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-
-<span class="k">func</span> <span class="n">myline</span>
-        <span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-
-<span class="k">Class</span> <span class="n">myclass</span>
-
-        <span class="k">func</span> <span class="n">test</span>
-                <span class="n">myline</span><span class="p">()</span>
-                <span class="k">see</span> <span class="s">&quot;test method&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="n">f1</span><span class="p">()</span>
-                <span class="n">f2</span><span class="p">()</span>
-                <span class="n">f3</span><span class="p">()</span>               <span class="c"># call f3() method</span>
-                <span class="k">new</span> <span class="n">local</span> <span class="p">{</span> <span class="n">f3</span><span class="p">()</span> <span class="p">}</span> <span class="c"># call f3() function</span>
-                <span class="n">myline</span><span class="p">()</span>
-
-        <span class="k">func</span> <span class="n">f3</span>
-                <span class="k">see</span> <span class="s">&quot;f3 method&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-
-<span class="k">class</span> <span class="n">local</span>
+<div class="section" id="comments-about-developing-for-webassembly-using-ringqt">
+<span id="index-4"></span><h2>Comments about developing for WebAssembly using RingQt<a class="headerlink" href="#comments-about-developing-for-webassembly-using-ringqt" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>The main project file is main.cpp</p>
+<blockquote>
+<div><p>This file load Ring Compiler/Virtual Machine and RingQt</p>
+<p>Then get the Ring Object File during the runtime from the resources</p>
+<p>Then run the Ring Object File (ringapp.ringo) using the Ring VM</p>
+<p>Through main.cpp you can extract more files from the resources to temp. folder once you
+add them (create projects with many files).</p>
+</div></blockquote>
+</li>
+<li><p>use if isWebAssembly() when you want to modify the code just for WebAssembly</p></li>
+</ol>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">isWebAssembly</span><span class="p">()</span>
+        <span class="o">//</span> <span class="n">WebAssembly</span> <span class="n">code</span>
+<span class="k">else</span>
+        <span class="o">//</span> <span class="k">other</span> <span class="n">platforms</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>========================================
-test method
-f1 function
-f2 function
-f3 method
-f3 function
-========================================
+<ol class="arabic simple" start="3">
+<li><p>When you deal with Qt Classes you can determine the images from resources (you don’t need to copy them using main.cpp)</p></li>
+</ol>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">isWebAssembly</span><span class="p">()</span>
+    <span class="n">mypic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="s">&quot;:/cards.jpg&quot;</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="n">mypic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="s">&quot;cards.jpg&quot;</span><span class="p">)</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
+<p>Now RingQt comes with the AppFile() function to determine the file name</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mypic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="n">AppFile</span><span class="p">(</span><span class="s">&quot;cards.jpg&quot;</span><span class="p">))</span>  <span class="c"># Desktop, Android or WebAssembly</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>When you update your project code, You don’t have to use Ring2EXE to generate the Qt project again</p></li>
+</ol>
+<p>Just use the Distribute Menu in Ring Notepad and select (Generate Ring Object File)</p>
+<p>Then copy the YourAppName.ringo file to target/webassembly/qtproject folder and accept replacing files.</p>
+<ol class="arabic simple" start="5">
+<li><p>If your application folder contains a Qt resource file (project.qrc)</p></li>
+</ol>
+<p>Then when you use Ring2EXE or Ring Notepad (Distribute - Prepare Qt project for WebAssembly) the
+resource file will be used</p>
+<p>See ring/applications/cards game as an example.</p>
+<ol class="arabic simple" start="6">
+<li><p>Use stdlibcore.ring instead of stdlib.ring when using StdLib functions</p></li>
+<li><p>Use ClocksPerSecond() function instead of typing the value (1000)</p></li>
+<li><p>Nested events loops are not supported, use events for dialogs instead of calling the exec() method</p></li>
+<li><p>Using Sleep() or ProcessEvents() doesn’t provide the expected results, use Qt Timers.</p></li>
+<li><p>We don’t have a direct access to the File System because the applications are executed in a secure environment</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We can use special functions for Uploading/Downloading files (See FileContent sample)</p>
+</div>
+</div>
+<div class="section" id="dialogs">
+<span id="index-5"></span><h2>Dialogs<a class="headerlink" href="#dialogs" title="Permalink to this headline">¶</a></h2>
+<p>See the folder: ring/samples/UsingQtWASM</p>
+<p>Folders:</p>
+<ul class="simple">
+<li><p>ColorDialog</p></li>
+<li><p>FontDialog</p></li>
+<li><p>FileDialog</p></li>
+<li><p>FileContent</p></li>
+</ul>
+</div>
+<div class="section" id="online-applications">
+<span id="index-6"></span><h2>Online Applications<a class="headerlink" href="#online-applications" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hello World   : <a class="reference external" href="https://ring-lang.github.io/web/helloworld/project.html">https://ring-lang.github.io/web/helloworld/project.html</a></p></li>
+<li><p>Matching Game : <a class="reference external" href="https://ring-lang.github.io/web/matching/project.html">https://ring-lang.github.io/web/matching/project.html</a></p></li>
+<li><p>Pairs Game    : <a class="reference external" href="https://ring-lang.github.io/web/pairs/project.html">https://ring-lang.github.io/web/pairs/project.html</a></p></li>
+<li><p>Othello Game  : <a class="reference external" href="https://ring-lang.github.io/web/othello/project.html">https://ring-lang.github.io/web/othello/project.html</a></p></li>
+<li><p>Game of Life  : <a class="reference external" href="https://ring-lang.github.io/web/gameoflife/project.html">https://ring-lang.github.io/web/gameoflife/project.html</a></p></li>
+<li><p>Form Designer : <a class="reference external" href="https://ring-lang.github.io/web/formdesigner/project.html">https://ring-lang.github.io/web/formdesigner/project.html</a></p></li>
+</ul>
+<img alt="Othello Game" src="_images/othelloweb.png" />
 </div>
 </div>
 
@@ -434,10 +445,10 @@ f3 function
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="syntaxflexibility.html" class="btn btn-neutral float-right" title="Syntax Flexibility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="web.html" class="btn btn-neutral float-right" title="Web Development (CGI Library)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="scope.html" class="btn btn-neutral float-left" title="Scope Rules for Variables and Attributes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="qtmobile.html" class="btn btn-neutral float-left" title="Building RingQt Applications for Mobile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

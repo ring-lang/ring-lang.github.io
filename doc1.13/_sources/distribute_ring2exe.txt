@@ -9,7 +9,7 @@ In this chapter we will learn about distributing Ring applications.
 
 Starting from Ring 1.6 we have a nice tool called Ring2EXE (Written in Ring itself)
 
-Using Ring2EXE we can distribute applications quickly for Windows, Linux, macOS and Mobile devices
+Using Ring2EXE we can distribute applications quickly for Windows, Linux, macOS, WebAssembly and Mobile devices
 
 .. note:: We can use the Distribute Menu in the Ring Notepad application (More Easy)
 
@@ -106,6 +106,7 @@ Options
 		-dist	    	 : Prepare application for distribution 
 		-allruntime 	 : Include all libraries in distribution
 		-mobileqt	 : Prepare Qt Project to distribute Ring Application for Mobile
+		-webassemblyqt	 : Prepare Qt Project to distribute Ring Application for the web (WebAssembly)
 		-noqt	    	 : Remove RingQt from distribution
 		-noallegro 	 : Remove RingAllegro from distribution
 		-noopenssl  	 : Remove RingOpenSSL from distribution
@@ -296,6 +297,29 @@ Another important file is our C++ main file : main.cpp
 
 
 .. index:: 
+	pair: Distributing Ring Application using Ring2EXE; Distributing Applications for WebAssembly using RingQt
+
+Distributing Applications for WebAssembly using RingQt
+======================================================
+
+To prepare a Qt project (WebAssembly) for your RingQt application (myapp.ring) use the "-webassemblyqt" option
+
+Example :
+
+.. code-block:: none
+
+	ring2exe myapp.ring -dist -webassemblyqt
+
+After executing the previous command, We will have the Qt project in target/webassembly/qtproject folder
+
+The main project file will be project.pro which we can open using the Qt Creator IDE.
+
+Also we will have the resource file : project.qrc 
+
+Another important file is our C++ main file : main.cpp
+
+
+.. index:: 
 	pair: Distributing Ring Application using Ring2EXE; Building the Cards Game for Mobile using RingQt
 
 Building the Cards Game for Mobile using RingQt
@@ -438,7 +462,7 @@ So Use Ring2EXE to generate these files, Then copy them to your application fold
 Building the Form Designer for Mobile using RingQt
 ==================================================
 
-To build the Form Designer application (ring/applications/formdesigner) for Mobile
+To build the Form Designer application (ring/tools/formdesigner) for Mobile
 
 (1) Run the next command
 
@@ -501,7 +525,7 @@ It will be used automatically by Ring2EXE
 As we did in the Cards game, The Form Designer will use the AppFile() function to determine the
 name of the Image files.
 
-The next code from ring/applications/formdesigner/mainwindow/formdesignerview.ring
+The next code from ring/tools/formdesigner/mainwindow/formdesignerview.ring
 
 .. code-block:: ring
 
