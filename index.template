@@ -848,6 +848,79 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 
 
 	    <div class="panel panel-primary" id="libs">
+	      <div class="panel-heading"><h4> Data Representation </h4></div>
+	      <div class="panel-body">
+
+<p>
+Ring contains only four (4) types that represent the program data. These types are (String, Number, List & Object). 
+
+The idea is to have many use cases for each type which increase the flexibility and the ability
+to write functions that are more usable in different situtations.
+</p>
+
+The String type is used to represent: <br><br>
+
+<ul>
+<li>One character </li>
+<li>A string of many characters</li>
+<li>Multi-line string</li>
+<li>Binary Data </li>
+</ul>
+
+<pre>
+cStr1 = "a"			<font color="green"># One character</font>
+cStr2 = "Hello, World!" 	<font color="green"># A string of many characters</font>
+cStr3 = "Hello
+Welcome to the Ring language!
+"				<font color="green"># Multi-line string</font>
+cStr4 = read(EXEFileName())	<font color="green"># Read executable file (Contain Binary Data)</font>
+</pre>
+
+The Number type is used to represent<br><br>
+<ul>
+<li>Boolean Values </li>
+<li>Signed/Unsigned Integers</li>
+<li>Float/Double </li>
+</ul>
+
+<pre>
+nNum1 = True		<font color="green"># Boolean Value (1)</font>
+nNum2 = False		<font color="green"># Boolean Value (0)</font>
+nNum3 = 10		<font color="green"># Integer</font>
+nNum4 = -10		<font color="green"># Signed Integer</font>
+nNum5 = 1250.11		<font color="green"># Float/Double</font>
+</pre>
+
+The List type is used to represent <br><br>
+
+<ul>
+<li>One Dimension Arrays</li>
+<li>Multi-Dimension Arrays</li>
+<li>Lists of multiple types</li>
+<li>Nested Lists</li>
+<li>Hash Tables (Key & Value)</li>
+<li>Tree</li>
+<li>Wrapper around a C Pointer</li>
+</ul>
+
+<pre>
+aList1 = ["one","two","three"]				<font color="green"># Array of strings</font>
+aList2 = [1,2,3,4,5,6,7,8,9,10]				<font color="green"># Array of numbers</font>
+aList3 = ["Ring",2020]					<font color="green"># List of multiple types</font>
+aList4 = [["Fayed","Egypt"],["Mansour","Tunisia"]]  	<font color="green"># Nested Lists</font>
+aList5 = [ :name = "Fayed", :country = "Egypt"]		<font color="green"># Hash Tables</font>
+</pre>
+The Object type is used to represent objects created from classes<br><br>
+
+Using classes and operator overloading we can create custom types<br> 
+
+		  
+		</div>
+		</div>
+
+
+		  
+	    <div class="panel panel-primary" id="libs">
 	      <div class="panel-heading"><h4> Compact Syntax </h4></div>
 	      <div class="panel-body">
 
@@ -944,12 +1017,91 @@ oPerson = <font color="purple">new</font> Person
 	      <div class="panel-body">
 
 		<p>
-			Ring comes with many styles for writing your source code! <br> <br>
-
-			Also you can change the language keywords and operators and create your custom style! <br>
-
+			Ring comes with many styles for writing your source code. Also, You can change the language keywords and operators and create your custom style!
 		</p>
 
+<ul>
+<li> The First Style </li> <br>
+
+<pre>
+? "Welcome to Ring! "
+<font color="purple">new</font> test { start() }
+
+<font color="purple">class</font> Test
+	x=10  y=20
+	<font color="purple">func</font> start 
+		? "x+y=" + (x+y)
+		<font color="purple">for</font> t=1 <font color="purple">to</font> 10 
+			? "t = " + t
+			<font color="purple">if</font> t=3 
+				? "Three" 
+			<font color="purple">ok</font>
+		<font color="purple">next</font>
+</pre>
+
+<li> The Second Style </li> <br>
+
+<pre>
+<font color="purple">def</font> main
+	<font color="purple">put</font> "Welcome to Ring! " + nl
+	<font color="purple">new</font> test { start() }
+<font color="purple">end</font>
+
+<font color="purple">class</font> Test
+	x = 10
+	y = 20
+	<font color="purple">def</font> start 
+		<font color="purple">put</font> "x+y=" + (x+y) + nl
+		<font color="purple">for</font> t=1 <font color="purple">to</font> 10 
+			<font color="purple">put</font> "t = " + t + nl
+			<font color="purple">if</font> t=3 
+				<font color="purple">put</font> "Three" + nl
+			<font color="purple">end</font>
+		<font color="purple">end</font>
+	<font color="purple">end</font>
+<font color="purple">end</font>
+</pre>
+
+<li> The Third Style</li> <br>
+
+<pre>
+<font color="purple">load</font> "stdlib.ring"
+
+<font color="purple">func</font> main() {
+	print("Welcome to Ring! \n")
+	<font color="purple">new</font> test { start() }
+}
+
+<font color="purple">class</font> Test {
+	x = 10
+	y = 20
+	<font color="purple">func</font> start {
+		print("x+y=" + (x+y) + "\n")
+		<font color="purple">for</font> t=1 to 10 {
+			print("t = " + t + " \n")
+			<font color="purple">if</font> t=3 {
+				print("Three \n")
+			}
+		}
+	}
+}
+</pre>
+
+<li> Change Keywords </li> <br>
+
+<pre>
+<font color="purple">ChangeRingKeyword</font> See Print
+<font color="purple">Print</font> "Hello, World!"
+<font color="purple">ChangeRingKeyword</font> Print See
+<font color="purple">See</font> "Hello, World!"
+<font color="purple">ChangeRingKeyword</font> See Show
+<font color="purple">Show</font> "Hello, World!"
+</pre>
+
+</ul>
+
+		
+		
 		<br> 
 		
 		  </div>
