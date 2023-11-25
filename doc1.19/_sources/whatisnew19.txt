@@ -1,0 +1,457 @@
+.. index:: 
+	single: What is new in Ring 1.19; Introduction
+
+========================
+What is new in Ring 1.19
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.19 release.
+
+.. index:: 
+	pair: What is new in Ring 1.19?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.19 comes with the next features!
+
+* Image Pixel application
+* Hours Counter application
+* Planetary Orbits application
+* More Samples
+* Ring for Windows 64bit
+* Better batch files for building Ring 
+* For Loop - Better Performance
+* Calling Functions - Better Performance
+* Nothing() function
+* OptionalFunc() function
+* Better TypeHints
+* Better RingRayLib
+* Better Extensions Generator 
+* Better Documentation
+* More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.19; Image Pixel applications
+
+Image Pixel applications
+=============================
+
+An example about processing an image pixels.
+
+.. image:: imagepixel.png
+	:alt: imagepixel
+
+.. index:: 
+	pair: What is new in Ring  1.19; Hours Counter application
+
+Hours Counter application
+=========================
+
+This is a simple calculator for teaching hours
+
+.. image:: hourscounter.png
+	:alt: hourscounter
+
+.. index:: 
+	pair: What is new in Ring  1.19; Planetary Orbits applications
+
+Planetary Orbits applications
+=============================
+
+An example about drawing and using the Matrix library
+
+.. image:: planetaryorbits.png
+	:alt: planetaryorbits
+
+.. index:: 
+	pair: What is new in Ring  1.19; More Samples
+
+More Samples
+============
+
+* Added: samples/Language/Constants
+* Added: samples/UsingTypeHints/test6.ring
+* Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
+* Added: samples/UsingArabic/ArabicInCommandPrompt/DisplayArabic.ring
+* Added: samples/UsingMatrixLib/59-Matrix-Transform-Draw-Rotation.ring
+* Added: samples/UsingRayLib/more/ex5_wavingcubes_withoutthreads.ring
+* Added: samples/Language/OptionalFunc/Question.ring
+* Added: samples/Language/OptionalFunc/Answer.ring
+* Added: samples/General/Performance/emptyloop.ring
+* Added: samples/General/Performance/print.ring
+* Added: samples/General/Performance/math.ring
+* Added: samples/General/Performance/createlists.ring
+* Added: samples/General/Performance/len.ring
+* Added: samples/General/Performance/methods.ring
+* Added: samples/General/Performance/manylistitems.ring
+* Added: samples/General/Performance/search.ring
+
+.. image:: drawrotation.png
+	:alt: drawrotation
+
+.. index:: 
+	pair: What is new in Ring  1.19; Ring for Windows 64bit 
+
+Ring for Windows 64bit 
+======================
+
+Starting from Ring 1.19 the default Ring for Windows version is 64bit
+
+This provide access to more memory. Also, most of our tests indicates an increase of performance from 15% to 25%
+
+This increase of performance is measured when we compare Ring 1.19 (32bit) and Ring 1.19 (64bit)
+
+This is different from comparing Ring 1.19 (32bit) and Ring 1.18 (32bit) to see how much the new release is faster
+
+
+.. index:: 
+	pair: What is new in Ring  1.19; Better batch files for building Ring
+
+Better batch files for building Ring 
+====================================
+
+Using ring/buildvc.bat and ring/buildvc_x64.bat we can build everything (Ring Compiler/VM, Extensions, Tools, etc.) for Windows 32bit or 64bit
+
+Ring comes with all of the dependencies except Qt
+
+These batch files assume that we have Qt 5.15.15 (We can change the used Qt 5.15 version using the environment variables). 
+
+.. index:: 
+	pair: What is new in Ring  1.19; For Loop - Better Performance
+
+For Loop - Better Performance
+=============================
+
+The For Loop in Ring 1.19 is three times (3x) faster than Ring 1.18.
+
+Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
+
+Example:
+
+.. code-block:: ring
+
+	t1= clock()
+	for t=1 to 100_000_000 next
+	t2 = clock()
+	? (t2-t1)/clockspersecond()
+
+Time using Ring 1.18 (32bit) : 3.78 seconds
+
+Time using Ring 1.19 (32bit) : 1.31 seconds
+
+Time using Ring 1.19 (64bit) : 1.12 seconds
+
+
+.. index:: 
+	pair: What is new in Ring  1.19; For Loop - Better Performance
+
+Calling Functions - Better Performance
+======================================
+
+Calling functions written in Ring code in Ring 1.19 is three times (3x) faster than Ring 1.18.
+
+While calling functions written in C code in Ring 1.19 is four times (4x) faster than Ring 1.18.
+
+Example:
+
+.. code-block:: ring
+
+	t1=clock()
+	for t=1 to 1_000_000
+		result = max(t,t*2)
+	next
+	? result
+	t2 = clock()
+	? (t2-t1)/clockspersecond() 
+
+Time using Ring 1.18 (32bit) :  1.45 seconds
+
+Time using Ring 1.19 (32bit) :  0.32 seconds
+
+Time using Ring 1.19 (64bit) :  0.25 seconds
+
+
+These improvements let the Stars animation sample works at 2350 FPS in Ring 1.19 instead of 500FPS in Ring 1.18
+
+.. image:: stars3d.png
+	:alt: stars3d
+
+.. index:: 
+	pair: What is new in Ring  1.19; Nothing() function
+
+Nothing() function
+==================
+
+This function does nothing and can accept any number/type of parameters. 
+The output will be Zero.
+
+Some of the Use Cases
+
+(1) Performance measurements, where we can test the performance of calling functions written in C and we can change the number of parameters during tests.
+
+
+(2) In places of code that you want to write a function name, and it's not defined yet.
+
+
+(3) To disable some feature/code by just changing the function name to nothing without changing the parameters or commenting the code.
+
+
+(4) In small programs, where you want to write a function that you can override from a Test program.
+
+
+.. index:: 
+	pair: What is new in Ring  1.19; OptionalFunc() function
+
+OptionalFunc() function
+=======================
+
+Using this function we can define functions similar to Nothing() but with a different name.
+
+Syntax:
+
+.. code-block:: none
+
+	OptionalFunc(cFunctionName)
+
+Example:
+
+File: Question.ring
+
+.. code-block:: ring
+
+	optionalFunc(:reply)
+
+	? "I love Programming, What about you?"
+	reply()
+	? "Ok, Thanks!"
+
+Output:
+
+.. code-block:: none
+
+	I love Programming, What about you?
+	Ok, Thanks!
+
+File: Answer.ring
+
+.. code-block:: ring
+
+
+	load "Question.ring"
+
+	func reply
+		? "Me too!"
+
+Output:
+
+.. code-block:: none
+
+	I love Programming, What about you?
+	Me too!
+	Ok, Thanks!
+
+.. index:: 
+	pair: What is new in Ring  1.19; Better TypeHints
+
+Better TypeHints
+================
+
+Added the next definitions:
+
+* Byte
+* Boolean
+* @override
+
+Example:
+
+.. code-block:: ring
+
+	load "typehints.ring"
+
+	o = new MyNewLib {
+		? isGreaterThanTwo(10)
+		? isGreaterThanTwo(1)
+	}
+
+	class MyLib {
+		boolean func isGreaterThanTwo(int x) {
+			if x > 2
+				return true
+			else
+				return false
+			ok
+		}
+	}
+
+	class MyNewLib < MyLib {
+		@override
+		boolean func isGreaterThanTwo(int x) {
+			? "Using override"
+			return x > 2
+		}
+	}
+
+Output:
+
+.. code-block:: none
+
+	Using override
+	1
+	Using override
+	0
+
+.. index:: 
+	pair: What is new in Ring  1.19; Better RingRayLib
+
+Better RingRayLib
+=================
+
+The next functions are added to the RingRayLib extension
+
+.. code-block:: ring
+
+	* vec2() --> Vector2
+	* vec2getx() --> double
+	* vec2setx(double)
+	* vec2gety() --> double
+	* vec2sety(double)
+	* vec3() --> Vector3
+	* vec3getx() --> double
+	* vec3setx(double)
+	* vec3gety() --> double
+	* vec3sety(double)
+	* vec3getz() --> double
+	* vec3setz(double)
+	* vec4() --> Vector4
+	* vec4getx() --> double
+	* vec4setx(double)
+	* vec4gety() --> double
+	* vec4sety(double)
+	* vec4getz() --> double
+	* vec4setz(double)
+	* vec4getw() --> double
+	* vec4setw(double)
+	* getcamera3dposx() --> double
+	* setcamera3dposx(double)
+	* getcamera3dposy() --> double
+	* setcamera3dposy(double)
+	* getcamera3dposz() --> double
+	* setcamera3dposz(double)
+	* getcamera3dtarx() --> double
+	* setcamera3dtarx(double)
+	* getcamera3dtary() --> double
+	* setcamera3dtary(double)
+	* getcamera3dtarz() --> double
+	* setcamera3dtarz(double)
+	* getcamera3dupx() --> double
+	* setcamera3dupx(double)
+	* getcamera3dupy() --> double
+	* setcamera3dupy(double)
+	* getcamera3dupz() --> double
+	* setcamera3dupz(double)
+	* getcamera3fovy() --> double
+	* setcamera3fovy(double)
+	* getcamera3type() --> double
+	* setcamera3type(double)
+
+
+.. index:: 
+	pair: What is new in Ring  1.19; Better Extensions Generator
+
+Better Extensions Generator
+===========================
+
+The code generator for C/C++ extensions is updated and support defining extra names for functions
+
+Using the predefined list (aExtraFunctionName) we can define the extra names
+
+Example:
+
+To define vec2() as another name for raylib_new_managed_vector2()
+
+.. code-block:: none
+
+	<runcode>
+	aExtraFunctionName + ["vec2","raylib_new_managed_vector2"]
+	aExtraFunctionName + ["vec2setx","raylib_set_vector2_x"]
+	aExtraFunctionName + ["vec2sety","raylib_set_vector2_y"]
+	</runcode>
+
+.. index:: 
+	pair: What is new in Ring  1.19; Better Documentation
+
+Better Documentation
+====================
+
+The CHM file is updated to support search
+
+Also, The next chapters are revised and improved 
+
+* Introduction
+* Performance Tips
+* Syntax Flexibility
+* The Type Hints Library
+* Building From Source Code
+* Extension using C/C++ languages
+* Tutorial: Ring Extensions in C/C++
+* Frequently Asked Questions (FAQ)
+ 
+.. index:: 
+	pair: What is new in Ring  1.19; More Improvements
+
+More Improvements
+=================
+
+
+* Ring Notepad - Close Button - Force closing the web browser 
+* FindInFiles Application - Replace Button - Check line selection
+* WinStartupManager application - Use extensions that comes with Ring
+* EightPuzzleGame3D game - Better Code 
+* SuperMan2016 game - Reset FPS, energy value and player speed
+* GoldMagic800 game - Reset FPS and player speed
+* Sokoban game - higher speed
+* TowersOfHanoi simulation - higher speed
+* samples/AQuickStart/ODBC - Better Code
+* samples/UsingOpenGL/LevelsOfCubes - Reset FPS
+* samples/UsingOpenGL - Set the window icon
+* samples/General/TimeServer - Replace RingThreads with GameLib 
+* samples/UsingQt/ListWidget/listwidgetitemvalue.ring - Better Code
+* samples/UsingOpenGL/stars - Using al_exit() function
+* samples/Drawing - Many samples are revised to use the Quit() method
+* extensions/tutorial - filterlist() updated to use ring_list_deleteitem_gc() 
+* Better Qt3D samples - Use Quit() method when closing the application
+* Better RingPostgreSQL samples
+* Better RingMySQL sample - samples/AQuickStart/MySQL/mysql7.ring
+* Form Designer - Better behavior when displaying the MenuBar editor
+* MatrixLib - Added: RowReduceEchelonForm() function
+* MatrixLib - Added: MatrixTransform() function
+* BigNumber - Better code for the power function
+* ObjectsLib - Better Code when opening new windows
+* RingStbImage - Added: stbi_bytes2list()
+* RingQt - QPainter class - Added: drawRGBFListAtXY() & drawHSVFListAtXY()
+* Number() function - Don't produce an error when the input is already a number
+* String() function - Don't produce an error when the input is already a string
+* Low Level Functions - ringvm_calllist() - Better Output
+* Ring API - Added: RING_API_STATE to get a pointer to Ring State 
+* Ring Compiler - Remove unnecessary ICO_FREESTACK after For-Loops
+* Ring Compiler - When we run ringsyntax.ring don't load the same file again
+* Ring Compiler/VM - Check the path limit (4096 characters) before execution
+* Ring Compiler/VM - Items structure functions - Better Performance
+* Ring Compiler/VM - HashTable - Better default parameters
+* Ring VM - For-Loop will produce a runtime error if used with wrong data-type
+* Ring VM - Function Call - Replace some Ring lists with C Structures
+* Ring VM - Use ICO_LOADFUNCP when loading C functions
+* Ring VM - Memory Pool - Allocate 1,000,000 items at startup  
+* Ring VM - Byte Code - Added: Flag Register
+* Ring VM - Byte Code - Added: Integer Register
+* Ring VM - Use ring_list_genarray() with global scope variables When using threads 
+* Ring VM - Remove aAddressScope from VM structure
+* Ring VM - New instructions (ICO_PUSH2N, ICO_PUSH3N & ICO_PUSH4N)
+* Ring VM - Byte Code items count is changed to 4
+* Ring VM - ICO_LOADFUNCP instruction support replacing C function with Ring function
+* Ring VM - Better performance when deleting a scope - Avoid: ring_vm_gc_checkreferences()
+* Ring VM - Better format when printing the byte code
+* Ring VM - Variables - Reduce the required memory to store a variable
+* Ring VM - Arguments - Reduce the required memory to pass a value
+* Ring VM - ring_state_calloc() - Use the memory pool if possible
