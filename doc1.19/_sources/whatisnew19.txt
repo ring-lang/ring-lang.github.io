@@ -25,8 +25,10 @@ Ring 1.19 comes with the next features!
 * Calling Functions - Better Performance
 * Nothing() function
 * OptionalFunc() function
+* FastPro Extension
 * Better TypeHints
 * Better RingRayLib
+* Better RingStbImage
 * Better Extensions Generator 
 * Better Documentation
 * More Improvements
@@ -73,6 +75,7 @@ More Samples
 * Added: samples/Language/Constants
 * Added: samples/UsingTypeHints/test6.ring
 * Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
+* Added: samples/UsingQt/PrintPreview/simplereport.ring
 * Added: samples/UsingArabic/ArabicInCommandPrompt/DisplayArabic.ring
 * Added: samples/UsingMatrixLib/59-Matrix-Transform-Draw-Rotation.ring
 * Added: samples/UsingRayLib/more/ex5_wavingcubes_withoutthreads.ring
@@ -115,7 +118,7 @@ Using ring/buildvc.bat and ring/buildvc_x64.bat we can build everything (Ring Co
 
 Ring comes with all of the dependencies except Qt
 
-These batch files assume that we have Qt 5.15.15 (We can change the used Qt 5.15 version using the environment variables). 
+These batch files assume that we have Qt 5.15.16 (We can change the used Qt 5.15 version using the environment variables). 
 
 .. index:: 
 	pair: What is new in Ring  1.19; For Loop - Better Performance
@@ -252,6 +255,31 @@ Output:
 	Ok, Thanks!
 
 .. index:: 
+	pair: What is new in Ring  1.19; FastPro Extension
+
+FastPro Extension
+=================
+
+This new extension comes with the next functions
+
+* Bytes2List(cBytes,nWidth,nHeight,nChannels) —> aList // [[x,y,R,G,B,A],…]
+* List2Bytes(aList,nChannels) —> cBytes // “RGBA….”
+* updateList(<aList>,<cCommand>,<cSelection>,<nPara1>,[<nPara2>],[nPara3])
+* updateColumn(<aList>, [<cCommand>,<nPara1>,[<nPara2>],[nPara3]],…)
+
+Using the updateColumn() function we can update the list columns in one function call
+
+Example from the ImagePixel application that convert the image to Gray
+
+.. image:: updatecolumncode.png
+	:alt: updatecolumncode
+
+This also provides better performance compared to calling updateList() many times.
+
+.. image:: updatecolumnperformance.png
+	:alt: updatecolumnperformance
+
+.. index:: 
 	pair: What is new in Ring  1.19; Better TypeHints
 
 Better TypeHints
@@ -355,6 +383,80 @@ The next functions are added to the RingRayLib extension
 	* getcamera3type() --> double
 	* setcamera3type(double)
 
+.. index:: 
+	pair: What is new in Ring  1.19; Better RingStbImage
+
+Better RingStbImage
+===================
+
+The extension is improved to support the next features
+
+* Support UTF-8 file names on Windows
+* Added functions for writing images
+
+.. code-block:: none
+
+	int stbi_write_png(char const *filename, int w, int h, int comp, const void *data, int stride_in_bytes)
+	int stbi_write_bmp(char const *filename, int w, int h, int comp, const void *data)
+	int stbi_write_tga(char const *filename, int w, int h, int comp, const void *data)
+	int stbi_write_jpg(char const *filename, int w, int h, int comp, const void *data, int quality)
+	void stbi_flip_vertically_on_write(int flag)
+
+Also, When using Strings that contains bytes, we supported updating a character using a numeric value
+which will be converted to (char) without the need to use the Ring char() function. 
+
+This provide better performance (3x faster, i.e. 300%) when generating images.
+
+This feature could be used to update the images quickly while treating them as bytes
+without the need to convert them to Lists.
+
+Example:
+
+.. code-block:: ring
+
+	load "stbimage.ring"
+	
+	width    = 640
+	height   = 480
+	channels = 3
+	cData    = space(width*height*channels)
+	
+	? "Creating the image..."
+	t1 = clock()
+	nIndex=0
+	for x=1 to height
+   		for y=1 to width
+        		cData[nIndex++] = x*x
+        		cData[nIndex++] = x*y
+        		cData[nIndex++] = x*2
+    		next
+	next
+	t2 = clock()
+	
+	# Write the image
+	? "Writing mynewimage.bmp"
+	stbi_write_bmp("mynewimage.bmp", width, height, channels, cData)
+	t3 = clock()
+
+	? "Time to create the image : " + ((t2-t1)/clockspersecond()) + " seconds"
+	? "Time to save the image   : " + ((t3-t2)/clockspersecond()) + " seconds"
+
+	system("mynewimage.bmp")
+
+Output:
+
+.. code-block:: none
+
+	Creating the image...
+	Writing mynewimage.bmp
+	Time to create the image : 0.12 seconds
+	Time to save the image   : 0.00 seconds
+
+Screen Shot:
+
+.. image:: generateimage.png
+	:alt: generateimage
+
 
 .. index:: 
 	pair: What is new in Ring  1.19; Better Extensions Generator
@@ -403,7 +505,6 @@ Also, The next chapters are revised and improved
 More Improvements
 =================
 
-
 * Ring Notepad - Close Button - Force closing the web browser 
 * FindInFiles Application - Replace Button - Check line selection
 * WinStartupManager application - Use extensions that comes with Ring
@@ -419,6 +520,7 @@ More Improvements
 * samples/UsingQt/ListWidget/listwidgetitemvalue.ring - Better Code
 * samples/UsingOpenGL/stars - Using al_exit() function
 * samples/Drawing - Many samples are revised to use the Quit() method
+* samples/UsingQt/PrintPreview/printpreivewdialog.ring - Better Code
 * extensions/tutorial - filterlist() updated to use ring_list_deleteitem_gc() 
 * Better Qt3D samples - Use Quit() method when closing the application
 * Better RingPostgreSQL samples
@@ -428,8 +530,9 @@ More Improvements
 * MatrixLib - Added: MatrixTransform() function
 * BigNumber - Better code for the power function
 * ObjectsLib - Better Code when opening new windows
-* RingStbImage - Support UTF-8 file names on Windows
+* GameEngine - Support playing many sound files at the same time
 * RingQt - QPainter class - Added: drawRGBFListAtXY() & drawHSVFListAtXY()
+* RingQt - Qt version is updated to Qt 5.15.16
 * Number() function - Don't produce an error when the input is already a number
 * String() function - Don't produce an error when the input is already a string
 * Low Level Functions - ringvm_calllist() - Better Output
@@ -457,3 +560,4 @@ More Improvements
 * Ring VM - Variables - Reduce the required memory to store a variable
 * Ring VM - Arguments - Reduce the required memory to pass a value
 * Ring VM - ring_state_calloc() - Use the memory pool if possible
+* Ring VM - Better implementation for using (Return This)
