@@ -72,6 +72,7 @@ An example about drawing and using the Matrix library
 More Samples
 ============
 
+* Added: samples/UsingFastPro
 * Added: samples/Language/Constants
 * Added: samples/UsingTypeHints/test6.ring
 * Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
@@ -488,6 +489,8 @@ Better Documentation
 
 The CHM file is updated to support search
 
+We added a new chapter: Using FastPro Extension
+
 Also, The next chapters are revised and improved 
 
 * Introduction
@@ -526,6 +529,8 @@ More Improvements
 * Better RingPostgreSQL samples
 * Better RingMySQL sample - samples/AQuickStart/MySQL/mysql7.ring
 * Form Designer - Better behavior when displaying the MenuBar editor
+* StdLib - OSCopyFolder() - Better Implementation
+* StdLib - OSCopyFile() - Better Implementation
 * MatrixLib - Added: RowReduceEchelonForm() function
 * MatrixLib - Added: MatrixTransform() function
 * BigNumber - Better code for the power function
@@ -536,6 +541,8 @@ More Improvements
 * Number() function - Don't produce an error when the input is already a number
 * String() function - Don't produce an error when the input is already a string
 * Low Level Functions - ringvm_calllist() - Better Output
+* Ring2EXE - Better Output
+* Batch Files - locatevc.bat - Support working from the "C:/Program Files (x86)" folder
 * Ring API - Added: RING_API_STATE to get a pointer to Ring State 
 * Ring API - Added: RING_API_NEWLISTUSINGBLOCKS1D(int nItems) --> List
 * Ring API - Added: RING_API_NEWLISTUSINGBLOCKS2D(int nRows,int nColumns) --> List
