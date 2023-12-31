@@ -18,13 +18,16 @@ Ring 1.19 comes with the next features!
 * Image Pixel application
 * Hours Counter application
 * Planetary Orbits application
+* Listen to Quran application
 * More Samples
 * Ring for Windows 64bit
 * Better batch files for building Ring 
 * For Loop - Better Performance
 * Calling Functions - Better Performance
+* Using Objects During Definition
 * Nothing() function
 * OptionalFunc() function
+* ParentClassName() function
 * FastPro Extension
 * Better TypeHints
 * Better RingRayLib
@@ -66,6 +69,25 @@ An example about drawing and using the Matrix library
 .. image:: planetaryorbits.png
 	:alt: planetaryorbits
 
+
+.. index:: 
+	pair: What is new in Ring  1.19; Listen to Quran application
+
+Listen to Quran application
+===========================
+
+Arabic application that can be used to listen to Quran.
+
+We can install and run the application using the Ring Package Manager (RingPM).
+
+.. code-block:: none
+
+	ringpm install listentoquran
+	ringpm run listentoquran
+
+.. image:: listentoquran.png
+	:alt: listentoquran
+
 .. index:: 
 	pair: What is new in Ring  1.19; More Samples
 
@@ -100,7 +122,7 @@ More Samples
 Ring for Windows 64bit 
 ======================
 
-Starting from Ring 1.19 the default Ring for Windows version is 64bit
+Starting from Ring 1.19 we provide 64bit version of Ring for Windows.
 
 This provide access to more memory. Also, most of our tests indicates an increase of performance from 15% to 25%
 
@@ -182,6 +204,32 @@ These improvements let the Stars animation sample works at 2350 FPS in Ring 1.19
 	:alt: stars3d
 
 .. index:: 
+	pair: What is new in Ring  1.19; Using Objects During Definition
+
+Using Objects During Definition
+===============================
+
+This release provides better support for using objects during definition
+where we can mix between this feature and other features like operator overloading without missing the output
+
+Example:
+
+.. image:: usingobjdurdef.png
+	:alt: usingobjdurdef
+
+* The new point object will be stored directly in myVar during definition
+* We can pass myVar as parameter to the print() method
+* Using + 1 will call the operator() method
+* The operator() method output will be stored in myVar
+
+This means that the Assignment operation is executed TWO TIMES!
+
+The first Assignment is executed to support (Using objects during definition) where myVar is an object contains the new point 
+while in the second time, the Assignment is executed to support storing the Operator Overloading output. 
+
+.. note:: RingQt samples uses this feature to quickly pass the parent window object to the other widgets. 
+
+.. index:: 
 	pair: What is new in Ring  1.19; Nothing() function
 
 Nothing() function
@@ -254,6 +302,39 @@ Output:
 	I love Programming, What about you?
 	Me too!
 	Ok, Thanks!
+
+
+.. index:: 
+	pair: What is new in Ring  1.19; ParentClassName()
+
+ParentClassName() Function
+==========================
+		
+We can know the parent class name of an object using the parentclassname() function
+
+Syntax:
+
+.. code-block:: none
+
+	parentclassname(object) --> Returns the parent class name of the object class 
+
+
+Example:
+
+.. code-block:: ring
+
+	new Child  { test() }
+	class Parent
+
+	class Child from Parent
+		func test
+			? "Parent: " + parentClassName(self)
+
+Output:
+
+.. code-block:: none
+
+	Parent: parent
 
 .. index:: 
 	pair: What is new in Ring  1.19; FastPro Extension
@@ -346,11 +427,13 @@ The next functions are added to the RingRayLib extension
 .. code-block:: ring
 
 	* vec2() --> Vector2
+	* vec2set(Vector2 vec,double x,double y)
 	* vec2getx() --> double
 	* vec2setx(double)
 	* vec2gety() --> double
 	* vec2sety(double)
 	* vec3() --> Vector3
+	* vec3set(Vector3 vec,double x,double y,double z)
 	* vec3getx() --> double
 	* vec3setx(double)
 	* vec3gety() --> double
@@ -358,6 +441,7 @@ The next functions are added to the RingRayLib extension
 	* vec3getz() --> double
 	* vec3setz(double)
 	* vec4() --> Vector4
+	* vec4set(Vector4 vec,double x,double y,double z,double w)
 	* vec4getx() --> double
 	* vec4setx(double)
 	* vec4gety() --> double
@@ -505,6 +589,7 @@ Also, The next chapters are revised and improved
 * Building From Source Code
 * Extension using C/C++ languages
 * Tutorial: Ring Extensions in C/C++
+* Object Oriented Programming (OOP)
 * Frequently Asked Questions (FAQ)
  
 .. index:: 
@@ -513,10 +598,15 @@ Also, The next chapters are revised and improved
 More Improvements
 =================
 
-* Ring Notepad - Close Button - Force closing the web browser 
-* FindInFiles Application - Replace Button - Check line selection
+* Ring Notepad - Close Button - Force closing the web browser
+* Ring Notepad - Projects Files - Larger width 
+* FindInFiles application - Replace Button - Check line selection
 * WinStartupManager application - Use extensions that comes with Ring
+* AnalogClock application - Set the image width to be like the window width
+* AnalogClock application - Draw the Clock directly once the window appears
 * EightPuzzleGame3D game - Better Code 
+* SpaceShooter game - Better Code to close the game using the main menu
+* Pong2 game - Using CloseAudioDevice()
 * SuperMan2016 game - Reset FPS, energy value and player speed
 * GoldMagic800 game - Reset FPS and player speed
 * Sokoban game - higher speed
@@ -553,13 +643,17 @@ More Improvements
 * Ring API - Added: RING_API_NEWLISTUSINGBLOCKS2D(int nRows,int nColumns) --> List
 * Ring Compiler - Remove unnecessary ICO_FREESTACK after For-Loops
 * Ring Compiler - When we run ringsyntax.ring don't load the same file again
+* Ring Compiler - Support using braces { } after (expr) 
+* Ring Compiler/VM - Better performance when using (for-in) loops and large strings
+* Ring Compiler/VM - Revise (Using objects during definition) implementation
 * Ring Compiler/VM - Check the path limit (4096 characters) before execution
 * Ring Compiler/VM - Items structure functions - Better Performance
 * Ring Compiler/VM - HashTable - Better default parameters
 * Ring VM - For-Loop will produce a runtime error if used with wrong data-type
 * Ring VM - Function Call - Replace some Ring lists with C Structures
 * Ring VM - Use ICO_LOADFUNCP when loading C functions
-* Ring VM - Memory Pool - Allocate 1,000,000 items at startup  
+* Ring VM - Memory Pool - Three levels based on the allocation size
+* Ring VM - Memory Pool - Allocate 1,000,000 items at startup for level 1
 * Ring VM - Byte Code - Added: Flag Register
 * Ring VM - Byte Code - Added: Integer Register
 * Ring VM - Use ring_list_genarray() with global scope variables When using threads 
@@ -573,3 +667,6 @@ More Improvements
 * Ring VM - Arguments - Reduce the required memory to pass a value
 * Ring VM - ring_state_calloc() - Use the memory pool if possible
 * Ring VM - Better implementation for using (Return This)
+* Ring VM - Support adding items to a list during assignment using plus operator
+* Ring VM - Don't allow deleting the Super variable (Used to access the parent class methods)
+* Ring VM - Operator Overloading - Don't produce an error when it's not necessary
