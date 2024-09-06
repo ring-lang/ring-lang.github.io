@@ -1,0 +1,526 @@
+.. index:: 
+	single: Operators; Introduction
+
+=========
+Operators
+=========
+
+In this chapter we will introduce the operators provided by the Ring programming language.
+
+.. index:: 
+	pair: Operators; Arithmetic Operators
+
+
+Arithmetic Operators
+====================
+
+The next table presents all of the arithmetic operators 
+provided by the Ring language. Assume variable X=50 and variable Y=10 then:
+
++------------+---------------+----------+---------+
+| Operator   | Description   | Example  | Result  |
++============+===============+==========+=========+
+| \+	     |  Add	     |  x+y     |  60     |
++------------+---------------+----------+---------+
+| \-         |	Subtract     |	x-y     |  40     |
++------------+---------------+----------+---------+
+| \*	     |  Multiplies   |	x*y     |  500    |
++------------+---------------+----------+---------+
+| /          |  Divide	     |	x/y     |  5      |
++------------+---------------+----------+---------+
+| %          |  Modulus	     |	x%y     |  0      | 
++------------+---------------+----------+---------+
+| ++         |  Increment    |	x++     |  51     |
++------------+---------------+----------+---------+
+| \- \-      |  Decrement    |	x\- \-  |  49     |
++------------+---------------+----------+---------+
+| ** OR ^^   |  Power        |	x**3    |  125000 |
++------------+---------------+----------+---------+
+
+.. index:: 
+	pair: Operators; Relational Operators
+
+Relational Operators
+====================
+
+The next table presents all of the relational operators 
+provided by the Ring language. Assume variable X=50 and variable Y=10 then:
+
++------------+---------------------+-------------+---------+
+| Operator   | Description         | Example     | Result  |
++============+=====================+=============+=========+
+| =	     |  Equal	           |    x = y    |  False  |
++------------+---------------------+-------------+---------+
+| !=         |	Not Equal          |	x != y   |  True   |
++------------+---------------------+-------------+---------+
+| >	     |  Greater than       |	x > y    |  True   |
++------------+---------------------+-------------+---------+
+| <          |  Less than 	   |	x < y    |  False  |
++------------+---------------------+-------------+---------+
+| >=         |  Greater or Equal   |	x >= y   |  True   | 
++------------+---------------------+-------------+---------+
+| <=         |  Less than or Equal |	x <= y   |  False  |
++------------+---------------------+-------------+---------+
+
+
+.. index:: 
+	pair: Operators; Logical Operators
+
+Logical Operators
+=================
+
+The next table presents all of the logical operators 
+provided by the Ring language. Assume variable X=True and variable Y=False then:
+
++------------+---------------------+-------------+---------+
+| Operator   | Description         | Example     | Result  |
++============+=====================+=============+=========+
+| and	     |  Logical AND        |    x and y  |  False  |
++------------+---------------------+-------------+---------+
+| or         |	Logical OR         |	x or y   |  True   |
++------------+---------------------+-------------+---------+
+| not	     |  Logical Not        |	not x    |  False  |
++------------+---------------------+-------------+---------+
+
+Another style
+
++------------+---------------------+-------------+---------+
+| Operator   | Description         | Example     | Result  |
++============+=====================+=============+=========+
+| &&	     |  Logical AND        |    x && y   |  False  |
++------------+---------------------+-------------+---------+
+| ||         |	Logical OR         |	x || y   |  True   |
++------------+---------------------+-------------+---------+
+| !	     |  Logical Not        |	! x      |  False  |
++------------+---------------------+-------------+---------+
+
+
+.. index:: 
+	pair: Operators; Bitwise Operators
+
+Bitwise Operators
+=================
+
+The next table presents all of the bitwise operators 
+provided by the Ring language. Assume variable X=8 and variable Y=2 then:
+
++------------+-----------------------------+-------------+---------+
+| Operator   | Description                 | Example     | Result  |
++============+=============================+=============+=========+
+| &	     |  Binary AND                 |    x & y    |  0      |
++------------+-----------------------------+-------------+---------+
+| \|         |	Binary OR                  |	x \| y   |  10     |
++------------+-----------------------------+-------------+---------+
+| ^	     |  Binary XOR                 |	x ^ y    |  10     |
++------------+-----------------------------+-------------+---------+
+| ~          |  Binary Ones Complement 	   |	~x       |  -9     |
++------------+-----------------------------+-------------+---------+
+| <<         |  Binary Left Shift          |	x << y   |  32     | 
++------------+-----------------------------+-------------+---------+
+| >>         |  Binary Right Shift         |	x >> y   |  2      |
++------------+-----------------------------+-------------+---------+
+
+
+.. index:: 
+	pair: Operators; Assignment Operators
+
+Assignment Operators
+====================
+
+The next table presents all of the assignment operators 
+provided by the Ring language.
+
+Assume variable X=8 then:
+
++------------+-----------------------------+-------------+---------+
+| Operator   | Description                 | Example     | Result  |
++============+=============================+=============+=========+
+| =	     |  Assignment                 |    x = 10   |  x=10   |
++------------+-----------------------------+-------------+---------+
+| +=         |	Add AND assignment         |	x += 5   |  x=13   |
++------------+-----------------------------+-------------+---------+
+| -=	     |  Subtract AND assignment    |	x -= 3   |  x=5    |
++------------+-----------------------------+-------------+---------+
+| \*=        |  Multiply AND assignment    |	x \*= 2  |  x=16   |
++------------+-----------------------------+-------------+---------+
+| /=         |  Divide AND assignment      |	x /= 3   |  x=2.67 |
++------------+-----------------------------+-------------+---------+
+| %=         |  Modulus AND assignment     |	x %= 2   |  x=0    | 
++------------+-----------------------------+-------------+---------+
+| <<=        |	Left shift AND assignment  |	x <<= 2  |  x=32   |
++------------+-----------------------------+-------------+---------+
+| >>=	     |  Right shift AND assignment |	x >>= 2  |  x=2    |
++------------+-----------------------------+-------------+---------+
+| &=         |  Bitwise AND assignment     |	x &= 4   |  x=0    |
++------------+-----------------------------+-------------+---------+
+| \|=        |  Bitwise OR and assignment  |	x \|= 3  |  x=11   |
++------------+-----------------------------+-------------+---------+
+| ^=         |  Bitwise XOR and assignment |	x ^= 4   |  x=12   |
++------------+-----------------------------+-------------+---------+
+
+.. index:: 
+	pair: Operators; Misc Operators
+
+Misc Operators
+==============
+
+==============	======================================================================
+Operator	Description
+==============	======================================================================
+:literal	using : before identifier mean literal
+Start:End	create list contains items from start to end
+[list items]	define list items
+list[index]	access list item
+obj.name	using the dot operator to access object members (attributes/methods).
+obj {stmts}	execute statements with direct access to object attributes & methods
+func(para,...)	call function using parameters separated by comma
+? <expr>	Print expression then new line
+==============	======================================================================
+
+.. index:: 
+	pair: Operators; Operators Precedence
+
+Operators Precedence
+====================
+
+The next table present operators from higher precedence (Evaluated first) to 
+lower precedence.
+
++----------------------------------------------------------------+
+| Operator							 |
++================================================================+
+| .  []   ()     {}	 	 				 |
++----------------------------------------------------------------+
+| \~  :Literal  [list items]					 |
++----------------------------------------------------------------+
+| ++   \- \-							 |
++----------------------------------------------------------------+
+| \- (Unary minus)						 |
++----------------------------------------------------------------+
+| Start:End							 |
++----------------------------------------------------------------+
+| \* /  %							 |
++----------------------------------------------------------------+
+| \+ \-								 |
++----------------------------------------------------------------+
+| <<   >>							 |
++----------------------------------------------------------------+
+| &								 |
++----------------------------------------------------------------+
+| \|  ^								 |
++----------------------------------------------------------------+
+| <  >  <=  >= 							 |
++----------------------------------------------------------------+
+| =  !=								 |
++----------------------------------------------------------------+
+| not	!							 |
++----------------------------------------------------------------+
+| and   or   &&	   ||						 |
++----------------------------------------------------------------+
+| Assignment = += -= \*= /= %=>>= <<= &= ^= \|= 		 |
++----------------------------------------------------------------+
+| ?						 		 |
++----------------------------------------------------------------+
+
+Example (1):
+
+.. code-block:: ring
+
+	See 3+5*4	# prints 23
+
+
+.. index:: 
+	pair: Operators; Mixing Arithmetic Operators and Types
+
+Mixing Arithmetic Operators and Types
+=====================================
+
+
+The next table demonstrates what happens when mixing arithmetic operators and different types
+
+=========== ============ ============== ============================ =======================
+First Type  Operator	  Second Type    Output Type OR Behavior     Example
+=========== ============ ============== ============================ =======================
+Number      "+"          Number         Number                       5+5
+Number      "+"          String         Number                       5+"5"
+String      "+"          Number         String                       "5"+5
+String      "+"          String         String                       "5"+"5"
+List        "+"          Number         Add number to List           [1,2,3] + 4
+List        "+"          String         Add string to List           [1,2,3] + "four"
+List        "+"          List           Add list to List             [1,2,3] + ["sub"]
+List        "+"          Object         Add object to List           [1,2,3] + new Point
+Number      "+"          List           Runtime Error                4 + [1,2,3]
+Number      "+"          Object         Check Operator Overloading   4 + new point
+String      "+"          List           Runtime Error                "4" + [1,2,3]
+String      "+"          Object         Check Operator Overloading   "4" + new point
+Object      "+"          Number         Check Operator Overloading   new point + 1
+Object      "+"          String         Check Operator Overloading   new point + "test"
+Object      "+"          List           Check Operator Overloading   new point + [10,10]
+Object      "+"          Object         Check Operator Overloading   new point + new point
+
+Number      "-"          Number         Number                       5-5
+Number      "-"          String         Number                       5-"5"
+String      "-"          Number         Number                       "5"-5
+String      "-"          String         Number                       "5"-"5"
+List        "-"          Number         Runtime Error                [1,2,3] - 4
+List        "-"          String         Runtime Error                [1,2,3] - "four"
+List        "-"          List           Runtime Error                [1,2,3] - ["sub"]
+List        "-"          Object         Check Operator Overloading   [1,2,3] - new Point
+Number      "-"          List           Runtime Error                4 - [1,2,3]
+Number      "-"          Object         Check Operator Overloading   4 - new point
+String      "-"          List           Runtime Error                "4" - [1,2,3]
+String      "-"          Object         Check Operator Overloading   "4" - new point
+Object      "-"          Number         Check Operator Overloading   new point - 1
+Object      "-"          String         Check Operator Overloading   new point - "test"
+Object      "-"          List           Check Operator Overloading   new point - [10,10]
+Object      "-"          Object         Check Operator Overloading   new point - new point
+
+Number      "*"          Number         Number                       5*5
+Number      "*"          String         Number                       5*"5"
+String      "*"          Number         Number                       "5"*5
+String      "*"          String         Number                       "5"*"5"
+List        "*"          Number         Runtime Error                [1,2,3] * 4
+List        "*"          String         Runtime Error                [1,2,3] * "four"
+List        "*"          List           Runtime Error                [1,2,3] * ["sub"]
+List        "*"          Object         Check Operator Overloading   [1,2,3] * new Point
+Number      "*"          List           Runtime Error                4 * [1,2,3]
+Number      "*"          Object         Check Operator Overloading   4 * new point
+String      "*"          List           Runtime Error                "4" * [1,2,3]
+String      "*"          Object         Check Operator Overloading   "4" * new point
+Object      "*"          Number         Check Operator Overloading   new point * 1
+Object      "*"          String         Check Operator Overloading   new point * "test"
+Object      "*"          List           Check Operator Overloading   new point * [10,10]
+Object      "*"          Object         Check Operator Overloading   new point * new point
+
+Number      "/"          Number         Number                       5/5
+Number      "/"          String         Number                       5/"5"
+String      "/"          Number         Number                       "5"/5
+String      "/"          String         Number                       "5"/"5"
+List        "/"          Number         Runtime Error                [1,2,3] / 4
+List        "/"          String         Runtime Error                [1,2,3] / "four"
+List        "/"          List           Runtime Error                [1,2,3] / ["sub"]
+List        "/"          Object         Check Operator Overloading   [1,2,3] / new Point
+Number      "/"          List           Runtime Error                4 / [1,2,3]
+Number      "/"          Object         Check Operator Overloading   4 / new point
+String      "/"          List           Runtime Error                "4" / [1,2,3]
+String      "/"          Object         Check Operator Overloading   "4" / new point
+Object      "/"          Number         Check Operator Overloading   new point / 1
+Object      "/"          String         Check Operator Overloading   new point / "test"
+Object      "/"          List           Check Operator Overloading   new point / [10,10]
+Object      "/"          Object         Check Operator Overloading   new point / new point
+
+Number      "%"          Number         Number                       5%5
+Number      "%"          String         Number                       5%"5"
+String      "%"          Number         Number                       "5"%5
+String      "%"          String         Number                       "5"%"5"
+List        "%"          Number         Runtime Error                [1,2,3] % 4
+List        "%"          String         Runtime Error                [1,2,3] % "four"
+List        "%"          List           Runtime Error                [1,2,3] % ["sub"]
+List        "%"          Object         Check Operator Overloading   [1,2,3] % new Point
+Number      "%"          List           Runtime Error                4 % [1,2,3]
+Number      "%"          Object         Check Operator Overloading   4 % new point
+String      "%"          List           Runtime Error                "4" % [1,2,3]
+String      "%"          Object         Check Operator Overloading   "4" % new point
+Object      "%"          Number         Check Operator Overloading   new point % 1
+Object      "%"          String         Check Operator Overloading   new point % "test"
+Object      "%"          List           Check Operator Overloading   new point % [10,10]
+Object      "%"          Object         Check Operator Overloading   new point % new point
+
+Number      "++"         ...            Number                       5++
+String      "++"         ...            Syntax Error/Runtime Error   x="5"  x++
+List        "++"         ...            Syntax Error/Runtime Error   x=[1,2,3]  x++
+Object      "++"         ...            Syntax Error/Runtime Error   x=new point x++
+
+Number      "--"         ...            Number                       5--
+String      "--"         ...            Syntax Error/Runtime Error   x="5"  x--
+List        "--"         ...            Syntax Error/Runtime Error   x=[1,2,3]  x--
+Object      "--"         ...            Syntax Error/Runtime Error   x=new point x--
+=========== ============ ============== ============================ =======================
+
+
+.. note:: The behavior of the power operator with respect to different types is similar to the -, *, / and % operators.
+
+.. index:: 
+	pair: Operators; Mixing Relational Operators and Types
+
+Mixing Relational Operators and Types
+=====================================
+
+Using Relational Operators like <, <=, >, >= could produce True, False OR runtime error.
+
+When mixing Strings and Numbers with these operators, The string will be converted to a number.
+
+Example (2):
+
+.. code-block:: ring
+
+	? 5 < 7		# 1 (True)
+	? "5" < 7	# 1 (True)
+	? 5 < "7"	# 1 (True)
+	? "5" < "7"	# 1 (True)
+	? "test" < 5	# Runtime Error (Invalid numeric string)
+
+.. note:: Using these operators with lists or objects will produce a runtime error. An exception to this rule is having an object the comes first before the operator and this object support operator overloading.
+
+Using relational operators like = or != will only produce True OR False (i.e. no runtime error)
+
+Also, when mixing Strings and Numbers with these operators, The string will be converted to a number.
+
+Example (3):
+
+.. code-block:: ring
+
+	? "5" = 5	# 1 (True)
+	? 5 = "5"	# 1 (True)
+	? 5 = 5		# 1 (True)
+	? "5" = "5"	# 1 (True)
+	? 5 = 7		# 0 (False)
+	? "5" = 7	# 0 (False)
+	? 5 = "7"	# 0 (False)
+	? "5" = "7"	# 0 (False)
+	? "test" = 5	# 0 (False)
+
+	? "5" != 5	# 0 (False)
+	? 5 != "5"	# 0 (False)
+	? 5 != 5	# 0 (False)
+	? "5" != "5"	# 0 (False)
+	? 5 != 7	# 1 (True)
+	? "5" != 7	# 1 (True)
+	? 5 != "7"	# 1 (True)
+	? "5" != "7"	# 1 (True)
+	? "test" != 5	# 1 (True)
+
+Example (4):
+
+.. code-block:: ring
+
+	? 12500 = "0012500"		# 1 (True)
+	? 12500 = "0012500-PRY-09"	# 0 (False)
+
+	# When we compare between number and a string 
+	# If we found the number --> Then we ignore Space, Tab, \n, \r after that number
+	# We consider "" to be like Zero but we don't do that for Space, Tab, \n and \r
+	# Note: if 0 -> False while if " " -> True 
+
+	? 1 =  "1  x"			# 0 (False)
+	? 1 = "1     "			# 1 (True)
+	? 0 = ""			# 1 (True)
+	? 0 = "       0        "	# 1 (True)	
+	? 1 = "       1       "		# 1 (True)
+	? 0 = "000000"			# 1 (True)
+	? 0 = "00000   			
+	"				# 1 (True)
+	? 1 = "       1 			
+	"				# 1 (True)
+
+	? 0 = " "			# 0 (False)
+
+	if 0				# False
+		? :fail
+	else
+		? :pass
+	ok				# pass
+
+	if ""				# False
+		? :fail
+	else
+		? :pass
+	ok				# pass
+
+	if " "				# True
+		? :pass
+	else
+		? :fail
+	ok				# pass
+
+.. note:: Using these operators to compare between objects or lists will compare between them at the reference level (not the value)
+
+Example (5):
+
+.. code-block:: ring
+
+	aList    = [1,2,3]
+	aList2   = [1,2,3]
+	? aList  = aList	# 1 (True)
+	? aList  = aList2	# 0 (False) 
+	
+	aList3   = ref(aList)
+	? aList3 = aList	# 1 (True)
+
+.. index:: 
+	pair: Operators; Mixing Logical Operators and Types
+
+Mixing Logical Operators and Types
+==================================
+
+We have the next rules:
+
+* Logical operators always produce True/False
+* The Zero number is considered False
+* The Empty string is considered False
+* The Empty list is considered False
+* The list that wrap C pointer is considered False if the pointer is NULL
+* All other values are True
+
+Example (6):
+
+.. code-block:: ring
+
+	? 1 and 1			# 1 (True)
+	? "test" and "test"		# 1 (True)
+	? [1,2,3] and "test"		# 1 (True)
+	? 1 and "test" and [1,2,3]	# 1 (True)
+	? 1 and new point		# 1 (True)
+	? 1 and 0			# 0 (False)
+	? 1 and ""			# 0 (False)
+	? 1 and []			# 0 (False)
+	? 1 and NULLPointer()		# 0 (False)
+
+	class point 
+
+.. index:: 
+	pair: Operators; Mixing Bitwise Operators and Types
+
+Mixing Bitwise Operators and Types
+==================================
+
+These operators support numbers. Also, it will automatically convert strings to numbers if this is possible or produce a runtime error if the string can't be converted.
+
+Using these operators with lists or objects produce a runtime error with an exception to this rule.
+
+The exception is using objects that support operator overloading where the object comes first before the operator.
+
+Example (7):
+
+.. code-block:: ring
+
+	? 1 & 1			# 1
+	? "1" & 1		# 1
+	? 1 & "3"		# 1
+	? "3" & "3"		# 3
+	? "123" & "123"		# 123
+
+
+.. index:: 
+	pair: Operators; Mixing Assignment Operators and Types
+
+Mixing Assignment Operators and Types
+=====================================
+
+Using assignment we can assign any value to any variable.
+
+Using += support Strings & Numbers and will produce a runtime error if used with other types
+
+Using other assignment operators like -=, *=, /=, %=, <<=, >>=, etc. support only numbers and will produce a runtime error if used with other types.
+
+
+Example (8):
+
+.. code-block:: ring
+
+	cStr = "one"
+	cStr += " two"
+	? cStr		# one two
+	nNum = 100
+	nNum += 200
+	? nNum		# 300
