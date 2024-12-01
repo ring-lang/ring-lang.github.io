@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using FastPro &mdash; Ring 1.22.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/dark_mode_js/default_dark.js"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using RingPDFGen" href="usingringpdfgen.html" />
+    <link rel="prev" title="RingQt Classes Reference" href="qtclassesdoc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tilengine.html">Using RingTilengine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Using RingThreads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using RingLibui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingrogueutil.html">Using RingRogueUtil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using FastPro Extension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#bytes2list-function">Bytes2List() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list2bytes-function">List2Bytes() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updatelist-function">UpdateList() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updatecolumn-function">UpdateColumn() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-image">Generate Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updatebytescolumn-function">UpdateBytesColumn() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#addbytescolumn-function">AddBytesColumn() function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingpico.html">Using Ring for Raspberry Pi Pico Microcontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew19.html">Release Notes: Version 1.19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using FastPro</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-fastpro">
+<span id="index-0"></span><h1>Using FastPro<a class="headerlink" href="#using-fastpro" title="Permalink to this heading"></a></h1>
+<p>In this chapter we will learn about Using the FastPro extension.</p>
+<p>This extension is added to the Ring language starting from Ring 1.19.</p>
+<p>Contents:</p>
+<ul class="simple">
+<li><p>Bytes2List() function</p></li>
+<li><p>List2Bytes() function</p></li>
+<li><p>UpdateList() function</p></li>
+<li><p>UpdateColumn() function</p></li>
+<li><p>UpdateBytesColumn() function</p></li>
+<li><p>AddBytesColumn() function</p></li>
+</ul>
+<section id="bytes2list-function">
+<span id="index-1"></span><h2>Bytes2List() function<a class="headerlink" href="#bytes2list-function" title="Permalink to this heading"></a></h2>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Bytes2List(cBytes,nWidth,nHeight,nChannels) —&gt; aList // [[R,G,B],…]
+</pre></div>
+</div>
+</section>
+<section id="list2bytes-function">
+<span id="index-2"></span><h2>List2Bytes() function<a class="headerlink" href="#list2bytes-function" title="Permalink to this heading"></a></h2>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>List2Bytes(aList,nChannels) —&gt; cBytes // “RGBA….”
+</pre></div>
+</div>
+</section>
+<section id="updatelist-function">
+<span id="index-3"></span><h2>UpdateList() function<a class="headerlink" href="#updatelist-function" title="Permalink to this heading"></a></h2>
+<p>A function that could update 1D and 2D lists and provide very high performance.</p>
+<p>This function support using numbers only.</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateList(&lt;aList&gt;,&lt;cCommand&gt;,&lt;cSelection&gt;,&lt;nPara1&gt;,[&lt;nPara2&gt;],[nPara3])
+</pre></div>
+</div>
+<p>cCommand could be :set, :add, :sub, :mul, :div, :rem, :pow, :serial, :merge and :copy</p>
+<p>cSelection could be :col, :row, :manycols, :manyrows and :items</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateList(&lt;aList&gt;,:set,:row,&lt;nRow&gt;,&lt;nValue&gt;)
+updateList(&lt;aList&gt;,:set,:col,&lt;nCol&gt;,&lt;nValue&gt;)
+updateList(&lt;aList&gt;,:set,:manyrows,&lt;nRowStart&gt;,&lt;nRowEnd&gt;,&lt;nValue&gt;)
+updateList(&lt;aList&gt;,:set,:manycols,&lt;nColStart&gt;,&lt;nColEnd&gt;,&lt;nValue&gt;)
+updateList(&lt;aList&gt;,:set,:items,&lt;nValue&gt;)
+updateList(&lt;aList&gt;,:copy,:row,&lt;nRowSrc&gt;,&lt;nRowDest&gt;)
+updateList(&lt;aList&gt;,:copy,:col,&lt;nColSrc&gt;,&lt;nColDest&gt;)
+updateList(&lt;aList&gt;,:merge,:row,&lt;nRowDest&gt;,&lt;nRow&gt;)
+updateList(&lt;aList&gt;,:merge,:col,&lt;nColDest&gt;,&lt;nCol&gt;)
+updateList(&lt;aList&gt;,:mul,:col,&lt;nCol&gt;,&lt;nValue&gt;,&lt;nColDest&gt;)
+</pre></div>
+</div>
+<p>The required parameters depend on the cCommand/cSelection.</p>
+<p>The parameters could be columns/rows numbers.</p>
+<p>Also, some commands requires a value like the set command.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span>
+          <span class="o">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="o">]</span><span class="p">,</span>
+          <span class="mi">7</span><span class="p">:</span><span class="mi">9</span> <span class="o">]</span>
+
+<span class="c"># Set the values of the first row to 10</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">set</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="c"># Add 10 to each value in the first row</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">add</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="c"># Sub 5 from each value in the first row</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">sub</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="c"># Multiply each value in the first row by 10</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="c"># Divide each value in the first row by 2</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">div</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="c"># Copy the first row values to the second row</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">copy</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="c"># Sum the third row and the second row</span>
+<span class="c"># And the result will be in the third row</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">merge</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>The list will be [ [75,75,75], [75,75,75], [82,83,84] ]</p>
+<div class="highlight-one notranslate"><div class="highlight"><pre><span></span>75
+75
+75
+75
+75
+75
+82
+83
+84
+</pre></div>
+</div>
+<p>Using :col as the third parameter we can do operations on the list columns.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="c"># Store [ [1,2,3], [4,5,6], [7,8,9] ] in aList</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+          <span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
+          <span class="mi">7</span><span class="p">:</span><span class="mi">9</span> <span class="o">]</span>
+
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">set</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">div</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>The list will be [ [100,20,1], [100,50,2], [100,80,3] ]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>100
+20
+1
+100
+50
+2
+100
+80
+3
+</pre></div>
+</div>
+<p>We can determine a destination column through the six parameter.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="o">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+        <span class="o">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+        <span class="o">[</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span>
+<span class="o">]</span>
+
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>The list will be [ [10,20,100], [30,40,300], [50,60,500] ]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
+20
+100
+30
+40
+300
+50
+60
+500
+</pre></div>
+</div>
+<p>Using :manyrows or :manycols we can do operations on many rows/columns</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
+        <span class="mi">7</span><span class="p">:</span><span class="mi">9</span>
+<span class="o">]</span>
+
+<span class="c"># Starting from row 1 to row 2, set each value to 100</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">set</span><span class="p">,:</span><span class="n">manyrows</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="c"># Starting from row 2 to row 3, multiply each value by 10</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,:</span><span class="n">manyrows</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>100
+100
+100
+1000
+1000
+1000
+70
+80
+90
+</pre></div>
+</div>
+<p>Using :items as the third parameter we can do operations on 1D lists.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">set</span><span class="p">,:</span><span class="n">items</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,:</span><span class="n">items</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>The list will be [2000,2000,2000,2000,2000]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2000
+2000
+2000
+2000
+2000
+</pre></div>
+</div>
+<p>Using :serial, we can set default values for multiple items based on their positions.</p>
+<p>Example:</p>
+<p>The next code updates the list with values incremented by 5 in each column.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">]</span>
+
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+        <span class="k">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+                <span class="n">print</span><span class="p">(</span><span class="n">aList</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">5</span> <span class="n">print</span> <span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">)</span> <span class="k">ok</span>
+        <span class="k">next</span>
+        <span class="o">?</span> <span class="s">&quot;&quot;</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>The output displays a row of asterisks followed by the elements of the list arranged
+in a structured format.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>********************
+1-6-11-16-21
+2-7-12-17-22
+3-8-13-18-23
+4-9-14-19-24
+5-10-15-20-25
+</pre></div>
+</div>
+</section>
+<section id="updatecolumn-function">
+<span id="index-4"></span><h2>UpdateColumn() function<a class="headerlink" href="#updatecolumn-function" title="Permalink to this heading"></a></h2>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateColumn(&lt;aList&gt;, [&lt;cCommand&gt;,&lt;nPara1&gt;,[&lt;nPara2&gt;],[nPara3]],…)
+</pre></div>
+</div>
+<p>Using this function we can execute many commands on the list columns.</p>
+<p>Instead of using updateList() many times and each time we pass :col as the third parameter, we can use updateColumn().</p>
+<p>This function support using numbers only.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The ImagePixel application uses a similar function called updateBytesColumn() to process bytes directly.</p>
+</div>
+</section>
+<section id="generate-image">
+<span id="index-5"></span><h2>Generate Image<a class="headerlink" href="#generate-image" title="Permalink to this heading"></a></h2>
+<p>The next example generate an image using a string that contain bytes</p>
+<p>Then uses Bytes2List() to convert the generated image to Ring List</p>
+<p>Using updateColumn() the list is updated and the colors are converted to Gray</p>
+<p>Then using List2Bytes() we get another string contains bytes that represent the Gray Image</p>
+<p>Then using the drawBytes() method in RingQt - QPainter class we draw the generated images</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can update the string bytes directly without conversion to a Ring list</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It’s better to use the updateBytesColumn() function to reduce memory usage and have better performance</p>
+</div>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stbimage.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;lightguilib.ring&quot;</span>
+
+<span class="n">width</span>    <span class="o">=</span> <span class="mi">640</span>
+<span class="n">height</span>   <span class="o">=</span> <span class="mi">480</span>
+<span class="n">channels</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">cImage</span>   <span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="o">*</span><span class="n">channels</span><span class="p">)</span>
+
+<span class="n">RVALUE</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">GVALUE</span>   <span class="o">=</span> <span class="mi">2</span>
+<span class="n">BVALUE</span>   <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">WindowWidth</span> <span class="o">=</span> <span class="n">Width</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span>
+
+<span class="n">nIndex</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">height</span>
+        <span class="k">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">width</span>
+                <span class="n">cImage</span><span class="o">[</span><span class="n">nIndex</span><span class="o">++]</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+                <span class="n">cImage</span><span class="o">[</span><span class="n">nIndex</span><span class="o">++]</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+                <span class="n">cImage</span><span class="o">[</span><span class="n">nIndex</span><span class="o">++]</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
+        <span class="k">next</span>
+<span class="k">next</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="n">Bytes2List</span><span class="p">(</span><span class="n">cImage</span><span class="p">,</span><span class="n">Width</span><span class="p">,</span><span class="n">Height</span><span class="p">,</span><span class="n">Channels</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">updateColumn</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span>             <span class="c"># R *= 0.3</span>
+                   <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span><span class="mf">0.59</span><span class="p">,</span>            <span class="c"># G *= 0.59</span>
+                   <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span><span class="mf">0.11</span><span class="p">,</span>            <span class="c"># B *= 0.11</span>
+                   <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>        <span class="c"># R += G</span>
+                   <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span>        <span class="c"># R += B</span>
+                   <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>         <span class="c"># G = R</span>
+                   <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">)</span>         <span class="c"># B = R</span>
+<span class="n">cGrayImage</span> <span class="o">=</span> <span class="n">list2Bytes</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">Channels</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+
+<span class="n">MyApp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QApp</span>
+<span class="p">{</span>
+        <span class="n">win1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QWidget</span><span class="p">()</span>
+        <span class="p">{</span>
+                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Generate Image &amp; Convert it to Gray&quot;</span><span class="p">)</span>
+                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">WindowWidth</span><span class="p">,</span><span class="n">Height</span><span class="p">)</span>
+                <span class="n">Canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QLabel</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">MonaLisa</span>  <span class="o">=</span> <span class="k">new</span> <span class="n">QPixMap2</span><span class="p">(</span> <span class="n">WindowWidth</span><span class="p">,</span> <span class="n">Height</span><span class="p">)</span>
+                        <span class="n">daVinci</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPainter</span><span class="p">()</span>
+                        <span class="p">{</span>
+                                <span class="n">begin</span><span class="p">(</span><span class="n">MonaLisa</span><span class="p">)</span>
+                                <span class="n">drawbytes</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">cImage</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">Height</span><span class="p">,</span><span class="n">channels</span><span class="p">)</span>
+                                <span class="n">drawbytes</span><span class="p">(</span><span class="n">width</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">cGrayImage</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">Height</span><span class="p">,</span><span class="n">channels</span><span class="p">)</span>
+                                <span class="n">endpaint</span><span class="p">()</span>
+                        <span class="p">}</span>
+                        <span class="n">setPixMap</span><span class="p">(</span><span class="n">MonaLisa</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="gengrayimage" src="_images/gengrayimage.png" />
+<p>A faster version of the previous sample could be written by replacing the next code</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="n">Bytes2List</span><span class="p">(</span><span class="n">cImage</span><span class="p">,</span><span class="n">Width</span><span class="p">,</span><span class="n">Height</span><span class="p">,</span><span class="n">Channels</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">updateColumn</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span>             <span class="c"># R *= 0.3</span>
+                   <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span><span class="mf">0.59</span><span class="p">,</span>            <span class="c"># G *= 0.59</span>
+                   <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span><span class="mf">0.11</span><span class="p">,</span>            <span class="c"># B *= 0.11</span>
+                   <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>        <span class="c"># R += G</span>
+                   <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span>        <span class="c"># R += B</span>
+                   <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>         <span class="c"># G = R</span>
+                   <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">)</span>         <span class="c"># B = R</span>
+<span class="n">cGrayImage</span> <span class="o">=</span> <span class="n">list2Bytes</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">Channels</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With this code</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cGrayImage</span> <span class="o">=</span> <span class="n">updateBytesColumn</span><span class="p">(</span><span class="n">cImage</span><span class="p">,</span><span class="n">Channels</span><span class="p">,</span><span class="n">Width</span><span class="o">*</span><span class="n">Height</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span>
+           <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span>             <span class="c"># R *= 0.3</span>
+           <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span><span class="mf">0.59</span><span class="p">,</span>            <span class="c"># G *= 0.59</span>
+           <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span><span class="mf">0.11</span><span class="p">,</span>            <span class="c"># B *= 0.11</span>
+           <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>        <span class="c"># R += G</span>
+           <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span>        <span class="c"># R += B</span>
+           <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>         <span class="c"># G = R</span>
+           <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">)</span>         <span class="c"># B = R</span>
+</pre></div>
+</div>
+</section>
+<section id="updatebytescolumn-function">
+<span id="index-6"></span><h2>UpdateBytesColumn() function<a class="headerlink" href="#updatebytescolumn-function" title="Permalink to this heading"></a></h2>
+<p>Using this function we can process the Bytes directly instead of using Bytes2List() &amp; List2Bytes()</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateBytesColumn(cBytes, nColumns, nCount, nDiv, [cCommand,nPara1,nPara2,[nPara3]],…) —&gt; cNewBytes
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stbimage.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="n">RVALUE</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">GVALUE</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">BVALUE</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">CIMAGE</span> <span class="o">=</span> <span class="s">&quot;ring.jpg&quot;</span>
+
+<span class="c"># Image Information</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">0</span> <span class="n">height</span><span class="o">=</span><span class="mi">0</span> <span class="n">channels</span><span class="o">=</span><span class="mi">0</span>
+<span class="c"># Ring will Free cData automatically in the end of the program</span>
+        <span class="o">?</span> <span class="s">&quot;Load image: &quot;</span> <span class="o">+</span> <span class="n">CIMAGE</span>
+        <span class="n">cData</span> <span class="o">=</span> <span class="n">stbi_load</span><span class="p">(</span><span class="n">CIMAGE</span><span class="p">,:</span><span class="n">width</span><span class="p">,:</span><span class="n">height</span><span class="p">,:</span><span class="n">channels</span><span class="p">,</span><span class="n">STBI_rgb</span><span class="p">)</span>
+
+<span class="c"># Convert to Gray</span>
+        <span class="n">cNewData</span> <span class="o">=</span> <span class="n">updateBytesColumn</span><span class="p">(</span><span class="n">cData</span><span class="p">,</span><span class="n">channels</span><span class="p">,</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span>
+                  <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span>             <span class="c"># R *= 0.3</span>
+                  <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span><span class="mf">0.59</span><span class="p">,</span>            <span class="c"># G *= 0.59</span>
+                  <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span><span class="mf">0.11</span><span class="p">,</span>            <span class="c"># B *= 0.11</span>
+                  <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>        <span class="c"># R += G</span>
+                  <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span>        <span class="c"># R += B</span>
+                  <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>         <span class="c"># G = R</span>
+                  <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">)</span>         <span class="c"># B = R</span>
+
+<span class="c"># Write the image</span>
+        <span class="o">?</span> <span class="s">&quot;Writing mynewimage.bmp&quot;</span>
+        <span class="n">stbi_write_bmp</span><span class="p">(</span><span class="s">&quot;mynewimage.bmp&quot;</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">cNewData</span><span class="p">)</span>
+        <span class="n">system</span><span class="p">(</span><span class="s">&quot;mynewimage.bmp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function is used in the ImagePixel application to convert the image to Gray.</p>
+<img alt="updatecolumncode" src="_images/updatecolumncode.png" />
+</section>
+<section id="addbytescolumn-function">
+<span id="index-7"></span><h2>AddBytesColumn() function<a class="headerlink" href="#addbytescolumn-function" title="Permalink to this heading"></a></h2>
+<p>If we have an image that uses three channels (R,G,B) and is represented through a string of bytes</p>
+<p>We can use AddBytesColumn() function to add an extra channel like the Alpha channel.</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>addBytesColumn(cBytes, nColumns, nCount) —&gt; cNewBytes
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cImageFile</span>     <span class="o">=</span> <span class="s">&quot;ring.jpg&quot;</span>
+<span class="n">nImageWidth</span>    <span class="o">=</span> <span class="mi">0</span>
+<span class="n">nImageHeight</span>   <span class="o">=</span> <span class="mi">0</span>
+<span class="n">nImageChannels</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">stbi_info</span><span class="p">(</span><span class="n">cImageFile</span><span class="p">,:</span><span class="n">nImageWidth</span><span class="p">,:</span><span class="n">nImageHeight</span><span class="p">,:</span><span class="n">nImageChannels</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">nImageChannels</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">cImageData</span>     <span class="o">=</span> <span class="n">stbi_load</span><span class="p">(</span><span class="n">cImageFile</span><span class="p">,:</span><span class="n">nImageWidth</span><span class="p">,:</span><span class="n">nImageHeight</span><span class="p">,:</span><span class="n">nImageChannels</span><span class="p">,</span><span class="n">STBI_rgb</span><span class="p">)</span>
+        <span class="n">cImageData</span>     <span class="o">=</span> <span class="n">addBytesColumn</span><span class="p">(</span><span class="n">cImageData</span><span class="p">,</span><span class="n">nImageChannels</span><span class="p">,</span><span class="n">nImageWidth</span><span class="o">*</span><span class="n">nImageHeight</span><span class="p">)</span>
+        <span class="n">nImageChannels</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">else</span>
+        <span class="n">cImageData</span> <span class="o">=</span> <span class="n">stbi_load</span><span class="p">(</span><span class="n">cImageFile</span><span class="p">,:</span><span class="n">nImageWidth</span><span class="p">,:</span><span class="n">nImageHeight</span><span class="p">,:</span><span class="n">nImageChannels</span><span class="p">,</span><span class="n">STBI_rgb_alpha</span><span class="p">)</span>
+<span class="k">ok</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="qtclassesdoc.html" class="btn btn-neutral float-left" title="RingQt Classes Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usingringpdfgen.html" class="btn btn-neutral float-right" title="Using RingPDFGen" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2024, Mahmoud Fayed.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

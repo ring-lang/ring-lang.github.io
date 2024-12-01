@@ -1,0 +1,572 @@
+.. index:: 
+	single: Using References; Introduction
+
+================
+Using References
+================
+
+In this chapter we will learn about using references.
+
+This feature is added to the Ring language starting from Ring 1.18.
+
+Contents:
+
+* Introduction
+* Ref()/Reference() function
+* Refcount() function
+* Circular references
+* The Tree class
+* Linked list
+* Dependency injection
+* Passing lists to functions
+* Ref() and temp. lists
+* Nested Ref()
+* Ref() in left side
+* Ref() and sub lists
+
+
+.. index:: 
+	pair: Using References; Introduction
+
+Introduction
+============
+
+In Ring, Using the Assignment (=) operator copy variables by value.
+Also, Adding a List/Object to another List create a new copy.
+To change this behavior, We can use the Ref()/Reference() function.
+This function doesn't create the reference directly. 
+It's a flag setter, And Ring VM will decide when to create the reference. 
+
+Once we have more than one reference, No need to use the Ref() again with the same list/object
+Because Ring will use Copy by Reference with this list/object.
+If the reference count drop to one again then Ring will change the behavior and
+will use the default rule (copy lists/objects by value).
+
+In general Ring as a language is designed to reduce references usage. 
+This feature is added to be used in special cases 
+like teaching data structures and implementing specific design patterns.
+
+.. index:: 
+	pair: Using References; ref()
+
+ref()/reference() function
+==========================
+
+Syntax:
+
+.. code-block:: ring
+
+	ref(aList|oObject) 	 ---> aList|oObject (Enable Reference Flag) # Short name
+	reference(aList|oObject) ---> aList|oObject (Enable Reference Flag) # Long name
+
+Example:
+
+.. code-block:: ring
+
+	aList     = [1,2,3]
+	aListCopy = aList	# Copy by Value 
+	aList2    = ref(aList)	# Copy by Reference  (RC: 2)
+	aList3    = aList 	# Copy by Reference  (RC: 3)
+	for item in aList
+		item *= 10
+	next
+	? aList3		# 10 20 30
+	? aListCopy		# 1 2 3
+	aList2    = NULL
+	aList3    = NULL
+	aList2    = aList	# Copy by Value
+	for item in aList2
+		item /= 10
+	next
+	? aList			# 10 20 30
+	? aList2		# 1  2  3 
+	
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	30
+
+	1
+	2
+	3
+
+	10
+	20
+	30
+
+	1
+	2
+	3
+
+.. index:: 
+	pair: Using References; refcount()
+
+refcount() function
+===================
+
+Using the refcount() function we can know how many references exist.
+
+Syntax:
+
+.. code-block:: ring
+
+	refcount(variable) ---> Number (References Count)
+
+Example:
+
+.. code-block:: ring
+
+	aList  = 1:10
+	aList2 = ref(aList)
+	? refcount(aList)	# 2
+	? refcount(aList2)	# 2
+	aList3 = aList2
+	aList4 = aList
+	aList5 = aList4
+	? refcount(aList)	# 5
+	? refcount(aList2)	# 5
+	? refcount(aList3)	# 5
+	? refcount(aList4)	# 5
+	? refcount(aList5)	# 5
+	aList5 = NULL
+	aList4 = []
+	aList3 = [10]
+	? refcount(aList)	# 2
+	? refcount(aList2)	# 2
+
+Output:
+
+.. code-block:: none
+
+	2
+	2
+	5
+	5
+	5
+	5
+	5
+	2
+	2
+
+.. index:: 
+	pair: Using References; Circular References
+
+Circular References
+===================
+
+Using Ref() we can create circular references
+
+Ring VM can detect them and free memory when the variable is deleted.
+
+Example:
+
+.. code-block:: ring
+
+	aList = [ 10,20,30, ref(aList) ]        
+	? aList[4][1]                           
+	? aList[4][4][4][4][4][2]               
+	? refcount(aList)                       
+
+Output:
+
+.. code-block:: ring
+
+	10
+	20
+	2
+
+.. index:: 
+	pair: Using References; The Tree Class
+
+The Tree Class
+==============
+
+The Tree class is a good example about using the Ref() function.
+
+In this class each object contains a group of objects and these objects have a reference
+to the parent object.
+
+Example:
+
+.. code-block:: ring
+
+	Class tree
+	
+		data parent
+		children = []
+	
+		func set x
+			data = x
+	
+		func value
+			return data
+	
+		func add x
+			children + new tree
+			nMax = len(children)
+			children[nMax].parent = ref(self)
+			children[nMax].data = x
+			return children[nMax]
+	
+		func parent
+			if ! isObject(parent)
+				raise("This node is the root!")
+				return
+			ok
+			return parent
+	
+		func print
+			for x in children
+				? x.data
+				x.print()
+			next
+
+.. tip:: The Tree class already exist in the StdLib 
+
+
+.. index:: 
+	pair: Using References; Linked list
+
+Linked list
+===========
+
+The next example demonstrates how to create a linked list using the Ref() function.
+
+.. tip:: In practice we don't need to do this since Ring comes with lists
+
+Example:
+
+.. code-block:: ring
+
+	func main
+	
+		n1 = new node(:one)
+		n2 = new node(:two)
+		n3 = new node(:three)
+		n4 = new node(:four)
+		n5 = new node(:five)
+		
+		n1 { pNext = ref(n2) "No Previous Node" }
+		n2 { pNext = ref(n3) pPrev = ref(n1)    }
+		n3 { pNext = ref(n4) pPrev = ref(n2)    }
+		n4 { pNext = ref(n5) pPrev = ref(n3)    }
+		n5 { "No Next Node"  pPrev = ref(n4)    }
+		
+		n3 { 
+			toTheEnd()
+			? Copy("=",20)
+			toTheStart()
+		}
+	
+	class node
+	
+		pPrev pNext
+	
+		func init value
+			data = value
+	
+		func toTheEnd
+	
+			print()
+			pCurrent = pNext
+			while isObject(pCurrent)
+				pCurrent.print()
+				pCurrent = pCurrent.pNext
+			end
+	
+		func toTheStart
+	
+			print()
+			pCurrent = pPrev
+			while isObject(pCurrent)
+				pCurrent.print()
+				pCurrent = pCurrent.pPrev
+			end
+
+		func print
+	
+			? data
+	
+		private
+	
+			data  pCurrent
+
+Output:
+
+.. code-block:: ring
+
+	three
+	four
+	five
+	====================
+	three
+	two
+	one
+
+.. index:: 
+	pair: Using References; Dependency injection
+
+Dependency injection
+====================
+
+The next example demonstrates how to apply dependency injection using the Ref() function
+
+Example:
+
+.. code-block:: ring
+
+	func main
+
+		v1 = new MyClass1  v2 = new MyClass2
+
+		oCont = new Controller(v1,v2)
+
+		v1.value = "one"  v2.value = "two"
+
+		oCont.test()
+
+		v1 = 10 v2 = 20  ? v1 ? v2
+
+		oCont.test()
+
+	class MyClass1 value func test ? :myclass1
+
+	class MyClass2 value func test ? :myclass2
+
+	class Controller o1 o2
+
+		func init myo1,myo2
+
+			o1=ref(myo1) o2=ref(myo2)
+
+		func test
+
+			o1.test()   o2.test()
+			? o1.value  ? o2.value
+
+Output:
+
+.. code-block:: ring
+
+	myclass1
+	myclass2
+	one
+	two
+	10
+	20
+	myclass1
+	myclass2
+	one
+	two
+
+.. index:: 
+	pair: Using References; Passing lists to functions
+
+Passing lists to functions
+==========================
+
+In Ring, when we pass a list/object to a function, This function will have full
+ownership on the list/object variable. 
+
+This means it can delete it and change the variable type.
+
+Example:
+
+.. code-block:: ring
+
+	func main
+		? "Hello from Main() function"
+		aList = [1,2,3]
+		? aList
+		sub(aList)
+		? "Hello from Main() function (Again)"
+		if ! isList(aList)
+			? "We don't have a list!"
+		ok
+
+	func sub aList
+		? "Hello from Sub() function"
+		aList = NULL
+
+Output:
+
+.. code-block:: ring
+
+	Hello from Main() function
+	1
+	2
+	3
+	
+	Hello from Sub() function
+	Hello from Main() function (Again)
+	We don't have a list!
+
+Using Ref() function we can change this behavior and pass a reference to the list/object
+instead of sharing it.
+
+Example:
+
+.. code-block:: ring
+
+	func main
+		? "Hello from Main() function"
+		aList = [1,2,3]
+		? aList
+		sub(Ref(aList))
+		? "Hello from Main() function (Again)"
+		if ! isList(aList)
+			? "We don't have a list!"
+		else
+			? "We still have our list!"
+			? aList
+		ok
+
+	func sub aList
+		? "Hello from Sub() function"
+		aList = NULL
+
+Output:
+
+.. code-block:: none
+
+	Hello from Main() function
+	1
+	2
+	3
+	
+	Hello from Sub() function
+	Hello from Main() function (Again)
+	We still have our list!
+	1
+	2
+	3
+
+.. index:: 
+	pair: Using References; Ref() and temp. lists
+
+Ref() and temp. lists
+=====================
+
+Using Ref() and temp. lists/objects does nothing. 
+
+Example:
+
+.. code-block:: ring
+
+	aList = ref([1,2,3])	# The same as aList = [1,2,3]
+	? refcount(aList)	# 1
+	aList = ref(1:10)	# The same as aList = 1:10
+	? refcount(aList)	# 1
+	aList = ref(list(10))	# The same as aList = list(10)
+	? refcount(aList)	# 1
+	myobj = ref(new point)  # The same as myobj = new point
+	? refcount(myobj)       # 1
+	class point x y z
+
+.. index:: 
+	pair: Using References; Nested Ref()
+
+Nested Ref()
+============
+
+Since Ref() function is a flag setter, nested Ref() usage is not useful.
+
+Example:
+
+.. code-block:: ring
+
+	aList  = [1,2,3]
+	aList2 = ref(ref(ref(ref(aList))))  # The same as aList2 = ref(aList)
+	? refcount(aList)                   # 2
+
+
+.. index:: 
+	pair: Using References; Ref() in left side
+
+Ref() in left side
+==================
+
+Using Ref() in left side of an assignment is not useful and will disable the assignment
+i.e. will not change the value.
+
+Example:
+
+.. code-block:: ring
+
+	aList = [1,2,3]
+	ref(aList) = [4,5]	
+	? aList
+
+Output:
+
+.. code-block:: none
+
+	1
+	2
+	3
+
+.. index:: 
+	pair: Using References; Ref() and sub lists
+
+Ref() and sub lists
+===================
+
+Using Ref() with a sub list will create a strong reference to this sub list
+
+.. tip:: if the sub list contains other references, we will get weak references to them.
+
+Example:
+
+.. code-block:: ring
+
+	a = [[ref(a),ref(a),3],[4,5,6]]
+	? a
+	b = ref(a[1])	# Get Weak references to References inside a[1]  
+	? b     
+	b = NULL
+	? a
+	c = a[1]	# Get Strong references to References inside a[1]  
+	? c
+	c = NULL
+	? a
+	? :done
+
+Output:
+
+.. code-block:: none
+
+	[...] (RC:3)
+	[...] (RC:3)
+	3
+	4
+	5
+	6
+	
+	[...] (RC:3)
+	[...] (RC:3)
+	3
+	
+	[...] (RC:3)
+	[...] (RC:3)
+	3
+	4
+	5
+	6
+	
+	[...] (RC:5)
+	[...] (RC:5)
+	3
+	
+	[...] (RC:3)
+	[...] (RC:3)
+	3
+	4
+	5
+	6
+	
+	done
+ 
