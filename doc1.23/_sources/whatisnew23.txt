@@ -1,0 +1,564 @@
+.. index:: 
+	single: What is new in Ring 1.23; Introduction
+
+========================
+What is new in Ring 1.23
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.23 release.
+
+.. index:: 
+	pair: What is new in Ring 1.23?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.23 comes with the next features!
+
+* Research Article
+* PWCT 2.0 (Source Code)
+* Snakes and Ladders 2
+* Adhkar App (Arabic/WASM)
+* More RingPM Packages
+* Better Applications and Samples
+* Better StdLib
+* Better RingFastPro
+* Faster String Operations
+* Better Find() function
+* Better OptionalFunc() function
+* More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.23?; Research Article
+
+Research Article
+================
+
+URL: https://doi.org/10.3390/app15031521
+
+.. image:: researchcover2.png
+	:alt: Research Article
+
+.. index:: 
+	pair: What is new in Ring 1.23?; PWCT 2.0 (Source Code)
+
+PWCT 2.0 (Source Code)
+======================
+
+Programming Without Coding Technology 2.0 source code is released on GitHub.
+
+PWCT2 comes with Arabic/English translations.
+
+URL: https://github.com/PWCT/pwct2
+
+.. image:: pwct2arabic.png
+	:alt: PWCT2Arabic
+
+.. index:: 
+	pair: What is new in Ring  1.23; Snakes and Ladders 2
+
+Snakes and Ladders 2
+====================
+
+Two players version of the game (applications/snakesandladders2).
+
+.. image:: sal2.png
+	:alt: SnakesAndLadders2
+
+
+.. index:: 
+	pair: What is new in Ring  1.23; Adhkar App (Arabic/WASM)
+
+Adhkar App (Arabic/WASM)
+========================
+
+This applications is developed using Ring and RingQt.
+
+We can get the application using the Ring Package Manager (RingPM).
+
+.. code-block:: none
+
+	ringpm install Adhkar_Ring_App
+	ringpm run Adhkar_Ring_App
+
+The previous commands will launch the desktop version of the application.
+
+The next screenshot shows the online version (using WebAssembly).
+
+.. image:: adhkarapp.png
+	:alt: AdhkarApp
+
+.. index:: 
+	pair: What is new in Ring 1.23?; More RingPM Packages
+
+More RingPM Packages
+====================
+
+The following packages have been added to the RingPM registry.
+
+* RingRegex: Regular expression library built on top of the PCRE2
+* RingThreadPro: Threads management library
+* RingSubProcess: Creating and managing system processes
+* Markdown: A Markdown parser and HTML converter
+* TOML: A comprehensive TOML parser
+
+Example:
+
+.. code-block:: none
+
+	ringpm install Markdown
+
+
+.. index:: 
+	pair: What is new in Ring  1.23; Better Applications and Samples
+
+Better Applications and Samples
+===============================
+
+The next applications and samples are revised:
+
+* applications/othellogame 
+* applications/fifteenpuzzle 
+* applications/getquoteshistory
+* applications/weighthistory
+* applications/employee
+* samples/UsingQt/XML 
+* samples/General/TimeServer
+* samples/General/NumberToWords/
+
+The next applications and samples are added:
+
+* applications/trianglecalculator
+* samples/UsingLibCurl/t5.ring
+* samples/UsingLibCurl/t6.ring
+* samples/UsingLibCurl/t7.ring
+* samples/UsingLibCurl/t8.ring
+* samples/UsingLibCurl/t9.ring
+* samples/UsingLibCurl/t10.ring
+* samples/UsingLibCurl/t11.ring
+* samples/UsingCSVLib/usinglist2csv.ring 
+* samples/UsingQt/ObjectPointer/test.ring
+* samples/Language/AnonFunctions/me.ring
+* samples/Language/SwitchCheck/switchcheck.ring
+* samples/General/EpochToDateTime/EpochToDateTime.ring
+* samples/Drawing/Keplers3Laws/Keplers3Laws.ring 
+* samples/Drawing/RotationIllusion/Rotation-Illusion.ring
+* samples/Drawing/OrbitPlanetRetrograde/Orbit-Planet-Retrograde.ring
+* samples/ProblemSolving/RandomLatinSquares/LatinSquaresUsingGUILib.ring
+* samples/General/SmallExamples/Delivery/delivery.ring
+
+
+.. index:: 
+	pair: What is new in Ring  1.23; Better StdLib
+
+Better StdLib
+=============
+
+The next functions are added to StdLib:
+
+* StringToBase64(cString) ---> cBase64
+* Base64ToString(cBase64) ---> cString
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+
+	cStr = "Hello World"
+	? StringToBase64(cStr)	
+
+	cBase64 = "SGVsbG8gV29ybGQ="
+	? Base64ToString(cBase64)	
+
+Output:
+
+.. code-block:: none
+	
+	SGVsbG8gV29ybGQ=
+	Hello World
+
+.. index:: 
+	pair: What is new in Ring  1.23; Better RingFastPro
+
+Better RingFastPro
+==================
+
+The updateList() function is improved to support many new operations and features.
+
+.. code-block:: ring
+
+	aListC = updateList(<aList>,:add,:matrix,<aListB>)
+	aListC = updateList(<aList>,:sub,:matrix,<aListB>)
+	aListC = updateList(<aList>,:mul,:matrix,<aListB>)
+	aListC = updateList(<aList>,:transpose,:matrix)
+	aListC = updateList(<aList>,:scalar,:matrix,<nValue>)
+	valueA/aListC = updateList(<aList>,:dotproduct,:matrix,<aListB>)
+	aListC = updateList(<aList>,:fill,:matrix,<nValue>)
+	valueA = updateList(<aList>,:maximum,:matrix,<nValue>)
+	aList  = updateList(<aList>,:identity,:matrix)
+	aList  = updateList(<aList>,:random,:matrix)
+	valueA = updateList(<aList>,:mean,:matrix)
+	aListC = updateList(<aList>,:sqrt,:matrix)
+	aListC = updateList(<aList>,:square,:matrix)
+	aListC = updateList(<aList>,:sigmoid,:matrix)
+	aListC = updateList(<aList>,:sigmoidprime,:matrix)
+	aListC = updateList(<aList>,:tanh,:matrix)
+	aListC = updateList(<aList>,:leakyrelu,:matrix)
+	aListC = updateList(<aList>,:leakyreluprime,:matrix)
+	aListC = updateList(<aList>,:relu,:matrix)
+	aListC = updateList(<aList>,:reluprime,:matrix)
+	aListC = updateList(<aList>,:exp,:matrix)
+	aListC = updateList(<aList>,:sum,:matrix)
+	aListC = updateList(<aList>,:softmax,:matrix)
+	aListC = updateList(<aList>,:scalardiv,:matrix,<nValue>)
+	aListC = updateList(<aList>,:horstack,:matrix,<aListB>)
+	aListC = updateList(<aList>,:verstack,:matrix,<aListB>)
+	aListC = updateList(<aList>,:ravel,:matrix)
+	aListC = updateList(<aList>,:zerolike,:matrix)
+	aListC = updateList(<aList>,:atleast2d,:matrix)
+	valueA = updateList(<aList>,:argmax,:matrix)
+	aListC = updateList(<aList>,:derepeat,:matrix)
+	aListC = updateList(<aList>,:append,:matrix,<aListB>,<nValue>)
+	valueA = updateList(<aList>,:allsum,:matrix)
+	aListC = updateList(<aList>,:mandelbrot,:matrix,<aFlatB>)    
+
+The next samples are added to introduce these features:
+
+* samples/UsingFastPro/MergeMultiply.ring
+* samples/UsingFastPro/RegAddSubMulDivColRowDest.ring
+* samples/UsingFastPro/MergeAddSubMulDivColRowDest.ring
+* samples/UsingFastPro/SetManyCopySerialPowRemItemsColRow.ring
+* samples/UsingFastPro/ManyAddSubMulDivSerialPowRem.ring
+* samples/UsingFastPro/MatrixAddSubMul.ring
+* samples/UsingFastPro/SpeedMatrixMul.ring
+* samples/UsingFastPro/MatrixScalar.ring
+* samples/UsingFastPro/MatrixTranspose.ring
+* samples/UsingFastPro/MatrixDotProduct.ring
+* samples/UsingFastPro/Matrix2DDotProduct.ring
+* samples/UsingFastPro/FillMatrix.ring
+* samples/UsingFastPro/MatrixMaximunAllDiag.ring
+* samples/UsingFastPro/MatrixIdentity.ring
+* samples/UsingFastPro/MatrixRandom.ring
+* samples/UsingFastPro/MatrixMean.ring
+* samples/UsingFastPro/MatrixSqrt.ring
+* samples/UsingFastPro/MatrixSquare.ring
+* samples/UsingFastPro/MatrixSigmoid.ring
+* samples/UsingFastPro/MatrixSigmoidPrime.ring
+* samples/UsingFastPro/MatrixTanh.ring
+* samples/UsingFastPro/MatrixLeakyReLu.ring
+* samples/UsingFastPro/MatrixLeakyReLuPrime.ring
+* samples/UsingFastPro/MatrixReLu.ring
+* samples/UsingFastPro/MatrixReLuPrime.ring
+* samples/UsingFastPro/MatrixExp.ring
+* samples/UsingFastPro/MatrixSumAxis.ring 
+* samples/UsingFastPro/MatrixSoftMax.ring
+* samples/UsingFastPro/MatrixHorStack.ring
+* samples/UsingFastPro/MatrixScalarDiv.ring
+* samples/UsingFastPro/MatrixVertStack.ring 
+* samples/UsingFastPro/MatrixRavel.ring
+* samples/UsingFastPro/MatrixZeroLike.ring
+* samples/UsingFastPro/MatrixAtLeast2D.ring
+* samples/UsingFastPro/MatrixArgMax.ring
+* samples/UsingFastPro/MatrixDeRepeat.ring
+* samples/UsingFastPro/MatrixAppend.ring
+* samples/UsingFastPro/MatrixAllSum.ring
+* samples/UsingFastPro/Mandelbrot.ring
+* samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro.ring
+* samples/UsingFastPro/MandelbrotAnimate/MandelbrotAnimate.ring
+
+.. image:: mugrotationfastpro.png
+	:alt: Mug Rotation
+
+.. index:: 
+	pair: What is new in Ring  1.23; Faster String Operations
+
+Faster String Operations
+========================
+
+This release brings optimized string operations for improved performance.
+
+Example:
+
+.. code-block:: ring
+
+	Decimals(3)
+	t1 = clock()
+	cStr = "Welcome"
+
+	for t=1 to 200_000
+		cStr += "Welcome"
+	next
+
+	? (clock()-t1)/clocksPerSecond()
+
+Output:
+
+.. code-block:: none
+
+	0.014		# Ring 1.23
+	0.038		# Ring 1.22
+
+
+Example:
+
+.. code-block:: ring
+
+	Decimals(3)
+	t1 = clock()
+	cStr = "Welcome to the Ring programming language"
+
+	for t=1 to 200_000
+		cStr2 = subStr(cStr,"Ring","***Ring***",True)
+	next
+
+	? (clock()-t1)/clocksPerSecond()
+
+Output:
+
+.. code-block:: none
+
+	0.077		# Ring 1.23
+	0.114		# Ring 1.22
+
+
+.. index:: 
+	pair: What is new in Ring  1.23; Better Find() function
+
+Better Find() function
+======================
+
+The find() function is revised and improved:
+
+* Support searching in lists/Attributes using C Pointers
+* Support searching in lists/Attributes using list/object reference
+
+Example:
+
+.. code-block:: ring
+
+	fp1 = fopen(filename(),"r")
+	fp2 = fopen(filename(),"r")
+	fp3 = fopen(filename(),"r")
+
+	aList = [fp3, fp2, fp1]
+
+	? find(aList,fp1)
+	? find(aList,fp2)
+	? find(aList,fp3)
+
+Output:
+
+.. code-block:: none
+
+	3
+	2
+	1
+
+
+.. note:: The fopen() function returns a Ring list that wraps a C Pointer.
+
+.. tip:: It is not necessary to call the fclose() function, as Ring automatically manages this.
+
+
+Example:
+
+.. code-block:: ring
+
+	func main
+
+		subject   = new Subject
+		observer1 = new ObserverA
+		observer2 = new ObserverB
+
+		subject.addObserver(observer1)
+		subject.addObserver(observer2)
+
+		subject.setValue(42)
+		subject.setValue(99)
+
+		subject.removeObserver(observer1)
+
+		subject.setValue(101)
+
+	class Subject
+
+		aObservers = []
+		value      = 0
+
+		func addObserver(observer)
+			add(aObservers, ref(observer))
+
+		func removeObserver(observer)
+			nPos = find(aObservers,observer)
+			if nPos 
+				del(aObservers,nPos)
+			ok
+
+		func notify()
+			for oObj in aObservers
+				oObj.update(value)
+			next
+
+		func setValue(newValue)
+			value = newValue
+			notify()
+
+	class Observer
+
+		func update(value)
+
+			? "Observer updated with value: " + value
+
+	class ObserverA from Observer
+
+		func update(value)
+
+			? "ObserverA received value: " + value
+
+	class ObserverB from Observer
+
+		func update(value)
+
+			? "ObserverB received value: " + value
+	
+
+Output:
+
+.. code-block:: none
+
+	ObserverA received value: 42
+	ObserverB received value: 42
+	ObserverA received value: 99
+	ObserverB received value: 99
+	ObserverB received value: 101
+
+.. index:: 
+	pair: What is new in Ring  1.23; Better OptionalFunc() function
+
+Better OptionalFunc() function
+==============================
+
+The OptionalFunc() function implementation is revised.
+
+The new optional function name will be added to the RingOptionalFunctions list.
+
+Example:
+
+.. code-block:: ring
+
+	? "Declare optional functions"
+	optionalFunc(:one)
+	optionalFunc(:two)
+	optionalFunc(:three)
+
+	? "Call optional functions"
+	one() two() three()
+
+	? "Print list of optional functions"
+	? RingOptionalFunctions
+
+	? "Define optional functions"
+	eval(`
+	func one   ? "Message from one() function"
+	func two   ? "Message from two() function"
+	func three ? "Message from three() function"
+	`)
+
+	? "Call optional functions"
+	one() two() three()
+
+Output:
+
+.. code-block:: none
+
+	Declare optional functions
+	Call optional functions
+	Print list of optional functions
+	one
+	two
+	three
+	
+	Define optional functions
+	Call optional functions
+	Message from one() function
+	Message from two() function
+	Message from three() function
+
+Example:
+
+.. code-block:: ring
+
+	Add(RingOptionalFunctions, [
+		:one,
+		:two,
+		:three,
+		:four,
+		:five
+	], True)
+
+	one() two() three() four() five()	# No Error
+
+	eval(`
+	func one   ? 1
+	func two   ? 2
+	func three ? 3
+	func four  ? 4
+	func five  ? 5
+	`)
+
+	? RingOptionalFunctions			# Print Names
+
+	one() two() three() four() five()	# Print Numbers
+
+Output:
+
+.. code-block:: none
+
+	one
+	two
+	three
+	four
+	five
+	
+	1
+	2
+	3
+	4
+	5	
+
+.. index:: 
+	pair: What is new in Ring  1.23; More Improvements
+
+More Improvements
+=================
+
+* Better Documentation
+* Qt version is updated to Qt 5.15.19
+* Form Designer - Better support for translation
+* Form Designer - Objects Order - Using closeAction() method
+* Form Designer - Display forms at the centre of the screen
+* AddMethod()/MergeMethods() functions - Better implementation 
+* RingQt - OpenGLWidget/QAllEvents classes - Use: RINGQT_EVENT_SIZE
+* RingQt - CodeEditor control - Same font size for code/line number
+* VSCode Extension - Added support for the EndIf keyword
+* VSCode Extension - Support for using underscore inside numbers
+* Added FreeBSD support in ring.h and general.c for executable path retrieval
+* RingPM - Support FreeBSD files in install and remove commands
+* RingLibCurl - The extension is updated with more helper functions
+* RingLibuv - The implementation of the internal uv_new_mutex() function has been revised
+* RingLibuv - Support compilation on Linux with GCC 14/Clang 19+
+* RingLibSDL - Support compilation on Linux with GCC 14/Clang 19+
+* RingThreads - Support Windows (32bit/64bit), Linux & macOS
+* CMakeLists.txt - Require version 3.16 and improve OS detection messages
+* language/README_CMake.md - Better documentation for build instructions
+* Ring Compiler - Scanner - Support repeating stars in multi-line comments
+* Ring Compiler - Using & to return item reference is supported only after Return 
+* Ring VM - Save/Restore pParser->lFuncCallOnly when using anonymous function
+* Ring VM - The ~ operator precedence is revised to follow the documentation
+* Ring VM - Check for a scope ID overflow and reset any associated instructions
+* Ring VM - Uninitialized variable - Correct error message when name contains underscores
+* Ring VM - ring_vm_retitemref() - Better implementation (used by Return &)
+* Ring VM - ring_hashtable_rebuild_gc() - Faster implementation
+* Ring VM - ring_state_realloc() - Using RING_MEMCPY
+* Ring Compiler/VM - Use GC functions for internal HashTable operations

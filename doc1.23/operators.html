@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operators &mdash; Ring 1.23.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/dark_mode_js/default_dark.js"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Control Structures - First Style" href="controlstructures.html" />
+    <link rel="prev" title="Variables" href="variables.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Operators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#arithmetic-operators">Arithmetic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#relational-operators">Relational Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logical-operators">Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bitwise-operators">Bitwise Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assignment-operators">Assignment Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#misc-operators">Misc Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operators-precedence">Operators Precedence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mixing-arithmetic-operators-and-types">Mixing Arithmetic Operators and Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mixing-relational-operators-and-types">Mixing Relational Operators and Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mixing-logical-operators-and-types">Mixing Logical Operators and Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mixing-bitwise-operators-and-types">Mixing Bitwise Operators and Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mixing-assignment-operators-and-types">Mixing Assignment Operators and Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unary-positive-and-unary-negative">Unary Positive and Unary Negative</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tilengine.html">Using RingTilengine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Using RingThreads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using RingLibui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingrogueutil.html">Using RingRogueUtil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingfastpro.html">Using FastPro Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingpico.html">Using Ring for Raspberry Pi Pico Microcontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew19.html">Release Notes: Version 1.19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew23.html">Release Notes: Version 1.23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Operators</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="operators">
+<span id="index-0"></span><h1>Operators<a class="headerlink" href="#operators" title="Permalink to this heading"></a></h1>
+<p>In this chapter we will introduce the operators provided by the Ring programming language.</p>
+<section id="arithmetic-operators">
+<span id="index-1"></span><h2>Arithmetic Operators<a class="headerlink" href="#arithmetic-operators" title="Permalink to this heading"></a></h2>
+<p>The next table presents all of the arithmetic operators
+provided by the Ring language. Assume variable X=50 and variable Y=10 then:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>+</p></td>
+<td><p>Add</p></td>
+<td><p>x+y</p></td>
+<td><p>60</p></td>
+</tr>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>Subtract</p></td>
+<td><p>x-y</p></td>
+<td><p>40</p></td>
+</tr>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>Multiplies</p></td>
+<td><p>x*y</p></td>
+<td><p>500</p></td>
+</tr>
+<tr class="row-odd"><td><p>/</p></td>
+<td><p>Divide</p></td>
+<td><p>x/y</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>%</p></td>
+<td><p>Modulus</p></td>
+<td><p>x%y</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>++</p></td>
+<td><p>Increment</p></td>
+<td><p>x++</p></td>
+<td><p>51</p></td>
+</tr>
+<tr class="row-even"><td><p>- -</p></td>
+<td><p>Decrement</p></td>
+<td><p>x- -</p></td>
+<td><p>49</p></td>
+</tr>
+<tr class="row-odd"><td><p>** OR ^^</p></td>
+<td><p>Power</p></td>
+<td><p>x**3</p></td>
+<td><p>125000</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="relational-operators">
+<span id="index-2"></span><h2>Relational Operators<a class="headerlink" href="#relational-operators" title="Permalink to this heading"></a></h2>
+<p>The next table presents all of the relational operators
+provided by the Ring language. Assume variable X=50 and variable Y=10 then:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>=</p></td>
+<td><p>Equal</p></td>
+<td><p>x = y</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>!=</p></td>
+<td><p>Not Equal</p></td>
+<td><p>x != y</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>&gt;</p></td>
+<td><p>Greater than</p></td>
+<td><p>x &gt; y</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;</p></td>
+<td><p>Less than</p></td>
+<td><p>x &lt; y</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>&gt;=</p></td>
+<td><p>Greater or Equal</p></td>
+<td><p>x &gt;= y</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;=</p></td>
+<td><p>Less than or Equal</p></td>
+<td><p>x &lt;= y</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="logical-operators">
+<span id="index-3"></span><h2>Logical Operators<a class="headerlink" href="#logical-operators" title="Permalink to this heading"></a></h2>
+<p>The next table presents all of the logical operators
+provided by the Ring language. Assume variable X=True and variable Y=False then:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>and</p></td>
+<td><p>Logical AND</p></td>
+<td><p>x and y</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>or</p></td>
+<td><p>Logical OR</p></td>
+<td><p>x or y</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>not</p></td>
+<td><p>Logical Not</p></td>
+<td><p>not x</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+<p>Another style</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&amp;&amp;</p></td>
+<td><p>Logical AND</p></td>
+<td><p>x &amp;&amp; y</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>||</p></td>
+<td><p>Logical OR</p></td>
+<td><p>x || y</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>!</p></td>
+<td><p>Logical Not</p></td>
+<td><p>! x</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bitwise-operators">
+<span id="index-4"></span><h2>Bitwise Operators<a class="headerlink" href="#bitwise-operators" title="Permalink to this heading"></a></h2>
+<p>The next table presents all of the bitwise operators
+provided by the Ring language. Assume variable X=8 and variable Y=2 then:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&amp;</p></td>
+<td><p>Binary AND</p></td>
+<td><p>x &amp; y</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>|</p></td>
+<td><p>Binary OR</p></td>
+<td><p>x | y</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>^</p></td>
+<td><p>Binary XOR</p></td>
+<td><p>x ^ y</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>~</p></td>
+<td><p>Binary Ones Complement</p></td>
+<td><p>~x</p></td>
+<td><p>-9</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;&lt;</p></td>
+<td><p>Binary Left Shift</p></td>
+<td><p>x &lt;&lt; y</p></td>
+<td><p>32</p></td>
+</tr>
+<tr class="row-odd"><td><p>&gt;&gt;</p></td>
+<td><p>Binary Right Shift</p></td>
+<td><p>x &gt;&gt; y</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="assignment-operators">
+<span id="index-5"></span><h2>Assignment Operators<a class="headerlink" href="#assignment-operators" title="Permalink to this heading"></a></h2>
+<p>The next table presents all of the assignment operators
+provided by the Ring language.</p>
+<p>Assume variable X=8 then:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>=</p></td>
+<td><p>Assignment</p></td>
+<td><p>x = 10</p></td>
+<td><p>x=10</p></td>
+</tr>
+<tr class="row-odd"><td><p>+=</p></td>
+<td><p>Add AND assignment</p></td>
+<td><p>x += 5</p></td>
+<td><p>x=13</p></td>
+</tr>
+<tr class="row-even"><td><p>-=</p></td>
+<td><p>Subtract AND assignment</p></td>
+<td><p>x -= 3</p></td>
+<td><p>x=5</p></td>
+</tr>
+<tr class="row-odd"><td><p>*=</p></td>
+<td><p>Multiply AND assignment</p></td>
+<td><p>x *= 2</p></td>
+<td><p>x=16</p></td>
+</tr>
+<tr class="row-even"><td><p>/=</p></td>
+<td><p>Divide AND assignment</p></td>
+<td><p>x /= 3</p></td>
+<td><p>x=2.67</p></td>
+</tr>
+<tr class="row-odd"><td><p>%=</p></td>
+<td><p>Modulus AND assignment</p></td>
+<td><p>x %= 2</p></td>
+<td><p>x=0</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;&lt;=</p></td>
+<td><p>Left shift AND assignment</p></td>
+<td><p>x &lt;&lt;= 2</p></td>
+<td><p>x=32</p></td>
+</tr>
+<tr class="row-odd"><td><p>&gt;&gt;=</p></td>
+<td><p>Right shift AND assignment</p></td>
+<td><p>x &gt;&gt;= 2</p></td>
+<td><p>x=2</p></td>
+</tr>
+<tr class="row-even"><td><p>&amp;=</p></td>
+<td><p>Bitwise AND assignment</p></td>
+<td><p>x &amp;= 4</p></td>
+<td><p>x=0</p></td>
+</tr>
+<tr class="row-odd"><td><p>|=</p></td>
+<td><p>Bitwise OR and assignment</p></td>
+<td><p>x |= 3</p></td>
+<td><p>x=11</p></td>
+</tr>
+<tr class="row-even"><td><p>^=</p></td>
+<td><p>Bitwise XOR and assignment</p></td>
+<td><p>x ^= 4</p></td>
+<td><p>x=12</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="misc-operators">
+<span id="index-6"></span><h2>Misc Operators<a class="headerlink" href="#misc-operators" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>:literal</p></td>
+<td><p>using : before identifier mean literal</p></td>
+</tr>
+<tr class="row-odd"><td><p>Start:End</p></td>
+<td><p>create list contains items from start to end</p></td>
+</tr>
+<tr class="row-even"><td><p>[list items]</p></td>
+<td><p>define list items</p></td>
+</tr>
+<tr class="row-odd"><td><p>list[index]</p></td>
+<td><p>access list item</p></td>
+</tr>
+<tr class="row-even"><td><p>obj.name</p></td>
+<td><p>using the dot operator to access object members (attributes/methods).</p></td>
+</tr>
+<tr class="row-odd"><td><p>obj {stmts}</p></td>
+<td><p>execute statements with direct access to object attributes &amp; methods</p></td>
+</tr>
+<tr class="row-even"><td><p>func(para,…)</p></td>
+<td><p>call function using parameters separated by comma</p></td>
+</tr>
+<tr class="row-odd"><td><p>? &lt;expr&gt;</p></td>
+<td><p>Print expression then new line</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="operators-precedence">
+<span id="index-7"></span><h2>Operators Precedence<a class="headerlink" href="#operators-precedence" title="Permalink to this heading"></a></h2>
+<p>The next table present operators from higher precedence (Evaluated first) to
+lower precedence.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>.  []   ()     {}</p></td>
+</tr>
+<tr class="row-odd"><td><p>~  :Literal  [list items]</p></td>
+</tr>
+<tr class="row-even"><td><p>++   - -</p></td>
+</tr>
+<tr class="row-odd"><td><p>- (Unary negative) + (Unary positive)</p></td>
+</tr>
+<tr class="row-even"><td><p>Start:End</p></td>
+</tr>
+<tr class="row-odd"><td><p>* /  %</p></td>
+</tr>
+<tr class="row-even"><td><p>+ -</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;&lt;   &gt;&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>&amp;</p></td>
+</tr>
+<tr class="row-odd"><td><p>|  ^</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;  &gt;  &lt;=  &gt;=</p></td>
+</tr>
+<tr class="row-odd"><td><p>=  !=</p></td>
+</tr>
+<tr class="row-even"><td><p>not   !</p></td>
+</tr>
+<tr class="row-odd"><td><p>and   &amp;&amp;</p></td>
+</tr>
+<tr class="row-even"><td><p>or   ||</p></td>
+</tr>
+<tr class="row-odd"><td><p>Assignment = += -= *= /= %=&gt;&gt;= &lt;&lt;= &amp;= ^= |=</p></td>
+</tr>
+<tr class="row-even"><td><p>?</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example (1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">3</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="mi">4</span>                         <span class="c"># prints 23</span>
+<span class="o">?</span> <span class="kp">True</span> <span class="ow">or</span> <span class="kp">False</span> <span class="ow">and</span> <span class="kp">False</span>       <span class="c"># prints 1 (True)</span>
+</pre></div>
+</div>
+</section>
+<section id="mixing-arithmetic-operators-and-types">
+<span id="index-8"></span><h2>Mixing Arithmetic Operators and Types<a class="headerlink" href="#mixing-arithmetic-operators-and-types" title="Permalink to this heading"></a></h2>
+<p>The next table demonstrates what happens when mixing arithmetic operators and different types</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>First Type</p></th>
+<th class="head"><p>Operator</p></th>
+<th class="head"><p>Second Type</p></th>
+<th class="head"><p>Output Type OR Behavior</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“+”</p></td>
+<td><p>Number</p></td>
+<td><p>Number</p></td>
+<td><p>5+5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“+”</p></td>
+<td><p>String</p></td>
+<td><p>Number</p></td>
+<td><p>5+”5”</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“+”</p></td>
+<td><p>Number</p></td>
+<td><p>String</p></td>
+<td><p>“5”+5</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“+”</p></td>
+<td><p>String</p></td>
+<td><p>String</p></td>
+<td><p>“5”+”5”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“+”</p></td>
+<td><p>Number</p></td>
+<td><p>Add number to List</p></td>
+<td><p>[1,2,3] + 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“+”</p></td>
+<td><p>String</p></td>
+<td><p>Add string to List</p></td>
+<td><p>[1,2,3] + “four”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“+”</p></td>
+<td><p>List</p></td>
+<td><p>Add list to List</p></td>
+<td><p>[1,2,3] + [“sub”]</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“+”</p></td>
+<td><p>Object</p></td>
+<td><p>Add object to List</p></td>
+<td><p>[1,2,3] + new Point</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“+”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>4 + [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“+”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>4 + new point</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“+”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>“4” + [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“+”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>“4” + new point</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“+”</p></td>
+<td><p>Number</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point + 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“+”</p></td>
+<td><p>String</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point + “test”</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“+”</p></td>
+<td><p>List</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point + [10,10]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“+”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point + new point</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“-”</p></td>
+<td><p>Number</p></td>
+<td><p>Number</p></td>
+<td><p>5-5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“-”</p></td>
+<td><p>String</p></td>
+<td><p>Number</p></td>
+<td><p>5-“5”</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“-”</p></td>
+<td><p>Number</p></td>
+<td><p>Number</p></td>
+<td><p>“5”-5</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“-”</p></td>
+<td><p>String</p></td>
+<td><p>Number</p></td>
+<td><p>“5”-“5”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“-”</p></td>
+<td><p>Number</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] - 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“-”</p></td>
+<td><p>String</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] - “four”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“-”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] - [“sub”]</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“-”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>[1,2,3] - new Point</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“-”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>4 - [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“-”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>4 - new point</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“-”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>“4” - [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“-”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>“4” - new point</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“-”</p></td>
+<td><p>Number</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point - 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“-”</p></td>
+<td><p>String</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point - “test”</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“-”</p></td>
+<td><p>List</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point - [10,10]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“-”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point - new point</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“*”</p></td>
+<td><p>Number</p></td>
+<td><p>Number</p></td>
+<td><p>5*5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“*”</p></td>
+<td><p>String</p></td>
+<td><p>Number</p></td>
+<td><p>5*”5”</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“*”</p></td>
+<td><p>Number</p></td>
+<td><p>Number</p></td>
+<td><p>“5”<a href="#id1"><span class="problematic" id="id2">*</span></a>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“*”</p></td>
+<td><p>String</p></td>
+<td><p>Number</p></td>
+<td><p>“5”*”5”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“*”</p></td>
+<td><p>Number</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] * 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“*”</p></td>
+<td><p>String</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] * “four”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“*”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] * [“sub”]</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“*”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>[1,2,3] * new Point</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“*”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>4 * [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“*”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>4 * new point</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“*”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>“4” * [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“*”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>“4” * new point</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“*”</p></td>
+<td><p>Number</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point * 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“*”</p></td>
+<td><p>String</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point * “test”</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“*”</p></td>
+<td><p>List</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point * [10,10]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“*”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point * new point</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“/”</p></td>
+<td><p>Number</p></td>
+<td><p>Number</p></td>
+<td><p>5/5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“/”</p></td>
+<td><p>String</p></td>
+<td><p>Number</p></td>
+<td><p>5/”5”</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“/”</p></td>
+<td><p>Number</p></td>
+<td><p>Number</p></td>
+<td><p>“5”/5</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“/”</p></td>
+<td><p>String</p></td>
+<td><p>Number</p></td>
+<td><p>“5”/”5”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“/”</p></td>
+<td><p>Number</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] / 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“/”</p></td>
+<td><p>String</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] / “four”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“/”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] / [“sub”]</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“/”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>[1,2,3] / new Point</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“/”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>4 / [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“/”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>4 / new point</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“/”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>“4” / [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“/”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>“4” / new point</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“/”</p></td>
+<td><p>Number</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point / 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“/”</p></td>
+<td><p>String</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point / “test”</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“/”</p></td>
+<td><p>List</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point / [10,10]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“/”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point / new point</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“%”</p></td>
+<td><p>Number</p></td>
+<td><p>Number</p></td>
+<td><p>5%5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“%”</p></td>
+<td><p>String</p></td>
+<td><p>Number</p></td>
+<td><p>5%”5”</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“%”</p></td>
+<td><p>Number</p></td>
+<td><p>Number</p></td>
+<td><p>“5”%5</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“%”</p></td>
+<td><p>String</p></td>
+<td><p>Number</p></td>
+<td><p>“5”%”5”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“%”</p></td>
+<td><p>Number</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] % 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“%”</p></td>
+<td><p>String</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] % “four”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“%”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] % [“sub”]</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“%”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>[1,2,3] % new Point</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“%”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>4 % [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“%”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>4 % new point</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“%”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>“4” % [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“%”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>“4” % new point</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“%”</p></td>
+<td><p>Number</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point % 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“%”</p></td>
+<td><p>String</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point % “test”</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“%”</p></td>
+<td><p>List</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point % [10,10]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“%”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point % new point</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“++”</p></td>
+<td><p>…</p></td>
+<td><p>Number</p></td>
+<td><p>5++</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“++”</p></td>
+<td><p>…</p></td>
+<td><p>Syntax Error/Runtime Error</p></td>
+<td><p>x=”5”  x++</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“++”</p></td>
+<td><p>…</p></td>
+<td><p>Syntax Error/Runtime Error</p></td>
+<td><p>x=[1,2,3]  x++</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“++”</p></td>
+<td><p>…</p></td>
+<td><p>Syntax Error/Runtime Error</p></td>
+<td><p>x=new point x++</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“–”</p></td>
+<td><p>…</p></td>
+<td><p>Number</p></td>
+<td><p>5–</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“–”</p></td>
+<td><p>…</p></td>
+<td><p>Syntax Error/Runtime Error</p></td>
+<td><p>x=”5”  x–</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“–”</p></td>
+<td><p>…</p></td>
+<td><p>Syntax Error/Runtime Error</p></td>
+<td><p>x=[1,2,3]  x–</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“–”</p></td>
+<td><p>…</p></td>
+<td><p>Syntax Error/Runtime Error</p></td>
+<td><p>x=new point x–</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The behavior of the power operator with respect to different types is similar to the -, <a href="#id3"><span class="problematic" id="id4">*</span></a>, / and % operators.</p>
+</div>
+</section>
+<section id="mixing-relational-operators-and-types">
+<span id="index-9"></span><h2>Mixing Relational Operators and Types<a class="headerlink" href="#mixing-relational-operators-and-types" title="Permalink to this heading"></a></h2>
+<p>Using Relational Operators like &lt;, &lt;=, &gt;, &gt;= could produce True, False OR runtime error.</p>
+<p>When mixing Strings and Numbers with these operators, The string will be converted to a number.</p>
+<p>Example (2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">7</span>         <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="s">&quot;5&quot;</span> <span class="o">&lt;</span> <span class="mi">7</span>       <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="s">&quot;7&quot;</span>       <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="s">&quot;5&quot;</span> <span class="o">&lt;</span> <span class="s">&quot;7&quot;</span>     <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="s">&quot;test&quot;</span> <span class="o">&lt;</span> <span class="mi">5</span>    <span class="c"># Runtime Error (Invalid numeric string)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using these operators with lists or objects will produce a runtime error. An exception to this rule is having an object the comes first before the operator and this object support operator overloading.</p>
+</div>
+<p>Using relational operators like = or != will only produce True OR False (i.e. no runtime error)</p>
+<p>Also, when mixing Strings and Numbers with these operators, The string will be converted to a number.</p>
+<p>Example (3):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;5&quot;</span> <span class="o">=</span> <span class="mi">5</span>       <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">5</span> <span class="o">=</span> <span class="s">&quot;5&quot;</span>       <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">5</span>         <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="s">&quot;5&quot;</span> <span class="o">=</span> <span class="s">&quot;5&quot;</span>     <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">7</span>         <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="s">&quot;5&quot;</span> <span class="o">=</span> <span class="mi">7</span>       <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="mi">5</span> <span class="o">=</span> <span class="s">&quot;7&quot;</span>       <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="s">&quot;5&quot;</span> <span class="o">=</span> <span class="s">&quot;7&quot;</span>     <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="s">&quot;test&quot;</span> <span class="o">=</span> <span class="mi">5</span>    <span class="c"># 0 (False)</span>
+
+<span class="o">?</span> <span class="s">&quot;5&quot;</span> <span class="o">!=</span> <span class="mi">5</span>      <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="mi">5</span> <span class="o">!=</span> <span class="s">&quot;5&quot;</span>      <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="mi">5</span> <span class="o">!=</span> <span class="mi">5</span>        <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="s">&quot;5&quot;</span> <span class="o">!=</span> <span class="s">&quot;5&quot;</span>    <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="mi">5</span> <span class="o">!=</span> <span class="mi">7</span>        <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="s">&quot;5&quot;</span> <span class="o">!=</span> <span class="mi">7</span>      <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">5</span> <span class="o">!=</span> <span class="s">&quot;7&quot;</span>      <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="s">&quot;5&quot;</span> <span class="o">!=</span> <span class="s">&quot;7&quot;</span>    <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="s">&quot;test&quot;</span> <span class="o">!=</span> <span class="mi">5</span>   <span class="c"># 1 (True)</span>
+</pre></div>
+</div>
+<p>Example (4):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">12500</span> <span class="o">=</span> <span class="s">&quot;0012500&quot;</span>             <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">12500</span> <span class="o">=</span> <span class="s">&quot;0012500-PRY-09&quot;</span>      <span class="c"># 0 (False)</span>
+
+<span class="c"># When we compare between number and a string</span>
+<span class="c"># If we found the number --&gt; Then we ignore Space, Tab, \n, \r after that number</span>
+<span class="c"># We consider &quot;&quot; to be like Zero but we don&#39;t do that for Space, Tab, \n and \r</span>
+<span class="c"># Note: if 0 -&gt; False while if &quot; &quot; -&gt; True</span>
+
+<span class="o">?</span> <span class="mi">1</span> <span class="o">=</span>  <span class="s">&quot;1  x&quot;</span>                   <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="o">=</span> <span class="s">&quot;1     &quot;</span>                  <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>                        <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="s">&quot;       0        &quot;</span>        <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="o">=</span> <span class="s">&quot;       1       &quot;</span>         <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="s">&quot;000000&quot;</span>                  <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="s">&quot;00000</span>
+<span class="s">&quot;                               # 1 (True)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="o">=</span> <span class="s">&quot;       1</span>
+<span class="s">&quot;                               # 1 (True)</span>
+
+<span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="s">&quot; &quot;</span>                       <span class="c"># 0 (False)</span>
+
+<span class="k">if</span> <span class="mi">0</span>                            <span class="c"># False</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">fail</span>
+<span class="k">else</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">pass</span>
+<span class="k">ok</span>                              <span class="c"># pass</span>
+
+<span class="k">if</span> <span class="s">&quot;&quot;</span>                           <span class="c"># False</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">fail</span>
+<span class="k">else</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">pass</span>
+<span class="k">ok</span>                              <span class="c"># pass</span>
+
+<span class="k">if</span> <span class="s">&quot; &quot;</span>                          <span class="c"># True</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">pass</span>
+<span class="k">else</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">fail</span>
+<span class="k">ok</span>                              <span class="c"># pass</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using these operators to compare between objects or lists will compare between them at the reference level (not the value)</p>
+</div>
+<p>Example (5):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span>    <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>
+<span class="n">aList2</span>   <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">aList</span>  <span class="o">=</span> <span class="n">aList</span>        <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="n">aList</span>  <span class="o">=</span> <span class="n">aList2</span>       <span class="c"># 0 (False)</span>
+
+<span class="n">aList3</span>   <span class="o">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList3</span> <span class="o">=</span> <span class="n">aList</span>        <span class="c"># 1 (True)</span>
+</pre></div>
+</div>
+</section>
+<section id="mixing-logical-operators-and-types">
+<span id="index-10"></span><h2>Mixing Logical Operators and Types<a class="headerlink" href="#mixing-logical-operators-and-types" title="Permalink to this heading"></a></h2>
+<p>We have the next rules:</p>
+<ul class="simple">
+<li><p>Logical operators always produce True/False</p></li>
+<li><p>The Zero number is considered False</p></li>
+<li><p>The Empty string is considered False</p></li>
+<li><p>The Empty list is considered False</p></li>
+<li><p>The list that wrap C pointer is considered False if the pointer is NULL</p></li>
+<li><p>All other values are True</p></li>
+</ul>
+<p>Example (6):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">1</span>                       <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="s">&quot;test&quot;</span> <span class="ow">and</span> <span class="s">&quot;test&quot;</span>             <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span> <span class="ow">and</span> <span class="s">&quot;test&quot;</span>            <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s">&quot;test&quot;</span> <span class="ow">and</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>      <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="k">new</span> <span class="n">point</span>               <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">0</span>                       <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s">&quot;&quot;</span>                      <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="o">[]</span>                      <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">NULLPointer</span><span class="p">()</span>           <span class="c"># 0 (False)</span>
+
+<span class="k">class</span> <span class="n">point</span>
+</pre></div>
+</div>
+</section>
+<section id="mixing-bitwise-operators-and-types">
+<span id="index-11"></span><h2>Mixing Bitwise Operators and Types<a class="headerlink" href="#mixing-bitwise-operators-and-types" title="Permalink to this heading"></a></h2>
+<p>These operators support numbers. Also, it will automatically convert strings to numbers if this is possible or produce a runtime error if the string can’t be converted.</p>
+<p>Using these operators with lists or objects produce a runtime error with an exception to this rule.</p>
+<p>The exception is using objects that support operator overloading where the object comes first before the operator.</p>
+<p>Example (7):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">1</span> <span class="o">&amp;</span> <span class="mi">1</span>                 <span class="c"># 1</span>
+<span class="o">?</span> <span class="s">&quot;1&quot;</span> <span class="o">&amp;</span> <span class="mi">1</span>               <span class="c"># 1</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="o">&amp;</span> <span class="s">&quot;3&quot;</span>               <span class="c"># 1</span>
+<span class="o">?</span> <span class="s">&quot;3&quot;</span> <span class="o">&amp;</span> <span class="s">&quot;3&quot;</span>             <span class="c"># 3</span>
+<span class="o">?</span> <span class="s">&quot;123&quot;</span> <span class="o">&amp;</span> <span class="s">&quot;123&quot;</span>         <span class="c"># 123</span>
+</pre></div>
+</div>
+</section>
+<section id="mixing-assignment-operators-and-types">
+<span id="index-12"></span><h2>Mixing Assignment Operators and Types<a class="headerlink" href="#mixing-assignment-operators-and-types" title="Permalink to this heading"></a></h2>
+<p>Using assignment we can assign any value to any variable.</p>
+<p>Using += support Strings &amp; Numbers and will produce a runtime error if used with other types</p>
+<p>Using other assignment operators like -=, <a href="#id5"><span class="problematic" id="id6">*</span></a>=, /=, %=, &lt;&lt;=, &gt;&gt;=, etc. support only numbers and will produce a runtime error if used with other types.</p>
+<p>Example (8):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;one&quot;</span>
+<span class="n">cStr</span> <span class="o">+=</span> <span class="s">&quot; two&quot;</span>
+<span class="o">?</span> <span class="n">cStr</span>          <span class="c"># one two</span>
+<span class="n">nNum</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">nNum</span> <span class="o">+=</span> <span class="mi">200</span>
+<span class="o">?</span> <span class="n">nNum</span>          <span class="c"># 300</span>
+</pre></div>
+</div>
+</section>
+<section id="unary-positive-and-unary-negative">
+<span id="index-13"></span><h2>Unary Positive and Unary Negative<a class="headerlink" href="#unary-positive-and-unary-negative" title="Permalink to this heading"></a></h2>
+<p>Rules:</p>
+<ul class="simple">
+<li><p>Using unary positive (+) before any number/variable does nothing.</p></li>
+<li><p>Using unary negative (-) before any number will negate the number.</p></li>
+<li><p>Using unary negative (-) before a string will convert it to a number then negate the number.</p></li>
+<li><p>Using unary negative (-) before a list/object will produce a runtime error.</p></li>
+</ul>
+<p>Example (9):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">+</span><span class="mi">10</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># 10</span>
+<span class="o">?</span> <span class="o">+</span><span class="n">x</span>            <span class="c"># 10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s">&quot;10&quot;</span>
+<span class="o">?</span> <span class="o">+</span><span class="n">y</span>            <span class="c"># 10</span>
+<span class="o">?</span> <span class="n">type</span><span class="p">(</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>      <span class="c"># STRING</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">?</span> <span class="o">-</span><span class="n">x</span>            <span class="c"># -10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s">&quot;10&quot;</span>
+<span class="o">?</span> <span class="o">-</span><span class="n">y</span>            <span class="c"># -10</span>
+<span class="o">?</span> <span class="n">type</span><span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>      <span class="c"># NUMBER</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>
+<span class="o">?</span> <span class="o">-</span> <span class="n">aList</span>       <span class="c"># RUNTIME ERROR</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="variables.html" class="btn btn-neutral float-left" title="Variables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="controlstructures.html" class="btn btn-neutral float-right" title="Control Structures - First Style" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2025, Mahmoud Fayed.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
