@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is new in Ring 1.24 &mdash; Ring 1.25.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/dark_mode_js/default_dark.js"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="What is new in Ring 1.25" href="whatisnew25.html" />
+    <link rel="prev" title="What is new in Ring 1.23" href="whatisnew23.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">Using CSVLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">Using JSONLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">Using HTTPLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_platforms.html">Deploying Web Applications to Cloud Platforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tilengine.html">Using RingTilengine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">Using ZeroLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">Using FoxRing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">Using BigNumber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">Using TokensLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Using RingThreads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using RingLibui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingrogueutil.html">Using RingRogueUtil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingfastpro.html">Using FastPro Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingpico.html">Using Ring for Raspberry Pi Pico Microcontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew19.html">Release Notes: Version 1.19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew23.html">Release Notes: Version 1.23</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.24</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phd-thesis-ring-and-pwct2">PhD Thesis (Ring and PWCT2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-for-macos-apple-silicon">Ring for macOS (Apple silicon)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringpm-gui">RingPM GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringfmt">RingFmt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-operator-overloading">Better Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-stdlib">Better StdLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringhttplib">Better RingHTTPLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-support-for-threads">Better Support for Threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew25.html">Release Notes: Version 1.25</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">What is new in Ring 1.24</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="what-is-new-in-ring-1-24">
+<span id="index-0"></span><h1>What is new in Ring 1.24<a class="headerlink" href="#what-is-new-in-ring-1-24" title="Permalink to this heading"></a></h1>
+<p>In this chapter we will learn about the changes and new features in Ring 1.24 release.</p>
+<section id="list-of-changes-and-new-features">
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this heading"></a></h2>
+<p>Ring 1.24 comes with the next features!</p>
+<ul class="simple">
+<li><p>PhD Thesis (Ring and PWCT2)</p></li>
+<li><p>Ring for macOS (Apple silicon)</p></li>
+<li><p>RingPM GUI</p></li>
+<li><p>RingFmt</p></li>
+<li><p>More RingPM Packages</p></li>
+<li><p>More Samples</p></li>
+<li><p>Better Operator Overloading</p></li>
+<li><p>Better StdLib</p></li>
+<li><p>Better Functions</p></li>
+<li><p>Better RingLibCurl</p></li>
+<li><p>Better RingHTTPLib</p></li>
+<li><p>Better Support for Threads</p></li>
+<li><p>Better Documentation</p></li>
+<li><p>More Improvements</p></li>
+</ul>
+</section>
+<section id="phd-thesis-ring-and-pwct2">
+<span id="index-2"></span><h2>PhD Thesis (Ring and PWCT2)<a class="headerlink" href="#phd-thesis-ring-and-pwct2" title="Permalink to this heading"></a></h2>
+<p>Title: Dual-Language General-Purpose Self-Hosted Visual Language and new Textual Programming Language for Applications</p>
+<p>URL: <a class="reference external" href="https://arxiv.org/abs/2509.20426">https://arxiv.org/abs/2509.20426</a></p>
+<p>PDF: <a class="reference external" href="https://arxiv.org/pdf/2509.20426">https://arxiv.org/pdf/2509.20426</a></p>
+<p>Presentation: <a class="reference external" href="https://ring-lang.github.io/ref/PhDThesisPresentation.pdf">https://ring-lang.github.io/ref/PhDThesisPresentation.pdf</a></p>
+</section>
+<section id="ring-for-macos-apple-silicon">
+<span id="index-3"></span><h2>Ring for macOS (Apple silicon)<a class="headerlink" href="#ring-for-macos-apple-silicon" title="Permalink to this heading"></a></h2>
+<p>Build scripts are revised to support both of macOS (Intel) and macOS (Apple silicon)</p>
+<p>Tested using macOS 13 (Intel) and macOS 15 (Apple silicon)</p>
+<img alt="Ring for macOS (Apple Silicon)" src="_images/ringformacosapplesilicon.png" />
+</section>
+<section id="ringpm-gui">
+<span id="index-4"></span><h2>RingPM GUI<a class="headerlink" href="#ringpm-gui" title="Permalink to this heading"></a></h2>
+<p>A GUI tool for Ring Package Manager (RingPM)</p>
+<p>We can run it from the Tools Menu in Ring Notepad or using RingPM</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run ringpmgui
+</pre></div>
+</div>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Package Installation: Install Ring packages by entering the package name</p></li>
+<li><p>Package Management: View all installed packages in a table format</p></li>
+<li><p>Package Operations: Run, update, and remove installed packages</p></li>
+<li><p>Real-time Output: View command output and progress in real-time</p></li>
+<li><p>User-friendly Interface: Clean and intuitive GUI design</p></li>
+</ul>
+<img alt="RingPM GUI" src="_images/ringpmgui.png" />
+</section>
+<section id="ringfmt">
+<span id="index-5"></span><h2>RingFmt<a class="headerlink" href="#ringfmt" title="Permalink to this heading"></a></h2>
+<p>RingFmt is a source code formatter and beautifier</p>
+<p>Usage:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringfmt filename.ring [Options]
+</pre></div>
+</div>
+<p>Options:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-keywords:lower   (-k:l): Convert all keywords to lowercase (default)
+-keywords:upper   (-k:u): Convert all keywords to UPPERCASE
+-keywords:name    (-k:n): Convert keywords to NameCase (e.g., Class, From)
+-indentation:tabs (-i:t): Use tab characters for indentation (default)
+-indentation:2    (-i:2): Use 2 spaces per indentation level
+-indentation:4    (-i:4): Use 4 spaces per indentation level
+-indentation:8    (-i:8): Use 8 spaces per indentation level
+-output:print     (-o:p): Print formatted output (default)
+-output:write     (-o:w): Overwrite the source file with formatted output
+-output:none      (-o:n): No output
+</pre></div>
+</div>
+</section>
+<section id="more-ringpm-packages">
+<span id="index-6"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
+<p>The following packages have been added to the RingPM registry.</p>
+<ul class="simple">
+<li><p>YAML: A YAML parser for the Ring programming language</p></li>
+<li><p>Ring-JWT: JWT library for the Ring programming language</p></li>
+<li><p>Worm: Simple example about Map generation in Ring Game Engine for 2D Games</p></li>
+<li><p>Dialog: Ring bindings for osdialog, a cross-platform library for native OS dialogs</p></li>
+<li><p>TicTacToePlus: An implementation for the TicTacToe game (large board) using RingQt</p></li>
+<li><p>SimpleJSON: Simple Ring extension for the Jansson JSON library</p></li>
+<li><p>WebView: Create beautiful, cross-platform desktop apps using Ring and web technologies</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install webview
+</pre></div>
+</div>
+<p>The following screenshots are samples from the WebView package.</p>
+<img alt="WebView Sample 1" src="_images/webviewsample1.png" />
+<img alt="WebView Sample 2" src="_images/webviewsample2.png" />
+</section>
+<section id="more-samples">
+<span id="index-7"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<p>The next samples are added:</p>
+<ul class="simple">
+<li><p>samples/General/HTMLExtract</p></li>
+<li><p>samples/General/ClassicArrays</p></li>
+<li><p>samples/UsingLibCurl/DiscordBot</p></li>
+<li><p>samples/UsingLibCurl/test12.ring</p></li>
+<li><p>samples/UsingLibCurl/test13.ring</p></li>
+<li><p>samples/UsingJSONLib/test12.ring</p></li>
+<li><p>samples/UsingJSONLib/test13.ring</p></li>
+<li><p>samples/UsingHTTPLib/test20.ring</p></li>
+<li><p>samples/UsingHTTPLib/test21.ring</p></li>
+<li><p>samples/UsingHTTPLib/test22.ring</p></li>
+<li><p>samples/UsingLibSDL/test11.ring</p></li>
+<li><p>samples/UsingLibSDL/test12.ring</p></li>
+<li><p>samples/UsingLibSDL/test13.ring</p></li>
+<li><p>samples/UsingLibSDL/test14.ring</p></li>
+<li><p>samples/UsingLibSDL/test15.ring</p></li>
+<li><p>samples/UsingLibSDL/test16.ring</p></li>
+<li><p>samples/UsingLibSDL/test17.ring</p></li>
+<li><p>samples/Language/SyntaxFiles</p></li>
+<li><p>samples/Language/ClassMethods/genfunctopassmethod.ring</p></li>
+<li><p>samples/Language/ClassMethods/genfunctopassmethod2.ring</p></li>
+<li><p>samples/Language/ChangeSyntax/newkeywordsinsideclasses.ring</p></li>
+<li><p>samples/General/SmallExamples/TicTacToePlus/tictactoeplus.ring</p></li>
+<li><p>samples/UsingFormDesigner/verticalprogressbar</p></li>
+</ul>
+<p>The next samples are improved</p>
+<ul class="simple">
+<li><p>samples/UsingThreads/RingThreads</p></li>
+<li><p>samples/UsingRayLib/more/ex5_wavingcubes_threads.ring</p></li>
+</ul>
+<p>The following screenshot shows one of the animation samples (Desktop)</p>
+<a class="reference internal image-reference" href="_images/libsdlanimation1.png"><img alt="LibSDLAnimationSample" src="_images/libsdlanimation1.png" style="width: 800px; height: 600px;" /></a>
+<p>The following screenshot shows the same animation sample on Android</p>
+<a class="reference internal image-reference" href="_images/libsdlanimation2.png"><img alt="LibSDLAnimationSample" src="_images/libsdlanimation2.png" style="width: 260px; height: 400px;" /></a>
+</section>
+<section id="better-operator-overloading">
+<span id="index-8"></span><h2>Better Operator Overloading<a class="headerlink" href="#better-operator-overloading" title="Permalink to this heading"></a></h2>
+<p>In this release, we have extended operator overloading support to include compound assignment
+operators such as +=, -=, <a href="#id1"><span class="problematic" id="id2">*</span></a>=, /=, %=, etc.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">}</span>
+<span class="n">p1</span> <span class="o">+=</span> <span class="mi">100</span>
+<span class="o">?</span> <span class="n">p1</span>
+
+<span class="kd">class</span> <span class="nc">point</span>
+
+        <span class="n">x</span> <span class="n">y</span>
+
+        <span class="kd">func</span> <span class="nf">operator</span> <span class="n">cOp</span><span class="p">,</span> <span class="n">vValue</span>
+
+                <span class="k">if</span> <span class="n">cOp</span> <span class="o">=</span> <span class="s2">&quot;+=&quot;</span> <span class="ow">and</span> <span class="nb">isNumber</span><span class="p">(</span><span class="n">vValue</span><span class="p">)</span>
+                        <span class="n">x</span> <span class="o">+=</span> <span class="n">vValue</span>
+                        <span class="n">y</span> <span class="o">+=</span> <span class="n">vValue</span>
+                <span class="k">ok</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x: 110
+y: 120
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Increment (++) and decrement (--) operators are supported as well</p>
+</div>
+</section>
+<section id="better-stdlib">
+<span id="index-9"></span><h2>Better StdLib<a class="headerlink" href="#better-stdlib" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>isAppCompiled() function: Better implemetation</p></li>
+<li><p>The next functions are added to StdLib:</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>StringToBase32(cString) ---&gt; cBase32
+Base32ToString(cBase32) ---&gt; cString
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+
+<span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="o">?</span> <span class="nf">StringToBase32</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+
+<span class="n">cBase32</span> <span class="o">=</span> <span class="s2">&quot;JBSWY3DPEBLW64TMMQ======&quot;</span>
+<span class="o">?</span> <span class="nf">Base32ToString</span><span class="p">(</span><span class="n">cBase32</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>JBSWY3DPEBLW64TMMQ======
+Hello World
+</pre></div>
+</div>
+</section>
+<section id="better-functions">
+<span id="index-10"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>ring_state_filetokens(): Support getting tokens for scanner commands (optional)</p></li>
+<li><p>ring_state_stringtokens(): Support getting tokens for scanner commands (optional)</p></li>
+<li><p>ring_state_stringtokens(): Better performance</p></li>
+<li><p>Space() function: Don’t accept values over UINT_MAX</p></li>
+<li><p>List() function: Don’t accept values over UINT_MAX</p></li>
+<li><p>List() function: Don’t use blocks for small 1D lists</p></li>
+<li><p>Read() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>FRead() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>FGets() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>SubStr() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>Reverse() function: Reduce memory usage (improve the performance)</p></li>
+<li><p>Shutdown() function: Don’t terminate Ring Main State when used from Ring Sub State</p></li>
+<li><p>Many functions are updated to use RING_API_NEWLIST and RING_API_RETLISTBYREF</p></li>
+</ul>
+</section>
+<section id="better-ringlibcurl">
+<span id="index-11"></span><h2>Better RingLibCurl<a class="headerlink" href="#better-ringlibcurl" title="Permalink to this heading"></a></h2>
+<p>The next functions are added to the extension</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* void curl_global_cleanup(void)
+* CURLM *curl_multi_init(void)
+* CURLMcode curl_multi_cleanup(CURLM *multi_handle)
+* CURLMcode curl_multi_add_handle(CURLM *multi_handle, CURL *curl_handle)
+* CURLMcode curl_multi_remove_handle(CURLM *multi_handle, CURL *curl_handle)
+* List* curl_multi_perform(CURLM *multi_handle)
+* List* curl_multi_wait(CURLM* multi_handle, double timeout_ms)
+* List* curl_multi_info_read(CURLM *multi_handle)
+* List* curl_ws_send(CURL *curl, const char *buffer, double fragsize, int flags)
+* List* curl_ws_recv(CURL *curl, double buflen)
+* List* curl_ws_meta(CURL *curl)
+</pre></div>
+</div>
+</section>
+<section id="better-ringhttplib">
+<span id="index-12"></span><h2>Better RingHTTPLib<a class="headerlink" href="#better-ringhttplib" title="Permalink to this heading"></a></h2>
+<p>The next changes and improvements are done to the extension</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* The file httplib.h is updated (Using 0.23.1)
+* Added body() method to HTTPLib_Request class
+* Added setStatus() and getStatus() to Server class
+* Support more server http methods: PUT, PATCH, DELETE and OPTIONS
+</pre></div>
+</div>
+</section>
+<section id="better-support-for-threads">
+<span id="index-13"></span><h2>Better Support for Threads<a class="headerlink" href="#better-support-for-threads" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Ring VM: Better functions for threads support</p></li>
+<li><p>Ring VM: Thread safe reference counting for Ring Lists</p></li>
+<li><p>Ring VM: Thread safe reference counting for List items that wraps C pointers</p></li>
+<li><p>Ring Compiler/VM: ring_list_getitem() - Avoid cache when using threads</p></li>
+<li><p>Ring Compiler/VM: ring_list_setcache_gc() - Avoid cache when using threads</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using threads, all Ring Lists bypass the internal dynamic cache, ensuring safe concurrent reads. Accessing a list for reading does not trigger implicit writes to the cache, making it thread-safe by design.</p>
+</div>
+</section>
+<section id="better-documentation">
+<span id="index-14"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
+<p>The next chapters are added:</p>
+<ul class="simple">
+<li><p>Deploying Ring Web Applications using Docker</p></li>
+<li><p>Deploying Ring Web Applications to Cloud Platforms</p></li>
+<li><p>Deploying Ring Web Applications to Shared Hosting</p></li>
+</ul>
+<p>The next chapters are improved</p>
+<ul class="simple">
+<li><p>Using Ring Notepad</p></li>
+<li><p>Using Ring Libuv</p></li>
+<li><p>Using Ring LibCurl</p></li>
+<li><p>Embedding Ring in Ring</p></li>
+<li><p>Building Games For Android</p></li>
+</ul>
+</section>
+<section id="more-improvements">
+<span id="index-15"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Better scripts for building Ring (32bit) and Ring (64bit) on Windows</p></li>
+<li><p>FlappyBird3000: Use the same FPS for Desktop/Android</p></li>
+<li><p>Ring for macOS: Execute reviselibsformacos.sh when running bin/install.sh</p></li>
+<li><p>File: marketing/presentation/Ring.pptx - English revision</p></li>
+<li><p>File: ring/extensions - document.bat - Using ring/documents folder</p></li>
+<li><p>File: language/build/buildzig.bat - Updated and tested using Zig 0.16dev</p></li>
+<li><p>File: extensions/codegen/gendoc.ring - Improved function documentation generation</p></li>
+<li><p>RingNotepad: New window icon</p></li>
+<li><p>FindInFiles: Using setSelectionMode() to enable single-row selection</p></li>
+<li><p>FindInFiles: Using lightguilib.ring instead of guilib.ring</p></li>
+<li><p>FindInFiles: Show the window at the screen centre</p></li>
+<li><p>GameEngine: Clear error message if image/font/sound file doesn’t exist</p></li>
+<li><p>RingJSONLib: Handle a case when the input is an array only</p></li>
+<li><p>RingLibCurl: ring_curl_simple_getinfo_1() function - Remove unnecessary free()</p></li>
+<li><p>RingLibSDL: Enable building the extension using recent MSVC compiler</p></li>
+<li><p>RingLibSDL: Better support for Android (Using recent development tools)</p></li>
+<li><p>RingLibuv: Revise the samples to use destroy_sockaddr_in() function</p></li>
+<li><p>Ring Tests: Add/Use: nIgnoreCount</p></li>
+<li><p>Ring PM: Tests are revised and improved</p></li>
+<li><p>Ring PM: Better format for output messages</p></li>
+<li><p>Ring PM: Error message when the package contains a file that doesn’t exist</p></li>
+<li><p>Ring PM: Disable colors usage in output when the CUILIB_COLORS environment variable is 0</p></li>
+<li><p>Ring VM: ring_objfile_readfromsource() - Better implementation</p></li>
+<li><p>Ring VM: Support handling stack overflow error using Try/Catch</p></li>
+<li><p>Ring VM: Clean memory after runtime errors before returning to the operating system</p></li>
+<li><p>Ring VM: Better format when printing the Byte Code</p></li>
+<li><p>Ring VM: ring_vm_afterscopeidoverflow() - Better Code</p></li>
+<li><p>Ring VM: ring_vm_showerrormessage() - Better error message when using a C function</p></li>
+<li><p>Ring Compiler: Spaces inside multi-character operators (like !=, &lt;=, &gt;=) are not allowed</p></li>
+<li><p>Ring Compiler/VM: ring_list_setcache() is renamed to ring_list_setcache_gc()</p></li>
+<li><p>Ring Compiler/VM: ring_list_insertitem_gc() implementation - Avoid using ring_list_setcache_gc()</p></li>
+<li><p>Ring Compiler/VM: ring_list_getitem() - Avoid cache for small lists (Up to 6 items)</p></li>
+<li><p>Ring Compiler/VM: Check size overflow for Ring Strings, Lists and HashTables</p></li>
+<li><p>Ring Compiler/VM: Check reference count overflow for Ring Lists and List Items</p></li>
+<li><p>Ring Compiler/VM: String functions - Get index as (unsigned int) instead of (int)</p></li>
+<li><p>Ring Compiler/VM: ring_string_set2_gc() implementation - Delete large buffers for empty strings</p></li>
+<li><p>Ring Compiler/VM: ring_list_sortstr_gc() implementation - Reduce memory usage</p></li>
+<li><p>Ring Compiler/VM: ring_hashtable_hashkey_gc() implementation - Better Performance</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="whatisnew23.html" class="btn btn-neutral float-left" title="What is new in Ring 1.23" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="whatisnew25.html" class="btn btn-neutral float-right" title="What is new in Ring 1.25" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, Mahmoud Fayed.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RingLibSDL Functions Reference &mdash; Ring 1.25.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/dark_mode_js/default_dark.js"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using RingLibuv" href="libuv.html" />
+    <link rel="prev" title="Using RingLibSDL" href="libsdl.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">Using CSVLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">Using JSONLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">Using HTTPLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_platforms.html">Deploying Web Applications to Cloud Platforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tilengine.html">Using RingTilengine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">Using ZeroLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">Using FoxRing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">Using BigNumber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">Using TokensLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Using RingThreads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using RingLibui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingrogueutil.html">Using RingRogueUtil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RingLibSDL Functions Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#constants">Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingfastpro.html">Using FastPro Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingpico.html">Using Ring for Raspberry Pi Pico Microcontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew19.html">Release Notes: Version 1.19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew23.html">Release Notes: Version 1.23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew24.html">Release Notes: Version 1.24</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew25.html">Release Notes: Version 1.25</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">RingLibSDL Functions Reference</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ringlibsdl-functions-reference">
+<span id="index-0"></span><h1>RingLibSDL Functions Reference<a class="headerlink" href="#ringlibsdl-functions-reference" title="Permalink to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<p>In this chapter we have a list of the supported functions and constants by this extension.</p>
+</section>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
+<section id="constants">
+<h3>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MIX_DEFAULT_FORMAT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_QUIT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_BUTTON_LEFT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_BUTTON_MIDDLE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_BUTTON_RIGHT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_PRESSED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_RELEASED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_APP_TERMINATING</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_APP_LOWMEMORY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_APP_WILLENTERBACKGROUND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_APP_DIDENTERBACKGROUND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_APP_WILLENTERFOREGROUND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_APP_DIDENTERFOREGROUND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_WINDOWEVENT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_KEYDOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_KEYUP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_TEXTEDITING</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_TEXTINPUT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_MOUSEMOTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_MOUSEBUTTONDOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_MOUSEBUTTONUP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_MOUSEWHEEL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_JOYAXISMOTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_JOYBALLMOTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_JOYHATMOTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_JOYBUTTONDOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_JOYBUTTONUP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_JOYDEVICEADDED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_JOYDEVICEREMOVED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_CONTROLLERAXISMOTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_CONTROLLERBUTTONDOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_CONTROLLERBUTTONUP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_CONTROLLERDEVICEADDED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_CONTROLLERDEVICEREMOVED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_CONTROLLERDEVICEREMAPPED</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_FINGERDOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_FINGERUP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_FINGERMOTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_DOLLARGESTURE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_DOLLARRECORD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_MULTIGESTURE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_CLIPBOARDUPDATE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_DROPFILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_RENDER_TARGETS_RESET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_USEREVENT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_LASTEVENT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_NET_MAJOR_VERSION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_NET_MINOR_VERSION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_NET_PATCHLEVEL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INADDR_ANY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INADDR_NONE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INADDR_BROADCAST</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLNET_MAX_UDPCHANNELS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLNET_MAX_UDPADDRESSES</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_5</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_6</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_7</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_8</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_9</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AC_BACK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AC_BOOKMARKS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AC_FORWARD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AC_HOME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AC_REFRESH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AC_SEARCH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AC_STOP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AGAIN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_ALTERASE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_QUOTE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_APPLICATION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AUDIOMUTE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AUDIONEXT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AUDIOPLAY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AUDIOPREV</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_BRIGHTNESSDOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_BRIGHTNESSUP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_c</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_CALCULATOR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_CANCEL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_CAPSLOCK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_CLEAR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_CLEARAGAIN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_COMMA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_COMPUTER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_COPY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_CRSEL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_CURRENCYSUBUNIT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_CURRENCYUNIT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_CUT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_d</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_DECIMALSEPARATOR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_DELETE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_DISPLAYSWITCH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_DOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_e</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_EJECT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_END</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_EQUALS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_ESCAPE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_EXECUTE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_EXSEL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_f</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F10</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F11</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F12</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F13</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F14</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F15</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F16</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F17</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F18</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F19</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F20</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F21</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F22</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F23</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F24</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F5</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F6</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F7</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F8</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_F9</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_FIND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_g</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_BACKQUOTE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_HELP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_HOME</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_i</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_INSERT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_j</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_k</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KBDILLUMDOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KBDILLUMTOGGLE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KBDILLUMUP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_00</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_000</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_5</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_6</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_7</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_8</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_9</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_A</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_AMPERSAND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_AT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_B</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_BACKSPACE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_BINARY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_C</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_CLEAR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_CLEARENTRY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_COLON</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_COMMA</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_D</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_DBLAMPERSAND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_DBLVERTICALBAR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_DECIMAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_DIVIDE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_E</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_ENTER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_EQUALS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_EQUALSAS400</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_EXCLAM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_F</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_GREATER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_HASH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_HEXADECIMAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_LEFTBRACE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_LEFTPAREN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_LESS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_MEMADD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_MEMCLEAR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_MEMDIVIDE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_MEMMULTIPLY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_MEMRECALL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_MEMSTORE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_MEMSUBTRACT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_MINUS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_MULTIPLY</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_OCTAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_PERCENT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_PERIOD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_PLUS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_PLUSMINUS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_POWER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_RIGHTBRACE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_RIGHTPAREN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_SPACE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_TAB</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_VERTICALBAR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_KP_XOR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_l</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_LALT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_LCTRL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_LEFT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_LEFTBRACKET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_LGUI</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_LSHIFT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_m</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_MAIL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_MEDIASELECT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_MENU</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_MINUS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_MODE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_MUTE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_n</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_NUMLOCKCLEAR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_o</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_OPER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_OUT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_p</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_PAGEDOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_PAGEUP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_PASTE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_PAUSE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_PERIOD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_POWER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_PRINTSCREEN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_PRIOR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_q</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_r</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_RALT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_RCTRL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_RETURN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_RETURN2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_RGUI</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_RIGHT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_RIGHTBRACKET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_RSHIFT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_s</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_SCROLLLOCK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_SELECT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_SEMICOLON</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_SEPARATOR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_SLASH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_SLEEP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_SPACE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_STOP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_SYSREQ</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_t</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_TAB</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_THOUSANDSSEPARATOR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_u</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_UNDO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_UNKNOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_UP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_v</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_VOLUMEDOWN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_VOLUMEUP</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_w</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_WWW</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_x</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_z</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AMPERSAND</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_ASTERISK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_AT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_CARET</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_COLON</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_DOLLAR</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_EXCLAIM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_GREATER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_HASH</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_LEFTPAREN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_LESS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_PERCENT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_PLUS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_QUESTION</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_QUOTEDBL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_RIGHTPAREN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLK_UNDERSCORE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_THREAD_PRIORITY_LOW</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_THREAD_PRIORITY_NORMAL</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_THREAD_PRIORITY_HIGH</span></code></p></li>
+</ul>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_RenderCopy2(SDL_Renderer</span> <span class="pre">*,SDL_Texture</span> <span class="pre">*)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_Delay(int)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_Init(int)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_InitSubSystem(Uint32</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_Quit(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_QuitSubSystem(Uint32</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetMainReady(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDL_WasInit(Uint32</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_ClearHints(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_GetHint(const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_SetHint(const</span> <span class="pre">char</span> <span class="pre">*name,const</span> <span class="pre">char</span> <span class="pre">*value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_SetHintWithPriority(const</span> <span class="pre">char</span> <span class="pre">*name,const</span> <span class="pre">char</span> <span class="pre">*value,SDL_HintPriority</span> <span class="pre">priority)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_ClearError(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_GetError(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_LogPriority</span> <span class="pre">SDL_LogGetPriority(int</span> <span class="pre">category)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_LogResetPriorities(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_LogSetAllPriority(SDL_LogPriority</span> <span class="pre">priority)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_LogSetPriority(int</span> <span class="pre">category,SDL_LogPriority</span> <span class="pre">priority)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_AssertData</span> <span class="pre">*SDL_GetAssertionReport(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_AssertionHandler</span> <span class="pre">SDL_GetDefaultAssertionHandler(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_ResetAssertionReport(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetAssertionHandler(SDL_AssertionHandler</span> <span class="pre">handler,void</span> <span class="pre">*userdata)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_TriggerBreakpoint(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_assert(int)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_assert_paranoid(int)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_assert_release(int)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">SDL_GetRevision(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetRevisionNumber(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GetVersion(SDL_version</span> <span class="pre">*ver)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Window</span> <span class="pre">*SDL_CreateWindow(const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">title,int</span> <span class="pre">x,</span> <span class="pre">int</span> <span class="pre">y,int</span> <span class="pre">w,int</span> <span class="pre">h,Uint32</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Window</span> <span class="pre">*SDL_CreateWindowFrom(const</span> <span class="pre">void</span> <span class="pre">*data)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_DestroyWindow(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_DisableScreenSaver(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_EnableScreenSaver(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_GLContext</span> <span class="pre">SDL_GL_CreateContext(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GL_DeleteContext(SDL_GLContext</span> <span class="pre">context)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_GL_ExtensionSupported(const</span> <span class="pre">char</span> <span class="pre">*extension)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GL_GetAttribute(SDL_GLattr</span> <span class="pre">attr,int</span> <span class="pre">*value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_GLContext</span> <span class="pre">SDL_GL_GetCurrentContext(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Window</span> <span class="pre">*SDL_GL_GetCurrentWindow(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GL_GetDrawableSize(SDL_Window</span> <span class="pre">*window,int</span> <span class="pre">*w,int</span> <span class="pre">*h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*SDL_GL_GetProcAddress(const</span> <span class="pre">char</span> <span class="pre">*proc)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GL_GetSwapInterval(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GL_LoadLibrary(const</span> <span class="pre">char</span> <span class="pre">*path)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GL_MakeCurrent(SDL_Window</span> <span class="pre">*window,SDL_GLContext</span> <span class="pre">context)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GL_ResetAttributes(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GL_SetAttribute(SDL_GLattr</span> <span class="pre">attr,int</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GL_SetSwapInterval(int</span> <span class="pre">interval)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GL_SwapWindow(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GL_UnloadLibrary(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_DisplayMode</span> <span class="pre">*SDL_GetClosestDisplayMode(int</span> <span class="pre">displayIndex,SDL_DisplayMode</span> <span class="pre">*mode,SDL_DisplayMode</span> <span class="pre">*closest)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetCurrentDisplayMode(int</span> <span class="pre">displayIndex,SDL_DisplayMode</span> <span class="pre">*mode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_GetCurrentVideoDriver(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetDesktopDisplayMode(int</span> <span class="pre">displayIndex,SDL_DisplayMode</span> <span class="pre">*mode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetDisplayBounds(int</span> <span class="pre">displayIndex,SDL_Rect</span> <span class="pre">*rect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetNumDisplayModes(int</span> <span class="pre">displayIndex)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetNumVideoDisplays(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetNumVideoDrivers(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">SDL_GetVideoDriver(int</span> <span class="pre">index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">SDL_GetWindowBrightness(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*SDL_GetWindowData(SDL_Window</span> <span class="pre">*window,const</span> <span class="pre">char</span> <span class="pre">*name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetWindowDisplayIndex(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetWindowDisplayMode(SDL_Window</span> <span class="pre">*window,SDL_DisplayMode</span> <span class="pre">*mode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDL_GetWindowFlags(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Window</span> <span class="pre">*SDL_GetWindowFromID(Uint32</span> <span class="pre">id)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetWindowGammaRamp(SDL_Window</span> <span class="pre">*window,Uint16</span> <span class="pre">*red,Uint16</span> <span class="pre">*green,Uint16</span> <span class="pre">*blue)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_GetWindowGrab(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDL_GetWindowID(SDL_Window*</span> <span class="pre">window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GetWindowMaximumSize(SDL_Window</span> <span class="pre">*window,int</span> <span class="pre">*w,int</span> <span class="pre">*h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GetWindowMinimumSize(SDL_Window</span> <span class="pre">*window,int</span> <span class="pre">*w,int</span> <span class="pre">*h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDL_GetWindowPixelFormat(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GetWindowPosition(SDL_Window</span> <span class="pre">*window,int</span> <span class="pre">*x,int</span> <span class="pre">*y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GetWindowSize(SDL_Window</span> <span class="pre">*window,int</span> <span class="pre">*w,int</span> <span class="pre">*h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*SDL_GetWindowSurface(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_GetWindowTitle(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_HideWindow(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_IsScreenSaverEnabled(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_MaximizeWindow(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_MinimizeWindow(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_RaiseWindow(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_RestoreWindow(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetWindowBordered(SDL_Window</span> <span class="pre">*window,SDL_bool</span> <span class="pre">bordered)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetWindowBrightness(SDL_Window</span> <span class="pre">*window,float</span> <span class="pre">brightness)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*SDL_SetWindowData(SDL_Window</span> <span class="pre">*window,const</span> <span class="pre">char</span> <span class="pre">*name,void</span> <span class="pre">*userdata)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetWindowDisplayMode(SDL_Window</span> <span class="pre">*window,const</span> <span class="pre">SDL_DisplayMode</span> <span class="pre">*mode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetWindowFullscreen(SDL_Window</span> <span class="pre">*window,Uint32</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetWindowGammaRamp(SDL_Window</span> <span class="pre">*window,const</span> <span class="pre">Uint16</span> <span class="pre">*red,const</span> <span class="pre">Uint16</span> <span class="pre">*green,const</span> <span class="pre">Uint16*</span> <span class="pre">blue)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetWindowGrab(SDL_Window</span> <span class="pre">*window,SDL_bool</span> <span class="pre">grabbed)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetWindowIcon(SDL_Window</span> <span class="pre">*window,SDL_Surface</span> <span class="pre">*icon)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetWindowMaximumSize(SDL_Window</span> <span class="pre">*window,int</span> <span class="pre">max_w,int</span> <span class="pre">max_h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetWindowMinimumSize(SDL_Window*</span> <span class="pre">window,int</span> <span class="pre">min_w,int</span> <span class="pre">min_h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetWindowPosition(SDL_Window</span> <span class="pre">*window,int</span> <span class="pre">x,int</span> <span class="pre">y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetWindowSize(SDL_Window</span> <span class="pre">*window,int</span> <span class="pre">w,int</span> <span class="pre">h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetWindowTitle(SDL_Window</span> <span class="pre">*window,const</span> <span class="pre">char</span> <span class="pre">*title)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_ShowMessageBox(const</span> <span class="pre">SDL_MessageBoxData</span> <span class="pre">*messageboxdata,int</span> <span class="pre">*buttonid)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_ShowSimpleMessageBox(Uint32</span> <span class="pre">flags,const</span> <span class="pre">char</span> <span class="pre">*title,const</span> <span class="pre">char</span> <span class="pre">*message,SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_ShowWindow(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_UpdateWindowSurface(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_UpdateWindowSurfaceRects(SDL_Window</span> <span class="pre">*window,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rects,int</span> <span class="pre">numrects)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_VideoInit(const</span> <span class="pre">char</span> <span class="pre">*driver_name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_VideoQuit(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Renderer</span> <span class="pre">*SDL_CreateRenderer(SDL_Window</span> <span class="pre">*window,int</span> <span class="pre">index,Uint32</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Renderer</span> <span class="pre">*SDL_CreateSoftwareRenderer(SDL_Surface</span> <span class="pre">*surface)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Texture</span> <span class="pre">*SDL_CreateTexture(SDL_Renderer</span> <span class="pre">*renderer,Uint32</span> <span class="pre">format,int</span> <span class="pre">access,int</span> <span class="pre">w,int</span> <span class="pre">h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Texture</span> <span class="pre">*SDL_CreateTextureFromSurface(SDL_Renderer</span> <span class="pre">*renderer,SDL_Surface</span> <span class="pre">*surface)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_DestroyRenderer(SDL_Renderer</span> <span class="pre">*renderer)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_DestroyTexture(SDL_Texture</span> <span class="pre">*texture)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GL_BindTexture(SDL_Texture</span> <span class="pre">*texture,float</span> <span class="pre">*texw,float</span> <span class="pre">*texh)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GL_UnbindTexture(SDL_Texture</span> <span class="pre">*texture)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetNumRenderDrivers(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetRenderDrawBlendMode(SDL_Renderer</span> <span class="pre">*renderer,SDL_BlendMode</span> <span class="pre">*blendMode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetRenderDrawColor(SDL_Renderer</span> <span class="pre">*renderer,Uint8</span> <span class="pre">*r,Uint8</span> <span class="pre">*g,Uint8</span> <span class="pre">*b,Uint8</span> <span class="pre">*a)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetRenderDriverInfo(int</span> <span class="pre">index,SDL_RendererInfo</span> <span class="pre">*info)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Texture</span> <span class="pre">*SDL_GetRenderTarget(SDL_Renderer</span> <span class="pre">*renderer)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Renderer</span> <span class="pre">*SDL_GetRenderer(SDL_Window</span> <span class="pre">*window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetRendererInfo(SDL_Renderer</span> <span class="pre">*renderer,SDL_RendererInfo</span> <span class="pre">*info)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetRendererOutputSize(SDL_Renderer</span> <span class="pre">*renderer,int</span> <span class="pre">*w,int</span> <span class="pre">*h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetTextureAlphaMod(SDL_Texture</span> <span class="pre">*texture,Uint8</span> <span class="pre">*alpha)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetTextureBlendMode(SDL_Texture</span> <span class="pre">*texture,SDL_BlendMode</span> <span class="pre">*blendMode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetTextureColorMod(SDL_Texture</span> <span class="pre">*texture,Uint8</span> <span class="pre">*r,Uint8</span> <span class="pre">*g,Uint8</span> <span class="pre">*b)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_LockTexture(SDL_Texture</span> <span class="pre">*texture,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rect,void</span> <span class="pre">**pixels,int</span> <span class="pre">*pitch)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_QueryTexture(SDL_Texture</span> <span class="pre">*texture,int</span> <span class="pre">*format,int</span> <span class="pre">*access,int</span> <span class="pre">*w,int</span> <span class="pre">*h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderClear(SDL_Renderer</span> <span class="pre">*renderer)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderCopy(SDL_Renderer</span> <span class="pre">*renderer,SDL_Texture</span> <span class="pre">*texture,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*srcrect,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*dstrect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderCopyEx(SDL_Renderer</span> <span class="pre">*renderer,SDL_Texture</span> <span class="pre">*texture,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*srcrect,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*dstrect,const</span> <span class="pre">double</span> <span class="pre">angle,const</span> <span class="pre">SDL_Point</span> <span class="pre">*center,const</span> <span class="pre">SDL_RendererFlip</span> <span class="pre">flip)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderDrawLine(SDL_Renderer</span> <span class="pre">*renderer,int</span> <span class="pre">x1,int</span> <span class="pre">y1,int</span> <span class="pre">x2,int</span> <span class="pre">y2)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderDrawLines(SDL_Renderer</span> <span class="pre">*renderer,const</span> <span class="pre">SDL_Point</span> <span class="pre">*points,int</span> <span class="pre">count)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderDrawPoint(SDL_Renderer</span> <span class="pre">*renderer,int</span> <span class="pre">x,</span> <span class="pre">int</span> <span class="pre">y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderDrawPoints(SDL_Renderer</span> <span class="pre">*renderer,const</span> <span class="pre">SDL_Point</span> <span class="pre">*points,int</span> <span class="pre">count)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderDrawRect(SDL_Renderer</span> <span class="pre">*renderer,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderDrawRects(SDL_Renderer</span> <span class="pre">*renderer,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rects,int</span> <span class="pre">count)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderFillRect(SDL_Renderer</span> <span class="pre">*renderer,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderFillRects(SDL_Renderer</span> <span class="pre">*renderer,const</span> <span class="pre">SDL_Rect*</span> <span class="pre">rects,int</span> <span class="pre">count)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_RenderGetClipRect(SDL_Renderer</span> <span class="pre">*renderer,SDL_Rect</span> <span class="pre">*rect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_RenderGetLogicalSize(SDL_Renderer</span> <span class="pre">*renderer,int</span> <span class="pre">*w,int</span> <span class="pre">*h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_RenderGetScale(SDL_Renderer</span> <span class="pre">*renderer,float</span> <span class="pre">*scaleX,float</span> <span class="pre">*scaleY)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_RenderGetViewport(SDL_Renderer</span> <span class="pre">*renderer,SDL_Rect</span> <span class="pre">*rect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_RenderPresent(SDL_Renderer</span> <span class="pre">*renderer)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderReadPixels(SDL_Renderer</span> <span class="pre">*renderer,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rect,Uint32</span> <span class="pre">format,void</span> <span class="pre">*pixels,int</span> <span class="pre">pitch)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderSetClipRect(SDL_Renderer</span> <span class="pre">*renderer,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderSetLogicalSize(SDL_Renderer</span> <span class="pre">*renderer,int</span> <span class="pre">w,int</span> <span class="pre">h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderSetScale(SDL_Renderer</span> <span class="pre">*renderer,float</span> <span class="pre">scaleX,float</span> <span class="pre">scaleY)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RenderSetViewport(SDL_Renderer</span> <span class="pre">*renderer,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_RenderTargetSupported(SDL_Renderer</span> <span class="pre">*renderer)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetRenderDrawBlendMode(SDL_Renderer</span> <span class="pre">*renderer,SDL_BlendMode</span> <span class="pre">blendMode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetRenderDrawColor(SDL_Renderer</span> <span class="pre">*renderer,Uint8</span> <span class="pre">r,Uint8</span> <span class="pre">g,Uint8</span> <span class="pre">b,Uint8</span> <span class="pre">a)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetRenderTarget(SDL_Renderer</span> <span class="pre">*renderer,SDL_Texture</span> <span class="pre">*texture)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetTextureAlphaMod(SDL_Texture</span> <span class="pre">*texture,Uint8</span> <span class="pre">alpha)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetTextureBlendMode(SDL_Texture</span> <span class="pre">*texture,SDL_BlendMode</span> <span class="pre">blendMode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetTextureColorMod(SDL_Texture</span> <span class="pre">*texture,Uint8</span> <span class="pre">r,Uint8</span> <span class="pre">g,Uint8</span> <span class="pre">b)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_UnlockTexture(SDL_Texture</span> <span class="pre">*texture)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_UpdateTexture(SDL_Texture</span> <span class="pre">*texture,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rect,const</span> <span class="pre">void*pixels,int</span> <span class="pre">pitch)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_UpdateYUVTexture(SDL_Texture</span> <span class="pre">*texture,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rect,const</span> <span class="pre">Uint8</span> <span class="pre">*Yplane,int</span> <span class="pre">Ypitch,const</span> <span class="pre">Uint8</span> <span class="pre">*Uplane,int</span> <span class="pre">Upitch,const</span> <span class="pre">Uint8</span> <span class="pre">*Vplane,int</span> <span class="pre">Vpitch)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_PixelFormat</span> <span class="pre">*SDL_AllocFormat(Uint32</span> <span class="pre">pixel_format)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Palette</span> <span class="pre">*SDL_AllocPalette(int</span> <span class="pre">ncolors)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_CalculateGammaRamp(float</span> <span class="pre">gamma,Uint16</span> <span class="pre">*ramp)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_FreeFormat(SDL_PixelFormat</span> <span class="pre">*format)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_FreePalette(SDL_Palette</span> <span class="pre">*palette)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_GetPixelFormatName(Uint32</span> <span class="pre">format)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GetRGB(Uint32</span> <span class="pre">pixel,const</span> <span class="pre">SDL_PixelFormat*</span> <span class="pre">format,Uint8</span> <span class="pre">*r,Uint8</span> <span class="pre">*g,Uint8</span> <span class="pre">*b)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GetRGBA(Uint32</span> <span class="pre">pixel,const</span> <span class="pre">SDL_PixelFormat*</span> <span class="pre">format,Uint8</span> <span class="pre">*r,Uint8</span> <span class="pre">*g,Uint8</span> <span class="pre">*b,Uint8</span> <span class="pre">*a)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDL_MapRGB(const</span> <span class="pre">SDL_PixelFormat*</span> <span class="pre">format,Uint8</span> <span class="pre">r,Uint8</span> <span class="pre">g,</span> <span class="pre">Uint8</span> <span class="pre">b)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDL_MapRGBA(const</span> <span class="pre">SDL_PixelFormat*</span> <span class="pre">format,Uint8</span> <span class="pre">r,Uint8</span> <span class="pre">g,</span> <span class="pre">Uint8</span> <span class="pre">b,</span> <span class="pre">Uint8</span> <span class="pre">a)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDL_MasksToPixelFormatEnum(int</span> <span class="pre">bpp,Uint32</span> <span class="pre">Rmask,Uint32</span> <span class="pre">Gmask,Uint32</span> <span class="pre">Bmask,Uint32</span> <span class="pre">Amask)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_PixelFormatEnumToMasks(Uint32</span> <span class="pre">format,int</span> <span class="pre">*bpp,Uint32</span> <span class="pre">*Rmask,Uint32</span> <span class="pre">*Gmask,Uint32</span> <span class="pre">*Bmask,Uint32</span> <span class="pre">*Amask)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetPaletteColors(SDL_Palette</span> <span class="pre">*palette,const</span> <span class="pre">SDL_Color</span> <span class="pre">*colors,int</span> <span class="pre">firstcolor,int</span> <span class="pre">ncolors)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetPixelFormatPalette(SDL_PixelFormat</span> <span class="pre">*format,SDL_Palette</span> <span class="pre">*palette)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_EnclosePoints(const</span> <span class="pre">SDL_Point*</span> <span class="pre">points,int</span> <span class="pre">count,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*clip,SDL_Rect</span> <span class="pre">*result)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasIntersection(const</span> <span class="pre">SDL_Rect</span> <span class="pre">*A,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*B)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_IntersectRect(const</span> <span class="pre">SDL_Rect</span> <span class="pre">*A,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*B,SDL_Rect</span> <span class="pre">*result)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_IntersectRectAndLine(const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rect,int</span> <span class="pre">*X1,int</span> <span class="pre">*Y1,int</span> <span class="pre">*X2,int</span> <span class="pre">*Y2)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_RectEmpty(const</span> <span class="pre">SDL_Rect</span> <span class="pre">*r)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_RectEquals(const</span> <span class="pre">SDL_Rect</span> <span class="pre">*a,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*b)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_UnionRect(const</span> <span class="pre">SDL_Rect</span> <span class="pre">*A,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*B,SDL_Rect</span> <span class="pre">*result)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_BlitScaled(SDL_Surface</span> <span class="pre">*src,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*srcrect,SDL_Surface</span> <span class="pre">*dst,SDL_Rect</span> <span class="pre">*dstrect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_BlitSurface(SDL_Surface</span> <span class="pre">*src,const</span> <span class="pre">SDL_Rect*</span> <span class="pre">srcrect,SDL_Surface</span> <span class="pre">*dst,SDL_Rect</span> <span class="pre">*dstrect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_ConvertPixels(int</span> <span class="pre">width,int</span> <span class="pre">height,Uint32</span> <span class="pre">src_format,const</span> <span class="pre">void</span> <span class="pre">*src,int</span> <span class="pre">src_pitch,Uint32</span> <span class="pre">dst_format,void</span> <span class="pre">*dst,int</span> <span class="pre">dst_pitch)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*SDL_ConvertSurface(SDL_Surface</span> <span class="pre">*src,const</span> <span class="pre">SDL_PixelFormat</span> <span class="pre">*fmt,Uint32</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*SDL_ConvertSurfaceFormat(SDL_Surface</span> <span class="pre">*src,Uint32</span> <span class="pre">pixel_format,Uint32</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*SDL_CreateRGBSurface(Uint32</span> <span class="pre">flags,int</span> <span class="pre">width,int</span> <span class="pre">height,int</span> <span class="pre">depth,Uint32</span> <span class="pre">Rmask,Uint32</span> <span class="pre">Gmask,Uint32</span> <span class="pre">Bmask,Uint32</span> <span class="pre">Amask)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface*</span> <span class="pre">SDL_CreateRGBSurfaceFrom(void</span> <span class="pre">*pixels,int</span> <span class="pre">width,int</span> <span class="pre">height,int</span> <span class="pre">depth,int</span> <span class="pre">pitch,Uint32</span> <span class="pre">Rmask,Uint32</span> <span class="pre">Gmask,Uint32</span> <span class="pre">Bmask,Uint32</span> <span class="pre">Amask)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_FillRect(SDL_Surface</span> <span class="pre">*dst,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rect,Uint32</span> <span class="pre">color)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_FillRects(SDL_Surface</span> <span class="pre">*dst,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rects,int</span> <span class="pre">count,Uint32</span> <span class="pre">color)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_FreeSurface(SDL_Surface</span> <span class="pre">*surface)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GetClipRect(SDL_Surface</span> <span class="pre">*surface,SDL_Rect</span> <span class="pre">*rect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetColorKey(SDL_Surface</span> <span class="pre">*surface,Uint32</span> <span class="pre">*key)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetSurfaceAlphaMod(SDL_Surface</span> <span class="pre">*surface,Uint8</span> <span class="pre">*alpha)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetSurfaceBlendMode(SDL_Surface</span> <span class="pre">*surface,SDL_BlendMode</span> <span class="pre">*blendMode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetSurfaceColorMod(SDL_Surface</span> <span class="pre">*surface,Uint8</span> <span class="pre">*r,Uint8</span> <span class="pre">*g,Uint8</span> <span class="pre">*b)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*SDL_LoadBMP(const</span> <span class="pre">char</span> <span class="pre">*file)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*SDL_LoadBMP_RW(SDL_RWops</span> <span class="pre">*src,int</span> <span class="pre">freesrc)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_LockSurface(SDL_Surface</span> <span class="pre">*surface)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_LowerBlit(SDL_Surface</span> <span class="pre">*src,SDL_Rect</span> <span class="pre">*srcrect,SDL_Surface</span> <span class="pre">*dst,SDL_Rect</span> <span class="pre">*dstrect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_LowerBlitScaled(SDL_Surface</span> <span class="pre">*src,SDL_Rect</span> <span class="pre">*srcrect,SDL_Surface</span> <span class="pre">*dst,SDL_Rect</span> <span class="pre">*dstrect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_MUSTLOCK(SDL_Surface</span> <span class="pre">*surface)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SaveBMP(SDL_Surface</span> <span class="pre">*surface,const</span> <span class="pre">char</span> <span class="pre">*file)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SaveBMP_RW(SDL_Surface</span> <span class="pre">*surface,SDL_RWops</span> <span class="pre">*dst,int</span> <span class="pre">freedst)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_SetClipRect(SDL_Surface</span> <span class="pre">*surface,const</span> <span class="pre">SDL_Rect</span> <span class="pre">*rect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetColorKey(SDL_Surface</span> <span class="pre">*surface,int</span> <span class="pre">flag,Uint32</span> <span class="pre">key)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetSurfaceAlphaMod(SDL_Surface</span> <span class="pre">*surface,Uint8</span> <span class="pre">alpha)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetSurfaceBlendMode(SDL_Surface</span> <span class="pre">*surface,SDL_BlendMode</span> <span class="pre">blendMode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetSurfaceColorMod(SDL_Surface</span> <span class="pre">*surface,Uint8</span> <span class="pre">r,Uint8</span> <span class="pre">g,Uint8</span> <span class="pre">b)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetSurfacePalette(SDL_Surface</span> <span class="pre">*surface,SDL_Palette</span> <span class="pre">*palette)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetSurfaceRLE(SDL_Surface</span> <span class="pre">*surface,int</span> <span class="pre">flag)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_UnlockSurface(SDL_Surface*</span> <span class="pre">surface)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*SDL_GetClipboardText(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasClipboardText(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetClipboardText(const</span> <span class="pre">char</span> <span class="pre">*text)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_AddEventWatch(SDL_EventFilter</span> <span class="pre">filter,void</span> <span class="pre">*userdata)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_DelEventWatch(SDL_EventFilter</span> <span class="pre">filter,void</span> <span class="pre">*userdata)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint8</span> <span class="pre">SDL_EventState(Uint32</span> <span class="pre">type,int</span> <span class="pre">state)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_FilterEvents(SDL_EventFilter</span> <span class="pre">filter,void</span> <span class="pre">*userdata)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_FlushEvent(Uint32</span> <span class="pre">type)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_FlushEvents(Uint32</span> <span class="pre">minType,Uint32</span> <span class="pre">maxType)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_GetEventFilter(SDL_EventFilter</span> <span class="pre">*filter,void</span> <span class="pre">**userdata)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint8</span> <span class="pre">SDL_GetEventState(Uint32</span> <span class="pre">type)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetNumTouchDevices(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetNumTouchFingers(SDL_TouchID</span> <span class="pre">touchID)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_TouchID</span> <span class="pre">SDL_GetTouchDevice(int</span> <span class="pre">index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Finger*</span> <span class="pre">SDL_GetTouchFinger(SDL_TouchID</span> <span class="pre">touchID,int</span> <span class="pre">index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasEvent(Uint32</span> <span class="pre">type)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasEvents(Uint32</span> <span class="pre">minType,Uint32</span> <span class="pre">maxType)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_LoadDollarTemplates(SDL_TouchID</span> <span class="pre">touchId,SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_PeepEvents(SDL_Event</span> <span class="pre">*events,int</span> <span class="pre">numevents,SDL_eventaction</span> <span class="pre">action,Uint32</span> <span class="pre">minType,Uint32</span> <span class="pre">maxType)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_PollEvent(SDL_Event</span> <span class="pre">*event)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_PumpEvents(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_PushEvent(SDL_Event</span> <span class="pre">*event)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_QuitRequested(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RecordGesture(SDL_TouchID</span> <span class="pre">touchId)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDL_RegisterEvents(int</span> <span class="pre">numevents)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SaveAllDollarTemplates(SDL_RWops</span> <span class="pre">*dst)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SaveDollarTemplate(SDL_GestureID</span> <span class="pre">gestureId,SDL_RWops</span> <span class="pre">*dst)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetEventFilter(SDL_EventFilter</span> <span class="pre">filter,void</span> <span class="pre">*userdata)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_WaitEvent(SDL_Event</span> <span class="pre">*event)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_WaitEventTimeout(SDL_Event</span> <span class="pre">*event,int</span> <span class="pre">timeout)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Keycode</span> <span class="pre">SDL_GetKeyFromName(const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Keycode</span> <span class="pre">SDL_GetKeyFromScancode(SDL_Scancode</span> <span class="pre">scancode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">SDL_GetKeyName(SDL_Keycode</span> <span class="pre">key)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Window*</span> <span class="pre">SDL_GetKeyboardFocus(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">Uint8*</span> <span class="pre">SDL_GetKeyboardState(int*</span> <span class="pre">numkeys)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Keymod</span> <span class="pre">SDL_GetModState(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Scancode</span> <span class="pre">SDL_GetScancodeFromKey(SDL_Keycode</span> <span class="pre">key)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Scancode</span> <span class="pre">SDL_GetScancodeFromName(const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">SDL_GetScancodeName(SDL_Scancode</span> <span class="pre">scancode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasScreenKeyboardSupport(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_IsScreenKeyboardShown(SDL_Window*</span> <span class="pre">window)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_IsTextInputActive(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetModState(SDL_Keymod</span> <span class="pre">modstate)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetTextInputRect(SDL_Rect*</span> <span class="pre">rect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_StartTextInput(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_StopTextInput(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Cursor</span> <span class="pre">*SDL_CreateColorCursor(SDL_Surface</span> <span class="pre">*surface,int</span> <span class="pre">hot_x,int</span> <span class="pre">hot_y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Cursor</span> <span class="pre">*SDL_CreateCursor(const</span> <span class="pre">Uint8</span> <span class="pre">*data,const</span> <span class="pre">Uint8</span> <span class="pre">*mask,int</span> <span class="pre">w,int</span> <span class="pre">h,int</span> <span class="pre">hot_x,int</span> <span class="pre">hot_y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_FreeCursor(SDL_Cursor</span> <span class="pre">*cursor)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Cursor</span> <span class="pre">*SDL_GetCursor(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Cursor</span> <span class="pre">*SDL_GetDefaultCursor(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Window</span> <span class="pre">*SDL_GetMouseFocus(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDL_GetMouseState(int</span> <span class="pre">*x,int</span> <span class="pre">*</span> <span class="pre">y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_GetRelativeMouseMode(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDL_GetRelativeMouseState(int</span> <span class="pre">*x,int</span> <span class="pre">*y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_SetCursor(SDL_Cursor</span> <span class="pre">*cursor)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetRelativeMouseMode(SDL_bool</span> <span class="pre">enabled)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_ShowCursor(int</span> <span class="pre">toggle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_WarpMouseInWindow(SDL_Window</span> <span class="pre">*window,int</span> <span class="pre">x,int</span> <span class="pre">y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_JoystickClose(SDL_Joystick</span> <span class="pre">*joystick)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_JoystickEventState(int</span> <span class="pre">state)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_JoystickGetAttached(SDL_Joystick</span> <span class="pre">*joystick)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sint16</span> <span class="pre">SDL_JoystickGetAxis(SDL_Joystick</span> <span class="pre">*joystick,int</span> <span class="pre">axis)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_JoystickGetBall(SDL_Joystick</span> <span class="pre">*joystick,int</span> <span class="pre">ball,int</span> <span class="pre">*dx,int</span> <span class="pre">*dy)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint8</span> <span class="pre">SDL_JoystickGetButton(SDL_Joystick</span> <span class="pre">*joystick,int</span> <span class="pre">button)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_JoystickGUID</span> <span class="pre">SDL_JoystickGetDeviceGUID(int</span> <span class="pre">device_index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_JoystickGUID</span> <span class="pre">SDL_JoystickGetGUID(SDL_Joystick</span> <span class="pre">*joystick)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_JoystickGUID</span> <span class="pre">SDL_JoystickGetGUIDFromString(const</span> <span class="pre">char</span> <span class="pre">*pchGUID)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_JoystickGetGUIDString(SDL_JoystickGUID</span> <span class="pre">guid,char</span> <span class="pre">*pszGUID,int</span> <span class="pre">cbGUID)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint8</span> <span class="pre">SDL_JoystickGetHat(SDL_Joystick</span> <span class="pre">*joystick,int</span> <span class="pre">hat)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_JoystickID</span> <span class="pre">SDL_JoystickInstanceID(SDL_Joystick</span> <span class="pre">*joystick)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_JoystickName(SDL_Joystick</span> <span class="pre">*joystick)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_JoystickNameForIndex(int</span> <span class="pre">device_index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_JoystickNumAxes(SDL_Joystick</span> <span class="pre">*joystick)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_JoystickNumBalls(SDL_Joystick</span> <span class="pre">*joystick)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_JoystickNumButtons(SDL_Joystick</span> <span class="pre">*joystick)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_JoystickNumHats(SDL_Joystick</span> <span class="pre">*joystick)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Joystick</span> <span class="pre">*SDL_JoystickOpen(int</span> <span class="pre">device_index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_JoystickUpdate(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_NumJoysticks(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GameControllerAddMapping(const</span> <span class="pre">char</span> <span class="pre">*mappingString)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GameControllerAddMappingsFromFile(const</span> <span class="pre">char</span> <span class="pre">*filename)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GameControllerAddMappingsFromRW(SDL_RWops</span> <span class="pre">*rw,int</span> <span class="pre">freerw)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GameControllerClose(SDL_GameController</span> <span class="pre">*gamecontroller)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GameControllerEventState(int</span> <span class="pre">state)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_GameControllerGetAttached(SDL_GameController</span> <span class="pre">*gamecontroller)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sint16</span> <span class="pre">SDL_GameControllerGetAxis(SDL_GameController</span> <span class="pre">*gamecontroller,SDL_GameControllerAxis</span> <span class="pre">axis)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_GameControllerAxis</span> <span class="pre">SDL_GameControllerGetAxisFromString(const</span> <span class="pre">char</span> <span class="pre">*pchString)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_GameControllerButtonBind</span> <span class="pre">SDL_GameControllerGetBindForAxis(SDL_GameController</span> <span class="pre">*gamecontroller,SDL_GameControllerAxis</span> <span class="pre">axis)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_GameControllerButtonBind</span> <span class="pre">SDL_GameControllerGetBindForButton(SDL_GameController</span> <span class="pre">*gamecontroller,SDL_GameControllerButton</span> <span class="pre">button)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint8</span> <span class="pre">SDL_GameControllerGetButton(SDL_GameController</span> <span class="pre">*gamecontroller,SDL_GameControllerButton</span> <span class="pre">button)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_GameControllerButton</span> <span class="pre">SDL_GameControllerGetButtonFromString(const</span> <span class="pre">char</span> <span class="pre">*pchString)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Joystick</span> <span class="pre">*SDL_GameControllerGetJoystick(SDL_GameController</span> <span class="pre">*gamecontroller)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_GameControllerGetStringForAxis(SDL_GameControllerAxis</span> <span class="pre">axis)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_GameControllerGetStringForButton(SDL_GameControllerButton</span> <span class="pre">button)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*SDL_GameControllerMapping(SDL_GameController</span> <span class="pre">*gamecontroller)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*SDL_GameControllerMappingForGUID(SDL_JoystickGUID</span> <span class="pre">guid)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_GameControllerName(SDL_GameController</span> <span class="pre">*gamecontroller)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_GameControllerNameForIndex(int</span> <span class="pre">joystick_index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_GameController*</span> <span class="pre">SDL_GameControllerOpen(int</span> <span class="pre">joystick_index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_GameControllerUpdate(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_IsGameController(int</span> <span class="pre">joystick_index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_HapticClose(SDL_Haptic*</span> <span class="pre">haptic)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_HapticDestroyEffect(SDL_Haptic</span> <span class="pre">*haptic,int</span> <span class="pre">effect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticEffectSupported(SDL_Haptic</span> <span class="pre">*haptic,SDL_HapticEffect</span> <span class="pre">*effect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticGetEffectStatus(SDL_Haptic</span> <span class="pre">*haptic,int</span> <span class="pre">effect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticIndex(SDL_Haptic</span> <span class="pre">*haptic)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_HapticName(int</span> <span class="pre">device_index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticNewEffect(SDL_Haptic</span> <span class="pre">*haptic,SDL_HapticEffect</span> <span class="pre">*effect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticNumAxes(SDL_Haptic</span> <span class="pre">*haptic)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticNumEffects(SDL_Haptic</span> <span class="pre">*haptic)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticNumEffectsPlaying(SDL_Haptic</span> <span class="pre">*haptic)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Haptic</span> <span class="pre">*SDL_HapticOpen(int</span> <span class="pre">device_index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Haptic</span> <span class="pre">*SDL_HapticOpenFromJoystick(SDL_Joystick</span> <span class="pre">*joystick)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Haptic</span> <span class="pre">*SDL_HapticOpenFromMouse(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticOpened(int</span> <span class="pre">device_index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticPause(SDL_Haptic</span> <span class="pre">*haptic)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span> <span class="pre">SDL_HapticQuery(SDL_Haptic</span> <span class="pre">*haptic)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticRumbleInit(SDL_Haptic</span> <span class="pre">*haptic)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticRumblePlay(SDL_Haptic</span> <span class="pre">*haptic,float</span> <span class="pre">strength,Uint32</span> <span class="pre">length)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticRumbleStop(SDL_Haptic</span> <span class="pre">*haptic)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticRumbleSupported(SDL_Haptic</span> <span class="pre">*haptic)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticRunEffect(SDL_Haptic</span> <span class="pre">*haptic,int</span> <span class="pre">effect,Uint32</span> <span class="pre">iterations)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticSetAutocenter(SDL_Haptic</span> <span class="pre">*haptic,int</span> <span class="pre">autocenter)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticSetGain(SDL_Haptic</span> <span class="pre">*haptic,int</span> <span class="pre">gain)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticStopAll(SDL_Haptic</span> <span class="pre">*haptic)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticStopEffect(SDL_Haptic</span> <span class="pre">*haptic,int</span> <span class="pre">effect)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticUnpause(SDL_Haptic</span> <span class="pre">*haptic)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_HapticUpdateEffect(SDL_Haptic</span> <span class="pre">*haptic,int</span> <span class="pre">effect,SDL_HapticEffect</span> <span class="pre">*data)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_JoystickIsHaptic(SDL_Joystick</span> <span class="pre">*joystick)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_MouseIsHaptic(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_NumHaptics(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_AudioInit(const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">driver_name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_AudioQuit(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_BuildAudioCVT(SDL_AudioCVT</span> <span class="pre">*cvt,SDL_AudioFormat</span> <span class="pre">src_format,Uint8</span> <span class="pre">src_channels,int</span> <span class="pre">src_rate,SDL_AudioFormat</span> <span class="pre">dst_format,Uint8</span> <span class="pre">dst_channels,int</span> <span class="pre">dst_rate)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_CloseAudio(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_CloseAudioDevice(SDL_AudioDeviceID</span> <span class="pre">dev)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_ConvertAudio(SDL_AudioCVT</span> <span class="pre">*cvt)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_FreeWAV(Uint8</span> <span class="pre">*audio_buf)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">SDL_GetAudioDeviceName(int</span> <span class="pre">index,int</span> <span class="pre">iscapture)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_AudioStatus</span> <span class="pre">SDL_GetAudioDeviceStatus(SDL_AudioDeviceID</span> <span class="pre">dev)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">SDL_GetAudioDriver(int</span> <span class="pre">index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_AudioStatus</span> <span class="pre">SDL_GetAudioStatus(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*</span> <span class="pre">SDL_GetCurrentAudioDriver(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetNumAudioDevices(int</span> <span class="pre">iscapture)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetNumAudioDrivers(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_AudioSpec</span> <span class="pre">*SDL_LoadWAV(const</span> <span class="pre">char</span> <span class="pre">*file,SDL_AudioSpec</span> <span class="pre">*spec,Uint8</span> <span class="pre">**audio_buf,Uint32</span> <span class="pre">*audio_len)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_AudioSpec</span> <span class="pre">*SDL_LoadWAV_RW(SDL_RWops</span> <span class="pre">*src,int</span> <span class="pre">freesrc,SDL_AudioSpec</span> <span class="pre">*spec,Uint8</span> <span class="pre">**audio_buf,Uint32</span> <span class="pre">*audio_len)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_LockAudio(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_LockAudioDevice(SDL_AudioDeviceID</span> <span class="pre">dev)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_MixAudio(Uint8</span> <span class="pre">*dst,const</span> <span class="pre">Uint8*</span> <span class="pre">src,Uint32</span> <span class="pre">len,int</span> <span class="pre">volume)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_MixAudioFormat(Uint8</span> <span class="pre">*dst,const</span> <span class="pre">Uint8</span> <span class="pre">*src,SDL_AudioFormat</span> <span class="pre">format,Uint32</span> <span class="pre">len,int</span> <span class="pre">volume)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_OpenAudio(SDL_AudioSpec</span> <span class="pre">*desired,SDL_AudioSpec</span> <span class="pre">*obtained)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_AudioDeviceID</span> <span class="pre">SDL_OpenAudioDevice(const</span> <span class="pre">char</span> <span class="pre">*device,int</span> <span class="pre">iscapture,const</span> <span class="pre">SDL_AudioSpec</span> <span class="pre">*desired,SDL_AudioSpec</span> <span class="pre">*obtained,int</span> <span class="pre">allowed_changes)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_PauseAudio(int</span> <span class="pre">pause_on)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_PauseAudioDevice(SDL_AudioDeviceID</span> <span class="pre">dev,int</span> <span class="pre">pause_on)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_UnlockAudio(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_UnlockAudioDevice(SDL_AudioDeviceID</span> <span class="pre">dev)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*SDL_GetBasePath(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*SDL_GetPrefPath(const</span> <span class="pre">char</span> <span class="pre">*org,const</span> <span class="pre">char</span> <span class="pre">*app)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_RWops</span> <span class="pre">*SDL_AllocRW(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_FreeRW(SDL_RWops</span> <span class="pre">*area)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_RWops</span> <span class="pre">*SDL_RWFromConstMem(const</span> <span class="pre">void*</span> <span class="pre">mem,int</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_RWops</span> <span class="pre">*SDL_RWFromFP(void</span> <span class="pre">*fp,SDL_bool</span> <span class="pre">autoclose)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_RWops</span> <span class="pre">*SDL_RWFromFile(const</span> <span class="pre">char</span> <span class="pre">*file,const</span> <span class="pre">char</span> <span class="pre">*mode)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_RWops</span> <span class="pre">*SDL_RWFromMem(void</span> <span class="pre">*mem,int</span>&#160;&#160; <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_RWclose(struct</span> <span class="pre">SDL_RWops</span> <span class="pre">*context)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">SDL_RWread(struct</span> <span class="pre">SDL_RWops</span> <span class="pre">*context,void</span> <span class="pre">*ptr,size_t</span> <span class="pre">size,size_t</span> <span class="pre">maxnum)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sint64</span> <span class="pre">SDL_RWseek(SDL_RWops</span> <span class="pre">*context,Sint64</span> <span class="pre">offset,int</span> <span class="pre">whence)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sint64</span> <span class="pre">SDL_RWsize(SDL_RWops</span> <span class="pre">*context)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sint64</span> <span class="pre">SDL_RWtell(struct</span> <span class="pre">SDL_RWops</span> <span class="pre">*context)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">SDL_RWwrite(struct</span> <span class="pre">SDL_RWops</span> <span class="pre">*context,const</span> <span class="pre">void</span> <span class="pre">*ptr,size_t</span> <span class="pre">size,size_t</span> <span class="pre">num)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint16</span> <span class="pre">SDL_ReadBE16(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDL_ReadBE32(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint64</span> <span class="pre">SDL_ReadBE64(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint16</span> <span class="pre">SDL_ReadLE16(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDL_ReadLE32(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint64</span> <span class="pre">SDL_ReadLE64(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint8</span> <span class="pre">SDL_ReadU8(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">SDL_WriteBE16(SDL_RWops</span> <span class="pre">*dst,Uint16</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">SDL_WriteBE32(SDL_RWops</span> <span class="pre">*dst,Uint32</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">SDL_WriteBE64(SDL_RWops</span> <span class="pre">*dst,Uint64</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">SDL_WriteLE16(SDL_RWops</span> <span class="pre">*dst,Uint16</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">SDL_WriteLE32(SDL_RWops</span> <span class="pre">*dst,Uint32</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">SDL_WriteLE64(SDL_RWops</span> <span class="pre">*dst,Uint64</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span> <span class="pre">SDL_WriteU8(SDL_RWops</span> <span class="pre">*dst,Uint8</span> <span class="pre">value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*SDL_LoadFunction(void</span> <span class="pre">*handle,const</span> <span class="pre">char</span> <span class="pre">*name)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*SDL_LoadObject(const</span> <span class="pre">char</span> <span class="pre">*sofile)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_UnloadObject(void</span> <span class="pre">*handle)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_GetPlatform(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetCPUCacheLineSize(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetCPUCount(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_GetSystemRAM(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_Has3DNow(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasAVX(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasAltiVec(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasMMX(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasRDTSC(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasSSE(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasSSE2(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasSSE3(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasSSE41(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_bool</span> <span class="pre">SDL_HasSSE42(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_PowerState</span> <span class="pre">SDL_GetPowerInfo(int</span> <span class="pre">*secs,int</span> <span class="pre">*pct)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">SDL_acos(double</span> <span class="pre">x)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_Init(int</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">IMG_Quit(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_Load(const</span> <span class="pre">char</span> <span class="pre">*file)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_Load_RW(SDL_RWops</span> <span class="pre">*src,</span> <span class="pre">int</span> <span class="pre">freesrc)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadTyped_RW(SDL_RWops</span> <span class="pre">*src,</span> <span class="pre">int</span> <span class="pre">freesrc,</span> <span class="pre">char</span> <span class="pre">*type)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadCUR_RW(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadBMP_RW(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadPNM_RW(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadXPM_RW(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadXCF_RW(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadPCX_RW(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadGIF_RW(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadJPG_RW(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadTIF_RW(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadPNG_RW(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadTGA_RW(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadLBM_RW(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_LoadXV_RW(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*IMG_ReadXPMFromArray(char</span> <span class="pre">**xpm)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_isCUR(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_isICO(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_isBMP(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_isPNM(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_isXPM(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_isXCF(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_isPCX(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_isGIF(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_isJPG(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_isTIF(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_isPNG(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_isLBM(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">IMG_isXV(SDL_RWops</span> <span class="pre">*src)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_Init(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_WasInit(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">TTF_Quit(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TTF_Font</span> <span class="pre">*TTF_OpenFont(const</span> <span class="pre">char</span> <span class="pre">*file,</span> <span class="pre">int</span> <span class="pre">ptsize)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TTF_Font</span> <span class="pre">*TTF_OpenFontRW(SDL_RWops</span> <span class="pre">*src,</span> <span class="pre">int</span> <span class="pre">freesrc,</span> <span class="pre">int</span> <span class="pre">ptsize)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TTF_Font</span> <span class="pre">*TTF_OpenFontIndex(const</span> <span class="pre">char</span> <span class="pre">*file,</span> <span class="pre">int</span> <span class="pre">ptsize,</span> <span class="pre">long</span> <span class="pre">index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TTF_Font</span> <span class="pre">*TTF_OpenFontIndexRW(SDL_RWops</span> <span class="pre">*src,</span> <span class="pre">int</span> <span class="pre">freesrc,</span> <span class="pre">int</span> <span class="pre">ptsize,</span> <span class="pre">long</span> <span class="pre">index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">TTF_CloseFont(TTF_Font</span> <span class="pre">*font)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">TTF_ByteSwappedUNICODE(int</span> <span class="pre">swapped)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_GetFontStyle(TTF_Font</span> <span class="pre">*font)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">TTF_SetFontStyle(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">int</span> <span class="pre">style)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_GetFontOutline(TTF_Font</span> <span class="pre">*font)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">TTF_SetFontOutline(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">int</span> <span class="pre">outline)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_GetFontHinting(TTF_Font</span> <span class="pre">*font)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">TTF_SetFontHinting(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">int</span> <span class="pre">hinting)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_GetFontKerning(TTF_Font</span> <span class="pre">*font)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">TTF_SetFontKerning(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">int</span> <span class="pre">allowed)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_FontHeight(const</span> <span class="pre">TTF_Font</span> <span class="pre">*font)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_FontAscent(const</span> <span class="pre">TTF_Font</span> <span class="pre">*font)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_FontDescent(const</span> <span class="pre">TTF_Font</span> <span class="pre">*font)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_FontLineSkip(const</span> <span class="pre">TTF_Font</span> <span class="pre">*font)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">TTF_FontFaces(const</span> <span class="pre">TTF_Font</span> <span class="pre">*font)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_FontFaceIsFixedWidth(const</span> <span class="pre">TTF_Font</span> <span class="pre">*font)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*TTF_FontFaceFamilyName(const</span> <span class="pre">TTF_Font</span> <span class="pre">*font)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*TTF_FontFaceStyleName(const</span> <span class="pre">TTF_Font</span> <span class="pre">*font)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_GlyphIsProvided(const</span> <span class="pre">TTF_Font</span> <span class="pre">*font,</span> <span class="pre">Uint16</span> <span class="pre">ch)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_GlyphMetrics(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">Uint16</span> <span class="pre">ch,</span> <span class="pre">int</span> <span class="pre">*minx,</span> <span class="pre">int</span> <span class="pre">*maxx,</span> <span class="pre">int</span> <span class="pre">*miny,</span> <span class="pre">int</span> <span class="pre">*maxy,</span> <span class="pre">int</span> <span class="pre">*advance)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_SizeText(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*text,</span> <span class="pre">int</span> <span class="pre">*w,</span> <span class="pre">int</span> <span class="pre">*h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_SizeUTF8(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*text,</span> <span class="pre">int</span> <span class="pre">*w,</span> <span class="pre">int</span> <span class="pre">*h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">TTF_SizeUNICODE(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">const</span> <span class="pre">Uint16</span> <span class="pre">*text,</span> <span class="pre">int</span> <span class="pre">*w,</span> <span class="pre">int</span> <span class="pre">*h)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*TTF_RenderText_Solid(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*text,</span> <span class="pre">SDL_Color</span> <span class="pre">fg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*TTF_RenderUTF8_Solid(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*text,SDL_Color</span> <span class="pre">fg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*TTF_RenderUNICODE_Solid(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">const</span> <span class="pre">Uint16</span> <span class="pre">*text,SDL_Color</span> <span class="pre">fg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*TTF_RenderGlyph_Solid(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">Uint16</span> <span class="pre">ch,</span> <span class="pre">SDL_Color</span> <span class="pre">fg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*TTF_RenderText_Shaded(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*text,SDL_Color</span> <span class="pre">fg,</span> <span class="pre">SDL_Color</span> <span class="pre">bg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*TTF_RenderUTF8_Shaded(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*text,SDL_Color</span> <span class="pre">fg,</span> <span class="pre">SDL_Color</span> <span class="pre">bg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*TTF_RenderUNICODE_Shaded(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">const</span> <span class="pre">Uint16</span> <span class="pre">*text,SDL_Color</span> <span class="pre">fg,</span> <span class="pre">SDL_Color</span> <span class="pre">bg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*TTF_RenderGlyph_Shaded(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">Uint16</span> <span class="pre">ch,</span> <span class="pre">SDL_Color</span> <span class="pre">fg,SDL_Color</span> <span class="pre">bg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*TTF_RenderText_Blended(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*text,SDL_Color</span> <span class="pre">fg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*TTF_RenderUTF8_Blended(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*text,SDL_Color</span> <span class="pre">fg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*TTF_RenderUNICODE_Blended(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">const</span> <span class="pre">Uint16</span> <span class="pre">*text,SDL_Color</span> <span class="pre">fg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Surface</span> <span class="pre">*TTF_RenderGlyph_Blended(TTF_Font</span> <span class="pre">*font,</span> <span class="pre">Uint16</span> <span class="pre">ch,</span> <span class="pre">SDL_Color</span> <span class="pre">fg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_Init(int</span> <span class="pre">flags)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">Mix_Quit(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_OpenAudio(int</span> <span class="pre">frequency,</span> <span class="pre">Uint16</span> <span class="pre">format,</span> <span class="pre">int</span> <span class="pre">channels,</span> <span class="pre">int</span> <span class="pre">chunksize)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">Mix_CloseAudio(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*Mix_GetError(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_QuerySpec(int</span> <span class="pre">*frequency,</span> <span class="pre">Uint16</span> <span class="pre">*format,</span> <span class="pre">int</span> <span class="pre">*channels)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_GetNumChunkDecoders(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*Mix_GetChunkDecoder(int</span> <span class="pre">index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mix_Chunk</span> <span class="pre">*Mix_LoadWAV(char</span> <span class="pre">*file)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mix_Chunk</span> <span class="pre">*Mix_LoadWAV_RW(SDL_RWops</span> <span class="pre">*src,</span> <span class="pre">int</span> <span class="pre">freesrc)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mix_Chunk</span> <span class="pre">*Mix_QuickLoad_WAV(Uint8</span> <span class="pre">*mem)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_VolumeChunk(Mix_Chunk</span> <span class="pre">*chunk,</span> <span class="pre">int</span> <span class="pre">volume)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">Mix_FreeChunk(Mix_Chunk</span> <span class="pre">*chunk)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_AllocateChannels(int</span> <span class="pre">numchans)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_Volume(int</span> <span class="pre">channel,</span> <span class="pre">int</span> <span class="pre">volume)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_PlayChannel(int</span> <span class="pre">channel,</span> <span class="pre">Mix_Chunk</span> <span class="pre">*chunk,</span> <span class="pre">int</span> <span class="pre">loops)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_PlayChannelTimed(int</span> <span class="pre">channel,</span> <span class="pre">Mix_Chunk</span> <span class="pre">*chunk,</span> <span class="pre">int</span> <span class="pre">loops,</span> <span class="pre">int</span> <span class="pre">ticks)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_FadeInChannel(int</span> <span class="pre">channel,</span> <span class="pre">Mix_Chunk</span> <span class="pre">*chunk,</span> <span class="pre">int</span> <span class="pre">loops,</span> <span class="pre">int</span> <span class="pre">ms)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_FadeInChannelTimed(int</span> <span class="pre">channel,</span> <span class="pre">Mix_Chunk</span> <span class="pre">*chunk,int</span> <span class="pre">loops,</span> <span class="pre">int</span> <span class="pre">ms,</span> <span class="pre">int</span> <span class="pre">ticks)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">Mix_Pause(int</span> <span class="pre">channel)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">Mix_Resume(int</span> <span class="pre">channel)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_HaltChannel(int</span> <span class="pre">channel)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_ExpireChannel(int</span> <span class="pre">channel,</span> <span class="pre">int</span> <span class="pre">ticks)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_FadeOutChannel(int</span> <span class="pre">channel,</span> <span class="pre">int</span> <span class="pre">ms)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_Playing(int</span> <span class="pre">channel)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_Paused(int</span> <span class="pre">channel)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mix_Fading</span> <span class="pre">Mix_FadingChannel(int</span> <span class="pre">which)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mix_Chunk</span> <span class="pre">*Mix_GetChunk(int</span> <span class="pre">channel)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_ReserveChannels(int</span> <span class="pre">num)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_GroupChannel(int</span> <span class="pre">which,</span> <span class="pre">int</span> <span class="pre">tag)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_GroupChannels(int</span> <span class="pre">from,</span> <span class="pre">int</span> <span class="pre">to,</span> <span class="pre">int</span> <span class="pre">tag)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_GroupCount(int</span> <span class="pre">tag)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_GroupAvailable(int</span> <span class="pre">tag)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_GroupOldest(int</span> <span class="pre">tag)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_GroupNewer(int</span> <span class="pre">tag)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_FadeOutGroup(int</span> <span class="pre">tag,</span> <span class="pre">int</span> <span class="pre">ms)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_HaltGroup(int</span> <span class="pre">tag)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_GetNumMusicDecoders(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*Mix_GetMusicDecoder(int</span> <span class="pre">index)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mix_Music</span> <span class="pre">*Mix_LoadMUS(const</span> <span class="pre">char</span> <span class="pre">*file)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">Mix_FreeMusic(Mix_Music</span> <span class="pre">*music)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_PlayMusic(Mix_Music</span> <span class="pre">*music,</span> <span class="pre">int</span> <span class="pre">loops)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_FadeInMusic(Mix_Music</span> <span class="pre">*music,</span> <span class="pre">int</span> <span class="pre">loops,</span> <span class="pre">int</span> <span class="pre">ms)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_FadeInMusicPos(Mix_Music</span> <span class="pre">*music,</span> <span class="pre">int</span> <span class="pre">loops,</span> <span class="pre">int</span> <span class="pre">ms,</span> <span class="pre">double</span> <span class="pre">position)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mix_MusicType</span> <span class="pre">Mix_GetMusicType(const</span> <span class="pre">Mix_Music</span> <span class="pre">*music)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_PlayingMusic(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_PausedMusic(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mix_Fading</span> <span class="pre">Mix_FadingMusic(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*Mix_GetMusicHookData(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_RegisterEffect(int</span> <span class="pre">chan,</span> <span class="pre">Mix_EffectFunc_t</span> <span class="pre">f,</span> <span class="pre">Mix_EffectDone_t</span> <span class="pre">d,void</span> <span class="pre">*arg)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_UnregisterEffect(int</span> <span class="pre">channel,</span> <span class="pre">Mix_EffectFunc_t</span> <span class="pre">f)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_UnregisterAllEffects(int</span> <span class="pre">channel)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_SetPanning(int</span> <span class="pre">channel,</span> <span class="pre">Uint8</span> <span class="pre">left,</span> <span class="pre">Uint8</span> <span class="pre">right)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_SetDistance(int</span> <span class="pre">channel,</span> <span class="pre">Uint8</span> <span class="pre">distance)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_SetPosition(int</span> <span class="pre">channel,</span> <span class="pre">Sint16</span> <span class="pre">angle,</span> <span class="pre">Uint8</span> <span class="pre">distance)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">Mix_SetReverseStereo(int</span> <span class="pre">channel,</span> <span class="pre">int</span> <span class="pre">flip)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_Init(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDLNet_Quit(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">*SDLNet_GetError(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDLNet_Write16(Uint16</span> <span class="pre">value,</span> <span class="pre">void</span> <span class="pre">*area)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDLNet_Write32(Uint32</span> <span class="pre">value,</span> <span class="pre">void</span> <span class="pre">*area)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint16</span> <span class="pre">SDLNet_Read16(void</span> <span class="pre">*area)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDLNet_Read32(void</span> <span class="pre">*area)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_ResolveHost(IPaddress</span> <span class="pre">*address,</span> <span class="pre">const</span> <span class="pre">char</span> <span class="pre">*host,</span> <span class="pre">Uint16</span> <span class="pre">port)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDLNet_ResolveIP(IPaddress</span> <span class="pre">*address)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TCPsocket</span> <span class="pre">SDLNet_TCP_Open(IPaddress</span> <span class="pre">*ip)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDLNet_TCP_Close(TCPsocket</span> <span class="pre">sock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TCPsocket</span> <span class="pre">SDLNet_TCP_Accept(TCPsocket</span> <span class="pre">server)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_TCP_Send(TCPsocket</span> <span class="pre">sock,</span> <span class="pre">const</span> <span class="pre">void</span> <span class="pre">*data,</span> <span class="pre">int</span> <span class="pre">len)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_TCP_Recv(TCPsocket</span> <span class="pre">sock,</span> <span class="pre">void</span> <span class="pre">*data,</span> <span class="pre">int</span> <span class="pre">maxlen)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UDPsocket</span> <span class="pre">SDLNet_UDP_Open(Uint16</span> <span class="pre">port)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDLNet_UDP_Close(UDPsocket</span> <span class="pre">sock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_UDP_Bind(UDPsocket</span> <span class="pre">sock,</span> <span class="pre">int</span> <span class="pre">channel,</span> <span class="pre">IPaddress</span> <span class="pre">*address)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDLNet_UDP_Unbind(UDPsocket</span> <span class="pre">sock,</span> <span class="pre">int</span> <span class="pre">channel)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IPaddress</span> <span class="pre">*SDLNet_UDP_GetPeerAddress(UDPsocket</span> <span class="pre">sock,</span> <span class="pre">int</span> <span class="pre">channel)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_UDP_Send(UDPsocket</span> <span class="pre">sock,</span> <span class="pre">int</span> <span class="pre">channel,</span> <span class="pre">UDPpacket</span> <span class="pre">*packet)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_UDP_Recv(UDPsocket</span> <span class="pre">sock,</span> <span class="pre">UDPpacket</span> <span class="pre">*packet)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_UDP_SendV(UDPsocket</span> <span class="pre">sock,</span> <span class="pre">UDPpacket</span> <span class="pre">**packetV,</span> <span class="pre">int</span> <span class="pre">npackets)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_UDP_RecvV(UDPsocket</span> <span class="pre">sock,</span> <span class="pre">UDPpacket</span> <span class="pre">**packetV)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UDPpacket</span> <span class="pre">*SDLNet_AllocPacket(int</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_ResizePacket(UDPpacket</span> <span class="pre">*packet,</span> <span class="pre">int</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDLNet_FreePacket(UDPpacket</span> <span class="pre">*packet)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UDPpacket</span> <span class="pre">**SDLNet_AllocPacketV(int</span> <span class="pre">howmany,</span> <span class="pre">int</span> <span class="pre">size)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDLNet_FreePacketV(UDPpacket</span> <span class="pre">**packetV)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDLNet_SocketSet</span> <span class="pre">SDLNet_AllocSocketSet(int</span> <span class="pre">maxsockets)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDLNet_FreeSocketSet(SDLNet_SocketSet</span> <span class="pre">set)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_AddSocket(SDLNet_SocketSet</span> <span class="pre">set,</span> <span class="pre">SDLNet_GenericSocket</span> <span class="pre">sock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_TCP_AddSocket(SDLNet_SocketSet</span> <span class="pre">set,</span> <span class="pre">TCPsocket</span> <span class="pre">sock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_UDP_AddSocket(SDLNet_SocketSet</span> <span class="pre">set,</span> <span class="pre">UDPsocket</span> <span class="pre">sock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_DelSocket(SDLNet_SocketSet</span> <span class="pre">set,</span> <span class="pre">SDLNet_GenericSocket</span> <span class="pre">sock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_TCP_DelSocket(SDLNet_SocketSet</span> <span class="pre">set,</span> <span class="pre">TCPsocket</span> <span class="pre">sock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_UDP_DelSocket(SDLNet_SocketSet</span> <span class="pre">set,</span> <span class="pre">UDPsocket</span> <span class="pre">sock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_CheckSockets(SDLNet_SocketSet</span> <span class="pre">set,</span> <span class="pre">Uint32</span> <span class="pre">timeout)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDLNet_SocketReady(TCPsocket</span> <span class="pre">sock)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">circleRGBA(SDL_Renderer</span> <span class="pre">*</span> <span class="pre">renderer,</span> <span class="pre">Sint16</span> <span class="pre">x,</span> <span class="pre">Sint16</span> <span class="pre">y,</span> <span class="pre">Sint16</span> <span class="pre">rad,</span> <span class="pre">Uint8</span> <span class="pre">r,</span> <span class="pre">Uint8</span> <span class="pre">g,</span> <span class="pre">Uint8</span> <span class="pre">b,</span> <span class="pre">Uint8</span> <span class="pre">a)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_Thread</span> <span class="pre">*SDL_CreateThread(SDL_ThreadFunction</span> <span class="pre">fn,const</span> <span class="pre">char</span> <span class="pre">*name,void</span> <span class="pre">*data)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_DetachThread(SDL_Thread</span> <span class="pre">*thread)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_threadID</span> <span class="pre">SDL_GetThreadID(SDL_Thread</span> <span class="pre">*thread)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">char</span> <span class="pre">*SDL_GetThreadName(SDL_Thread*</span> <span class="pre">thread)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SetThreadPriority(SDL_ThreadPriority</span> <span class="pre">priority)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_TLSID</span> <span class="pre">SDL_TLSCreate(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*SDL_TLSGet(SDL_TLSID</span> <span class="pre">id)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_TLSSet(SDL_TLSID</span>&#160;&#160; <span class="pre">id,const</span> <span class="pre">void</span> <span class="pre">*value,void</span> <span class="pre">*)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_threadID</span> <span class="pre">SDL_ThreadID(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_WaitThread(SDL_Thread</span> <span class="pre">*thread,int</span> <span class="pre">*status)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_CondBroadcast(SDL_cond</span> <span class="pre">*cond)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_CondSignal(SDL_cond</span> <span class="pre">*cond)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_CondWait(SDL_cond</span> <span class="pre">*cond,SDL_mutex</span> <span class="pre">*mutex)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_CondWaitTimeout(SDL_cond</span> <span class="pre">*cond,SDL_mutex</span> <span class="pre">*mutex,Uint32</span> <span class="pre">ms)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_cond</span> <span class="pre">*SDL_CreateCond(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_mutex</span> <span class="pre">*SDL_CreateMutex(void)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SDL_sem</span> <span class="pre">*SDL_CreateSemaphore(Uint32</span> <span class="pre">initial_value)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_DestroyCond(SDL_cond</span> <span class="pre">*cond)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_DestroyMutex(SDL_mutex</span> <span class="pre">*mutex)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">SDL_DestroySemaphore(SDL_sem</span> <span class="pre">*sem)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_LockMutex(SDL_mutex</span> <span class="pre">*mutex)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SemPost(SDL_sem</span> <span class="pre">*sem)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SemTryWait(SDL_sem</span> <span class="pre">*sem)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uint32</span> <span class="pre">SDL_SemValue(SDL_sem</span> <span class="pre">*sem)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SemWait(SDL_sem</span> <span class="pre">*sem)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_SemWaitTimeout(SDL_sem</span> <span class="pre">*sem,Uint32</span>&#160;&#160; <span class="pre">ms)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_TryLockMutex(SDL_mutex</span> <span class="pre">*mutex)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">SDL_UnlockMutex(SDL_mutex</span> <span class="pre">*mutex)</span></code></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="libsdl.html" class="btn btn-neutral float-left" title="Using RingLibSDL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="libuv.html" class="btn btn-neutral float-right" title="Using RingLibuv" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, Mahmoud Fayed.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

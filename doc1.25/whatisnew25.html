@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is new in Ring 1.25 &mdash; Ring 1.25.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/dark_mode_js/default_dark.js"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using Other Code Editors" href="codeeditors.html" />
+    <link rel="prev" title="What is new in Ring 1.24" href="whatisnew24.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">Using CSVLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">Using JSONLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">Using HTTPLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_platforms.html">Deploying Web Applications to Cloud Platforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tilengine.html">Using RingTilengine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">Using ZeroLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">Using FoxRing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">Using BigNumber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">Using TokensLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Using RingThreads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using RingLibui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingrogueutil.html">Using RingRogueUtil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingfastpro.html">Using FastPro Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingpico.html">Using Ring for Raspberry Pi Pico Microcontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew19.html">Release Notes: Version 1.19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew23.html">Release Notes: Version 1.23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew24.html">Release Notes: Version 1.24</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.25</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stock-analysis-application">Stock Analysis Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#distromap-api">DistroMap API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvaders-game">RingVaders Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#im2ansi-tool">Im2ANSI Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#myctiger-tool">MyCTiger Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-naturallib">Better NaturalLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-tokenslib">Better TokensLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#callable-functions-as-methods">Callable Functions as Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flexible-statement-separation">Flexible Statement Separation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-keywords-as-identifiers">Using Keywords as Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#newline-callbacks-inside-braces">Newline Callbacks Inside Braces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#translating-internal-identifiers">Translating Internal Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-translatecfunction-function">RingVM_TranslateCFunction() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-errorhandler-function">RingVM_ErrorHandler() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-ringolists-function">RingVM_RingoLists() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-writeringo-function">RingVM_WriteRingo() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-object-file-format-update">Ring Object File Format Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">What is new in Ring 1.25</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="what-is-new-in-ring-1-25">
+<span id="index-0"></span><h1>What is new in Ring 1.25<a class="headerlink" href="#what-is-new-in-ring-1-25" title="Permalink to this heading"></a></h1>
+<p>In this chapter we will learn about the changes and new features in Ring 1.25 release.</p>
+<section id="list-of-changes-and-new-features">
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this heading"></a></h2>
+<p>Ring 1.25 comes with the next features!</p>
+<ul class="simple">
+<li><p>Stock Analysis Application</p></li>
+<li><p>DistroMap API</p></li>
+<li><p>RingVaders Game</p></li>
+<li><p>Im2ANSI Tool</p></li>
+<li><p>MyCTiger Tool</p></li>
+<li><p>More Samples</p></li>
+<li><p>More RingPM Packages</p></li>
+<li><p>Better NaturalLib</p></li>
+<li><p>Better TokensLib</p></li>
+<li><p>Better RingLibCurl</p></li>
+<li><p>Callable Functions as Methods</p></li>
+<li><p>Flexible Statement Separation</p></li>
+<li><p>Using Keywords as Identifiers</p></li>
+<li><p>Newline Callbacks Inside Braces</p></li>
+<li><p>Translating Internal Identifiers</p></li>
+<li><p>RingVM_TranslateCFunction() function</p></li>
+<li><p>RingVM_ErrorHandler() function</p></li>
+<li><p>RingVM_RingoLists() function</p></li>
+<li><p>RingVM_WriteRingo() function</p></li>
+<li><p>Ring Object File Format Update</p></li>
+<li><p>More Improvements</p></li>
+</ul>
+</section>
+<section id="stock-analysis-application">
+<span id="index-2"></span><h2>Stock Analysis Application<a class="headerlink" href="#stock-analysis-application" title="Permalink to this heading"></a></h2>
+<p>Stock analysis and simulation tool that fetches historical price data from
+Yahoo Finance, parses it into usable time series, calculates momentum-based returns, and
+simulates portfolio performance against a benchmark (QQQ).</p>
+<p>The application is developed using Ring, RingQt, RingLibCurl &amp; RingJSONLib</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install stockanalysis
+</pre></div>
+</div>
+<img alt="Stock Analysis" src="_images/stockanalysis.png" />
+</section>
+<section id="distromap-api">
+<span id="index-3"></span><h2>DistroMap API<a class="headerlink" href="#distromap-api" title="Permalink to this heading"></a></h2>
+<p>A lightweight web API server built with Ring that provides Linux distribution and release
+information based on codenames.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install distromap
+</pre></div>
+</div>
+<img alt="DistroMapAPI" src="_images/distromapapi.png" />
+</section>
+<section id="ringvaders-game">
+<span id="index-4"></span><h2>RingVaders Game<a class="headerlink" href="#ringvaders-game" title="Permalink to this heading"></a></h2>
+<p>A retro arcade shooter game written in Ring using RingAllegro.</p>
+<p>A clone of the classic Space Invaders.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ringvaders
+</pre></div>
+</div>
+<img alt="RingVaders" src="_images/ringvaders.png" />
+</section>
+<section id="im2ansi-tool">
+<span id="index-5"></span><h2>Im2ANSI Tool<a class="headerlink" href="#im2ansi-tool" title="Permalink to this heading"></a></h2>
+<p>Convert images into beautiful ANSI/ASCII art</p>
+<p>Developed using Ring, RingStbImage and RingFastPro</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install im2ansi
+</pre></div>
+</div>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Multiple Formats (Export to ANSI, ASCII, SVG, or HTML)</p></li>
+<li><p>Flexible Sizing (Control width and/or height independently)</p></li>
+<li><p>Color Inversion (Invert brightness for different backgrounds)</p></li>
+<li><p>Custom Characters (Use your own character sets for unique art)</p></li>
+<li><p>ASCII Ramps (12 built-in grayscale character ramps)</p></li>
+<li><p>Reproducible Output (Set a seed for consistent results)</p></li>
+<li><p>Cross-Platform        (Works on Linux, macOS, and Windows)</p></li>
+</ul>
+<img alt="im2ansi" src="_images/im2ansi.png" />
+</section>
+<section id="myctiger-tool">
+<span id="index-6"></span><h2>MyCTiger Tool<a class="headerlink" href="#myctiger-tool" title="Permalink to this heading"></a></h2>
+<p>Use the Ring programming language for generating and building C programs.</p>
+<p>URL: <a class="reference external" href="https://github.com/ringpackages/myctiger">https://github.com/ringpackages/myctiger</a></p>
+<p>Usage:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Tiger &lt;filename.tiger&gt;
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;filename.c&gt;            // Generated C source code
+&lt;filename.exe&gt;          // Executable file
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Tiger {
+
+        &quot;Hello, World! \n&quot;
+
+        #=================================================
+        C `
+                for (int x=1 ; x &lt;= 5 ;x++) {
+                        printf(&quot;%d\n&quot;,x);
+                }
+        `
+        #=================================================
+
+        if isWindows()
+                &quot;I am using Windows\n&quot;
+        else
+                &quot;I am not using Windows\n&quot;
+        ok
+
+}
+</pre></div>
+</div>
+<p>To build and run the program</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Tiger test.tiger
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Hello, World!
+1
+2
+3
+4
+5
+I am using Windows
+</pre></div>
+</div>
+<p>Generated C code (test.c)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#include &quot;stdio.h&quot;
+int main(int argc, char *argv[])
+{
+        printf(&quot;Hello, World! \n&quot;);
+        for (int x=1 ; x &lt;= 5 ;x++) {
+                printf(&quot;%d\n&quot;,x);
+        }
+        printf(&quot;I am using Windows\n&quot;);
+        return 0;
+}
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Imagine using MyCTiger and NaturalLib to build a domain‑specific language for microcontroller programming — giving you the flexibility of the Ring language and the performance and efficiency of C at the same time.</p>
+</div>
+</section>
+<section id="more-samples">
+<span id="index-7"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<p>The next samples are added:</p>
+<ul class="simple">
+<li><p>samples/UsingQt/DateEdit/daysto.ring</p></li>
+<li><p>samples/UsingQt/Combobox/ComboboxAlignItems.ring</p></li>
+<li><p>samples/UsingQt/LocalFont/test.ring</p></li>
+<li><p>samples/UsingTokensLib/test2.ring</p></li>
+<li><p>samples/UsingJSONLib (test14.ring and test15.ring)</p></li>
+<li><p>samples/UsingNaturalLib/tests/largecode.ring</p></li>
+<li><p>samples/UsingNaturalLib/advanced (concepts.ring, from lang1.ring to lang31.ring)</p></li>
+<li><p>samples/General/ListFunctions/ListFunctions.ring</p></li>
+<li><p>samples/General/Orbital/Obital-Solar-Eclipse.ring</p></li>
+<li><p>samples/General/Orbital/Obital-Lunar-Full-Moon-Meesus.ring</p></li>
+<li><p>samples/General/Orbital/Length-Of-Day-Calculator.ring</p></li>
+</ul>
+</section>
+<section id="more-ringpm-packages">
+<span id="index-8"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
+<p>The following packages have been added to the RingPM registry.</p>
+<ul class="simple">
+<li><p>Argon2: Ring binding for Argon2 hashing algorithm</p></li>
+<li><p>Bcrypt: Ring binding for the bcrypt password hashing algorithm</p></li>
+<li><p>FTP: A comprehensive FTP client library</p></li>
+<li><p>Ring-LibSQL: LibSQL client extension for the Ring language</p></li>
+<li><p>UUID: Extension for Universally Unique Identifier generation and validation</p></li>
+<li><p>Ring2EXE-Plus: Modern Packaging Options and Enhanced Compiler Control</p></li>
+<li><p>Ring-HTML: HTML5 parser library with CSS selectors and DOM manipulation</p></li>
+<li><p>RingML: Building Neural Networks (Using RingFastPro)</p></li>
+<li><p>RingTensor: Extension designed specifically to accelerate Matrix operations</p></li>
+<li><p>RingML-using-RingTensor: Building Neural Networks (Using RingTensor)</p></li>
+<li><p>Stock-Analysis-BM: Stock Analysis Momentum using Mega Stocks ticker list</p></li>
+<li><p>RingQML: A library used to interact with QML (Qt Meta-object Language)</p></li>
+<li><p>PrayTimes: Prayer times application developed using Ring and RingQML</p></li>
+</ul>
+</section>
+<section id="better-naturallib">
+<span id="index-9"></span><h2>Better NaturalLib<a class="headerlink" href="#better-naturallib" title="Permalink to this heading"></a></h2>
+<p>The NaturalLib is updated to provide</p>
+<ol class="arabic simple">
+<li><p>Better Performance</p></li>
+<li><p>The next methods are added to the NaturalLanguage class</p></li>
+</ol>
+<ul class="simple">
+<li><p>loadCommand(cCommandName)</p></li>
+<li><p>execute(cCode)</p></li>
+<li><p>setBeforeRun(cCode)</p></li>
+<li><p>setAfterRun(cCode)</p></li>
+<li><p>setStartKeywordsWith(cStart)</p></li>
+<li><p>setMaskKeywords(lMask)</p></li>
+<li><p>setMaskOperators(lMask)</p></li>
+<li><p>getBeforeRun() –&gt; cCode</p></li>
+<li><p>getAfterRun() –&gt; cCode</p></li>
+<li><p>getStartKeywordsWith() –&gt; cStart</p></li>
+<li><p>getMaskKeywords() –&gt; lMask</p></li>
+<li><p>getMaskOperators() –&gt; lMask</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>The next methods are added to the NaturalCommand class</p></li>
+</ol>
+<ul class="simple">
+<li><p>setPackageName(cName)</p></li>
+<li><p>startCache(cName)</p></li>
+<li><p>endCache()</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>We can use the following methods to access the command parameters, set the command output, and control NaturalLib’s behavior.</p></li>
+</ol>
+<ul class="simple">
+<li><p>expr(nPara) –&gt; Value</p></li>
+<li><p>isIdentifier(nPara) –&gt; lStatus</p></li>
+<li><p>commandReturn(vValue)</p></li>
+<li><p>passThisCommand()</p></li>
+<li><p>register(cAttribute)</p></li>
+<li><p>callerGetVar(cVar)</p></li>
+<li><p>callerSetVar(cVar,vValue)</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">defineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;RingLang.NaturalLib&quot;</span><span class="p">)</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+                        <span class="nf">callerSetVar</span><span class="p">(</span><span class="ss">:Secret</span><span class="p">,</span><span class="s2">&quot;Ring Programming is Fun!&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want button&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want button&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">syntaxIsCommandExpression</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;Window title is&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: Window title is &quot;</span> <span class="o">+</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;RingLang.NaturalLib&quot;</span><span class="p">)</span>
+        <span class="nf">setLanguage</span><span class="p">(</span><span class="ss">:GUI</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+
+        <span class="kp">new</span> <span class="nc">GUI</span> <span class="p">{</span>
+                <span class="n">I</span> <span class="n">want</span> <span class="n">window</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">window</span> <span class="n">title</span> <span class="n">is</span> <span class="s2">&quot;Hello, World!&quot;</span>
+                <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
+                        <span class="n">I</span> <span class="n">want</span> <span class="n">button</span>
+                <span class="k">next</span>
+        <span class="p">}</span>
+
+        <span class="o">?</span> <span class="s2">&quot; Secret: &quot;</span> <span class="o">+</span> <span class="n">Secret</span>  <span class="c1">// Local variable created by the (I want window) command</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: Window title is Hello, World!
+Command: I want button
+Command: I want button
+Command: I want button
+ Secret: Ring Programming is Fun!
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Check the (Using the Natural Library) chapter for more information.</p>
+</div>
+</section>
+<section id="better-tokenslib">
+<span id="index-10"></span><h2>Better TokensLib<a class="headerlink" href="#better-tokenslib" title="Permalink to this heading"></a></h2>
+<p>The library is updated to include the checkRingCode() function which is used for security.</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>checkRingCode(aPara) ---&gt; 1/0 (True/False)
+</pre></div>
+</div>
+<p>It is expected to be called before eval() when the input is just a Ring List.</p>
+<p>The function does not accept code that contains Ring keywords or specific operators such as (), {}, ., ?</p>
+<p>In other words: no statements, no function calls, no object access, and no output using the ? operator.</p>
+<p>The function support options like safe keywords and safe operators.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;tokenslib.ring&quot;</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+
+        <span class="n">cCode</span> <span class="o">=</span> <span class="sb">`mylist = [1,2,3,:one,:two,:three]`</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">])</span>                        <span class="c1">// 1 (True)</span>
+
+        <span class="n">cCode</span> <span class="o">=</span> <span class="sb">`? &quot;hello world&quot;`</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">])</span>                        <span class="c1">// 0 (False)</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">,</span> <span class="ss">:safeoperators</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">])</span>    <span class="c1">// 1 (True)</span>
+
+        <span class="n">cCode</span> <span class="o">=</span> <span class="sb">`test(1)`</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">])</span>                        <span class="c1">// 0 (False)</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">,</span> <span class="ss">:safeoperators</span><span class="o">=</span><span class="s2">&quot;()&quot;</span><span class="p">])</span>   <span class="c1">// 1 (True)</span>
+
+        <span class="n">cCode</span> <span class="o">=</span> <span class="sb">`myobj { x=10 }`</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">])</span>                        <span class="c1">// 0 (False)</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">,</span> <span class="ss">:safeoperators</span><span class="o">=</span><span class="s2">&quot;{}&quot;</span><span class="p">])</span>   <span class="c1">// 1 (True)</span>
+
+        <span class="n">cCode</span> <span class="o">=</span> <span class="sb">`see &#39;hi&#39;`</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">])</span>                        <span class="c1">// 0 (False)</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">,</span> <span class="ss">:safekeywords</span><span class="o">=</span><span class="p">[</span><span class="ss">:see</span><span class="p">]])</span>  <span class="c1">// 1 (True)</span>
+
+        <span class="n">cCode</span> <span class="o">=</span> <span class="sb">`see new point { x=10 }`</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">])</span>                        <span class="c1">// 0 (False)</span>
+        <span class="o">?</span> <span class="nf">checkRingCode</span><span class="p">([</span><span class="ss">:code</span> <span class="o">=</span> <span class="n">cCode</span><span class="p">,</span> <span class="ss">:safeoperators</span><span class="o">=</span><span class="s2">&quot;{}&quot;</span><span class="p">,</span>
+                         <span class="ss">:safekeywords</span><span class="o">=</span><span class="p">[</span><span class="ss">:see</span><span class="p">,</span> <span class="ss">:new</span><span class="p">]])</span>           <span class="c1">// 1 (True)</span>
+</pre></div>
+</div>
+<p>The next applications and tools are updated to use the checkRingCode() function</p>
+<ul class="simple">
+<li><p>Ring Notepad - Use checkRingCode() before using the settings file</p></li>
+<li><p>Form Designer - Use checkRingCode() before loading the form file</p></li>
+<li><p>RingPM GUI - Use checkRingCode() before using the package file</p></li>
+<li><p>RingPM - Use checkRingCode() before using the package file</p></li>
+<li><p>Ring2EXE - Use checkRingCode() before using the library file</p></li>
+<li><p>GoldMagic800 game - Use checkRingCode() before using the level file</p></li>
+<li><p>GoldMagic800 Levels Designer - Use checkRingCode() before using the level file</p></li>
+<li><p>Lectures Tracker application - Use checkRingCode() before using the lectures file</p></li>
+</ul>
+</section>
+<section id="better-ringlibcurl">
+<span id="index-11"></span><h2>Better RingLibCurl<a class="headerlink" href="#better-ringlibcurl" title="Permalink to this heading"></a></h2>
+<p>RingLibCurl is updated to supports using callbacks for different operations like handling the
+response data, headers, progress information and reading data for upload.</p>
+<p>We can set the callback function using <code class="docutils literal notranslate"><span class="pre">curl_easy_setopt</span></code> and the option name.
+The callback function can get the data using <code class="docutils literal notranslate"><span class="pre">curl_get_data()</span></code> or <code class="docutils literal notranslate"><span class="pre">curl_get_progress_info()</span></code>.</p>
+<p>Example: Using the Write Callback</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;libcurl.ring&quot;</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+        <span class="n">curl</span> <span class="o">=</span> <span class="nf">curl_easy_init</span><span class="p">()</span>
+        <span class="nf">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s2">&quot;https://ring-lang.github.io&quot;</span><span class="p">)</span>
+        <span class="nf">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_WRITEFUNCTION</span><span class="p">,</span> <span class="ss">:write_callback</span><span class="p">)</span>
+        <span class="nf">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="nf">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+        <span class="nf">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">write_callback</span>
+        <span class="n">cData</span> <span class="o">=</span> <span class="nf">curl_get_data</span><span class="p">()</span>
+        <span class="o">?</span> <span class="s2">&quot;Received Data Size: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">cData</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Received Data Size: 2756
+Received Data Size: 2756
+Received Data Size: 2756
+Received Data Size: 2756
+Received Data Size: 2756
+Received Data Size: 16384
+Received Data Size: 2604
+Received Data Size: 16384
+Received Data Size: 16384
+Received Data Size: 11363
+</pre></div>
+</div>
+</section>
+<section id="callable-functions-as-methods">
+<span id="index-12"></span><h2>Callable Functions as Methods<a class="headerlink" href="#callable-functions-as-methods" title="Permalink to this heading"></a></h2>
+<p>The Call command has been enhanced to allow invoking a function as an object method.</p>
+<p>We do this by placing braces after the Call keyword.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Call</span> <span class="p">{</span> <span class="nf">Variable</span><span class="p">([</span><span class="n">Parameters</span><span class="p">])</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fCheck</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s2">&quot;One day, I will no longer remain just a function.&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;One day, I will live as a method inside an object.&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;That object will have a place in a 3D world.&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;And it will have the x, y, and z attributes.&quot;</span>
+        <span class="k">Try</span>
+                <span class="o">?</span> <span class="s2">&quot;X= &quot;</span> <span class="o">+</span> <span class="n">x</span>                             <span class="c1"># Use Attributes</span>
+                <span class="o">?</span> <span class="s2">&quot;Y= &quot;</span> <span class="o">+</span> <span class="n">y</span>
+                <span class="o">?</span> <span class="s2">&quot;Z= &quot;</span> <span class="o">+</span> <span class="n">z</span>
+                <span class="o">?</span> <span class="s2">&quot;The dream has come true.&quot;</span>
+                <span class="nb">print</span><span class="p">()</span>                                 <span class="c1"># Call Method</span>
+        <span class="k">Catch</span>
+                <span class="o">?</span> <span class="s2">&quot;Not yet!&quot;</span>
+        <span class="k">Done</span>
+<span class="p">}</span>
+
+<span class="k">call</span> <span class="nf">fCheck</span><span class="p">()</span>                                           <span class="c1"># Call fCheck as Function</span>
+
+<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="k">call</span> <span class="p">{</span><span class="nf">fCheck</span><span class="p">()}</span> <span class="p">}</span>            <span class="c1"># Call fCheck as Method</span>
+
+<span class="kd">class</span> <span class="nc">Point</span>
+
+        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+
+        <span class="kd">func</span> <span class="nf">print</span>
+
+                <span class="o">?</span> <span class="kp">self</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>==================================================
+One day I will not stay as a function
+One day I will live as a method inside an object
+This object will have a place in a 3D world
+And will have the x,y and z attributes
+Not yet!
+==================================================
+==================================================
+One day I will not stay as a function
+One day I will live as a method inside an object
+This object will have a place in a 3D world
+And will have the x,y and z attributes
+X= 10
+Y= 20
+Z= 30
+The dream has come true.
+x: 10
+y: 20
+z: 30
+</pre></div>
+</div>
+</section>
+<section id="flexible-statement-separation">
+<span id="index-13"></span><h2>Flexible Statement Separation<a class="headerlink" href="#flexible-statement-separation" title="Permalink to this heading"></a></h2>
+<p>In this release, the language introduces support for using commas (,) as an alternative
+to semicolons (;) when separating statements.</p>
+<p>Importantly, semicolons themselves are optional, so you can write code in three different styles</p>
+<p>Example (1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span>
+<span class="o">?</span> <span class="n">x</span><span class="p">,</span> <span class="o">?</span> <span class="n">y</span><span class="p">,</span> <span class="o">?</span> <span class="n">z</span>
+
+<span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
+<span class="o">?</span> <span class="n">x</span><span class="p">;</span> <span class="o">?</span> <span class="n">y</span><span class="p">;</span> <span class="o">?</span> <span class="n">z</span>
+
+<span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span>
+<span class="o">?</span> <span class="n">x</span> <span class="o">?</span> <span class="n">y</span> <span class="o">?</span> <span class="n">z</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+10
+20
+30
+100
+200
+300
+</pre></div>
+</div>
+<p>Example (2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">xBaseUserInterface</span> <span class="p">{</span>
+        <span class="n">@10</span><span class="p">,</span> <span class="mi">10</span> <span class="n">say</span> <span class="s2">&quot;Hello, World!&quot;</span>
+        <span class="n">@11</span><span class="p">,</span> <span class="mi">10</span> <span class="n">say</span> <span class="s2">&quot;I Love Programming!&quot;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">xBaseUserInterface</span>
+
+        <span class="kd">func</span> <span class="nf">braceError</span>
+                <span class="o">?</span> <span class="nf">getVarName</span><span class="p">(</span><span class="bp">cCatchError</span><span class="p">)</span>
+
+        <span class="kd">func</span> <span class="nf">getVarName</span> <span class="n">cError</span>
+                <span class="k">if</span> <span class="nb">left</span><span class="p">(</span><span class="n">cError</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="o">=</span> <span class="s2">&quot;Error (R24)&quot;</span>
+                        <span class="k">return</span> <span class="nb">substr</span><span class="p">(</span><span class="n">cError</span><span class="p">,</span><span class="mi">45</span><span class="p">)</span>
+                <span class="k">ok</span>
+
+        <span class="kd">func</span> <span class="nf">braceExprEval</span> <span class="n">vValue</span>
+                <span class="k">if</span> <span class="n">vValue</span> <span class="o">?</span> <span class="n">vValue</span> <span class="k">ok</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@10
+10
+say
+Hello, World!
+@11
+10
+say
+I Love Programming!
+</pre></div>
+</div>
+</section>
+<section id="using-keywords-as-identifiers">
+<span id="index-14"></span><h2>Using Keywords as Identifiers<a class="headerlink" href="#using-keywords-as-identifiers" title="Permalink to this heading"></a></h2>
+<p>The next keywords could be used as variables/attributes/etc.</p>
+<p>This is useful when creating domain-specific languages that uses these keywords in the commands.</p>
+<ul class="simple">
+<li><p>Again</p></li>
+<li><p>But</p></li>
+<li><p>Case</p></li>
+<li><p>Catch</p></li>
+<li><p>Done</p></li>
+<li><p>Else</p></li>
+<li><p>From</p></li>
+<li><p>In</p></li>
+<li><p>Off</p></li>
+<li><p>Ok</p></li>
+<li><p>On</p></li>
+<li><p>Other</p></li>
+<li><p>Step</p></li>
+<li><p>To</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">Love</span> <span class="p">{</span>
+        <span class="n">I</span> <span class="n">will</span> <span class="n">say</span> <span class="n">it</span> <span class="k">Again</span> <span class="ow">and</span> <span class="k">Again</span>
+        <span class="n">YOU</span> <span class="n">ARE</span> <span class="n">MY</span> <span class="n">LOVE</span>
+        <span class="n">Come</span> <span class="n">with</span> <span class="n">me</span> <span class="k">To</span> <span class="n">the</span> <span class="n">Sky</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Love</span>
+
+        <span class="k">To</span> <span class="k">Again</span>
+
+        <span class="kd">func</span> <span class="nf">getTo</span>
+                <span class="o">?</span> <span class="s2">&quot;Where?&quot;</span>
+
+        <span class="kd">func</span> <span class="nf">getAgain</span>
+                <span class="o">?</span> <span class="s2">&quot;Really?&quot;</span>
+                <span class="k">return</span> <span class="bp">True</span>
+
+        <span class="kd">func</span> <span class="nf">braceError</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Really?
+Really?
+Where?
+</pre></div>
+</div>
+</section>
+<section id="newline-callbacks-inside-braces">
+<span id="index-15"></span><h2>Newline Callbacks Inside Braces<a class="headerlink" href="#newline-callbacks-inside-braces" title="Permalink to this heading"></a></h2>
+<p>BraceNewLine() is a callback that Ring automatically triggers whenever a logical
+newline is encountered when we access an object using braces.
+If a line contains expressions, the method is called after those expressions are processed.
+If the block contains one or more empty lines, Ring treats all consecutive empty lines as a
+single break, so  is invoked only once no matter how many blank lines appear.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">SumRows</span> <span class="p">{</span>
+        <span class="mi">10</span> <span class="mi">20</span> <span class="mi">30</span>      <span class="c1"># 60</span>
+        <span class="mi">10</span>            <span class="c1"># 10</span>
+        <span class="mi">400</span> <span class="mi">100</span>       <span class="c1"># 500</span>
+        <span class="mi">30</span> <span class="mi">40</span>         <span class="c1"># 70</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">SumRows</span>
+
+        <span class="n">lSum</span>     <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">nSum</span>     <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">nLastRow</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="kd">func</span> <span class="nf">braceExprEval</span>  <span class="n">value</span>
+
+                <span class="n">lSum</span>  <span class="o">=</span> <span class="bp">True</span>
+                <span class="n">nSum</span> <span class="o">+=</span> <span class="n">value</span>
+
+        <span class="kd">func</span> <span class="nf">braceNewLine</span>
+
+                <span class="k">if</span> <span class="n">lSum</span> <span class="o">?</span> <span class="n">nSum</span> <span class="n">nSum</span><span class="o">=</span><span class="mi">0</span> <span class="n">lSum</span><span class="o">=</span><span class="bp">False</span> <span class="k">ok</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>60
+10
+500
+70
+</pre></div>
+</div>
+</section>
+<section id="translating-internal-identifiers">
+<span id="index-16"></span><h2>Translating Internal Identifiers<a class="headerlink" href="#translating-internal-identifiers" title="Permalink to this heading"></a></h2>
+<p>Ring now supports the translation of internal identifiers using the ChangeRingKeyword command.
+This allows translation without breaking existing code that relies on English identifiers.</p>
+<p>The identifiers that can be translated are:</p>
+<ul class="simple">
+<li><p>This</p></li>
+<li><p>Self</p></li>
+<li><p>Super</p></li>
+<li><p>Main</p></li>
+<li><p>Init</p></li>
+<li><p>Operator</p></li>
+<li><p>BraceStart</p></li>
+<li><p>BraceExprEval</p></li>
+<li><p>BraceNewLine</p></li>
+<li><p>BraceError</p></li>
+<li><p>BraceEnd</p></li>
+<li><p>RingVM_See</p></li>
+<li><p>RingVM_Give</p></li>
+<li><p>RingVM_ErrorHandler</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ring defines keywords that act as wrappers for these identifiers (i.e., when the Ring Parser encounters such a keyword, it is converted into the corresponding identifier).</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="o">?</span> <span class="kp">self</span> <span class="p">}</span>
+
+<span class="cp">ChangeRingKeyword</span> <span class="kp">self</span> <span class="n">my</span>
+
+<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="o">?</span> <span class="n">my</span> <span class="p">}</span>
+
+<span class="c1"># Since self is an identifier (not a real keyword)</span>
+<span class="c1"># We can use (self) or (my) at the same time</span>
+
+<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span> <span class="o">?</span> <span class="n">my</span> <span class="o">?</span> <span class="kp">self</span> <span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">1000</span> <span class="n">y</span><span class="o">=</span><span class="mi">2000</span> <span class="n">z</span><span class="o">=</span><span class="mi">3000</span> <span class="nf">test</span><span class="p">()}</span>
+
+<span class="kd">class</span> <span class="nc">parent</span>
+
+        <span class="kd">func</span> <span class="nf">test</span>
+
+                <span class="o">?</span> <span class="s2">&quot;Parent - Test()&quot;</span>
+
+<span class="kd">class</span> <span class="nc">point</span> <span class="kd">from</span> <span class="nc">parent</span>
+
+        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+
+        <span class="kd">func</span> <span class="nf">test</span>
+
+                <span class="n">ChangeRingKeyword</span> <span class="kp">this</span> <span class="n">mypoint</span>
+
+                <span class="o">?</span> <span class="kp">this</span>
+                <span class="o">?</span> <span class="n">mypoint</span>
+
+                <span class="n">ChangeRingKeyword</span> <span class="kp">super</span> <span class="n">father</span>
+
+                <span class="kp">super</span><span class="o">.</span><span class="nf">test</span><span class="p">()</span>
+
+                <span class="n">father</span><span class="o">.</span><span class="nf">test</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x: 10
+y: 20
+z: 30
+
+x: 10
+y: 20
+z: 30
+
+x: 100
+y: 200
+z: 300
+
+x: 100
+y: 200
+z: 300
+
+x: 1000
+y: 2000
+z: 3000
+
+x: 1000
+y: 2000
+z: 3000
+
+Parent - Test()
+Parent - Test()
+</pre></div>
+</div>
+</section>
+<section id="ringvm-translatecfunction-function">
+<span id="index-17"></span><h2>RingVM_TranslateCFunction() function<a class="headerlink" href="#ringvm-translatecfunction-function" title="Permalink to this heading"></a></h2>
+<p>This new function introduces dynamic renaming (aliasing) of built‑in C functions inside the Ring VM.</p>
+<p>This happens at the VM level, not at the script level, so it’s fast and transparent.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">RingVM_TranslateCFunction</span><span class="p">(</span><span class="s2">&quot;len&quot;</span><span class="p">,</span><span class="s2">&quot;length&quot;</span><span class="p">)</span>
+<span class="nf">RingVM_TranslateCFunction</span><span class="p">(</span><span class="s2">&quot;length&quot;</span><span class="p">,</span><span class="s2">&quot;mylength&quot;</span><span class="p">)</span>
+
+<span class="n">cStr</span> <span class="o">=</span> <span class="s2">&quot;welcome&quot;</span>
+
+<span class="o">?</span> <span class="nb">len</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">length</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="o">?</span> <span class="nf">mylength</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>7
+7
+7
+</pre></div>
+</div>
+</section>
+<section id="ringvm-errorhandler-function">
+<span id="index-18"></span><h2>RingVM_ErrorHandler() function<a class="headerlink" href="#ringvm-errorhandler-function" title="Permalink to this heading"></a></h2>
+<p>If this function is defined in Ring code, it will be called when an error occurs, provided
+the error is not handled by try/catch/done.</p>
+<p>Example (1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="o">?</span> <span class="ss">:done</span>
+
+<span class="kd">func</span> <span class="nf">ringvm_errorhandler</span>
+
+        <span class="o">?</span> <span class="s2">&quot;We have an error!&quot;</span>
+
+        <span class="o">?</span> <span class="s2">&quot;Message: &quot;</span> <span class="o">+</span> <span class="bp">cCatchError</span>
+
+        <span class="nb">ringvm_passerror</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>We have an error!
+Message: Error (R1) : Can&#39;t divide by zero
+done
+</pre></div>
+</div>
+<p>Example (2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="cp">ChangeRingKeyword</span> <span class="n">RingVM_ErrorHandler</span> <span class="n">myErrorHandler</span>
+<span class="cp">ChangeRingKeyword</span> <span class="n">RingVM_SEE</span>          <span class="n">myPrint</span>
+
+<span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+
+<span class="o">?</span> <span class="s2">&quot;BOOM!&quot;</span>
+
+<span class="kd">func</span> <span class="nf">myErrorHandler</span>
+
+        <span class="o">?</span> <span class="s2">&quot;I don&#39;t care about errors at all!&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;I will act as they don&#39;t exist&quot;</span>
+        <span class="nb">ringvm_passerror</span><span class="p">()</span>
+
+<span class="kd">func</span> <span class="nf">myPrint</span> <span class="n">vValue</span>
+
+        <span class="k">if</span> <span class="n">vValue</span> <span class="o">=</span> <span class="bp">nl</span> <span class="nb">ring_see</span><span class="p">(</span><span class="bp">nl</span><span class="p">)</span> <span class="k">return</span> <span class="k">ok</span>
+        <span class="nb">ring_see</span><span class="p">(</span> <span class="s2">&quot;-*{&quot;</span> <span class="p">)</span>
+        <span class="nb">ring_see</span><span class="p">(</span> <span class="n">vValue</span> <span class="p">)</span>
+        <span class="nb">ring_see</span><span class="p">(</span> <span class="s2">&quot;}*-&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-*{I don&#39;t care about errors at all!}*-
+-*{I will act as they don&#39;t exist}*-
+-*{BOOM!}*-
+</pre></div>
+</div>
+</section>
+<section id="ringvm-ringolists-function">
+<span id="index-19"></span><h2>RingVM_RingoLists() function<a class="headerlink" href="#ringvm-ringolists-function" title="Permalink to this heading"></a></h2>
+<p>This function parses a Ring Object File (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ringo) string and returns its contents as Ring lists.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_LINESIZE</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">cFile</span>      <span class="o">=</span> <span class="nb">read</span><span class="p">(</span><span class="s2">&quot;pwct.ringo&quot;</span><span class="p">)</span>
+<span class="n">aList</span>      <span class="o">=</span> <span class="nf">ringvm_ringolists</span><span class="p">(</span><span class="n">cFile</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="n">C_LINESIZE</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;List Size: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="n">C_LINESIZE</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Files count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="o">?</span> <span class="s2">&quot;Functions count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="o">?</span> <span class="s2">&quot;Classes count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="o">?</span> <span class="s2">&quot;Packages count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="o">?</span> <span class="s2">&quot;Instructions count: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="n">C_LINESIZE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>========================================
+List Size: 5
+========================================
+Files count: 1352
+Functions count: 306
+Classes count: 1434
+Packages count: 2
+Instructions count: 782280
+========================================
+</pre></div>
+</div>
+</section>
+<section id="ringvm-writeringo-function">
+<span id="index-20"></span><h2>RingVM_WriteRingo() function<a class="headerlink" href="#ringvm-writeringo-function" title="Permalink to this heading"></a></h2>
+<p>This function writes a Ring Object File (<a href="#id3"><span class="problematic" id="id4">*</span></a>.ringo) from a Ring list.</p>
+<p>The list contains five sublists:</p>
+<ul class="simple">
+<li><p>List of files</p></li>
+<li><p>List of functions</p></li>
+<li><p>List of classes</p></li>
+<li><p>List of packages</p></li>
+<li><p>List of bytecode instructions</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cFileName</span>    <span class="o">=</span> <span class="s2">&quot;pwct.ringo&quot;</span>
+<span class="n">cFileContent</span> <span class="o">=</span> <span class="nb">read</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
+<span class="n">cOutputFile</span>  <span class="o">=</span> <span class="s2">&quot;mypwct.ringo&quot;</span>
+
+<span class="o">?</span> <span class="s2">&quot;Read the object file...&quot;</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="nf">ringvm_ringolists</span><span class="p">(</span><span class="n">cFileContent</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s2">&quot;Write another object file...&quot;</span>
+<span class="nf">ringvm_writeringo</span><span class="p">(</span><span class="n">cOutputFile</span><span class="p">,</span><span class="n">aList</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="ring-object-file-format-update">
+<span id="index-21"></span><h2>Ring Object File Format Update<a class="headerlink" href="#ring-object-file-format-update" title="Permalink to this heading"></a></h2>
+<p>The Ring Object File (<a href="#id5"><span class="problematic" id="id6">*</span></a>.ringo) format has been revised and improved for better performance and reliability.</p>
+<p>Example: PWCT2 Project</p>
+<p>The updates reduce storage overhead by more than 42% and increase performance by over 48%.</p>
+<ul class="simple">
+<li><p>File Size Reduction</p></li>
+</ul>
+<p>pwct.ringo size decreased from 21 MB to 12 MB.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can further compress this file to about 2 MB using ZIP compression.</p>
+</div>
+<ul class="simple">
+<li><p>Loading Time Improvement</p></li>
+</ul>
+<p>First, prepare the object file using a specific Ring version:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring pwct.ring -go -norun
+</pre></div>
+</div>
+<p>Then, test the loading performance:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring pwct.ringo -norun -clock
+</pre></div>
+</div>
+<p>Results:</p>
+<p>Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Using Ring 1.24 -&gt; 565 ms
+* Using Ring 1.25 -&gt; 290 ms
+</pre></div>
+</div>
+<p>Key Points About Ring Object Files (<a href="#id7"><span class="problematic" id="id8">*</span></a>.ringo)</p>
+<ul class="simple">
+<li><p>Portability (Compile once, run everywhere)</p></li>
+<li><p>Runtime Loading with Ring State (Embedded Ring in Ring)</p></li>
+</ul>
+</section>
+<section id="more-improvements">
+<span id="index-22"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>libraries/jsonlib/jsonlib.ring - Better Code</p></li>
+<li><p>ring/language/build/locatevc.bat - Prevent PATH bloat</p></li>
+<li><p>StdLib - Rename fflush function to std_fflush</p></li>
+<li><p>RingFastPro - Added Softmax</p></li>
+<li><p>RingPostgreSQL - Improve compatibility with newer versions of libpq</p></li>
+<li><p>RingMySQL - MySQL_Connect() - Allows passing the port number</p></li>
+<li><p>RingOpenGL - glClearColor() implementation is revised</p></li>
+<li><p>RingOpenGL - Added GLEW headers and linker flags</p></li>
+<li><p>RingLibuv - Added uv_close_cb to the aFunctionCallback list</p></li>
+<li><p>RingQt - Added QGroupBox class</p></li>
+<li><p>RingQt - Added QFontDatabase class</p></li>
+<li><p>RingQt - Added QValidator class</p></li>
+<li><p>RingQt - Added QIntValidator class</p></li>
+<li><p>RingQt - Added QDoubleValidator class</p></li>
+<li><p>RingQt - Added QRegularExpressionValidator class</p></li>
+<li><p>Code Generator for Extensions - Support (const char * const <a href="#id9"><span class="problematic" id="id10">*</span></a>) types</p></li>
+<li><p>DiffDays() - Better Implementation</p></li>
+<li><p>IsFunction() - Better Implementation</p></li>
+<li><p>IsMethod() - Better Performance (Using the HashTable)</p></li>
+<li><p>IsAttribute() - Better Performance (Using the HashTable)</p></li>
+<li><p>AddMethod() - Better Performance (Avoid recreating the HashTable)</p></li>
+<li><p>MergeMethods() - Better Performance (Avoid recreating the HashTable)</p></li>
+<li><p>RingVM_EvalInScope() - Check the scope range before changing the scope</p></li>
+<li><p>Ring VM - ICO_RETFROMEVAL instruction - Better Implementation</p></li>
+<li><p>Ring VM - ICO_PUSHP - Keep in mind when the variable is no longer global</p></li>
+<li><p>Ring VM - ICO_NEWOBJ - Convert the class name to lower case (New From command)</p></li>
+<li><p>Ring VM - ring_vm_exit() - Better Implementation</p></li>
+<li><p>Ring VM - ring_objfile_getc() - Better implementation</p></li>
+<li><p>Ring VM - ring_objfile_readc() - Better implementation</p></li>
+<li><p>Ring VM - ring_general_isobjectfile() - Better Implementation</p></li>
+<li><p>Ring VM - ring_vm_updateclassespointers() - Better Performance</p></li>
+<li><p>Ring Compiler - LoadSyntax command - Switch to the file folder</p></li>
+<li><p>Ring Compiler - ring_state_execute() implementation - Check ring_state_runfile() output</p></li>
+<li><p>Ring Compiler - ring_state_runobjectstring() - Get the file size as parameter</p></li>
+<li><p>Ring Compiler - Pass arguments to startup files (ring.ring and ring.ringo)</p></li>
+<li><p>Ring Compiler - Using ICO_OPTIONALLOOP in Different Types of Loops</p></li>
+<li><p>Documentation - StdLib chapter - Added: AppArguments() vs SysArgv</p></li>
+<li><p>Documentation - Low Level Functions chapter - improve RingVM_EvalInScope() documentation</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="whatisnew24.html" class="btn btn-neutral float-left" title="What is new in Ring 1.24" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="codeeditors.html" class="btn btn-neutral float-right" title="Using Other Code Editors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, Mahmoud Fayed.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
