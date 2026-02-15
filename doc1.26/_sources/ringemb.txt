@@ -1,0 +1,515 @@
+.. index:: 
+	single: Embedding Ring in Ring; Embedding Ring in Ring
+
+======================
+Embedding Ring in Ring
+======================
+
+In this chapter we will learn about embedding Ring in Ring programs and applications.
+
+.. index:: 
+	pair: Embedding Ring in Ring; Embedding Ring in Ring without sharing the State
+
+Embedding Ring in Ring without sharing the State
+================================================
+
+From Ring 1.0 we already have functions for embedding Ring in the C language. Also we
+can execute Ring code inside Ring programs using the eval() function. In this release
+we provide functions for embedding Ring in Ring programs without sharing the state.
+
+Advantages:
+
+(1) Quick integration for Ring programs and applications together without conflicts.
+
+(2) Execute and run Ring code in safe environments that we can trace.
+
+Example:
+
+.. code-block:: ring
+
+	pState = ring_state_init()
+	ring_state_runcode(pState,"See 'Hello, World!'+nl")
+	ring_state_runcode(pState,"x = 10")
+
+	pState2 = ring_state_init()
+	ring_state_runcode(pState2,"See 'Hello, World!'+nl")
+	ring_state_runcode(pState2,"x = 20")
+
+	ring_state_runcode(pState,"see x +nl")
+	ring_state_runcode(pState2,"see x +nl")
+
+	v1 = ring_state_findvar(pState,"x")
+	v2 = ring_state_findvar(pState2,"x")
+
+	see v1[3] + nl
+	see V2[3] + nl
+
+	ring_state_delete(pState)
+	ring_state_delete(pState2)
+
+Output:
+
+.. code-block:: ring
+
+	Hello, World!
+	Hello, World!
+	10
+	20
+	10
+	20
+
+.. index:: 
+	pair: Embedding Ring in Ring; Serial Execution of Programs
+
+Serial Execution of Programs
+============================
+
+We can execute application after another application using ring_state_main()
+
+Example:
+
+.. code-block:: ring
+
+	chdir(exefolder()+"/../applications/formdesigner")
+	ring_state_main('formdesigner.ring')
+	chdir(exefolder()+"/../applications/cards")
+	ring_state_main('cards.ring')
+
+.. index:: 
+	pair: Embedding Ring in Ring; ring_state_setvar()
+
+ring_state_setvar()
+===================
+
+Using ring_state_setvar() we can set variables value
+
+The value could be (String, Number, List or C Pointer)
+
+We need this function to quickly pass lists and C pointers to the Sub Ring Environment
+
+Syntax:
+
+.. code-block:: none
+
+	ring_state_setvar(oState,cVariableName,Value)
+
+Example:
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	myapp	= null
+	win	= null
+
+	func main
+		myapp = new qApp {
+			win = new qWidget() {
+				setWindowTitle("Advanced Example on using ring_state_setvar()")
+				move(100,100)
+				resize(600,400)
+				new qPushButton(win) {
+					setText("Test")
+					setClickEvent("Test()")
+				}
+				# We need this because using load 'guilib.ring' in
+				# the sub environment
+				# Will create timers by Qt and closing the window 
+				# will not be enough to close the application
+				oFilter = new qAllEvents(win)
+				oFilter.setCloseEvent("myapp.quit()")
+				win.installeventfilter(oFilter)
+				show()
+			}
+			exec()
+		}
+
+	func test
+		pState = ring_state_init()
+		ring_state_runcode(pstate,"load 'guilib.ring'")
+		ring_state_runcode(pState,"x = NULL")
+		# Pass String
+			ring_state_setvar(pState,"x","hello")
+			ring_state_runcode(pState,"? x")
+		# Pass Number
+			ring_state_setvar(pState,"x",100)
+			ring_state_runcode(pState,"? x")
+		# Pass List
+			ring_state_setvar(pState,"x",["one","two","three"])
+			ring_state_runcode(pState,"? x")
+		# Pass Object
+		# We can't pass the Ring Object (win)
+		# Because Objects store pointers to the Class Information
+		# And the class is related to the Parent Ring Environment
+		# And the sub Ring environment can't access it
+		# But we can pass C pointers like win.pObject
+			ring_state_setvar(pState,"x",win.pObject)
+		# Now we create the object again but using the same C pointer
+		# So we have access to the Same window in the parent Ring environment
+			ring_state_runcode(pState,"
+				new qWidget {
+					pObject = x
+					setwindowtitle('Message from the Sub Ring Environment')
+				}
+			")
+		ring_state_delete(pState)
+
+
+.. index:: 
+	pair: Embedding Ring in Ring; ring_state_new() and ring_state_mainfile()
+
+ring_state_new() and ring_state_mainfile()
+==========================================
+
+Using ring_state_new() and ring_state_mainfile() we can run Ring programs from Ring programs
+
+But unlike ring_state_main(), Here we can control when to delete the Ring state!
+
+This is important when we run GUI programs from GUI programs
+
+Because they will share the GUI Library (RingQt), And In this case the caller will call
+
+qApp.Exec()
+
+So the sub program, will not stop and will return to the Main program
+
+Here deleting the State of the sub programs will lead to a problem when we run the sub program events
+
+So keeping the state is important for sub GUI programs hosted in GUI programs.
+
+Example:
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	func main
+		new qApp {
+			win = new qWidget() {
+				setWindowTitle("Test ring_state_mainfile()")
+				resize(400,400) move(100,100)
+				btn = new qPushButton(Win) {
+					settext("test")
+					setclickevent("mytest()")
+				}
+				show()
+			}
+			exec()
+		}
+
+	func mytest
+		pState = ring_state_new()
+		ring_state_mainfile(pState,"runprogram.ring")
+		# Here we don't delete the state if we will run GUI application
+		# So we can run the GUI application events 
+			// ring_state_delete(pState)
+
+If you will use this feature, remember to update the previous example based on your application needs
+
+So you can call ring_state_delete() at some point to avoid the memory leak!
+
+.. index:: 
+	pair: Embedding Ring in Ring; Runtime Errors when Embedding Ring in Ring
+
+Runtime Errors when Embedding Ring in Ring
+==========================================
+
+Starting from Ring 1.8 
+
+When embedding Ring in Ring, the error in the hosted environment will not close the host
+
+Example:
+
+.. code-block:: ring
+
+	? "Start the test!" 
+
+	pState = ring_state_init()
+
+	ring_state_runcode(pState," ? 'Let us try having an error' ? x")
+
+	ring_state_delete(pState)
+
+	? ""
+	? "End of test!"
+
+Output:
+
+.. code-block:: none
+
+	Start the test!
+	Let us try having an error
+
+	Line 1 Error (R24) : Using uninitialized variable : x
+	in file Ring_EmbeddedCode
+	End of test!
+
+.. index:: 
+	pair: Embedding Ring in Ring; ring_state_filetokens() function
+
+ring_state_filetokens() function
+================================
+
+Starting from Ring 1.12 we have the ring_state_filetokens() function
+
+Using this function we can get all the tokens in the ring source code file.
+
+Syntax:
+
+.. code-block:: none
+
+	ring_state_filetokens(pState,cFileName,lNotCaseSensitive,lComments,lScannerCommands) --> aTokens	
+
+.. tip:: See ring_state_stringtokens() documentation for more information about the parameters
+
+.. code-block:: ring
+
+	C_FILENAME 	= "test_tokens.ring"
+	C_WIDTH		= 12
+
+	# write the file
+		write(C_FILENAME,'
+				see "Hello, World!"
+				? 3*2+3
+				Name = "Ring"
+				? Name
+	')
+
+	# Token Type
+		C_KEYWORD 	= 0
+		C_OPERATOR 	= 1
+		C_LITERAL 	= 2
+		C_NUMBER 	= 3
+		C_IDENTIFIER 	= 4
+		C_ENDLINE 	= 5
+
+	# Keywords List
+	aKEYWORDS = ["IF","TO","OR","AND","NOT","FOR","NEW","FUNC", 
+	"FROM","NEXT","LOAD","ELSE","SEE","WHILE","OK","CLASS","RETURN","BUT", 
+	"END","GIVE","BYE","EXIT","TRY","CATCH","DONE","SWITCH","ON","OTHER","OFF", 
+	"IN","LOOP","PACKAGE","IMPORT","PRIVATE","STEP","DO","AGAIN","CALL","ELSEIF", 
+	"PUT","GET","CASE","DEF","ENDFUNC","ENDCLASS","ENDPACKAGE", 
+	"CHANGERINGKEYWORD","CHANGERINGOPERATOR","LOADSYNTAX"]
+
+	pState = ring_state_new()
+	aList = ring_state_filetokens(pState,C_FILENAME)
+	PrintTokens(aList)
+	ring_state_delete(pState)
+
+	func PrintTokens aList
+		for aToken in aList
+			switch aToken[1]
+			on C_KEYWORD 
+				? Width("Keyword",C_WIDTH) + ": "  + aKeywords[0+aToken[2]]
+			on C_OPERATOR 
+				? Width("Operator",C_WIDTH)  + ": " + aToken[2]
+			on C_LITERAL 
+				? Width("Literal",C_WIDTH)  + ": " + aToken[2]
+			on C_NUMBER 
+				? Width("Number",C_WIDTH)  + ": " + aToken[2]
+			on C_IDENTIFIER 
+				? Width("Identifier",C_WIDTH)  + ": " + aToken[2]
+			on C_ENDLINE 
+				? "EndLine"
+			off
+		next
+
+	func Width cText,nWidth
+		return cText+copy(" ",nWidth-len(cText))
+
+Output:
+
+.. code-block:: none
+
+	EndLine
+	Keyword     : SEE
+	Literal     : Hello, World!
+	EndLine
+	Operator    : ?
+	Number      : 3
+	Operator    : *
+	Number      : 2
+	Operator    : +
+	Number      : 3
+	EndLine
+	Identifier  : name
+	Operator    : =
+	Literal     : Ring
+	EndLine
+	Operator    : ?
+	Identifier  : name
+	EndLine
+
+
+.. index:: 
+	pair: Embedding Ring in Ring; ring_state_stringtokens() function
+
+ring_state_stringtokens() function
+==================================
+
+Using this function we can get all the tokens in a string that contains Ring source code.
+
+Syntax:
+
+.. code-block:: none
+
+	ring_state_stringtokens(pState,cString,lNotCaseSensitive,lComments,lScannerCommands) --> aTokens	
+
+
+The parameters (lNotCaseSensitive,lComments,lScannerCommands) are optional flags (True/False)
+
+Using lNotCaseSensitive we can enable getting the identifiers in a case identical to the input
+
+Using lComments we can control adding comments to the output
+
+Using lScannerCommands we can enable getting (ChangeRingKeyword, ChangeRingOperator, etc.) in the output
+ 
+.. index:: 
+	pair: Embedding Ring in Ring; ring_state_mainfile() and Ring Object File
+
+ring_state_mainfile() and Ring Object File
+==========================================
+
+Starting from Ring 1.20 the ring_state_mainfile() is updated and support Ring Object Files (*.ringo)
+
+So, we can write a group of functions/classes then compile them to Ring Object File, send this file to another programmer who can use the functions/classes inside his program after loading it in isolated embedded Ring State.
+
+File: mylib.ring
+
+.. code-block:: ring
+
+	? "Hello from the object file"
+	func test
+		? "Hello from test() function"
+
+Compiling the code to Ring Object File
+
+.. code-block:: none
+
+	ring mylib.ring -go
+
+This will generate (mylib.ringo)
+
+File: use.ring
+
+.. code-block:: ring
+
+	pState = ring_state_new()
+	ring_state_mainfile(pstate,"mylib.ringo")
+	ring_state_runcode(pstate,"? 'We can call functions from Ring Object File!' ")
+	ring_state_runcode(pstate,"test()")
+	ring_state_delete(pState)
+
+	? :done
+
+In practice it's expected that the programmer who will distribute the (*.ringo) file will distribute a simple *.ring file that create the Ring state, load the Ring Object and call functions/methods. 
+
+Something like this
+
+File: commercialLib.ring
+
+.. code-block:: ring
+
+	mylib = new mylib
+
+	class mylib
+
+		pState = ring_state_new()
+		ring_state_mainfile(pstate,"mylib.ringo")
+
+		func test
+			ring_state_runcode(pstate,"test()")
+
+		func destroy
+			ring_state_delete(pState)
+
+Then we can use this library like this
+
+.. code-block:: ring
+
+	load "commercialLib.ring"
+	mylib.test()
+
+
+.. index:: 
+	pair: Embedding Ring in Ring; Pause/Resume the Ring VM
+
+Pause/Resume the Ring VM
+========================
+
+Starting from Ring 1.20 we can pause/resume the embedded Ring VM
+
+To pause the VM, just use the (Bye) command which as expected will end the execution but will store
+the nPC value (Program Counter) so using ring_state_resume() we can continue the execution at any time starting from this nPC value.
+
+Syntax:
+
+.. code-block:: ring
+
+	ring_state_resume(oState,[cPara|nPara],[lUseReturn])
+
+The second parameter could be a string or number that we will push to the Stack 
+
+The third parameter determine if we would like to execute the Return command before Resume or not.
+
+
+A common usage for this function exist in the (Try Ring Online) application which uses RingQt for WebAssembly.
+
+You will find the source code in the ring/tools/tryringonline folder.
+
+The usage of Pause/Resume using (Bye/ring_state_resume()) exist in the  ring/tools/tryringonline/ringvm.ring file.
+
+This application uses Embedded Ring VM, and replace the Give command with a function like this
+
+.. code-block:: ring
+
+	func ringvm_give
+		lActiveGive = True 
+		bye
+
+Once Ring VM find ringvm_give() function is defined, it will call it every time we use the Give command. It's expected from this function to return a string that represent the value entered by the user. What happens here is using the (bye) command to stop the embedded Ring VM execution.
+
+Now, the Ring application that have this embedded Ring VM could provide a UI to get the value from the user and when the user press ENTER or click (Send) the application will resume the execution of the embedded Ring VM
+
+The next send() method is part of the RingVM class in the TryRingOnline application
+
+.. code-block:: ring
+
+	func send cInput
+
+		if ! pState 
+			return :NoProgramIsRunning
+		ok
+
+		vVar = ring_state_findvar(pState,:lActiveGive)
+		lActiveGive = vVar[RING_VAR_VALUE]
+	
+		if ! lActiveGive 
+			return :NoInputIsRequired
+		ok
+
+		lActiveGive = False 
+		ring_state_setvar(pState,:lActiveGive, False)
+
+		ring_state_resume(pState,cInput,True)
+
+		return :OutputIsReady
+
+
+.. index:: 
+	pair: Embedding Ring in Ring; Rules
+
+Rules
+=====
+
+These functions are considered advanced functions and exist for specific use-cases.
+
+If you are going to use these functions, you need to know the next rules.
+
+(1) ring_state_runcode() expect that the VM is already created and ready for use. So to be able to use this function you have to create the Ring State and the Ring VM using ring_state_init() function. So, using ring_state_new() alone instead of using ring_state_init() will not be enough because this function (ring_state_new()) doesn't create the Ring VM.
+
+(2) Using ring_state_new() then using ring_state_mainfile() will create the Ring State and the Ring VM too so we can use ring_state_runcode() after that. But it's not recommended to do that. i.e. It's better to just use ring_state_mainfile() and generate all of the source code before using this function.
+
+(3) ring_state_runcode() is very similar to the Eval() function. It's designed to delete the code after execution if this code doesn't add new functions/classes. Also, this function uses specific execution loop to execute the generated byte-code. It's similar to what happens when we have a GUI application and a button event. The event will be executed using it's execution loop because the main-loop is already passed the control to the GUI library and can't execute more instructions until the end of the GUI application.   
+
+(4) The ring_state_resume() function is considered a low-level function and is designed to be used with ring_state_mainfile() function to resume the main-loop. This function is used in the TryRingOnline application. Using this function with the ring_state_runcode() which uses specific execution loop is not recommended and not supported at the design/implementation level.

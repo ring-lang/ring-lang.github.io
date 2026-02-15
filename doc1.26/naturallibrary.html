@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using the Natural Library &mdash; Ring 1.26.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/dark_mode_js/default_dark.js"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Scope Rules for Variables and Attributes" href="scope.html" />
+    <link rel="prev" title="Natural Language Programming" href="natural.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using the Natural Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-naturallanguage-class">The NaturalLanguage class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#natural-library-demo-program">Natural Library - Demo Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-commands">Defining Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#natural-library-operators">Natural Library - Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-commands-using-classes">Defining commands using classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loadcommand-method">loadCommand() Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#runstring-and-execute-methods">RunString and Execute() Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setbeforerun-and-setafterrun-methods">SetBeforeRun() and SetAfterRun() Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setstartkeywordswith-and-setmaskoperators-methods">SetStartKeywordsWith() and SetMaskOperators() methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#startcache-and-endcache-methods">StartCache() and EndCache() methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setpackagename-method">SetPackageName() Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#expr-and-isidentifier-methods">Expr() and isIdentifier() methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands-with-multiple-keywords">Commands with multiple keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sharing-data-between-commands">Sharing Data Between Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setpasserror-method">SetPassError() Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#passthiscommand-method">PassThisCommand() Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-command-output">The Command Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#callergetvar-and-callersetvar-methods">CallerGetVar() and CallerSetVar() methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-art-behind-naturallib">The Art Behind NaturalLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-samples-and-the-source-code">The Samples and the Source Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">Using CSVLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">Using JSONLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">Using HTTPLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_platforms.html">Deploying Web Applications to Cloud Platforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tilengine.html">Using RingTilengine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">Using ZeroLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">Using FoxRing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">Using BigNumber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">Using TokensLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Using RingThreads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using RingLibui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingrogueutil.html">Using RingRogueUtil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingfastpro.html">Using FastPro Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingpico.html">Using Ring for Raspberry Pi Pico Microcontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew19.html">Release Notes: Version 1.19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew23.html">Release Notes: Version 1.23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew24.html">Release Notes: Version 1.24</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew25.html">Release Notes: Version 1.25</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew26.html">Release Notes: Version 1.26</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using the Natural Library</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-the-natural-library">
+<span id="index-0"></span><h1>Using the Natural Library<a class="headerlink" href="#using-the-natural-library" title="Permalink to this heading"></a></h1>
+<p>In this chapter, we will learn how to use the Natural Library to quickly define a language
+that contains a group of commands.</p>
+<p>The Natural Library is written in Ring (about one thousand lines of code) and serves as an
+example of how to build an abstraction layer for developing domain-specific languages on top of Ring classes.
+It demonstrates the use of braces, braceStart(), braceEnd(), braceExprEval(), braceError(), and
+related mechanisms, while also showcasing other language features such as Eval(), callable
+functions as methods, and syntax customization.</p>
+<p>This kind of abstraction layer can be implemented in many different ways, each enabling
+different capabilities and supporting different styles of language grammars. Although the
+library can be used in production, it is best viewed as a demonstration of what is
+possible — a direction rather than a complete set of features or methodologies.</p>
+<p>If you ever find yourself fighting against the library’s features, don’t feel constrained
+by what’s provided. Read the source code and adapt it to fit your DSL’s needs.
+And don’t let that flexibility mislead you into thinking that NaturaLib is limited or weak.
+In reality, it is a powerful and elegant system that can be used to implement many
+useful and expressive DSLs.</p>
+<p>To master the concepts in this chapter, you only need to understand the general pattern we follow:</p>
+<ol class="arabic simple">
+<li><p>Define a group of commands.</p></li>
+<li><p>Create a DSL that uses this group of commands.</p></li>
+<li><p>Use the DSL to execute specific commands (our program).</p></li>
+</ol>
+<p>For loading commands, there are two approaches:</p>
+<ul class="simple">
+<li><p>Compile-time loading with the loadCommand() method.</p></li>
+<li><p>Runtime loading with the useCommand() method.</p></li>
+</ul>
+<p>For creating a DSL, we can either register commands one by one or register a whole
+group of commands at once using a cache.</p>
+<p>For executing code written in our DSL, we also have two approaches:</p>
+<ol class="arabic simple">
+<li><p>Using eval():</p></li>
+</ol>
+<ul class="simple">
+<li><p>The DSL code is passed as a file or a string.</p></li>
+<li><p>eval() executes it.</p></li>
+<li><p>We can modify the Ring syntax before or after execution.</p></li>
+<li><p>This approach can still use normal Ring code, but it also allows syntax changes.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Using object access with braces (no eval):</p></li>
+</ol>
+<ul class="simple">
+<li><p>We access an object that represents the DSL directly.</p></li>
+<li><p>The DSL is mixed naturally with regular Ring code.</p></li>
+<li><p>No implicit syntax changes occur before or after execution.</p></li>
+</ul>
+<p>To start using the library, We need to call naturallib.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To get started quickly, check the section on the loadCommand() method.</p>
+</div>
+<section id="the-naturallanguage-class">
+<span id="index-1"></span><h2>The NaturalLanguage class<a class="headerlink" href="#the-naturallanguage-class" title="Permalink to this heading"></a></h2>
+<p>After loading the library, We can use the NaturalLanguage class that contains the
+next methods :-</p>
+<ul class="simple">
+<li><p>SetPackageName(cPackageName)</p></li>
+<li><p>SetLanguageName(cLanguageName)</p></li>
+<li><p>SetCommandsPath(cFolder)</p></li>
+<li><p>UseCommand(cCommandName)</p></li>
+<li><p>LoadCommand(cCommandName)</p></li>
+<li><p>SetOperators(cOperators)</p></li>
+<li><p>RunFile(cFileName)</p></li>
+<li><p>RunString(cCode)</p></li>
+<li><p>Execute(cCode)</p></li>
+<li><p>&#64;(cCode)</p></li>
+<li><p>SetBeforeRun(cCode)</p></li>
+<li><p>SetAfterRun(cCode)</p></li>
+<li><p>SetStartKeywordsWith(cStart)</p></li>
+<li><p>SetMaskKeywords(lMask)</p></li>
+<li><p>SetMaskOperators(lMask)</p></li>
+<li><p>GetBeforeRun() –&gt; cCode</p></li>
+<li><p>GetAfterRun() –&gt; cCode</p></li>
+<li><p>GetStartKeywordsWith() –&gt; cStart</p></li>
+<li><p>GetMaskKeywords() –&gt; lMask</p></li>
+<li><p>GetMaskOperators() –&gt; lMask</p></li>
+</ul>
+</section>
+<section id="natural-library-demo-program">
+<span id="index-2"></span><h2>Natural Library - Demo Program<a class="headerlink" href="#natural-library-demo-program" title="Permalink to this heading"></a></h2>
+<p>We will write the natural code in a Text file, for example program.txt</p>
+<p>File: program.txt</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Welcome to the Ring programming language!
+What you are reading now is not comments, I swear!
+
+After many years of programming I decided to think different about
+programming and solve the problems in a better way.
+
+We are writing commands or code and the Ring language is reading
+it to understand us! Sure, What you are seeing now is
+just ***part of the code - Not the Complete Program***
+You have to write little things before and after this
+part to be able to run it!
+
+It is the natural part of our code where we can write in English,
+Arabic or any Natural Language Then we will tell the computer
+through the Ring language what must happens! in a way that we can scale
+for large frameworks and programs.
+
+Just imagine what will happens to the world of programming once
+we create many powerful frameworks using the Ring language that
+uses this way (Natural Programming).
+
+For example When we say Hello to the Machine, It can reply! and when we
+say count from 1 to 5 it will understand us, Also if
+we said count from 5 to 1 it will
+understand us too! You can see the Output window!
+
+This Goal is not new, but the Ring language comes
+with an innovative solution to this problem.
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Hello, Sir!
+
+
+The Numbers!
+
+1
+
+2
+
+3
+
+4
+
+5
+
+I will count Again!
+
+5
+
+4
+
+3
+
+2
+
+1
+</pre></div>
+</div>
+<p>To execute the natural code, We have start.ring</p>
+<p>In start.ring we define the language and the commands.</p>
+<p>File: start.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">SetCommandsPath</span><span class="p">(</span><span class="nb">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;/../command&quot;</span><span class="p">)</span>
+        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:Hello</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:Count</span><span class="p">)</span>
+        <span class="nf">RunFile</span><span class="p">(</span><span class="s2">&quot;program.txt&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We defined a language called MyLanguage, We have folder for the language commands.</p>
+<p>Each command will define a class that belong to the MyLanguage.Natural package.</p>
+<p>We will define two commands, Hello and Count.</p>
+<p>So we must have two files for defining the commands in the CurrentDir()+”/../command” folder</p>
+<p>File: hello.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsKeyword</span><span class="p">([</span>
+        <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="ss">:Keyword</span> <span class="o">=</span> <span class="ss">:hello</span><span class="p">,</span>
+        <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="k">See</span>  <span class="s2">&quot;Hello, Sir!&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="p">}</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<p>File: count.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsKeywordNumberNumber</span><span class="p">([</span>
+        <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="ss">:Keyword</span> <span class="o">=</span> <span class="ss">:count</span><span class="p">,</span>
+        <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isattribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:count_times</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nb">AddAttribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:count_times</span><span class="p">)</span>
+                        <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">nStep</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="k">else</span>
+                        <span class="n">nStep</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="s2">&quot;The Numbers!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                        <span class="n">Count_Times</span><span class="o">++</span>
+                <span class="k">else</span>
+                        <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span> <span class="s2">&quot;I will count Again!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
+                <span class="p">}</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">to</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">step</span> <span class="n">nStep</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="bp">nl</span>
+                <span class="p">}</span>
+                <span class="nf">CommandReturn</span><span class="p">(</span><span class="nb">fabs</span><span class="p">(</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="defining-commands">
+<span id="index-3"></span><h2>Defining Commands<a class="headerlink" href="#defining-commands" title="Permalink to this heading"></a></h2>
+<p>To define new command we can use the DefineNaturalCommand object</p>
+<p>This object provides the next methods :-</p>
+<ul class="simple">
+<li><p>SetPackageName(cName)</p></li>
+<li><p>StartCache(cName)</p></li>
+<li><p>EndCache()</p></li>
+<li><p>SyntaxIsKeyword(aPara)</p></li>
+<li><p>SyntaxIsKeywordNumber(aPara)</p></li>
+<li><p>SyntaxIsKeywordNumberNumber(aPara)</p></li>
+<li><p>SyntaxIsKeywordNumbers(aPara,nCount)</p></li>
+<li><p>SyntaxIsKeywordString(aPara)</p></li>
+<li><p>SyntaxIsKeywordStringString(aPara)</p></li>
+<li><p>SyntaxIsKeywordStrings(aPara,nCount)</p></li>
+<li><p>SyntaxIsKeywordExpression(aPara)</p></li>
+<li><p>SyntaxIsKeywordExpressionExpression(aPara)</p></li>
+<li><p>SyntaxIsKeywordExpressions(aPara,nCount)</p></li>
+<li><p>SyntaxIsCommand(aPara)</p></li>
+<li><p>SyntaxIsCommandNumber(aPara)</p></li>
+<li><p>SyntaxIsCommandNumberNumber(aPara)</p></li>
+<li><p>SyntaxIsCommandNumbers(aPara,nCount)</p></li>
+<li><p>SyntaxIsCommandString(aPara)</p></li>
+<li><p>SyntaxIsCommandStringString(aPara)</p></li>
+<li><p>SyntaxIsCommandStrings(aPara,nCount)</p></li>
+<li><p>SyntaxIsCommandExpression(aPara)</p></li>
+<li><p>SyntaxIsCommandExpressionExpression(aPara)</p></li>
+<li><p>SyntaxIsCommandExpressions(aPara,nCount)</p></li>
+</ul>
+<p>The command passes an anonymous function that becomes a method inside the class
+representing our domain‑specific language</p>
+<p>Inside this anonymous function, we can use the following methods to access the
+command parameters, set the command output, and control NaturalLib’s behavior.</p>
+<ul class="simple">
+<li><p>Expr(nPara) –&gt; Value</p></li>
+<li><p>isIdentifier(nPara) –&gt; lStatus</p></li>
+<li><p>commandReturn(vValue)</p></li>
+<li><p>passThisCommand()</p></li>
+<li><p>register(cAttribute)</p></li>
+<li><p>callerGetVar(cVar)</p></li>
+<li><p>callerSetVar(cVar,vValue)</p></li>
+</ul>
+<p>File: mylanguage.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlib.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">MyLanguage</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">setCommandsPath</span><span class="p">(</span><span class="nb">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;/../command&quot;</span><span class="p">)</span>
+        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:Hello</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:Count</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:Print</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:IWantWindow</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:WindowTitleIs</span><span class="p">)</span>
+        <span class="nf">UseCommand</span><span class="p">(</span><span class="ss">:IWantButton</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example (1)</p>
+<p>In the next example we will define the Print command.</p>
+<p>We will use the SyntaxIsKeywordExpression() Method.</p>
+<p>We pass list (as Hash) to the method. We determine the package name, the keyword and
+the function that will be executed.</p>
+<p>Inside this function we uses the Expr(nExprNumber) function to get the expression value that the
+user will write after the keyword.</p>
+<p>File: print.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsKeywordExpression</span><span class="p">([</span>
+        <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="ss">:Keyword</span> <span class="o">=</span> <span class="ss">:print</span><span class="p">,</span>
+        <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="k">See</span>  <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<p>Usage:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;mylanguage.ring&quot;</span>
+
+<span class="n">MyLanguage</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s1">&#39;</span>
+<span class="s1">        print &quot;Hello, World!&quot;</span>
+<span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Hello, World!
+</pre></div>
+</div>
+<p>Example (2)</p>
+<p>File: iwantwindow.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+        <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;i want window&quot;</span><span class="p">,</span>
+        <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="k">See</span>  <span class="s2">&quot;Command: I want window&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="p">}</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<p>Usage:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;mylanguage.ring&quot;</span>
+
+<span class="n">MyLanguage</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s1">&#39;</span>
+<span class="s1">        i want window</span>
+<span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+</pre></div>
+</div>
+<p>Example (3)</p>
+<p>File: windowtitleis.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsCommandString</span><span class="p">([</span>
+        <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;window title is&quot;</span><span class="p">,</span>
+        <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="k">See</span>  <span class="s2">&quot;Command: Window title is &quot;</span> <span class="o">+</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">nl</span>
+        <span class="p">}</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<p>Usage:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;mylanguage.ring&quot;</span>
+
+<span class="n">MyLanguage</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s1">&#39;</span>
+<span class="s1">        I want window and the window title is &quot;Hello World&quot;</span>
+<span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: Window title is Hello World
+</pre></div>
+</div>
+</section>
+<section id="natural-library-operators">
+<span id="index-4"></span><h2>Natural Library - Operators<a class="headerlink" href="#natural-library-operators" title="Permalink to this heading"></a></h2>
+<p>In the next example we uses the Count command without using operators</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;mylanguage.ring&quot;</span>
+
+<span class="n">MyLanguage</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s2">&quot;</span>
+<span class="s2">        Hello</span>
+<span class="s2">        Count 1 5</span>
+<span class="s2">        Count 5 1</span>
+<span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can add more description</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;mylanguage.ring&quot;</span>
+
+<span class="n">MyLanguage</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s2">&quot;</span>
+<span class="s2">        Hello, Please   Count from 1 to 5 then count from 5 to 1</span>
+<span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Also we can use operators like “(” and “)” around the instruction</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;mylanguage.ring&quot;</span>
+
+<span class="n">MyLanguage</span> <span class="p">{</span>
+        <span class="nf">SetOperators</span><span class="p">(</span><span class="s2">&quot;()&quot;</span><span class="p">)</span>
+        <span class="nf">RunString</span><span class="p">(</span><span class="s2">&quot;</span>
+<span class="s2">                Here we will play and will try something</span>
+<span class="s2">                that looks like Lisp Syntax</span>
+<span class="s2">                (count  (count 1 5)  (count 20 15))</span>
+<span class="s2">                Just for fun!</span>
+<span class="s2">        &quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="defining-commands-using-classes">
+<span id="index-5"></span><h2>Defining commands using classes<a class="headerlink" href="#defining-commands-using-classes" title="Permalink to this heading"></a></h2>
+<p>This section is related to the implementation details.</p>
+<p>When we define new command, Each command is defined by the Natural Library as a class.</p>
+<p>We have the choice to define commands using the simple interface provided by the
+DefineNaturalCommand object or by defining new class as in the next examples.</p>
+<p>If we used DefineNaturalCommand (More Simple), The class will be defined during the runtime.</p>
+<p>File: hello.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Package</span> <span class="nn">MyLanguage.Natural</span>
+
+<span class="kd">class</span> <span class="nc">Hello</span>
+
+        <span class="kd">func</span> <span class="nf">AddAttributes_Hello</span>
+                <span class="nb">AddAttribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:hello</span><span class="p">)</span>
+
+        <span class="kd">func</span> <span class="nf">GetHello</span>
+                <span class="k">See</span>  <span class="s2">&quot;Hello, Sir!&quot;</span> <span class="o">+</span> <span class="bp">nl</span> <span class="o">+</span> <span class="bp">nl</span>
+</pre></div>
+</div>
+<p>File: count.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">Package</span> <span class="nn">MyLanguage.Natural</span>
+
+<span class="kd">class</span> <span class="nc">Count</span>
+
+        <span class="kd">func</span> <span class="nf">Getcount</span>
+                <span class="nf">StartCommand</span><span class="p">()</span>
+                <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:name</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:Count</span>
+                <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:nExpr</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:aExpr</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="kd">func</span> <span class="nf">BraceExprEval_Count</span> <span class="n">nValue</span>
+                <span class="k">if</span> <span class="nf">isCommand</span><span class="p">()</span> <span class="ow">and</span> <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:name</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:Count</span> <span class="p">{</span>
+                        <span class="k">if</span> <span class="nb">isNumber</span><span class="p">(</span><span class="n">nValue</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:nExpr</span><span class="p">]</span><span class="o">++</span>
+                                <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:aExpr</span><span class="p">]</span> <span class="o">+</span> <span class="n">nValue</span>
+                                <span class="k">if</span> <span class="nf">CommandData</span><span class="p">()[</span><span class="ss">:nExpr</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">{</span>
+                                        <span class="nf">Count_Execute</span><span class="p">()</span>
+                                <span class="p">}</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+
+        <span class="kd">func</span> <span class="nf">AddAttributes_Count</span>
+                <span class="nb">AddAttribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:count</span><span class="p">)</span>
+
+        <span class="kd">func</span> <span class="nf">Count_Execute</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isattribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:count_times</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nb">AddAttribute</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="ss">:count_times</span><span class="p">)</span>
+                        <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">nStep</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="k">else</span>
+                        <span class="n">nStep</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="s2">&quot;The Numbers!&quot;</span> <span class="o">+</span> <span class="bp">nl</span>
+                        <span class="n">Count_Times</span><span class="o">++</span>
+                <span class="k">else</span>
+                        <span class="k">see</span> <span class="bp">nl</span> <span class="o">+</span> <span class="s2">&quot;I will count Again!&quot;</span> <span class="o">+</span><span class="bp">nl</span>
+                <span class="p">}</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">to</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">step</span> <span class="n">nStep</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="bp">nl</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="bp">nl</span>
+                <span class="p">}</span>
+                <span class="nf">CommandReturn</span><span class="p">(</span><span class="nb">fabs</span><span class="p">(</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="loadcommand-method">
+<span id="index-6"></span><h2>loadCommand() Method<a class="headerlink" href="#loadcommand-method" title="Permalink to this heading"></a></h2>
+<p>Unlike the useCommand() method, which loads the command’s source file at runtime, the loadCommand() method
+allows us to achieve the same goal during compile time. This is useful when we
+want our domain‑specific language to avoid depending on external source files at runtime</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>loadCommand(cCommand)
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We can use spaces between the command keywords (optional)</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="c1"># Define Commands</span>
+
+<span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+        <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;i want window&quot;</span><span class="p">,</span>
+        <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+        <span class="p">}</span>
+<span class="p">])</span>
+
+<span class="n">MyLang</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="s2">&quot;i want window&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">GUI</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">MyLanguage</span>
+
+<span class="c1"># Usage</span>
+
+<span class="n">GUI</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
+                <span class="n">i</span> <span class="n">want</span> <span class="n">window</span>
+        <span class="k">next</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: I want window
+Command: I want window
+</pre></div>
+</div>
+</section>
+<section id="runstring-and-execute-methods">
+<span id="index-7"></span><h2>RunString and Execute() Methods<a class="headerlink" href="#runstring-and-execute-methods" title="Permalink to this heading"></a></h2>
+<p>Both runString() and Execute() perform the same task: they execute code provided as a
+string containing commands defined by our domain‑specific language.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can use the &#64;() method too</p>
+</div>
+<p>Example:</p>
+<p>Assume we have a MyLang object, an instance from the NaturalLanguage class that
+defines the (I want window) command.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MyLang</span><span class="o">.</span><span class="nf">RunString</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
+
+<span class="n">MyLang</span><span class="o">.</span><span class="nf">Execute</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
+
+<span class="n">MyLang</span><span class="o">.</span><span class="n">@</span><span class="p">(</span><span class="s1">&#39; I want window &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: I want window
+Command: I want window
+</pre></div>
+</div>
+</section>
+<section id="setbeforerun-and-setafterrun-methods">
+<span id="index-8"></span><h2>SetBeforeRun() and SetAfterRun() Methods<a class="headerlink" href="#setbeforerun-and-setafterrun-methods" title="Permalink to this heading"></a></h2>
+<p>Using the setBeforeRun() and setAfterRun() methods, we can specify code to be executed
+before or after running code via the runString() and execute() methods.</p>
+<p>If we don’t use these methods, NaturalLib will automatically transform all Ring
+keywords and operators before executing the code via the runString() and execute() methods.</p>
+<p>Example:</p>
+<p>Assume we have a MyLang object, an instance from the NaturalLanguage class that
+defines the (I want window) command.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define commands</span>
+<span class="n">MyLang</span> <span class="p">{</span>
+        <span class="nf">setBeforeRun</span><span class="p">(</span><span class="sb">`ChangeRingKeyword to       towards  `</span><span class="o">+</span><span class="bp">nl</span><span class="p">)</span>
+        <span class="nf">setAfterRun</span><span class="p">(</span><span class="sb">` ChangeRingKeyword towards  to       `</span><span class="o">+</span><span class="bp">nl</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Usage</span>
+<span class="n">MyLang</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="sb">`</span>
+<span class="sb">        for t=1 towards 5</span>
+<span class="sb">                i want window</span>
+<span class="sb">        next</span>
+<span class="sb">`</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: I want window
+Command: I want window
+Command: I want window
+Command: I want window
+</pre></div>
+</div>
+</section>
+<section id="setstartkeywordswith-and-setmaskoperators-methods">
+<span id="index-9"></span><h2>SetStartKeywordsWith() and SetMaskOperators() methods<a class="headerlink" href="#setstartkeywordswith-and-setmaskoperators-methods" title="Permalink to this heading"></a></h2>
+<p>If we don’t use SetBeforeRun() and SetAfterRun() methods, NaturalLib will automatically
+transform all Ring keywords and operators before executing the code via
+the runString() and execute() methods.</p>
+<p>Using SetStartKeywordsWith(), we can specify a symbol that will appear at the beginning of
+all newly created keyword names.</p>
+<p>Using SetMaskKeywords() we can enable/disable changing the language keywords before code execution.</p>
+<p>Using SetMaskOperators() we can enable/disable changing the language operators before code execution.</p>
+<p>Example:</p>
+<p>Assume we have a MyLang object, an instance from the NaturalLanguage class that
+defines the (I want window) command.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define commands</span>
+<span class="n">MyLang</span> <span class="p">{</span>
+        <span class="nf">setBeforeRun</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>                <span class="c1">// Disable Before Run</span>
+        <span class="nf">setAfterRun</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>                 <span class="c1">// Disable After  Run</span>
+        <span class="nf">setStartKeywordsWith</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
+        <span class="nf">setMaskOperators</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Usage</span>
+<span class="n">MyLang</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="s1">&#39;</span>
+
+<span class="s1">        @for t=1 @to 3</span>
+<span class="s1">                i want window</span>
+<span class="s1">        @next</span>
+
+<span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: I want window
+Command: I want window
+</pre></div>
+</div>
+</section>
+<section id="startcache-and-endcache-methods">
+<span id="index-10"></span><h2>StartCache() and EndCache() methods<a class="headerlink" href="#startcache-and-endcache-methods" title="Permalink to this heading"></a></h2>
+<p>Using these methods we can get better performance when loading many commands.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Package</span> <span class="o">=</span> <span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want button&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want button&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+<span class="n">DefineNaturalCommand</span><span class="o">.</span><span class="nf">endCache</span><span class="p">()</span>
+
+<span class="n">MyLang</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">MyLanguage</span> <span class="p">{</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">button</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: I want button
+</pre></div>
+</div>
+</section>
+<section id="setpackagename-method">
+<span id="index-11"></span><h2>SetPackageName() Method<a class="headerlink" href="#setpackagename-method" title="Permalink to this heading"></a></h2>
+<p>If many commands share the same package we can use the SetPackageName() method</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want button&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want button&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">MyLang</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">MyLanguage</span> <span class="p">{</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">button</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: I want button
+</pre></div>
+</div>
+</section>
+<section id="expr-and-isidentifier-methods">
+<span id="index-12"></span><h2>Expr() and isIdentifier() methods<a class="headerlink" href="#expr-and-isidentifier-methods" title="Permalink to this heading"></a></h2>
+<p>Using Expr() and isIdentifer() methods, we can process the command parameters.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">SyntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">SyntaxIsCommandExpression</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;Window backcolor is&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span> <span class="s2">&quot;Command: Window backcolor is &quot;</span> <span class="o">+</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="o">?</span> <span class="s2">&quot;Is Identifier: &quot;</span> <span class="o">+</span> <span class="nf">isIdentifier</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">MyLang</span> <span class="o">=</span> <span class="kp">New</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">SetLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">SetPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">MyLanguage</span> <span class="p">{</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+        <span class="n">window</span> <span class="n">backcolor</span> <span class="n">is</span> <span class="s2">&quot;white&quot;</span>
+        <span class="n">window</span> <span class="n">backcolor</span> <span class="n">is</span> <span class="n">red</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: Window backcolor is white
+Is Identifier: 0
+Command: Window backcolor is red
+Is Identifier: 1
+</pre></div>
+</div>
+</section>
+<section id="commands-with-multiple-keywords">
+<span id="index-13"></span><h2>Commands with multiple keywords<a class="headerlink" href="#commands-with-multiple-keywords" title="Permalink to this heading"></a></h2>
+<p>Using isIdentifier(), we can define commands that use multiple keywords.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+
+        <span class="nf">defineDSL</span><span class="p">()</span>
+        <span class="nf">testDSL</span><span class="p">()</span>
+
+<span class="kd">func</span> <span class="nf">defineDSL</span>
+
+        <span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+                <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+                <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+                <span class="nf">syntaxIsKeywordExpressions</span><span class="p">([</span>
+                        <span class="ss">:keyword</span> <span class="o">=</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+                        <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                                <span class="k">if</span> <span class="o">!</span> <span class="p">(</span> <span class="nf">isIdentifier</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">lower</span><span class="p">(</span><span class="nf">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="o">=</span> <span class="ss">:with</span> <span class="p">)</span> <span class="p">{</span>
+                                        <span class="o">?</span> <span class="s2">&quot;WITH keyword is missing!&quot;</span>
+                                        <span class="k">return</span>
+                                <span class="p">}</span>
+                                <span class="o">?</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; ===&gt; &quot;</span> <span class="o">+</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+                        <span class="p">}</span>
+                <span class="p">],</span><span class="mi">3</span><span class="p">)</span>
+                <span class="nf">endCache</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+                <span class="nf">setLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+                <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+                <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">testDSL</span>
+
+        <span class="c1"># Define aLangs as local variable</span>
+
+        <span class="n">aLangs</span> <span class="o">=</span> <span class="p">[</span>      <span class="p">[</span><span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="ss">:year</span> <span class="o">=</span> <span class="mi">1972</span><span class="p">,</span> <span class="ss">:age</span> <span class="o">=</span> <span class="mi">2026</span><span class="o">-</span><span class="mi">1972</span><span class="p">],</span>
+                        <span class="p">[</span><span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span><span class="p">,</span><span class="ss">:year</span> <span class="o">=</span> <span class="mi">1990</span><span class="p">,</span> <span class="ss">:age</span> <span class="o">=</span> <span class="mi">2026</span><span class="o">-</span><span class="mi">1990</span><span class="p">],</span>
+                        <span class="p">[</span><span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;Ring&quot;</span><span class="p">,</span><span class="ss">:year</span> <span class="o">=</span> <span class="mi">2016</span><span class="p">,</span><span class="ss">:age</span> <span class="o">=</span> <span class="mi">2026</span><span class="o">-</span><span class="mi">2016</span><span class="p">]</span>  <span class="p">]</span>
+
+        <span class="c1"># Using our DSL object inside braces enables sharing the local scope</span>
+
+        <span class="kp">new</span> <span class="nc">MyLanguage</span> <span class="p">{</span>
+
+                <span class="k">for</span> <span class="n">aLang</span> <span class="k">in</span> <span class="n">aLangs</span>
+                        <span class="n">Replace</span> <span class="n">name</span> <span class="n">with</span> <span class="n">aLang</span><span class="p">[</span><span class="ss">:Name</span><span class="p">]</span>
+                        <span class="n">Replace</span> <span class="n">year</span> <span class="n">with</span> <span class="n">aLang</span><span class="p">[</span><span class="ss">:Year</span><span class="p">]</span>
+                        <span class="n">Replace</span> <span class="n">age</span>  <span class="n">with</span> <span class="n">aLang</span><span class="p">[</span><span class="ss">:Age</span><span class="p">]</span>
+                <span class="k">next</span>
+
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>name ===&gt; C
+year ===&gt; 1972
+age ===&gt; 54
+name ===&gt; Python
+year ===&gt; 1990
+age ===&gt; 36
+name ===&gt; Ring
+year ===&gt; 2016
+age ===&gt; 10
+</pre></div>
+</div>
+</section>
+<section id="sharing-data-between-commands">
+<span id="index-14"></span><h2>Sharing Data Between Commands<a class="headerlink" href="#sharing-data-between-commands" title="Permalink to this heading"></a></h2>
+<p>Each command can access the aCommandMemory list, which is defined as an attribute of the object.</p>
+<p>Using this list, the commands can share data with one another.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:window</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want button&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="k">if</span> <span class="o">!</span> <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:window</span><span class="p">]</span> <span class="p">{</span>
+                                <span class="o">?</span> <span class="s2">&quot;Please create the window first!&quot;</span>
+                                <span class="k">return</span>
+                        <span class="p">}</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want button&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">setLanguageName</span><span class="p">(</span><span class="ss">:GUI</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">GUI</span>  <span class="p">{</span>
+        <span class="n">I</span> <span class="n">Want</span> <span class="n">Window</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">Button</span>
+<span class="p">}</span>
+
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="kp">new</span> <span class="nc">GUI</span>  <span class="p">{</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">Button</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: I want button
+*************************
+Please create the window first!
+</pre></div>
+</div>
+</section>
+<section id="setpasserror-method">
+<span id="index-15"></span><h2>SetPassError() Method<a class="headerlink" href="#setpasserror-method" title="Permalink to this heading"></a></h2>
+<p>Using the SetPassError(lStatus) method, we can control how the Natural Library behaves when an
+error occurs, either by passing the error or by displaying it and terminating the program.</p>
+<p>The default behavior is to pass the error.</p>
+<p>A related method is setTreatIdentifierAsString(lStatus), which controls whether uninitialized
+identifiers should be passed by converting the identifier to a string.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want button&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want button&quot;</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">setLanguageName</span><span class="p">(</span><span class="ss">:MyLanguage</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">GUI</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">MyLanguage</span> <span class="p">{</span>
+        <span class="nf">setPassError</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="nf">setTreatIdentifierAsString</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">GUI</span> <span class="p">{</span>
+
+        <span class="n">I</span>
+        <span class="n">Want</span>
+        <span class="n">Window</span>
+
+        <span class="n">I</span> <span class="n">want</span>
+        <span class="n">Button</span>
+
+        <span class="n">I</span> <span class="n">want</span>                          <span class="c1">// Produce error at braceEnd()</span>
+
+<span class="p">}</span>                                       <span class="c1">// Call braceEnd() and check Errors</span>
+</pre></div>
+</div>
+</section>
+<section id="passthiscommand-method">
+<span id="index-16"></span><h2>PassThisCommand() Method<a class="headerlink" href="#passthiscommand-method" title="Permalink to this heading"></a></h2>
+<p>Using this method, we can support commands that share the same keywords, even when all
+of a command’s keywords may also appear in another command. Then, by using BraceNewLine(),
+we can determine which command should be executed.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:IWantWindow</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:Normal</span>
+                        <span class="nf">passThisCommand</span><span class="p">()</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window now&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:IWantWindow</span><span class="p">]</span> <span class="o">=</span> <span class="ss">:Now</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">setLanguageName</span><span class="p">(</span><span class="ss">:GUI</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">GUI</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">GUI</span>
+
+<span class="nb">addMethod</span><span class="p">(</span><span class="n">GUI</span><span class="p">,</span> <span class="ss">:braceNewLine</span><span class="p">,</span> <span class="kd">func</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:IWantWindow</span><span class="p">]</span> <span class="p">{</span>
+                <span class="k">case</span> <span class="ss">:Normal</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want window&quot;</span>
+                <span class="k">case</span> <span class="ss">:Now</span>
+                        <span class="o">?</span>  <span class="s2">&quot;Command: I want window now&quot;</span>
+        <span class="p">}</span>
+        <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:IWantWindow</span><span class="p">]</span> <span class="o">=</span> <span class="bp">NULL</span>
+<span class="p">}</span> <span class="p">)</span>
+
+<span class="n">GUI</span>  <span class="p">{</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">Window</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">Window</span> <span class="n">now</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">window</span> <span class="n">now</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command: I want window
+Command: I want window now
+Command: I want window now
+Command: I want window
+</pre></div>
+</div>
+</section>
+<section id="the-command-output">
+<span id="index-17"></span><h2>The Command Output<a class="headerlink" href="#the-command-output" title="Permalink to this heading"></a></h2>
+<p>There are several ways to get output after executing commands in our DSL.</p>
+<p>One option is to use the commandReturn() method, which returns a value produced by the command.</p>
+<p>To execute the command itself, we can use the runString(), execute(), or &#64;() methods</p>
+<p>Example (1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:window</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;Window title&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="nf">passThisCommand</span><span class="p">()</span>
+                        <span class="nf">commandReturn</span><span class="p">(</span><span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:windowtitle</span><span class="p">])</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">syntaxIsCommandExpression</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;Window title is&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="k">if</span> <span class="o">!</span> <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:window</span><span class="p">]</span> <span class="p">{</span>
+                                <span class="o">?</span> <span class="s2">&quot;Please create the window first!&quot;</span>
+                                <span class="k">return</span>
+                        <span class="p">}</span>
+                        <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:windowtitle</span><span class="p">]</span> <span class="o">=</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">setLanguageName</span><span class="p">(</span><span class="ss">:GUI</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">GUI</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">GUI</span>
+
+<span class="n">GUI</span> <span class="p">{</span>
+        <span class="n">I</span> <span class="n">Want</span> <span class="n">Window</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">window</span> <span class="n">title</span> <span class="n">is</span> <span class="s2">&quot;welcome&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;Window title: &quot;</span> <span class="o">+</span> <span class="n">@</span><span class="p">(</span><span class="s2">&quot;window title&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
+<span class="n">mylang</span><span class="o">.</span><span class="nf">runstring</span><span class="p">(</span><span class="sb">`I want window and the window title is &quot;one&quot; `</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">mylang</span><span class="o">.</span><span class="nf">runstring</span><span class="p">(</span><span class="s2">&quot;window title&quot;</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
+<span class="n">mylang</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="sb">`I want window and the window title is &quot;two&quot; `</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">mylang</span><span class="o">.</span><span class="nf">execute</span><span class="p">(</span><span class="s2">&quot;window title&quot;</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
+<span class="n">mylang</span><span class="o">.</span><span class="n">@</span><span class="p">(</span><span class="sb">`I want window and the window title is &quot;three&quot; `</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">mylang</span><span class="o">.</span><span class="n">@</span><span class="p">(</span><span class="s2">&quot;window title&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output (1):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Window title: welcome
+*********************
+one
+*********************
+two
+*********************
+three
+</pre></div>
+</div>
+<p>We can use the V list, defined as an object attribute, to share state with the DSL user or caller.</p>
+<p>Example (2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:window</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">syntaxIsCommandExpression</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;Window title is&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="k">if</span> <span class="o">!</span> <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:window</span><span class="p">]</span> <span class="p">{</span>
+                                <span class="o">?</span> <span class="s2">&quot;Please create the window first!&quot;</span>
+                                <span class="k">return</span>
+                        <span class="p">}</span>
+                        <span class="n">v</span><span class="p">[</span><span class="s2">&quot;Window Title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">setLanguageName</span><span class="p">(</span><span class="ss">:GUI</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">GUI</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">GUI</span>
+
+<span class="n">GUI</span>  <span class="p">{</span>
+        <span class="n">I</span> <span class="n">Want</span> <span class="n">Window</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">window</span> <span class="n">title</span> <span class="n">is</span> <span class="s2">&quot;welcome&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;Window title: &quot;</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="s2">&quot;window title&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output (2):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Window title: welcome
+</pre></div>
+</div>
+<p>Another way to share state with the DSL user or caller is to define or use a custom object attribute.</p>
+<p>We can do this inside the command by using the isAttribute() and addAttribute() functions.</p>
+<p>We can also use the register() function, which internally uses isAttribute() and addAttribute().</p>
+<p>Example (3):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I want window&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:Window</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">syntaxIsCommandExpression</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;Window title is&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="k">if</span> <span class="o">!</span> <span class="n">aCommandMemory</span><span class="p">[</span><span class="ss">:Window</span><span class="p">]</span> <span class="p">{</span>
+                                <span class="o">?</span> <span class="s2">&quot;Please create the window first!&quot;</span>
+                                <span class="k">return</span>
+                        <span class="p">}</span>
+                        <span class="nf">register</span><span class="p">(</span><span class="ss">:windowTitle</span><span class="p">)</span>
+                        <span class="n">windowTitle</span> <span class="o">=</span> <span class="nf">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">setLanguageName</span><span class="p">(</span><span class="ss">:GUI</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">GUI</span> <span class="p">{</span>
+        <span class="n">I</span> <span class="n">Want</span> <span class="n">Window</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">window</span> <span class="n">title</span> <span class="n">is</span> <span class="s2">&quot;I Love Programming!&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;The window title is: &quot;</span> <span class="o">+</span> <span class="n">windowTitle</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output (3):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The window title is: I Love Programming!
+</pre></div>
+</div>
+<p>More ideas:</p>
+<ul class="simple">
+<li><p>Using Setter/Getter methods for new attributes defined through the Register() method.</p></li>
+<li><p>Defining the V list as an object (instead of a list) and apply operator overloading.</p></li>
+</ul>
+</section>
+<section id="callergetvar-and-callersetvar-methods">
+<span id="index-18"></span><h2>CallerGetVar() and CallerSetVar() methods<a class="headerlink" href="#callergetvar-and-callersetvar-methods" title="Permalink to this heading"></a></h2>
+<p>By using the callerGetVar() and callerSetVar() methods, we can access the caller’s scope.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;stdlibcore.ring&quot;</span>
+<span class="kn">load</span> <span class="s2">&quot;naturallib.ring&quot;</span>
+
+<span class="n">DefineNaturalCommand</span> <span class="p">{</span>
+        <span class="nf">startCache</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">syntaxIsCommand</span><span class="p">([</span>
+                <span class="ss">:Command</span> <span class="o">=</span> <span class="s2">&quot;I have a secret&quot;</span><span class="p">,</span>
+                <span class="ss">:Function</span> <span class="o">=</span> <span class="kd">func</span> <span class="p">{</span>
+                        <span class="o">?</span> <span class="s2">&quot;Your secret is: &quot;</span>
+                        <span class="o">?</span> <span class="nf">callerGetVar</span><span class="p">(</span><span class="ss">:mysecret</span><span class="p">)</span>
+                        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="nf">callerSetVar</span><span class="p">(</span><span class="ss">:yoursecret</span><span class="p">,</span><span class="s2">&quot;The Natural Library is GREAT!&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">])</span>
+        <span class="nf">endCache</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">MyLang</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">NaturalLanguage</span> <span class="p">{</span>
+        <span class="nf">setLanguageName</span><span class="p">(</span><span class="ss">:Chat</span><span class="p">)</span>
+        <span class="nf">setPackageName</span><span class="p">(</span><span class="s2">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="nf">loadCommand</span><span class="p">(</span><span class="ss">:MyDSL</span><span class="p">)</span>
+        <span class="nf">setMaskOperators</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>                 <span class="c1">// So we can use ? and = operators</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+
+        <span class="nf">test1</span><span class="p">()</span>
+        <span class="nf">test2</span><span class="p">()</span>
+
+<span class="kd">func</span> <span class="nf">test1</span>
+
+
+        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+
+        <span class="n">mySecret</span> <span class="o">=</span> <span class="s2">&quot;Ring Programming is Fun!&quot;</span>
+
+        <span class="kp">new</span> <span class="nc">Chat</span> <span class="p">{</span>
+                <span class="n">I</span> <span class="n">have</span> <span class="n">a</span> <span class="n">secret</span>
+        <span class="p">}</span>
+
+        <span class="o">?</span> <span class="s2">&quot;Mmm....&quot;</span>
+        <span class="o">?</span> <span class="s2">&quot;I know your secret too&quot;</span>
+
+        <span class="o">?</span> <span class="n">yourSecret</span>
+
+        <span class="o">?</span> <span class="nb">copy</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+
+
+<span class="kd">func</span> <span class="nf">test2</span>
+
+        <span class="n">MyLang</span><span class="o">.</span><span class="n">@</span><span class="p">(</span><span class="sb">`</span>
+
+<span class="sb">                ? copy(&quot;=&quot;,30)</span>
+
+<span class="sb">                mySecret = &quot;Ring Programming is Fun!&quot;</span>
+
+<span class="sb">                I have a secret</span>
+
+<span class="sb">                ? &quot;Mmm....&quot;</span>
+<span class="sb">                ? &quot;I know your secret too&quot;</span>
+
+<span class="sb">                ? yourSecret</span>
+
+<span class="sb">                ? copy(&quot;=&quot;,30)</span>
+
+<span class="sb">        `</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>==============================
+Your secret is:
+Ring Programming is Fun!
+******************************
+Mmm....
+I know your secret too
+The Natural Library is GREAT!
+==============================
+==============================
+Your secret is:
+Ring Programming is Fun!
+******************************
+Mmm....
+I know your secret too
+The Natural Library is GREAT!
+==============================
+</pre></div>
+</div>
+</section>
+<section id="the-art-behind-naturallib">
+<span id="index-19"></span><h2>The Art Behind NaturalLib<a class="headerlink" href="#the-art-behind-naturallib" title="Permalink to this heading"></a></h2>
+<p>Working with the Natural Library is not only a technical activity. It is also a creative process.
+The library gives you tools for parsing, evaluating expressions, and defining commands, but
+these tools are only the foundation. The moment you decide how your DSL should read and
+feel, you are making artistic choices.</p>
+<p>A DSL is not just a set of rules. It is a user experience. You decide whether commands
+should look formal, conversational, minimal, or natural. You also choose whether the
+language resembles an existing language or something entirely new. These decisions shape
+how people think while writing code.</p>
+<p>The Natural Library gives you great freedom. You can define commands at runtime or
+compile time, accept expressions or identifiers, and mix DSL code with normal Ring code.
+This flexibility means there is no single correct design. You must balance structure
+with readability, and precision with expressiveness.</p>
+<p>Designing a DSL also means translating human intention into machine action. When someone
+writes (I want window) or (count from 1 to 5) they are expressing ideas in natural
+language. Turning those ideas into executable behavior requires intuition and
+imagination, not just technical skill.</p>
+<p>A language also has tone and rhythm. Some DSLs feel direct and mechanical. Others feel
+friendly or narrative. The Natural Library allows you to shape this voice by choosing
+keywords, command patterns, and the overall flow of the language.</p>
+<p>A good DSL should be both technically sound and pleasant to read. If the structure is
+too strict, the language becomes rigid and difficult to write. If it is too loose, the
+meaning becomes unclear. In the same way, precise rules help the computer understand
+the command, but expressive wording helps the human understand it. A successful DSL
+finds the middle ground: clear enough for the machine, natural enough for the user.</p>
+<p>In short, the library provides the mechanisms, but the art lies in deciding how humans
+should communicate with the computer. The Natural Library supports both sides, yet the
+creative vision remains yours.</p>
+</section>
+<section id="the-samples-and-the-source-code">
+<span id="index-20"></span><h2>The Samples and the Source Code<a class="headerlink" href="#the-samples-and-the-source-code" title="Permalink to this heading"></a></h2>
+<p>You can find the samples in the ring/samples/UsingNaturalLib folder.</p>
+<p>You can find the source code in the ring/libraries/naturallib folder.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="natural.html" class="btn btn-neutral float-left" title="Natural Language Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scope.html" class="btn btn-neutral float-right" title="Scope Rules for Variables and Attributes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, Mahmoud Fayed.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,333 @@
+.. index:: 
+	single: What is new in Ring 1.22; Introduction
+
+========================
+What is new in Ring 1.22
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.22 release.
+
+.. index:: 
+	pair: What is new in Ring 1.22?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.22 comes with the next features!
+
+* Research Article
+* PWCT 2.0 (Free Software)
+* More Projects
+* Better Samples
+* Better Functions
+* Better RingFastPro Extension
+* Return Attribute by Reference
+* Better Compiler
+* More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.22?; Research Article
+
+Research Article
+================
+
+URL: https://doi.org/10.3390/electronics13234627
+
+.. image:: researchcover.png
+	:alt: Research Article
+
+.. index:: 
+	pair: What is new in Ring 1.22?; PWCT 2.0 (Free Software)
+
+PWCT 2.0 (Free Software)
+========================
+
+Programming Without Coding Technology 2.0 is free software available on the Steam platform.
+
+URL: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/
+
+.. image:: pwct2.png
+	:alt: PWCT2
+
+.. index:: 
+	pair: What is new in Ring 1.22?; More Projects
+
+More Projects
+=============
+
+* EpochTime application (ring/applications folder)
+* DirSize - Directory Size Analyzer (GitHub project)
+* GitHub Action - Build Ring Project (GitHub project)
+* Ring Syntax Highlighting for Sublime Text 4 (GitHub project)
+* Ring Syntax Highlighting for Lite XL editor (ring/tools/editors folder)
+
+.. image:: litexl1.png
+	:alt: Ring in Lite XL
+
+.. index:: 
+	pair: What is new in Ring 1.22?; Better Samples
+
+Better Samples
+==============
+
+The next samples are added:
+
+* samples/UsingJSONLib/test11.ring
+* samples/General/TriangleLib/TriangleLibrary.ring
+* samples/Drawing/HeartEquation/HeartEquation.ring
+* samples/Language/ChangeSyntax/swapkeywordandoperator.ring
+* samples/ProblemSolving/GetQuotesHistory/Curl-YahooHistory-JSON.ring
+* samples/UsingStbImage/test15.ring - Fast Animation 
+* samples/UsingBingChat/examples/chat13.ring
+* samples/UsingFastPro/test2.ring
+* samples/UsingFastPro/test3.ring
+* samples/UsingFastPro/test4.ring
+* samples/UsingFastPro/test5.ring
+* samples/UsingFastPro/test6.ring
+
+The following screenshot is from the Heart Equation sample:
+
+.. image:: hearteq.png
+	:alt: Heart Equation
+
+The next applications and samples are revised:
+
+* Sokoban - Code Format.
+* HoursCounter - User Interface.
+* GetQuotesHistory - Better implementation.
+* GoldMagic800 - Draw background based on level number.
+* Othello - Better colors and images.
+* samples/UsingStbImage/test12.ring
+* samples/UsingStbImage/test15.ring
+* tools/tryringonline/samples.ring
+
+.. index:: 
+	pair: What is new in Ring 1.22?; Better Functions
+
+Better Functions
+================
+
+* StdLib - Split() function - Better implementation.
+* StdLib - OSCopyFile() function - Better support for Linux.
+* StdLib - OSCopyFolder() function - Better support for Linux. 
+* StdLib - Factorial() function - Better performance.
+* StdLib - Fibonacci() function - Better performance.
+* RingQt - QString Class - Added: size()/length() methods. 
+* ringvm_calllist() function - Added the parameters count and the line number to the output.
+
+Example:
+
+The next Ring code defines a SumRows class that processes and sums rows of numbers given within
+curly braces. The braceExprEval() method evaluates each value, updating the sum for the current
+row and printing the sum when the row changes. 
+The braceEnd() method prints the sum of the last row.
+
+.. code-block:: ring
+
+	new SumRows {
+		10 20 30		# 60
+		10			# 10
+		400 100			# 500
+		30 40			# 70
+	}
+
+	class SumRows
+
+		nSum     = 0
+		nLastRow = 0
+
+		func braceExprEval  value 
+
+			aCallList = ringvm_calllist()
+			nLine     = aCallList[len(aCallList)-1][7]
+
+			if nLastRow  = 0      nLastRow = nLine            nSum = value return ok
+			if nLastRow != nLine  nLastRow = nLine   ? nSum   nSum = value return ok
+
+			nSum += value 
+
+		func braceEnd 
+		
+			? nSum 
+
+
+.. index:: 
+	pair: What is new in Ring 1.22?; Better Ring FastPro Extension
+
+Better RingFastPro Extension
+============================
+
+* The build script is revised to use the ring/lib directory.
+* updateList()/updateColumn() functions - Support Serial/Pow/Rem options.
+
+Example:
+
+The next code begins by loading the RingFastPro extension and initializing a 5x5 list called aList. 
+It then updates this list with values incremented by 5 in each column. 
+After printing a row of 20 asterisks, the code iterates through the list, printing each element 
+with hyphens between them, except for the last element in each row. 
+
+.. code-block:: ring
+
+	load "fastpro.ring"
+
+	aList = [
+		list(5),
+		list(5),
+		list(5),
+		list(5),
+		list(5)
+	]
+
+	updateList(aList,:serial,:col,1,0)
+	updateList(aList,:serial,:col,2,5)
+	updateList(aList,:serial,:col,3,10)
+	updateList(aList,:serial,:col,4,15)
+	updateList(aList,:serial,:col,5,20)
+
+	? copy("*",20)
+
+	for x=1 to 5
+		for y=1 to 5
+			print(aList[x][y])
+			if y != 5 print ("-") ok
+		next
+		? ""
+	next
+
+Output:
+
+The output displays a row of asterisks followed by the elements of the list arranged 
+in a structured format.
+
+.. code-block:: none
+
+	********************
+	1-6-11-16-21
+	2-7-12-17-22
+	3-8-13-18-23
+	4-9-14-19-24
+	5-10-15-20-25
+
+The following screenshot is from the Fast Animation sample: 
+
+The sample uses RingFastPro extension to generate 1024x768 image (Over 60 FPS)
+
+.. image:: fastanimation.png
+	:alt: Fast Animation
+
+.. index:: 
+	pair: What is new in Ring  1.22; Return Attribute by Reference
+
+Return Attribute by Reference
+=============================
+
+In early Ring releases, returning an attribute that contains a List/Object would return a shared reference to this List/Object. This release supports advanced cases for using this feature, allowing nested method calls before returning the List/Object.
+
+.. note:: For advanced usage of references with full customization, refer to the 'Using References' chapter, which explains the Ref()/Reference() function.
+
+Example:
+
+.. code-block:: ring
+
+	o = new myclass
+
+	o.getObject().x = 1000
+	o.getObject().y = 2000
+	o.getObject().z = 3000
+
+	? o.aList
+
+
+	class myclass
+
+		aList = [ new point {x=10  y=20  z=30 },
+			  new point {x=100 y=200 z=300}  ]
+
+		func getObject
+			return myMethod()
+
+		func myMethod
+			return aList[myIndex()]
+	
+		func myIndex
+			return 2
+
+	class point x y z
+
+Output:
+
+.. code-block:: none
+
+	x: 10
+	y: 20
+	z: 30
+	x: 1000
+	y: 2000
+	z: 3000
+
+.. index:: 
+	pair: What is new in Ring 1.22?; Better Compiler
+
+Better Compiler
+===============
+
+* Lists - Support trailing comma.
+* Support (+) operator before numbers.
+* Logical AND have higher precedence than Logical OR.
+
+Example:
+
+.. code-block:: ring
+
+	aList = ["one",
+		 "two",
+		 "three",
+		]
+
+	nNum1 = +10
+	nNum2 = -10
+
+	lRes  = True OR False AND False
+	lRes2 = True || False &&  False
+
+	? aList
+	? nNum1
+	? nNum2
+	? lRes
+	? lRes2
+
+Output:
+
+.. code-block:: none
+
+	one
+	two
+	three
+
+	10
+	-10
+	1 		# True	
+	1 		# True
+
+.. index:: 
+	pair: What is new in Ring  1.22; More Improvements
+
+More Improvements
+=================
+
+* Better documentation - Chapter: Program Structure.
+* Form Designer - Copy object style when using the Duplicate button.
+* Form Designer - Avoid name duplication when using the Duplicate button.
+* Better vscode extension - Ring build system and snippets.
+* Better RingQt for Android/WebAssembly - RING_API_REGISTER usage is revised. 
+* Output the RingPDFGen library to the ring/lib directory and install it accordingly.
+* File: buildgccstatic.sh - Make the Ring executable fully static.
+* File: marketing/presentation/Ring.pptx - Use https in the website URL.
+* File: language/CMakeLists.txt - Use /etc/os-release to get the Distro name.
+* Ring Compiler/VM source code - Revise exit() function usage.
+* Ring Compiler/VM source code - language/src/stmt.c - Revise comments.
+* Ring Compiler/VM source code - language/src/vm.c - Organize the instructions.
+* Ring Compiler/VM source code - List structure - Rename members (Use shorter names).
+* Ring Visual Source - Added: language/visualsrc/ring_hashlib.ssf
+

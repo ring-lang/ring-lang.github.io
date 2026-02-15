@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Generator for wrapping C/C++ Libraries &mdash; Ring 1.26.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/general.css" type="text/css" />
+      <link rel="stylesheet" href="_static/dark_mode_css/dark.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/dark_mode_js/default_dark.js"></script>
+        <script src="_static/dark_mode_js/theme_switcher.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Create your first extension" href="ringbeep.html" />
+    <link rel="prev" title="Embedding Ring Language in C/C++ Programs" href="embedding.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">Using CSVLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">Using JSONLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">Using HTTPLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_platforms.html">Deploying Web Applications to Cloud Platforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tilengine.html">Using RingTilengine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">Using ZeroLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">Using FoxRing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">Using BigNumber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">Using TokensLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Using RingThreads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using RingLibui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingrogueutil.html">Using RingRogueUtil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingfastpro.html">Using FastPro Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Code Generator for wrapping C/C++ Libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-tool">Using the tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-file">Configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-function-prototype">Using the function prototype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-code-to-the-generated-code">Adding code to the generated code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prefix-for-functions-names">Prefix for Functions Names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-function-to-wrap-structures">Generate function to wrap structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#determine-structure-members-types">Determine Structure Members Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-constants">Defining Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#register-new-functions">Register New Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-comments-in-the-configuration-file">Writing comments in the configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#executing-code-during-code-generation">Executing code during code generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enum-and-numbers">Enum and Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filtering-using-expressions">Filtering using Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constants-type">Constants Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-file-for-the-allegro-library">Configuration file for the Allegro Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#threads-support">Threads Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-generator-rules-for-wrapping-c-classes">Code Generator Rules for Wrapping C++ Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-configuration-file-that-wrap-c-library">Using configuration file that wrap C++ Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-file-for-the-qt-framework">Configuration file for the Qt Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#static-methods">Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-files">Loading Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managed-classes">Managed Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extra-names-for-functions">Extra names for functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-files-examples">Configuration Files Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingpico.html">Using Ring for Raspberry Pi Pico Microcontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew19.html">Release Notes: Version 1.19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew23.html">Release Notes: Version 1.23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew24.html">Release Notes: Version 1.24</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew25.html">Release Notes: Version 1.25</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew26.html">Release Notes: Version 1.26</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Code Generator for wrapping C/C++ Libraries</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="code-generator-for-wrapping-c-c-libraries">
+<span id="index-0"></span><h1>Code Generator for wrapping C/C++ Libraries<a class="headerlink" href="#code-generator-for-wrapping-c-c-libraries" title="Permalink to this heading"></a></h1>
+<p>In this chapter we will learn how to use the code generator to wrap C/C++ Libraries
+to use it in our Ring applications.</p>
+<section id="using-the-tool">
+<span id="index-1"></span><h2>Using the tool<a class="headerlink" href="#using-the-tool" title="Permalink to this heading"></a></h2>
+<p>The code generator program is parsec.ring that can be executed as any ring code using the
+ring language.</p>
+<p>URL : <a class="reference external" href="https://github.com/ring-lang/ring/tree/master/extensions/codegen">https://github.com/ring-lang/ring/tree/master/extensions/codegen</a></p>
+<p>for example to read a configuration file called test.cf to generate the source code file test.c
+run parsec.ring as in the next command</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">parsec</span><span class="o">.</span><span class="n">ring</span> <span class="n">test</span><span class="o">.</span><span class="n">cf</span> <span class="n">test</span><span class="o">.</span><span class="n">c</span>
+</pre></div>
+</div>
+</section>
+<section id="configuration-file">
+<span id="index-2"></span><h2>Configuration file<a class="headerlink" href="#configuration-file" title="Permalink to this heading"></a></h2>
+<p>The configuration file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.cf) is the input file that we pass to the code generator. This file
+determine the functions prototypes that we need to use from a C/C++ library.</p>
+<p>Writing configuration files is simple according to the next rules</p>
+</section>
+<section id="using-the-function-prototype">
+<span id="index-3"></span><h2>Using the function prototype<a class="headerlink" href="#using-the-function-prototype" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>To generate code that wraps a C function, we just write the C function prototype</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ALLEGRO_DISPLAY</span> <span class="o">*</span><span class="nf">al_create_display</span><span class="p">(</span><span class="n">int</span> <span class="n">w</span><span class="p">,</span> <span class="n">int</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">al_destroy_display</span><span class="p">(</span><span class="n">ALLEGRO_DISPLAY</span> <span class="o">*</span><span class="n">display</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">al_get_new_display_flags</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">al_set_new_display_flags</span><span class="p">(</span><span class="n">int</span> <span class="n">flags</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">al_get_new_display_option</span><span class="p">(</span><span class="n">int</span> <span class="n">option</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">importance</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The previous example will guide the code generator to generate 5 functions that wraps the
+al_create_display(), al_destroy_display(), al_get_new_display_flags(), al_set_new_diplay_flas()
+and al_get_new_display_option() functions.</p>
+<p>The generated code will be as in the next example</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nf">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_create_display</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS2PARA</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nf">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nf">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nf">RING_API_RETCPOINTER</span><span class="p">(</span><span class="nf">al_create_display</span><span class="p">(</span> <span class="p">(</span><span class="n">int</span> <span class="p">)</span> <span class="nf">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                                 <span class="p">(</span><span class="n">int</span> <span class="p">)</span> <span class="nf">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">2</span><span class="p">)),</span><span class="s2">&quot;ALLEGRO_DISPLAY&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="nf">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_destroy_display</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nf">RING_API_ISPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nf">al_destroy_display</span><span class="p">((</span><span class="n">ALLEGRO_DISPLAY</span> <span class="o">*</span><span class="p">)</span> <span class="nf">RING_API_GETCPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;ALLEGRO_DISPLAY&quot;</span><span class="p">));</span>
+<span class="p">}</span>
+
+
+<span class="nf">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_get_new_display_flags</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARACOUNT</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nf">RING_API_RETNUMBER</span><span class="p">(</span><span class="nf">al_get_new_display_flags</span><span class="p">());</span>
+<span class="p">}</span>
+
+
+<span class="nf">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_set_new_display_flags</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nf">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nf">al_set_new_display_flags</span><span class="p">(</span> <span class="p">(</span><span class="n">int</span> <span class="p">)</span> <span class="nf">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="p">}</span>
+
+
+<span class="nf">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_get_new_display_option</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS2PARA</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nf">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nf">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nf">RING_API_RETNUMBER</span><span class="p">(</span><span class="nf">al_get_new_display_option</span><span class="p">(</span> <span class="p">(</span><span class="n">int</span> <span class="p">)</span> <span class="nf">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                                <span class="nf">RING_API_GETINTPOINTER</span><span class="p">(</span><span class="mi">2</span><span class="p">)));</span>
+        <span class="nf">RING_API_ACCEPTINTVALUE</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>from the previous example we can see how much of time and effort is saved using the Code Generator.</p>
+</section>
+<section id="adding-code-to-the-generated-code">
+<span id="index-4"></span><h2>Adding code to the generated code<a class="headerlink" href="#adding-code-to-the-generated-code" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>To generate code directly type it between &lt;code&gt; and &lt;/code&gt;</p></li>
+</ul>
+<p>Example :</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
+        <span class="cm">/* some C code will be written here */</span>
+<span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>We use this feature when we need to do something without the help of the code generator. for
+example including header files and defining constants using Macro.</p>
+</section>
+<section id="prefix-for-functions-names">
+<span id="index-5"></span><h2>Prefix for Functions Names<a class="headerlink" href="#prefix-for-functions-names" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>To determine a prefix in all of the functions names type it between &lt;funcstart&gt; and &lt;/funcstart&gt;</dt><dd><p>for example when we wrap the Allegro game programming library and we need all of the library
+functions to start with “al” we type the next code in the configuration file</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">funcstart</span><span class="o">&gt;</span>
+<span class="n">al</span>
+<span class="o">&lt;/</span><span class="n">funcstart</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="generate-function-to-wrap-structures">
+<span id="index-6"></span><h2>Generate function to wrap structures<a class="headerlink" href="#generate-function-to-wrap-structures" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>To generate functions that wrap structures (create/delete/get structure members)</p></li>
+</ul>
+<p>just type the structures names between  &lt;struct&gt; and &lt;/struct&gt; also after the structure name
+you can type the structure members between { } separated by comma.</p>
+<p>Example</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">struct</span><span class="o">&gt;</span>
+<span class="n">ALLEGRO_COLOR</span>
+<span class="n">ALLEGRO_EVENT</span> <span class="p">{</span> <span class="n">type</span> <span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">keycode</span> <span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">x</span> <span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">y</span> <span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">struct</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>from the previous example we will generate two function to create/delete the structure ALLEGRO_COLOR
+Also we will generate two functions to create/delete the structure ALLEGRO_EVENT and four functions
+to get the structure ALLEGRO_EVENT members (type, keyboard.keycode, mouse.x, mouse.y).</p>
+</section>
+<section id="determine-structure-members-types">
+<span id="index-7"></span><h2>Determine Structure Members Types<a class="headerlink" href="#determine-structure-members-types" title="Permalink to this heading"></a></h2>
+<p>You can determine the pointer name before the structure member name.</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels}
+</pre></div>
+</div>
+</section>
+<section id="defining-constants">
+<span id="index-8"></span><h2>Defining Constants<a class="headerlink" href="#defining-constants" title="Permalink to this heading"></a></h2>
+<p>You can define constants using &lt;constant&gt; and &lt;/constant&gt;</p>
+<p>The generator will generate the required functions to get the constant values</p>
+<p>And will define the constants to be used with the same name in Ring code using <a href="#id3"><span class="problematic" id="id4">*</span></a>.rh file that
+will be generated too.</p>
+<p>rh = Ring Header</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">constant</span><span class="o">&gt;</span>
+<span class="n">MIX_DEFAULT_FORMAT</span>
+<span class="n">SDL_QUIT</span>
+<span class="n">SDL_BUTTON_LEFT</span>
+<span class="n">SDL_BUTTON_MIDDLE</span>
+<span class="n">SDL_BUTTON_RIGHT</span>
+<span class="o">&lt;/</span><span class="n">constant</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will need to pass the <a href="#id5"><span class="problematic" id="id6">*</span></a>.rh file name to parsec.ring after the generated source file name.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring ..\codegen\parsec.ring libsdl.cf ring_libsdl.c ring_libsdl.rh
+</pre></div>
+</div>
+</section>
+<section id="register-new-functions">
+<span id="index-9"></span><h2>Register New Functions<a class="headerlink" href="#register-new-functions" title="Permalink to this heading"></a></h2>
+<p>We can register functions by typing the function prototype between &lt;register&gt; and &lt;/register&gt;
+We need this feature only when we don’t provide the function prototype as input directly where
+we need to write the code of this function.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">register</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="nf">al_exit</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="o">&lt;/</span><span class="n">register</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
+<span class="nf">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_exit</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARACOUNT</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+<span class="p">}</span>
+<span class="k">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>In the previous example we register the al_exit() function. This function is not part of the Allegro
+Library, it’s just an extra function that we need to add. Then the code if this function is written
+inside &lt;code&gt; and &lt;/code&gt;. This function call the exit() function from the C language library.</p>
+</section>
+<section id="writing-comments-in-the-configuration-file">
+<span id="index-10"></span><h2>Writing comments in the configuration file<a class="headerlink" href="#writing-comments-in-the-configuration-file" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>To type comments just type it between &lt;comment&gt; and &lt;/comment&gt;</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">comment</span><span class="o">&gt;</span>
+<span class="n">configuration</span> <span class="n">files</span>
+<span class="o">&lt;/</span><span class="n">comment</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="executing-code-during-code-generation">
+<span id="index-11"></span><h2>Executing code during code generation<a class="headerlink" href="#executing-code-during-code-generation" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>To ask from the code generator to execute Ring code during reading the configuration file, just</p></li>
+</ul>
+<p>write the code between &lt;runcode&gt; and &lt;/runcode&gt;</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">runcode</span><span class="o">&gt;</span>
+<span class="n">aNumberTypes</span> <span class="o">+</span> <span class="s2">&quot;al_fixed&quot;</span>
+<span class="o">&lt;/</span><span class="n">runcode</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The previous line of code add the string “al_fixed” to the list aNumberTypes, This list contains
+types that can be considered as numbers when the code generator find it in the function prototype.</p>
+</section>
+<section id="enum-and-numbers">
+<span id="index-12"></span><h2>Enum and Numbers<a class="headerlink" href="#enum-and-numbers" title="Permalink to this heading"></a></h2>
+<p>We have the list aEnumTypes to use for adding each Enumeration we uses in the functions prototype.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">runcode</span><span class="o">&gt;</span>
+<span class="n">aNumberTypes</span> <span class="o">+</span> <span class="s2">&quot;qreal&quot;</span>
+<span class="n">aNumberTypes</span> <span class="o">+</span> <span class="s2">&quot;qint64&quot;</span>
+<span class="n">aEnumTypes</span> <span class="o">+</span> <span class="s2">&quot;Qt::GestureType&quot;</span>
+<span class="n">aEnumTypes</span> <span class="o">+</span> <span class="s2">&quot;Qt::GestureFlag&quot;</span>
+<span class="o">&lt;/</span><span class="n">runcode</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="filtering-using-expressions">
+<span id="index-13"></span><h2>Filtering using Expressions<a class="headerlink" href="#filtering-using-expressions" title="Permalink to this heading"></a></h2>
+<p>using &lt;filter&gt; and &lt;/filter&gt; we can include/exclude parts of the configuration file
+based on a condition, for example</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">filter</span><span class="o">&gt;</span> <span class="nb">iswindows</span><span class="p">()</span>
+        <span class="o">...</span> <span class="n">functions</span> <span class="n">related</span> <span class="k">to</span> <span class="n">windows</span>
+<span class="o">&lt;/</span><span class="n">filter</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="constants-type">
+<span id="index-14"></span><h2>Constants Type<a class="headerlink" href="#constants-type" title="Permalink to this heading"></a></h2>
+<p>The default type for constant is Number
+But Some constants may be another type, for example (pointer : void <a href="#id7"><span class="problematic" id="id8">*</span></a>)</p>
+<p>before using &lt;constant&gt; and &lt;/constant&gt; we can use &lt;runcode&gt; and &lt;/runcode&gt;
+to determine the constant type using two global variables used by the code generator.</p>
+<p>The first variable is $nDefaultConstantType which can be
+* C_CONSTANT_TYPE_NUMBER
+* C_CONSTANT_TYPE_STRING
+* C_CONSTANT_TYPE_POINTER</p>
+<p>if we are using C_CONSTANT_TYPE_POINTER then we will need the second global variable
+which is $cDefaultConstantPointerType to determine the pointer type.</p>
+<p>Example :</p>
+<p>The next example uses this feature to define constants in the FreeGLUT library</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">runcode</span><span class="o">&gt;</span>
+<span class="n">$nDefaultConstantType</span> <span class="o">=</span> <span class="n">C_CONSTANT_TYPE_POINTER</span>
+<span class="n">$cDefaultConstantPointerType</span> <span class="o">=</span> <span class="s2">&quot;void&quot;</span>
+<span class="o">&lt;/</span><span class="n">runcode</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">constant</span><span class="o">&gt;</span>
+        <span class="n">GLUT_STROKE_ROMAN</span>
+        <span class="n">GLUT_STROKE_MONO_ROMAN</span>
+        <span class="n">GLUT_BITMAP_9_BY_15</span>
+        <span class="n">GLUT_BITMAP_8_BY_13</span>
+        <span class="n">GLUT_BITMAP_TIMES_ROMAN_10</span>
+        <span class="n">GLUT_BITMAP_TIMES_ROMAN_24</span>
+        <span class="n">GLUT_BITMAP_HELVETICA_10</span>
+        <span class="n">GLUT_BITMAP_HELVETICA_12</span>
+        <span class="n">GLUT_BITMAP_HELVETICA_18</span>
+<span class="o">&lt;/</span><span class="n">constant</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="configuration-file-for-the-allegro-library">
+<span id="index-15"></span><h2>Configuration file for the Allegro Library<a class="headerlink" href="#configuration-file-for-the-allegro-library" title="Permalink to this heading"></a></h2>
+<p>The next configuration file enable us to use the Allegro library functions.
+The configuration file size is less than 1000 lines. when the code generator take this file as input
+the generated source code file in the C language will be 12000 lines of code!</p>
+<p>We can see this configuration file as a complete example about using the code generator
+Also we can use it to know the functions that can be used from RingAllegro when you use it
+to create 2D games!</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
+<span class="c1">#define ALLEGRO_NO_MAGIC_MAIN</span>
+
+<span class="c1">#include &lt;allegro5/allegro.h&gt;</span>
+<span class="c1">#include &quot;allegro5/allegro_image.h&quot;</span>
+<span class="c1">#include &lt;allegro5/allegro_font.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_ttf.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_audio.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_acodec.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_opengl.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_direct3d.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_color.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_memfile.h&gt;</span>
+<span class="c1">#include &quot;allegro5/allegro_native_dialog.h&quot;</span>
+<span class="c1">#include &lt;allegro5/allegro_physfs.h&gt;</span>
+<span class="c1">#include &lt;allegro5/allegro_primitives.h&gt;</span>
+<span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">funcstart</span><span class="o">&gt;</span>
+<span class="n">al</span>
+<span class="o">&lt;/</span><span class="n">funcstart</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">struct</span><span class="o">&gt;</span>
+<span class="n">ALLEGRO_EVENT</span> <span class="p">{</span> <span class="n">type</span> <span class="p">,</span> <span class="n">keyboard</span><span class="o">.</span><span class="n">keycode</span> <span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">x</span> <span class="p">,</span> <span class="n">mouse</span><span class="o">.</span><span class="n">y</span> <span class="p">}</span>
+<span class="n">ALLEGRO_TIMEOUT</span>
+<span class="n">ALLEGRO_SAMPLE_ID</span>
+<span class="n">ALLEGRO_COLOR</span>
+<span class="o">&lt;/</span><span class="n">struct</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">register</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="nf">al_exit</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="o">&lt;/</span><span class="n">register</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
+<span class="nf">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_exit</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARACOUNT</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
+
+<span class="n">int</span> <span class="nf">al_init</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="n">comment</span><span class="o">&gt;</span>
+<span class="n">configuration</span> <span class="n">files</span>
+<span class="o">&lt;/</span><span class="n">comment</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">runcode</span><span class="o">&gt;</span>
+<span class="n">aNumberTypes</span> <span class="o">+</span> <span class="s2">&quot;al_fixed&quot;</span>
+<span class="o">&lt;/</span><span class="n">runcode</span><span class="o">&gt;</span>
+
+<span class="n">ALLEGRO_CONFIG</span> <span class="o">*</span><span class="nf">al_create_config</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">al_destroy_config</span><span class="p">(</span><span class="n">ALLEGRO_CONFIG</span> <span class="o">*</span><span class="n">config</span><span class="p">)</span>
+<span class="n">ALLEGRO_CONFIG</span> <span class="o">*</span><span class="nf">al_load_config_file</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">ALLEGRO_CONFIG</span> <span class="o">*</span><span class="nf">al_load_config_file_f</span><span class="p">(</span><span class="n">ALLEGRO_FILE</span> <span class="o">*</span><span class="n">file</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">al_save_config_file</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span> <span class="n">const</span> <span class="n">ALLEGRO_CONFIG</span> <span class="o">*</span><span class="n">config</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">al_save_config_file_f</span><span class="p">(</span><span class="n">ALLEGRO_FILE</span> <span class="o">*</span><span class="n">file</span><span class="p">,</span> <span class="n">const</span> <span class="n">ALLEGRO_CONFIG</span> <span class="o">*</span><span class="n">config</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">al_add_config_section</span><span class="p">(</span><span class="n">ALLEGRO_CONFIG</span> <span class="o">*</span><span class="n">config</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>we just provided part of the configuration file, for complete copy check the Ring source
+code distribution.</p>
+</div>
+</section>
+<section id="threads-support">
+<span id="index-16"></span><h2>Threads Support<a class="headerlink" href="#threads-support" title="Permalink to this heading"></a></h2>
+<p>Next, another part of the configuration file, it’s important because we can learn from it how to add
+threads to our Ring applications by using a threads library.</p>
+<p>The idea is using ring_vm_mutexfunctions() and ring_vm_runcodefromthread() to execute Ring code.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">comment</span><span class="o">&gt;</span>
+<span class="n">Threads</span>
+<span class="o">&lt;/</span><span class="n">comment</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="o">*</span><span class="nf">al_func_thread</span><span class="p">(</span><span class="n">ALLEGRO_THREAD</span> <span class="o">*</span><span class="n">thread</span><span class="p">,</span> <span class="n">void</span> <span class="o">*</span><span class="n">pPointer</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">;</span>
+        <span class="n">VM</span> <span class="o">*</span><span class="n">pVM</span><span class="p">;</span>
+        <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cStr</span><span class="p">;</span>
+        <span class="n">pList</span> <span class="o">=</span> <span class="p">(</span><span class="n">List</span> <span class="o">*</span><span class="p">)</span> <span class="n">pPointer</span> <span class="p">;</span>
+        <span class="n">pVM</span> <span class="o">=</span> <span class="p">(</span><span class="n">VM</span> <span class="o">*</span><span class="p">)</span> <span class="nf">ring_list_getpointer</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">cStr</span> <span class="o">=</span> <span class="nf">ring_list_getstring</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+        <span class="nf">ring_vm_runcodefromthread</span><span class="p">(</span><span class="n">pVM</span><span class="p">,</span><span class="n">cStr</span><span class="p">);</span>
+        <span class="nf">ring_list_delete</span><span class="p">(</span><span class="n">pList</span><span class="p">);</span>
+        <span class="k">return</span> <span class="bp">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_create_thread</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">ALLEGRO_THREAD</span> <span class="o">*</span><span class="n">pThread</span><span class="p">;</span>
+        <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nf">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">pList</span> <span class="o">=</span> <span class="nf">ring_list_new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="nf">ring_list_addstring</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="nf">RING_API_GETSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+        <span class="nf">ring_list_addpointer</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">pPointer</span><span class="p">);</span>
+        <span class="nf">ring_vm_mutexfunctions</span><span class="p">((</span><span class="n">VM</span> <span class="o">*</span><span class="p">)</span> <span class="n">pPointer</span><span class="p">,</span><span class="n">al_create_mutex</span><span class="p">,</span>
+                <span class="n">al_lock_mutex</span><span class="p">,</span><span class="n">al_unlock_mutex</span><span class="p">,</span><span class="n">al_destroy_mutex</span><span class="p">);</span>
+        <span class="n">pThread</span> <span class="o">=</span> <span class="nf">al_create_thread</span><span class="p">(</span><span class="n">al_func_thread</span><span class="p">,</span> <span class="n">pList</span><span class="p">);</span>
+        <span class="nf">al_start_thread</span><span class="p">(</span><span class="n">pThread</span><span class="p">);</span>
+        <span class="nf">RING_API_RETCPOINTER</span><span class="p">(</span><span class="n">pThread</span><span class="p">,</span><span class="s2">&quot;ALLEGRO_THREAD&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nf">RING_FUNC</span><span class="p">(</span><span class="n">ring_al_run_detached_thread</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nf">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="nf">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">pList</span> <span class="o">=</span> <span class="nf">ring_list_new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="nf">ring_list_addstring</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="nf">RING_API_GETSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+        <span class="nf">ring_list_addpointer</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">pPointer</span><span class="p">);</span>
+        <span class="nf">ring_vm_mutexfunctions</span><span class="p">((</span><span class="n">VM</span> <span class="o">*</span><span class="p">)</span> <span class="n">pPointer</span><span class="p">,</span><span class="n">al_create_mutex</span><span class="p">,</span>
+                <span class="n">al_lock_mutex</span><span class="p">,</span><span class="n">al_unlock_mutex</span><span class="p">,</span><span class="n">al_destroy_mutex</span><span class="p">);</span>
+        <span class="nf">al_run_detached_thread</span><span class="p">(</span><span class="n">al_func_thread</span><span class="p">,</span> <span class="n">pList</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">register</span><span class="o">&gt;</span>
+<span class="n">ALLEGRO_THREAD</span> <span class="o">*</span><span class="nf">al_create_thread</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">al_run_detached_thread</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="o">&lt;/</span><span class="n">register</span><span class="o">&gt;</span>
+
+<span class="n">void</span> <span class="nf">al_start_thread</span><span class="p">(</span><span class="n">ALLEGRO_THREAD</span> <span class="o">*</span><span class="n">thread</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">al_join_thread</span><span class="p">(</span><span class="n">ALLEGRO_THREAD</span> <span class="o">*</span><span class="n">thread</span><span class="p">,</span> <span class="n">void</span> <span class="o">**</span><span class="n">ret_value</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">al_set_thread_should_stop</span><span class="p">(</span><span class="n">ALLEGRO_THREAD</span> <span class="o">*</span><span class="n">thread</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">al_get_thread_should_stop</span><span class="p">(</span><span class="n">ALLEGRO_THREAD</span> <span class="o">*</span><span class="n">thread</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">al_destroy_thread</span><span class="p">(</span><span class="n">ALLEGRO_THREAD</span> <span class="o">*</span><span class="n">thread</span><span class="p">)</span>
+<span class="n">ALLEGRO_MUTEX</span> <span class="o">*</span><span class="nf">al_create_mutex</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">ALLEGRO_MUTEX</span> <span class="o">*</span><span class="nf">al_create_mutex_recursive</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">al_lock_mutex</span><span class="p">(</span><span class="n">ALLEGRO_MUTEX</span> <span class="o">*</span><span class="n">mutex</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">al_unlock_mutex</span><span class="p">(</span><span class="n">ALLEGRO_MUTEX</span> <span class="o">*</span><span class="n">mutex</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">al_destroy_mutex</span><span class="p">(</span><span class="n">ALLEGRO_MUTEX</span> <span class="o">*</span><span class="n">mutex</span><span class="p">)</span>
+<span class="n">ALLEGRO_COND</span> <span class="o">*</span><span class="nf">al_create_cond</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">al_destroy_cond</span><span class="p">(</span><span class="n">ALLEGRO_COND</span> <span class="o">*</span><span class="n">cond</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">al_wait_cond</span><span class="p">(</span><span class="n">ALLEGRO_COND</span> <span class="o">*</span><span class="n">cond</span><span class="p">,</span> <span class="n">ALLEGRO_MUTEX</span> <span class="o">*</span><span class="n">mutex</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="code-generator-rules-for-wrapping-c-classes">
+<span id="index-17"></span><h2>Code Generator Rules for Wrapping C++ Classes<a class="headerlink" href="#code-generator-rules-for-wrapping-c-classes" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>We can define classes between &lt;class&gt; and &lt;/class&gt;</p></li>
+<li><p>Between &lt;class&gt; and &lt;class&gt; we set attributes like
+“name, nonew, para, parent, codename, passvmpointer, abstract and staticmethods”</p></li>
+<li><p>we set the attributes using the style attributename:value or attributename only if no values
+are required</p></li>
+<li><p>The “name” attribute determine the class name in C++ code and this name will be the default name
+in the Ring code</p></li>
+<li><p>The nonew instruction means that we don’t need new/delete methods</p></li>
+<li><p>The parent attribute determine the parent class name</p></li>
+<li><p>The codename attribute determine another class name in C++ code</p></li>
+<li><p>The passvmpoint instruction means passing the Ring VM pointer to the class constructor when
+we create new objects, this happens when we set the codename attribute to a class that we will define
+and this class need the Virtual Machine pointer (for example to use it to execute Ring code from C++
+code).</p></li>
+<li><p>The abstract instruction means that no new method is required for this class “no objects will be created”.</p></li>
+<li><p>The staticmethods instruction means that method doesn’t need an object to be called.</p></li>
+<li><p>Using &lt;nodllstartup&gt; we can avoid #include “ring.h”, We need this to write our startup code.</p></li>
+<li><p>Using &lt;libinitfunc&gt; we can change the function name that register the library functions</p></li>
+<li><p>Using &lt;ignorecpointertype&gt; we can ignore pointer type check</p></li>
+<li><p>Using the aStringTypes list when can defined new types that treated like const char *</p></li>
+<li><p>Using the aBeforeReturn list when can define code that is inserted after the variable name when
+we return that variable from a function</p></li>
+<li><p>Using the aNewMethodName list we can define another method name to be used in Ring code when we
+call the C++ method. this feature is required because some C++ method may be identical to Ring
+Keywords like “load”,”next”,”end” and “done”.</p></li>
+<li><p>in method prototype - when we use &#64; in the method name, we mean that we have the same method with
+different parameters (As in C++)</p></li>
+</ul>
+</section>
+<section id="using-configuration-file-that-wrap-c-library">
+<span id="index-18"></span><h2>Using configuration file that wrap C++ Library<a class="headerlink" href="#using-configuration-file-that-wrap-c-library" title="Permalink to this heading"></a></h2>
+<p>To run the code generator to generate code for using C++ library in the Ring application, we can do
+that as we did with using C libraries but here we will generate <em>.cpp file instead of *.c file. Also
+we will determine another file to be generated (</em>.ring). This file will contains classes in Ring code
+that wraps C++ functions for using C++ classes and objects.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring parsec.ring generator\qt.cf ring_qt.cpp ring_qt.ring
+</pre></div>
+</div>
+</section>
+<section id="configuration-file-for-the-qt-framework">
+<span id="index-19"></span><h2>Configuration file for the Qt Framework<a class="headerlink" href="#configuration-file-for-the-qt-framework" title="Permalink to this heading"></a></h2>
+<p>The next configuration file is used to wrap many Qt classes
+The configuration file is around 3500 lines and generate C++ code around 56000 lines and generate
+also Ring code around 9000 lines.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">nodllstartup</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">libinitfunc</span><span class="o">&gt;</span> <span class="n">ring_qt_start</span>
+
+<span class="o">&lt;</span><span class="n">ignorecpointertype</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
+
+<span class="n">extern</span> <span class="s2">&quot;C&quot;</span> <span class="p">{</span>
+        <span class="c1">#include &quot;ring.h&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">#include &quot;ring_qt.h&quot;</span>
+<span class="c1">#include &quot;gpushbutton.h&quot;</span>
+<span class="c1">#include &quot;gaction.h&quot;</span>
+<span class="c1">#include &quot;glineedit.h&quot;</span>
+<span class="c1">#include &quot;gtextedit.h&quot;</span>
+<span class="c1">#include &quot;glistwidget.h&quot;</span>
+<span class="c1">#include &quot;gtreeview.h&quot;</span>
+<span class="c1">#include &quot;gtreewidget.h&quot;</span>
+<span class="c1">#include &quot;gcombobox.h&quot;</span>
+<span class="c1">#include &quot;gtabwidget.h&quot;</span>
+<span class="c1">#include &quot;gtablewidget.h&quot;</span>
+<span class="c1">#include &quot;gprogressbar.h&quot;</span>
+<span class="c1">#include &quot;gspinbox.h&quot;</span>
+<span class="c1">#include &quot;gslider.h&quot;</span>
+<span class="c1">#include &quot;gdial.h&quot;</span>
+<span class="c1">#include &quot;gwebview.h&quot;</span>
+<span class="c1">#include &quot;gcheckbox.h&quot;</span>
+<span class="c1">#include &quot;gradiobutton.h&quot;</span>
+<span class="c1">#include &quot;gbuttongroup.h&quot;</span>
+<span class="c1">#include &quot;gvideowidget.h&quot;</span>
+<span class="c1">#include &quot;gtimer.h&quot;</span>
+<span class="c1">#include &quot;gtcpserver.h&quot;</span>
+<span class="c1">#include &quot;giodevice.h&quot;</span>
+<span class="c1">#include &quot;gabstractsocket.h&quot;</span>
+<span class="c1">#include &quot;gtcpsocket.h&quot;</span>
+<span class="c1">#include &quot;gcolordialog.h&quot;</span>
+<span class="c1">#include &quot;gallevents.h&quot;</span>
+<span class="c1">#include &lt;QApplication&gt;</span>
+<span class="c1">#include &lt;QObject&gt;</span>
+<span class="c1">#include &lt;QWidget&gt;</span>
+<span class="c1">#include &lt;QLabel&gt;</span>
+<span class="c1">#include &lt;QPixmap&gt;</span>
+<span class="c1">#include &lt;QIcon&gt;</span>
+<span class="c1">#include &lt;QSize&gt;</span>
+<span class="c1">#include &lt;QPushButton&gt;</span>
+<span class="c1">#include &lt;QMainWindow&gt;</span>
+<span class="c1">#include &lt;QVBoxLayout&gt;</span>
+<span class="c1">#include &lt;QHBoxLayout&gt;</span>
+<span class="c1">#include &lt;QLineEdit&gt;</span>
+<span class="c1">#include &lt;QTextEdit&gt;</span>
+<span class="c1">#include &lt;QListWidget&gt;</span>
+<span class="c1">#include &lt;QTreeView&gt;</span>
+<span class="c1">#include &lt;QDir&gt;</span>
+<span class="c1">#include &lt;QFileSystemModel&gt;</span>
+<span class="c1">#include &lt;QTreeWidget&gt;</span>
+<span class="c1">#include &lt;QTreeWidgetItem&gt;</span>
+<span class="c1">#include &lt;QComboBox&gt;</span>
+<span class="c1">#include &lt;QVariant&gt;</span>
+<span class="c1">#include &lt;QMenuBar&gt;</span>
+<span class="c1">#include &lt;QMenu&gt;</span>
+<span class="c1">#include &lt;QToolBar&gt;</span>
+<span class="c1">#include &lt;QMainWindow&gt;</span>
+<span class="c1">#include &lt;QStatusBar&gt;</span>
+<span class="c1">#include &lt;QDockWidget&gt;</span>
+<span class="c1">#include &lt;QTabWidget&gt;</span>
+<span class="c1">#include &lt;QTableWidget&gt;</span>
+<span class="c1">#include &lt;QTableWidgetItem&gt;</span>
+<span class="c1">#include &lt;QSizePolicy&gt;</span>
+<span class="c1">#include &lt;QFrame&gt;</span>
+<span class="c1">#include &lt;QAbstractScrollArea&gt;</span>
+<span class="c1">#include &lt;QAbstractItemView&gt;</span>
+<span class="c1">#include &lt;QProgressBar&gt;</span>
+<span class="c1">#include &lt;QSpinBox&gt;</span>
+<span class="c1">#include &lt;QSlider&gt;</span>
+<span class="c1">#include &lt;QAbstractSlider&gt;</span>
+<span class="c1">#include &lt;QDateEdit&gt;</span>
+<span class="c1">#include &lt;QDateTimeEdit&gt;</span>
+<span class="c1">#include &lt;QAbstractSpinBox&gt;</span>
+<span class="c1">#include &lt;QDial&gt;</span>
+<span class="c1">#include &lt;QWebView&gt;</span>
+<span class="c1">#include &lt;QUrl&gt;</span>
+<span class="c1">#include &lt;QCheckBox&gt;</span>
+<span class="c1">#include &lt;QRadioButton&gt;</span>
+<span class="c1">#include &lt;QButtonGroup&gt;</span>
+<span class="c1">#include &lt;QMediaPlayer&gt;</span>
+<span class="c1">#include &lt;QMediaPlaylist&gt;</span>
+<span class="c1">#include &lt;QVideoWidget&gt;</span>
+<span class="c1">#include &lt;QPrinter&gt;</span>
+<span class="c1">#include &lt;QAction&gt;</span>
+<span class="c1">#include &lt;QEvent&gt;</span>
+<span class="c1">#include &lt;QMessageBox&gt;</span>
+<span class="c1">#include &lt;QTimer&gt;</span>
+<span class="c1">#include &lt;QFileDialog&gt;</span>
+<span class="c1">#include &lt;QPainter&gt;</span>
+<span class="c1">#include &lt;QPicture&gt;</span>
+<span class="c1">#include &lt;QPen&gt;</span>
+<span class="c1">#include &lt;QColor&gt;</span>
+<span class="c1">#include &lt;QPrinter&gt;</span>
+<span class="c1">#include &lt;QFont&gt;</span>
+<span class="c1">#include &lt;QWebSettings&gt;</span>
+<span class="c1">#include &lt;QBrush&gt;</span>
+<span class="c1">#include &lt;QByteArray&gt;</span>
+<span class="c1">#include &lt;QIODevice&gt;</span>
+<span class="c1">#include &lt;QAbstractSocket&gt;</span>
+<span class="c1">#include &lt;QTcpSocket&gt;</span>
+<span class="c1">#include &lt;QTcpServer&gt;</span>
+<span class="c1">#include &lt;QNetworkProxy&gt;</span>
+<span class="c1">#include &lt;QHostAddress&gt;</span>
+<span class="c1">#include &lt;QHostInfo&gt;</span>
+<span class="c1">#include &lt;QList&gt;</span>
+<span class="c1">#include &lt;QFileInfo&gt;</span>
+<span class="c1">#include &lt;QDirModel&gt;</span>
+<span class="c1">#include &lt;QModelIndex&gt;</span>
+<span class="c1">#include &lt;QFontDialog&gt;</span>
+<span class="c1">#include &lt;QDialog&gt;</span>
+<span class="c1">#include &lt;QTextCursor&gt;</span>
+<span class="c1">#include &lt;QTextBlock&gt;</span>
+<span class="c1">#include &lt;QTextDocumentFragment&gt;</span>
+<span class="c1">#include &lt;QColorDialog&gt;</span>
+<span class="c1">#include &lt;QHeaderView&gt;</span>
+<span class="c1">#include &lt;QStringList&gt;</span>
+<span class="c1">#include &lt;QKeySequence&gt;</span>
+<span class="c1">#include &lt;QLCDNumber&gt;</span>
+<span class="c1">#include &lt;QInputDialog&gt;</span>
+<span class="c1">#include &lt;QDesktopWidget&gt;</span>
+<span class="c1">#include &lt;QRect&gt;</span>
+<span class="c1">#include &lt;QTextDocument&gt;</span>
+
+<span class="n">extern</span> <span class="s2">&quot;C&quot;</span> <span class="p">{</span>
+
+        <span class="c1">#define RING_DLL __declspec(dllexport)</span>
+
+        <span class="n">RING_DLL</span> <span class="n">void</span> <span class="nf">ringlib_init</span><span class="p">(</span><span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">)</span>
+        <span class="p">{</span>
+
+                <span class="kp">new</span> <span class="nc">QApplication</span><span class="p">(</span><span class="n">pRingState</span><span class="o">-&gt;</span><span class="n">nArgc</span><span class="p">,</span><span class="n">pRingState</span><span class="o">-&gt;</span><span class="n">pArgv</span><span class="p">);</span>
+                <span class="nf">ring_qt_start</span><span class="p">(</span><span class="n">pRingState</span><span class="p">)</span> <span class="p">;</span>
+        <span class="p">}</span>
+
+<span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
+
+
+<span class="o">&lt;</span><span class="n">runcode</span><span class="o">&gt;</span>
+<span class="n">aStringTypes</span> <span class="o">+</span> <span class="s2">&quot;QString&quot;</span>
+<span class="n">aBeforeReturn</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QString&quot;</span><span class="p">,</span><span class="s2">&quot;.toStdString().c_str()&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QWebView&quot;</span><span class="p">,</span><span class="s2">&quot;load&quot;</span><span class="p">,</span><span class="s2">&quot;loadpage&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QMediaPlaylist&quot;</span><span class="p">,</span><span class="s2">&quot;load&quot;</span><span class="p">,</span><span class="s2">&quot;loadfile&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QMediaPlaylist&quot;</span><span class="p">,</span><span class="s2">&quot;next&quot;</span><span class="p">,</span><span class="s2">&quot;movenext&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QPainter&quot;</span><span class="p">,</span><span class="s2">&quot;end&quot;</span><span class="p">,</span><span class="s2">&quot;endpaint&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QPicture&quot;</span><span class="p">,</span><span class="s2">&quot;load&quot;</span><span class="p">,</span><span class="s2">&quot;loadfile&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QLineEdit&quot;</span><span class="p">,</span><span class="s2">&quot;end&quot;</span><span class="p">,</span><span class="s2">&quot;endtext&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QDialog&quot;</span><span class="p">,</span><span class="s2">&quot;done&quot;</span><span class="p">,</span><span class="s2">&quot;donedialog&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QTextDocument&quot;</span><span class="p">,</span><span class="s2">&quot;end&quot;</span><span class="p">,</span><span class="s2">&quot;enddoc&quot;</span><span class="p">]</span>
+<span class="n">aNewMethodName</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;QTextBlock&quot;</span><span class="p">,</span><span class="s2">&quot;next&quot;</span><span class="p">,</span><span class="s2">&quot;nextblock&quot;</span><span class="p">]</span>
+<span class="o">&lt;/</span><span class="n">runcode</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">qApp</span>
+<span class="n">nonew</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">register</span><span class="o">&gt;</span>
+<span class="n">void</span> <span class="nf">exec</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">quit</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">processEvents</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="o">&lt;/</span><span class="n">register</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span>
+
+<span class="nf">RING_FUNC</span><span class="p">(</span><span class="n">ring_qApp_quit</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">qApp</span><span class="o">-&gt;</span><span class="nf">quit</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nf">RING_FUNC</span><span class="p">(</span><span class="n">ring_qApp_exec</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">qApp</span><span class="o">-&gt;</span><span class="nf">exec</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nf">RING_FUNC</span><span class="p">(</span><span class="n">ring_qApp_processEvents</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">qApp</span><span class="o">-&gt;</span><span class="nf">processEvents</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">QObject</span>
+<span class="n">para</span><span class="o">:</span> <span class="n">void</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
+
+<span class="n">bool</span> <span class="nf">blockSignals</span><span class="p">(</span><span class="n">bool</span> <span class="n">block</span><span class="p">)</span>
+<span class="n">QObjectList</span> <span class="nf">children</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">dumpObjectInfo</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">dumpObjectTree</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">inherits</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">className</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">installEventFilter</span><span class="p">(</span><span class="n">QObject</span> <span class="o">*</span><span class="n">filterObj</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isWidgetType</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">killTimer</span><span class="p">(</span><span class="n">int</span> <span class="n">id</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">moveToThread</span><span class="p">(</span><span class="n">QThread</span> <span class="o">*</span><span class="n">targetThread</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">objectName</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QObject</span> <span class="o">*</span><span class="nf">parent</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QVariant</span> <span class="nf">property</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">name</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">removeEventFilter</span><span class="p">(</span><span class="n">QObject</span> <span class="o">*</span><span class="n">obj</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setObjectName</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setParent</span><span class="p">(</span><span class="n">QObject</span> <span class="o">*</span><span class="n">parent</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">setProperty</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="n">QVariant</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">signalsBlocked</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">startTimer</span><span class="p">(</span><span class="n">int</span> <span class="n">interval</span><span class="p">)</span>
+<span class="n">QThread</span> <span class="o">*</span><span class="nf">thread</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">deleteLater</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">QWidget</span>
+<span class="n">para</span><span class="o">:</span> <span class="n">void</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">QObject</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
+
+<span class="n">bool</span> <span class="nf">acceptDrops</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">accessibleDescription</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">accessibleName</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">activateWindow</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">addAction</span><span class="p">(</span><span class="n">QAction</span> <span class="o">*</span><span class="n">action</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">adjustSize</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">autoFillBackground</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">backgroundRole</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QSize</span> <span class="nf">baseSize</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QWidget</span> <span class="o">*</span><span class="nf">childAt</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">int</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">QRect</span> <span class="nf">childrenRect</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QRegion</span> <span class="nf">childrenRegion</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">clearFocus</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">clearMask</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QMargins</span> <span class="nf">contentsMargins</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QRect</span> <span class="nf">contentsRect</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">contextMenuPolicy</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QCursor</span> <span class="nf">cursor</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">effectiveWinId</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">ensurePolished</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">focusPolicy</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QWidget</span> <span class="o">*</span><span class="nf">focusProxy</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QWidget</span> <span class="o">*</span><span class="nf">focusWidget</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QFont</span> <span class="nf">font</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QFontInfo</span> <span class="nf">fontInfo</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QFontMetrics</span> <span class="nf">fontMetrics</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">foregroundRole</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QRect</span> <span class="nf">frameGeometry</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QSize</span> <span class="nf">frameSize</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QRect</span> <span class="nf">geometry</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">getContentsMargins</span><span class="p">(</span><span class="n">int</span> <span class="o">*</span><span class="n">left</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">top</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">right</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">bottom</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">grabGesture</span><span class="p">(</span><span class="n">int</span> <span class="n">gesture</span><span class="p">,</span> <span class="n">int</span> <span class="n">flags</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">grabKeyboard</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">grabMouse</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">grabShortcut</span><span class="p">(</span><span class="n">QKeySequence</span> <span class="p">,</span> <span class="n">int</span> <span class="n">context</span><span class="p">)</span>
+<span class="n">QGraphicsEffect</span> <span class="o">*</span><span class="nf">graphicsEffect</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QGraphicsProxyWidget</span> <span class="o">*</span><span class="nf">graphicsProxyWidget</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">hasFocus</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">hasMouseTracking</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">height</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">heightForWidth</span><span class="p">(</span><span class="n">int</span> <span class="n">w</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">inputMethodHints</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QVariant</span> <span class="nf">inputMethodQuery</span><span class="p">(</span><span class="n">int</span> <span class="n">query</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">insertAction</span><span class="p">(</span><span class="n">QAction</span> <span class="o">*</span><span class="n">before</span><span class="p">,</span> <span class="n">QAction</span> <span class="o">*</span><span class="n">action</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isActiveWindow</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isAncestorOf</span><span class="p">(</span><span class="n">QWidget</span> <span class="o">*</span><span class="n">child</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isEnabled</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isEnabledTo</span><span class="p">(</span><span class="n">QWidget</span> <span class="o">*</span><span class="n">ancestor</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isFullScreen</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isHidden</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isMaximized</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isMinimized</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isModal</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isVisible</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isVisibleTo</span><span class="p">(</span><span class="n">QWidget</span> <span class="o">*</span><span class="n">ancestor</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isWindow</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isWindowModified</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QLayout</span> <span class="o">*</span><span class="nf">layout</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">layoutDirection</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QLocale</span> <span class="nf">locale</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QPoint</span> <span class="nf">mapFrom</span><span class="p">(</span><span class="n">QWidget</span> <span class="o">*</span><span class="n">parent</span><span class="p">,</span> <span class="n">QPoint</span><span class="p">)</span>
+<span class="n">QPoint</span> <span class="nf">mapFromGlobal</span><span class="p">(</span><span class="n">QPoint</span><span class="p">)</span>
+<span class="n">QPoint</span> <span class="nf">mapFromParent</span><span class="p">(</span><span class="n">QPoint</span><span class="p">)</span>
+<span class="n">QPoint</span> <span class="nf">mapTo</span><span class="p">(</span><span class="n">QWidget</span> <span class="o">*</span><span class="n">parent</span><span class="p">,</span> <span class="n">QPoint</span><span class="p">)</span>
+<span class="n">QPoint</span> <span class="nf">mapToGlobal</span><span class="p">(</span><span class="n">QPoint</span> <span class="n">pos</span><span class="p">)</span>
+<span class="n">QPoint</span> <span class="nf">mapToParent</span><span class="p">(</span><span class="n">QPoint</span> <span class="n">pos</span><span class="p">)</span>
+<span class="n">QRegion</span> <span class="nf">mask</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">maximumHeight</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QSize</span> <span class="nf">maximumSize</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">maximumWidth</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">minimumHeight</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QSize</span> <span class="nf">minimumSize</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">minimumWidth</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">move</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">int</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">QWidget</span> <span class="o">*</span><span class="nf">nativeParentWidget</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QWidget</span> <span class="o">*</span><span class="nf">nextInFocusChain</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QRect</span> <span class="nf">normalGeometry</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">overrideWindowFlags</span><span class="p">(</span><span class="n">int</span> <span class="n">flags</span><span class="p">)</span>
+<span class="n">QPalette</span> <span class="nf">palette</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QWidget</span> <span class="o">*</span><span class="nf">parentWidget</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QPoint</span> <span class="nf">pos</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QWidget</span> <span class="o">*</span><span class="nf">previousInFocusChain</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QRect</span> <span class="nf">rect</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">releaseKeyboard</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">releaseMouse</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">releaseShortcut</span><span class="p">(</span><span class="n">int</span> <span class="n">id</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">removeAction</span><span class="p">(</span><span class="n">QAction</span> <span class="o">*</span><span class="n">action</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">render</span><span class="p">(</span><span class="n">QPaintDevice</span> <span class="o">*</span><span class="n">target</span><span class="p">,</span> <span class="n">QPoint</span><span class="p">,</span><span class="n">QRegion</span><span class="p">,</span> <span class="n">int</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">repaint</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">int</span> <span class="n">w</span><span class="p">,</span> <span class="n">int</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">resize</span><span class="p">(</span><span class="n">int</span> <span class="n">w</span><span class="p">,</span> <span class="n">int</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">restoreGeometry</span><span class="p">(</span><span class="n">QByteArray</span><span class="p">)</span>
+<span class="n">QByteArray</span> <span class="nf">saveGeometry</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">scroll</span><span class="p">(</span><span class="n">int</span> <span class="n">dx</span><span class="p">,</span> <span class="n">int</span> <span class="n">dy</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setAcceptDrops</span><span class="p">(</span><span class="n">bool</span> <span class="k">on</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setAccessibleDescription</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setAccessibleName</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nb">setAttribute</span><span class="p">(</span><span class="n">int</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">bool</span> <span class="k">on</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setAutoFillBackground</span><span class="p">(</span><span class="n">bool</span> <span class="n">enabled</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setBackgroundRole</span><span class="p">(</span><span class="n">int</span> <span class="n">role</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setBaseSize</span><span class="p">(</span><span class="n">int</span> <span class="n">basew</span><span class="p">,</span> <span class="n">int</span> <span class="n">baseh</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setContentsMargins</span><span class="p">(</span><span class="n">int</span> <span class="n">left</span><span class="p">,</span> <span class="n">int</span> <span class="n">top</span><span class="p">,</span> <span class="n">int</span> <span class="n">right</span><span class="p">,</span> <span class="n">int</span> <span class="n">bottom</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setContextMenuPolicy</span><span class="p">(</span><span class="n">int</span> <span class="n">policy</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setCursor</span><span class="p">(</span><span class="n">QCursor</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setFixedHeight</span><span class="p">(</span><span class="n">int</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setFixedSize</span><span class="p">(</span><span class="n">int</span> <span class="n">w</span><span class="p">,</span> <span class="n">int</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setFixedWidth</span><span class="p">(</span><span class="n">int</span> <span class="n">w</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setFocus</span><span class="p">(</span><span class="n">int</span> <span class="n">reason</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setFocusPolicy</span><span class="p">(</span><span class="n">int</span> <span class="n">policy</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setFocusProxy</span><span class="p">(</span><span class="n">QWidget</span> <span class="o">*</span><span class="n">w</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setFont</span><span class="p">(</span><span class="n">QFont</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setForegroundRole</span><span class="p">(</span><span class="n">int</span> <span class="n">role</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setGeometry</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">int</span> <span class="n">w</span><span class="p">,</span> <span class="n">int</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setGraphicsEffect</span><span class="p">(</span><span class="n">QGraphicsEffect</span> <span class="o">*</span><span class="n">effect</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setInputMethodHints</span><span class="p">(</span><span class="n">int</span> <span class="n">hints</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setLayout</span><span class="p">(</span><span class="n">QLayout</span> <span class="o">*</span><span class="n">layout</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setLayoutDirection</span><span class="p">(</span><span class="n">int</span> <span class="n">direction</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setLocale</span><span class="p">(</span><span class="n">QLocale</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setMask</span><span class="p">(</span><span class="n">QBitmap</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setMaximumHeight</span><span class="p">(</span><span class="n">int</span> <span class="n">maxh</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setMaximumSize</span><span class="p">(</span><span class="n">int</span> <span class="n">maxw</span><span class="p">,</span> <span class="n">int</span> <span class="n">maxh</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setMaximumWidth</span><span class="p">(</span><span class="n">int</span> <span class="n">maxw</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setMinimumHeight</span><span class="p">(</span><span class="n">int</span> <span class="n">minh</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setMinimumSize</span><span class="p">(</span><span class="n">int</span> <span class="n">minw</span><span class="p">,</span> <span class="n">int</span> <span class="n">minh</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setMinimumWidth</span><span class="p">(</span><span class="n">int</span> <span class="n">minw</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setMouseTracking</span><span class="p">(</span><span class="n">bool</span> <span class="n">enable</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setPalette</span><span class="p">(</span><span class="n">QPalette</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setParent</span><span class="p">(</span><span class="n">QWidget</span> <span class="o">*</span><span class="n">parent</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setShortcutAutoRepeat</span><span class="p">(</span><span class="n">int</span> <span class="n">id</span><span class="p">,</span> <span class="n">bool</span> <span class="n">enable</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setShortcutEnabled</span><span class="p">(</span><span class="n">int</span> <span class="n">id</span><span class="p">,</span> <span class="n">bool</span> <span class="n">enable</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setSizeIncrement</span><span class="p">(</span><span class="n">int</span> <span class="n">w</span><span class="p">,</span> <span class="n">int</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setSizePolicy</span><span class="p">(</span><span class="n">int</span> <span class="n">horizontal</span><span class="p">,</span> <span class="n">int</span> <span class="n">vertical</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setStatusTip</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setStyle</span><span class="p">(</span><span class="n">QStyle</span> <span class="o">*</span><span class="n">style</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setToolTip</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setUpdatesEnabled</span><span class="p">(</span><span class="n">bool</span> <span class="n">enable</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setWhatsThis</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setWindowFilePath</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setWindowFlags</span><span class="p">(</span><span class="n">int</span> <span class="n">type</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setWindowIcon</span><span class="p">(</span><span class="n">QIcon</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setWindowIconText</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setWindowModality</span><span class="p">(</span><span class="n">int</span> <span class="n">windowModality</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setWindowOpacity</span><span class="p">(</span><span class="n">double</span> <span class="n">level</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setWindowRole</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setWindowState</span><span class="p">(</span><span class="n">int</span> <span class="n">windowState</span><span class="p">)</span>
+<span class="n">QSize</span> <span class="nf">size</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QSize</span> <span class="nf">sizeIncrement</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QSizePolicy</span> <span class="nf">sizePolicy</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">stackUnder</span><span class="p">(</span><span class="n">QWidget</span> <span class="o">*</span><span class="n">w</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">statusTip</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QStyle</span> <span class="o">*</span><span class="nf">style</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">styleSheet</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">testAttribute</span><span class="p">(</span><span class="n">int</span> <span class="n">attribute</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">toolTip</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">underMouse</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">ungrabGesture</span><span class="p">(</span><span class="n">int</span> <span class="n">gesture</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">unsetCursor</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">unsetLayoutDirection</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">unsetLocale</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">update</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">int</span> <span class="n">w</span><span class="p">,</span> <span class="n">int</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">updateGeometry</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">updatesEnabled</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QRegion</span> <span class="nf">visibleRegion</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">whatsThis</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">width</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">winId</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QWidget</span> <span class="o">*</span><span class="nf">window</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">windowFilePath</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">windowFlags</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QIcon</span> <span class="nf">windowIcon</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">windowIconText</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">windowModality</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">double</span> <span class="nf">windowOpacity</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">windowRole</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">windowState</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">windowTitle</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">windowType</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">x</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">y</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">close</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">hide</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nb">lower</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nb">raise</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setDisabled</span><span class="p">(</span><span class="n">bool</span> <span class="n">disable</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setEnabled</span><span class="p">(</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setHidden</span><span class="p">(</span><span class="n">bool</span> <span class="n">hidden</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setStyleSheet</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setWindowModified</span><span class="p">(</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setWindowTitle</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">show</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">showFullScreen</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">showMaximized</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">showMinimized</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">showNormal</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QWidget</span> <span class="o">*</span><span class="nb">find</span><span class="p">(</span><span class="n">int</span> <span class="n">id</span><span class="p">)</span>
+<span class="n">QWidget</span> <span class="o">*</span><span class="nf">keyboardGrabber</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QWidget</span> <span class="o">*</span><span class="nf">mouseGrabber</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setTabOrder</span><span class="p">(</span><span class="n">QWidget</span> <span class="o">*</span><span class="n">first</span><span class="p">,</span> <span class="n">QWidget</span> <span class="o">*</span><span class="n">second</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">QLabel</span>
+<span class="n">para</span><span class="o">:</span> <span class="n">QWidget</span> <span class="o">*</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">QWidget</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
+
+<span class="n">int</span> <span class="nf">alignment</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QWidget</span> <span class="o">*</span><span class="nf">buddy</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">hasScaledContents</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">hasSelectedText</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">indent</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">margin</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QMovie</span> <span class="o">*</span><span class="nf">movie</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">openExternalLinks</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QPicture</span> <span class="o">*</span><span class="nf">picture</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QPixmap</span> <span class="o">*</span><span class="nf">pixmap</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">selectedText</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">selectionStart</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setAlignment</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setBuddy</span><span class="p">(</span><span class="n">QWidget</span> <span class="o">*</span><span class="n">buddy</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setIndent</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setMargin</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setOpenExternalLinks</span><span class="p">(</span><span class="n">bool</span> <span class="n">open</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setScaledContents</span><span class="p">(</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setSelection</span><span class="p">(</span><span class="n">int</span> <span class="n">start</span><span class="p">,</span> <span class="n">int</span> <span class="n">length</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setTextFormat</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setTextInteractionFlags</span><span class="p">(</span><span class="n">int</span> <span class="n">flags</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setWordWrap</span><span class="p">(</span><span class="n">bool</span> <span class="k">on</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">text</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">textFormat</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">textInteractionFlags</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">wordWrap</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">clear</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setMovie</span><span class="p">(</span><span class="n">QMovie</span> <span class="o">*</span><span class="n">movie</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setNum</span><span class="p">(</span><span class="n">double</span> <span class="n">num</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setPicture</span><span class="p">(</span><span class="n">QPicture</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setText</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">QPushButton</span>
+<span class="n">para</span><span class="o">:</span> <span class="n">QWidget</span> <span class="o">*</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">QWidget</span>
+<span class="n">codename</span><span class="o">:</span> <span class="n">GPushButton</span>
+<span class="n">passvmpointer</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
+
+<span class="n">void</span> <span class="nf">setText</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setClickEvent</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setIcon</span><span class="p">(</span><span class="n">QIcon</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setIconSize</span><span class="p">(</span><span class="n">QSize</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">QLineEdit</span>
+<span class="n">para</span><span class="o">:</span> <span class="n">QWidget</span> <span class="o">*</span>
+<span class="n">parent</span><span class="o">:</span> <span class="n">QWidget</span>
+<span class="n">codename</span><span class="o">:</span> <span class="n">GLineEdit</span>
+<span class="n">passvmpointer</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
+
+<span class="n">int</span> <span class="nf">alignment</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">backspace</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QCompleter</span> <span class="o">*</span><span class="nf">completer</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QMenu</span> <span class="o">*</span><span class="nf">createStandardContextMenu</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">cursorBackward</span><span class="p">(</span><span class="n">bool</span> <span class="n">mark</span><span class="p">,</span> <span class="n">int</span> <span class="n">steps</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">cursorForward</span><span class="p">(</span><span class="n">bool</span> <span class="n">mark</span><span class="p">,</span> <span class="n">int</span> <span class="n">steps</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">cursorMoveStyle</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">cursorPosition</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">cursorPositionAt</span><span class="p">(</span><span class="n">QPoint</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">cursorWordBackward</span><span class="p">(</span><span class="n">bool</span> <span class="n">mark</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">cursorWordForward</span><span class="p">(</span><span class="n">bool</span> <span class="n">mark</span><span class="p">)</span>
+<span class="n">void</span> <span class="nb">del</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">deselect</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">displayText</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">dragEnabled</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">echoMode</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="k">end</span><span class="p">(</span><span class="n">bool</span> <span class="n">mark</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">getTextMargins</span><span class="p">(</span><span class="n">int</span> <span class="o">*</span><span class="n">left</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">top</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">right</span><span class="p">,</span> <span class="n">int</span> <span class="o">*</span><span class="n">bottom</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">hasAcceptableInput</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">hasFrame</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">hasSelectedText</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">home</span><span class="p">(</span><span class="n">bool</span> <span class="n">mark</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">inputMask</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nb">insert</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isModified</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isReadOnly</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isRedoAvailable</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">bool</span> <span class="nf">isUndoAvailable</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">maxLength</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">placeholderText</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">selectedText</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">int</span> <span class="nf">selectionStart</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setAlignment</span><span class="p">(</span><span class="n">int</span> <span class="n">flag</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setCompleter</span><span class="p">(</span><span class="n">QCompleter</span> <span class="o">*</span><span class="n">c</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setCursorMoveStyle</span><span class="p">(</span><span class="n">int</span> <span class="n">style</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setCursorPosition</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setDragEnabled</span><span class="p">(</span><span class="n">bool</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setEchoMode</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setFrame</span><span class="p">(</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setInputMask</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setMaxLength</span><span class="p">(</span><span class="n">int</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setModified</span><span class="p">(</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setPlaceholderText</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setReadOnly</span><span class="p">(</span><span class="n">bool</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setSelection</span><span class="p">(</span><span class="n">int</span> <span class="n">start</span><span class="p">,</span> <span class="n">int</span> <span class="n">length</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setTextMargins</span><span class="p">(</span><span class="n">int</span> <span class="n">left</span><span class="p">,</span> <span class="n">int</span> <span class="n">top</span><span class="p">,</span> <span class="n">int</span> <span class="n">right</span><span class="p">,</span> <span class="n">int</span> <span class="n">bottom</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setValidator</span><span class="p">(</span><span class="n">QValidator</span> <span class="o">*</span><span class="n">v</span><span class="p">)</span>
+<span class="n">QString</span> <span class="nf">text</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QMargins</span> <span class="nf">textMargins</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">QValidator</span> <span class="o">*</span><span class="nf">validator</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+
+<span class="n">void</span> <span class="nf">clear</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nb">copy</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">cut</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">paste</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">redo</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">selectAll</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setText</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">undo</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+
+<span class="n">void</span> <span class="nf">setTextChangedEvent</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setcursorPositionChangedEvent</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">seteditingFinishedEvent</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setreturnPressedEvent</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">setselectionChangedEvent</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">)</span>
+<span class="n">void</span> <span class="nf">settextEditedEvent</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most of the content of the previous configuration file is removed from this documentation,
+for a complete version see the Ring source code distribution.</p>
+</div>
+</section>
+<section id="static-methods">
+<span id="index-20"></span><h2>Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this heading"></a></h2>
+<p>Starting from Ring 1.8 the code generator support the staticmethods option.</p>
+<p>So the code generator can know that the class doesn’t need an object to call the methods.</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class&gt;
+name: QStandardPaths
+para: void
+nonew
+staticmethods
+&lt;/class&gt;
+
+QString displayName(QStandardPaths::StandardLocation type)
+QString findExecutable(QString executableName, QStringList paths))
+</pre></div>
+</div>
+</section>
+<section id="loading-files">
+<span id="index-21"></span><h2>Loading Files<a class="headerlink" href="#loading-files" title="Permalink to this heading"></a></h2>
+<p>Starting from Ring 1.9 the code generator support the &lt;loadfile&gt; command.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">filename</span><span class="o">.</span><span class="n">cf</span>
+</pre></div>
+</div>
+<p>This is useful to separate the extension configuration file to many files</p>
+<p>Example:</p>
+<p>The file : qt_module_network.cf in the RingQt Extension</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">comment</span><span class="o">&gt;</span>
+                                <span class="nf">Module</span> <span class="p">(</span><span class="n">network</span><span class="p">)</span>
+<span class="o">&lt;/</span><span class="n">comment</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qabstractsocket</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkproxy</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpsocket</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpserver</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostaddress</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostinfo</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkrequest</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkaccessmanager</span><span class="o">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkreply</span><span class="o">.</span><span class="n">cf</span>
+</pre></div>
+</div>
+</section>
+<section id="managed-classes">
+<span id="index-22"></span><h2>Managed Classes<a class="headerlink" href="#managed-classes" title="Permalink to this heading"></a></h2>
+<p>Starting from Ring 1.9 the code generator support the &lt;managed&gt; option when defining classes.</p>
+<p>Using this option, the generator will use RING_API_RETMANAGEDCPOINTER() to return the C pointer.</p>
+<p>So the Garbage Collector will manage these C pointers.</p>
+<p>Example</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="kd">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="o">:</span> <span class="n">QFont</span>
+<span class="n">para</span><span class="o">:</span> <span class="n">QString</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">bool</span>
+<span class="n">managed</span>
+<span class="o">&lt;/</span><span class="kd">class</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="extra-names-for-functions">
+<span id="index-23"></span><h2>Extra names for functions<a class="headerlink" href="#extra-names-for-functions" title="Permalink to this heading"></a></h2>
+<p>Starting from Ring 1.19</p>
+<p>The code generator is updated and support defining extra names for functions</p>
+<p>Using the predefined list (aExtraFunctionName) we can define the extra names</p>
+<p>Example:</p>
+<p>To define vec2() as another name for raylib_new_managed_vector2()</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;runcode&gt;
+aExtraFunctionName + [&quot;vec2&quot;,&quot;raylib_new_managed_vector2&quot;]
+aExtraFunctionName + [&quot;vec2setx&quot;,&quot;raylib_set_vector2_x&quot;]
+aExtraFunctionName + [&quot;vec2sety&quot;,&quot;raylib_set_vector2_y&quot;]
+&lt;/runcode&gt;
+</pre></div>
+</div>
+</section>
+<section id="configuration-files-examples">
+<span id="index-24"></span><h2>Configuration Files Examples<a class="headerlink" href="#configuration-files-examples" title="Permalink to this heading"></a></h2>
+<p>You can learn from the next examples</p>
+<ul class="simple">
+<li><p>RingAllegro : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf">https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf</a></p></li>
+<li><p>RingQt : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/classes/qt.cf">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/classes/qt.cf</a></p></li>
+<li><p>RingLibSDL : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/libsdl.cf">https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/libsdl.cf</a></p></li>
+</ul>
+<p>After modifying the configuration file, You will need to generate the code, You can learn from
+the next examples</p>
+<ul class="simple">
+<li><p>RingAllegro : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/gencode.bat">https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/gencode.bat</a></p></li>
+<li><p>RingQt : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencode.bat">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencode.bat</a></p></li>
+<li><p>RingLibSDL : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/gencode.bat">https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/gencode.bat</a></p></li>
+</ul>
+<p>After generating the code, You will need to build the library, You can learn from the next examples</p>
+<ul class="simple">
+<li><p>RingAllegro : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/buildvc.bat">https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/buildvc.bat</a></p></li>
+<li><p>RingQt : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildvc.bat">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildvc.bat</a></p></li>
+<li><p>RingLibSDL : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/buildvc.bat">https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/buildvc.bat</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="embedding.html" class="btn btn-neutral float-left" title="Embedding Ring Language in C/C++ Programs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ringbeep.html" class="btn btn-neutral float-right" title="Create your first extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, Mahmoud Fayed.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

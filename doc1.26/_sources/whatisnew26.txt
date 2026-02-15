@@ -1,0 +1,527 @@
+.. index:: 
+	single: What is new in Ring 1.26; Introduction
+
+========================
+What is new in Ring 1.26
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.26 release.
+
+.. index:: 
+	pair: What is new in Ring 1.26?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.26 comes with the next features!
+
+* Tank3D Game
+* DaveTheFighter Game
+* LineDrawing3D Game
+* CodeRooms3D Game
+* RingSlint Package
+* Archive Package
+* Proc Package
+* Closure Package
+* Rust Bindings for Ring
+* Prompt Driven Development
+* Better RingQt
+* Better RingRayLib
+* More Improvements
+
+
+.. index:: 
+	pair: What is new in Ring 1.26?; Tank3D Game
+
+Tank3D Game
+===========
+
+Folder: ring/applications/tank3d
+
+The Tank3D Game (12 Levels)
+
+.. image:: tank3d.png
+	:alt: Tank 3D
+
+
+.. index:: 
+	pair: What is new in Ring 1.26?; DaveTheFighter Game
+
+DaveTheFighter Game
+===================
+
+Folder: ring/applications/davethefighter
+
+.. image:: davethefighter_shot1.png
+	:alt: Dave The Fighter Shot1
+
+.. image:: davethefighter_shot2.png
+	:alt: Dave The Fighter Shot2
+
+.. index:: 
+	pair: What is new in Ring 1.26?; LineDrawing3D Game
+
+LineDrawing3D Game
+==================
+
+Folder: ring/applications/linedrawing3d
+
+.. image:: linedrawing3d_shot1.png
+	:alt: Line Drawing 3D Shot1
+
+.. image:: linedrawing3d_shot2.png
+	:alt: Line Drawing 3D Shot2
+
+.. index:: 
+	pair: What is new in Ring 1.26?; CodeRooms3D Game
+
+CodeRooms3D Game
+================
+
+Folder: ring/applications/coderooms3d
+
+The player is trapped in a world of rooms separated by closed doors.
+
+To open each door, you must push code blocks into the correct order on the assembly 
+line to form a valid program.
+
+.. image:: coderooms3d.png
+	:alt: Code Rooms 3D
+
+.. index:: 
+	pair: What is new in Ring 1.26?; RingSlint Package
+
+RingSlint Package
+=================
+
+Build Beautiful, Native Applications for Desktop and Mobile
+
+Install:
+
+.. code-block:: none
+
+	ringpm install ring-slint
+
+.. image:: ringslint.png
+	:alt: Ring Slint
+
+.. index:: 
+	pair: What is new in Ring 1.26?; Archive Package
+
+Archive Package
+===============
+
+Archive manipulation library
+
+* Multiple Formats: TAR, ZIP, 7-Zip, CPIO, ISO9660, RAR (read-only)
+* Multiple Compressions: GZIP, BZIP2, XZ, LZMA, ZSTD, LZ4
+* Encryption Support: AES-256, AES-128, ZipCrypt for ZIP archives
+* Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD
+* High-Level API: Simple archive_extract(), archive_create(), archive_list()
+* OOP Interface: Clean ArchiveReader, ArchiveWriter, Archive, ArchiveEntry classes
+* Static Linking: All dependencies built-in, no external libraries needed
+
+Install:
+
+.. code-block:: none
+
+	ringpm install archive
+
+Example:
+
+.. code-block:: ring
+
+	load "archive.ring"
+
+	// OOP Interface - Reading
+
+	reader = new ArchiveReader("myarchive.tar.gz")
+
+	while reader.nextEntry()
+		? "File: " + reader.entryPath()
+		? "Size: " + reader.entrySize()
+    		if reader.entryIsFile()
+			? "Content: " + reader.readAll()
+    		ok
+	end
+
+	reader.close()
+
+	// OOP Interface - Writing
+
+	writer = new ArchiveWriter(ARCHIVE_FORMAT_ZIP, ARCHIVE_COMPRESSION_NONE)
+
+	writer.open("output.zip")
+	writer.addFile("hello.txt", "Hello World!")
+	writer.addFile("data.json", '{"key": "value"}')
+	writer.addDirectory("subdir/")
+
+	writer.close()
+
+.. index:: 
+	pair: What is new in Ring 1.26?; Proc Package
+
+Proc Package
+============
+
+Subprocess management library
+
+* Create Subprocesses: Spawn child processes with full control over I/O
+* I/O Redirection: Read/write to subprocess stdin, stdout, stderr
+* Environment Control: Pass custom environment variables
+* Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD
+* High-Level API: Simple proc_shell() and proc_run() for common use cases
+* OOP Interface: Clean object-oriented Process and Shell classes
+
+Install:
+
+.. code-block:: none
+
+	ringpm install proc
+
+Example:
+
+.. code-block:: ring
+
+	load "proc.ring"
+
+	// Using Process class
+	proc = new Process(["cat"], PROC_SEARCH_USER_PATH)
+	proc.writeLine("Hello from Ring!")
+	proc.closeStdin()
+	proc.join()
+	? proc.stdout()
+	proc.destroy()
+
+	// Using Shell class
+	shell = new Shell
+	? shell.capture("pwd")              // Get output
+	? shell.success("test -f file.txt") // Check if command succeeded
+
+.. index:: 
+	pair: What is new in Ring 1.26?; Closure Package
+
+Closure Package
+===============
+
+We can create an anonymous function that capture specific variables. 
+
+Install:
+
+.. code-block:: none
+
+	ringpm install closure
+
+
+Using closure() capture variables by value. 
+
+For lists/objects we can change this behaviour (optional) using the Ref() function. 
+
+The first parameter to closure() is a list of variables to capture we can type
+
+* :variable_name
+* :variable_name = value
+* :variable_name = ref(list/object)
+
+The second parameter is an anonymous function that could use the captured variables
+
+Example:
+
+.. code-block:: ring
+
+	load "closure.ring"
+
+	func main
+
+		inc = increment()
+
+		? isClosure(inc) # Prints 1
+
+		? invoke(inc) # Prints 11
+		? invoke(inc) # Prints 12
+
+		for m = 1 to 1000
+			invoke(inc)
+		next
+
+		? invoke(inc)
+
+		dec = decrement()
+		? invoke(dec)
+		? invoke(inc)
+		? invoke(dec)
+
+	func increment
+
+		x = 10
+
+		return closure([:x], func {
+			x++
+			return x
+		})
+
+	func decrement
+
+		x = 100
+
+		return closure([:x], func {
+			x--
+			return x
+		})
+
+Output:
+
+.. code-block:: none
+
+	1
+	11
+	12
+	1013
+	99
+	1014
+	98
+
+.. index:: 
+	pair: What is new in Ring 1.26?; Rust Bindings for Ring
+
+Rust Bindings for Ring
+======================
+
+URL: https://github.com/ysdragon/ring-lang-rs
+
+* Write Ring extensions in Rust (Native extensions with Rust's safety and performance)
+
+* Embed Ring in Rust applications (Run Ring scripts from your Rust programs)
+
+* Wrap Rust crates for Ring (Expose any Rust library to Ring applications)
+
+.. image:: ringrust.png
+	:alt: Ring Rust
+
+.. index:: 
+	pair: What is new in Ring 1.26?; Prompt Driven Development
+
+Prompt Driven Development
+=========================
+
+Prompt Driven Development with Claude Code: Building a Complete TUI Framework for the Ring Programming Language
+
+URL: https://arxiv.org/abs/2601.17584
+
+This study presents an empirical analysis of developing a 7420 line Terminal User Interface 
+framework for the Ring programming language, completed in roughly ten hours of active work 
+spread across three days using a purely prompt driven workflow with Claude Code, Opus 4.5. 
+
+The framework was produced through 107 prompts: 21 feature requests, 72 bug fix prompts, 9 prompts 
+sharing information from Ring documentation, 4 prompts providing architectural guidance, and 1 
+prompt dedicated to generating documentation.
+
+The resulting framework includes a complete windowing subsystem, event driven 
+architecture, interactive widgets, hierarchical menus, grid and tree components, tab 
+controls, and a multi window desktop environment.
+
+.. note:: The framework is developed for MS‑Windows using the RingRogueUtil library. With a few updates, it could be fully ported to Linux and macOS.
+
+.. code-block:: none
+
+	ringpm install TUIFrameworkUsingClaudeCode
+	ringpm run TUIFrameworkUsingClaudeCode
+
+.. image:: ringtui.png
+	:alt: Ring TUI
+
+.. index:: 
+	pair: What is new in Ring  1.26; Better Better RingQt
+
+Better RingQt
+=============
+
+(1) The next classes are added
+
++----------------------------+------------------------------+----------------------------+----------------------------+
+| Class                      | Class                        | Class                      | Class                      |
++============================+==============================+============================+============================+
+| QFormLayout                | QElapsedTimer                | QSizeF                     | QMargins                   |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QRadialGradient            | QConicalGradient             | QDoubleSpinBox             | QDialogButtonBox           |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QSpacerItem                | QToolTip                     | QMarginsF                  | QSettings                  |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QDataStream                | QStandardItemModel           | QStandardItem              | QSortFilterProxyModel      |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QItemSelectionModel        | QPalette                     | QKeyEvent                  | QMouseEvent                |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QWheelEvent                | QPolygon                     | QPolygonF                  | QTextBlockFormat           |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QTextListFormat            | QTextTableFormat             | QTextFrameFormat           | QTextTable                 |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QTextTableCell             | QTextFrame                   | QTextList                  | QStaticText                |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QPageSize                  | QPageLayout                  | QShortcut                  | QProgressDialog            |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QToolBox                   | QWizard                      | QWizardPage                | QUndoCommand               |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QSizePolicy                | QErrorMessage                | QCommandLinkButton         | QRubberBand                |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QSplitterHandle            | QSizeGrip                    | QSqlQueryModel             | QSqlTableModel             |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QSqlRelation               | QSqlRelationalTableModel     | QSqlRelationalDelegate     | QUndoStack                 |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QStackedLayout             | QFileSystemWatcher           | QTemporaryFile             | QSaveFile                  |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QDataWidgetMapper          | QStyledItemDelegate          | QKeySequenceEdit           | QUndoView                  |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QColumnView                | QNetworkConfigurationManager | QNetworkCookie             | QNetworkCookieJar          |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QNetworkInterface          | QSslCertificate              | QSslConfiguration          | QSslKey                    |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QSslSocket                 | QUdpSocket                   | QAudioDeviceInfo           | QAudioFormat               |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QAudioInput                | QAudioProbe                  | QAudioRecorder             | QMediaRecorder             |
++----------------------------+------------------------------+----------------------------+----------------------------+
+| QSoundEffect               | QVideoProbe                  |                            |                            |
++----------------------------+------------------------------+----------------------------+----------------------------+
+
+
+(2) Added: setPlaceholderText() method to QTextEdit/QPlainTextEdit classes 
+
+(3) Added: toString() method to QUrl class
+
+(4) Enum support is revised in all classes
+
+(5) The macOS version of RingQt does not use Qt WebEngine
+
+(6) No warning message when loading lightguilib.ring after guilib.ring is already loaded
+
+.. index:: 
+	pair: What is new in Ring  1.26; Better RingRayLib
+
+Better RingRayLib
+=================
+
+Added more functions to deliver full support for RayLib 5.0
+
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| Function                     | Function                  | Function                        | Function                         |
++==============================+===========================+=================================+==================================+
+| IsWindowFullscreen           | IsWindowMaximized         | IsWindowFocused                 | IsWindowState                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| SetWindowState               | ClearWindowState          | ToggleBorderlessWindowed        | MaximizeWindow                   |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| MinimizeWindow               | RestoreWindow             | SetWindowMaxSize                | SetWindowOpacity                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| SetWindowFocused             | GetRenderWidth            | GetRenderHeight                 | GetCurrentMonitor                |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetMonitorRefreshRate        | EnableEventWaiting        | DisableEventWaiting             | SetWindowIcons                   |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetMonitorPosition           | GetWindowPosition         | GetWindowScaleDPI               | IsCursorOnScreen                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetCameraMatrix2D            | GetScreenToWorld2D        | GetWorldToScreenEx              | GetWorldToScreen2D               |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| IsKeyPressedRepeat           | GetCharPressed            | SetGamepadMappings              | GetMouseDelta                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetMouseWheelMoveV           | SetMouseCursor            | GetTouchPointId                 | GetTouchPointCount               |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UpdateCameraPro              | DrawCircleLinesV          | DrawEllipse                     | DrawEllipseLines                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| DrawTriangleStrip            | DrawPolyLines             | DrawPolyLinesEx                 | DrawSplineLinear                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| DrawSplineBasis              | DrawSplineCatmullRom      | DrawSplineBezierQuadratic       | DrawSplineBezierCubic            |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| DrawSplineSegmentLinear      | DrawSplineSegmentBasis    | DrawSplineSegmentCatmullRom     | DrawSplineSegmentBezierQuadratic |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| DrawSplineSegmentBezierCubic | GetSplinePointLinear      | GetSplinePointBasis             | GetSplinePointCatmullRom         |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetSplinePointBezierQuad     | GetSplinePointBezierCubic | CheckCollisionPointPoly         | CheckCollisionLines              |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| CheckCollisionPointLine      | DrawPoint3D               | DrawTriangle3D                  | DrawTriangleStrip3D              |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| DrawCylinderEx               | DrawCylinderWiresEx       | DrawCapsule                     | DrawCapsuleWires                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| LoadImageRaw                 | LoadImageSvg              | LoadImageAnim                   | LoadImageFromMemory              |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| LoadImageFromTexture         | LoadImageFromScreen       | IsImageReady                    | ExportImageToMemory              |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| ImageFromImage               | ImageBlurGaussian         | ImageRotate                     | LoadImagePalette                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadImageColors            | UnloadImagePalette        | GetImageAlphaBorder             | GetImageColor                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| ImageClearBackground         | ImageDrawPixel            | ImageDrawPixelV                 | ImageDrawLine                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| ImageDrawLineV               | ImageDrawCircle           | ImageDrawCircleV                | ImageDrawCircleLines             |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| ImageDrawCircleLinesV        | ImageDrawRectangle        | ImageDrawRectangleV             | ImageDrawRectangleRec            |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| ImageDrawRectangleLines      | ImageDrawText             | IsTextureReady                  | IsRenderTextureReady             |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UpdateTextureRec             | ColorFromNormalized       | ColorTint                       | ColorBrightness                  |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| ColorContrast                | ColorAlpha                | ColorAlphaBlend                 | GetPixelColor                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| SetPixelColor                | LoadFontFromMemory        | IsFontReady                     | LoadFontData                     |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadFontData               | GetGlyphAtlasRec          | DrawTextPro                     | DrawTextCodepoint                |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| DrawTextCodepoints           | SetTextLineSpacing        | GetGlyphInfo                    | LoadUTF8                         |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadUTF8                   | LoadCodepoints            | UnloadCodepoints                | GetCodepointCount                |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetCodepoint                 | GetCodepointNext          | GetCodepointPrevious            | CodepointToUTF8                  |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| IsModelReady                 | GetModelBoundingBox       | DrawBillboardPro                | UploadMesh                       |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UpdateMeshBuffer             | DrawMesh                  | DrawMeshInstanced               | GenMeshTangents                  |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GenMeshCone                  | IsMaterialReady           | GetRayCollisionSphere           | GetRayCollisionMesh              |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetRayCollisionTriangle      | GetRayCollisionQuad       | LoadShaderFromMemory            | IsShaderReady                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetShaderLocationAttrib      | IsWaveReady               | IsSoundReady                    | SetSoundPan                      |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| LoadWaveSamples              | UnloadWaveSamples         | LoadMusicStreamFromMemory       | IsMusicReady                     |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| SeekMusicStream              | SetMusicPan               | LoadAudioStream                 | IsAudioStreamReady               |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadAudioStream            | IsAudioStreamProcessed    | SetAudioStreamPan               | LoadVrStereoConfig               |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadVrStereoConfig         | BeginVrStereoMode         | EndVrStereoMode                 | LoadFileData                     |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadFileData               | SaveFileData              | ExportDataAsCode                | LoadFileText                     |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| UnloadFileText               | SaveFileText              | DirectoryExists                 | GetFileLength                    |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| GetFileExtension             | GetPrevDirectoryPath      | GetApplicationDirectory         | IsPathFile                       |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| CompressData                 | DecompressData            | EncodeDataBase64                | DecodeDataBase64                 |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| SetTraceLogLevel             | SetRandomSeed             | LoadRandomSequence              | UnloadRandomSequence             |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| MemAlloc                     | MemRealloc                | MemFree                         | GetMasterVolume                  |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| WaitTime                     | GenImageText              | ExportFontAsCode                | LoadWaveFromMemory               |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| LoadSoundAlias               | UnloadSoundAlias          | IsMusicStreamPlaying            | TextCopy                         |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+| PollInputEvents              | SwapScreenBuffer          | SetAudioStreamBufferSizeDefault | UnloadModelAnimations            |
++------------------------------+---------------------------+---------------------------------+----------------------------------+
+
+.. index:: 
+	pair: What is new in Ring  1.26; More Improvements
+
+More Improvements
+=================
+
+* Added Sample - ring/samples/UsingQt/Layouts/qformlayout.ring
+* Building - build/buildgcc.sh - improve POSIX compliance
+* Building - language/CMakeLists.txt - Explicitly set project language to C
+* NaturalLib - Improved implementation for supporting shared keywords across commands
+* NaturalLib - Support callerSetVar()/callerGetVar() in commands that uses Expressions
+* RingStbImage - The stb_image.h file is updated from v2.28 to v2.30
+* RingStbImage - Improved Implementation of Image‑Loading Functions 
+* RingStbImage - Use a binary string as the output for zlib functions
+* Left(cStr,nCount) - Return cStr when the requested size exceeds the string length
+* Right(cStr,nCount) - Return cStr when the requested size exceeds the string length
+* SubStr(cStr,nPos,nCount) - Return cStr when the requested size exceeds the string length
+* Ring Lists - ring_list_deleteitem_gc() - Better implementation (order of operations)
+* Ring VM - Using Ref() - Collecting Cycles - Better Performance
+* Ring Notepad - Using QtWebView on macOS instead of Qt WebEngine 
