@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is new in Ring 1.27 &mdash; Ring 1.27.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using Other Code Editors" href="codeeditors.html" />
+    <link rel="prev" title="What is new in Ring 1.26" href="whatisnew26.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">Using CSVLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">Using JSONLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">Using HTTPLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications using Heroku</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud.html">Deploying Web Applications using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_platforms.html">Deploying Web Applications to Cloud Platforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ring_cloud_cgi.html">Deploying Web Applications to Shared Hosting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tilengine.html">Using RingTilengine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">Using ZeroLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">Using FoxRing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">Using BigNumber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">Using TokensLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Using RingThreads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using RingLibui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingrogueutil.html">Using RingRogueUtil</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingfastpro.html">Using FastPro Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingpico.html">Using Ring for Raspberry Pi Pico Microcontroller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew19.html">Release Notes: Version 1.19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew23.html">Release Notes: Version 1.23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew24.html">Release Notes: Version 1.24</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew25.html">Release Notes: Version 1.25</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew26.html">Release Notes: Version 1.26</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.27</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#research-article">Research Article</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automatic-hash-table">Automatic Hash Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faster-weblib">Faster WebLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bolt-web-framework">Bolt Web Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docxlib-package">DOCXLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xlsxlib-package">XLSXLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pptxlib-package">PPTXLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#svglib-package">SVGLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pdflib-package">PDFLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dbflib-package">DBFLib Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-python-package">Ring-Python Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-cffi-package">Ring-CFFI Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-extensions">Better Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#solitaire-game">Solitaire Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringraylib-samples">RingRayLib Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ring-api">Better Ring API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">What is new in Ring 1.27</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="what-is-new-in-ring-1-27">
+<span id="index-0"></span><h1>What is new in Ring 1.27<a class="headerlink" href="#what-is-new-in-ring-1-27" title="Permalink to this heading"></a></h1>
+<p>In this chapter we will learn about the changes and new features in Ring 1.27 release.</p>
+<section id="list-of-changes-and-new-features">
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this heading"></a></h2>
+<p>Ring 1.27 comes with the next features!</p>
+<ul class="simple">
+<li><p>Research Article</p></li>
+<li><p>Better Performance</p></li>
+<li><p>Automatic Hash Table</p></li>
+<li><p>Faster WebLib</p></li>
+<li><p>Bolt Web Framework</p></li>
+<li><p>DOCXLib Package</p></li>
+<li><p>XLSXLib Package</p></li>
+<li><p>PPTXLib Package</p></li>
+<li><p>SVGLib Package</p></li>
+<li><p>PDFLib Package</p></li>
+<li><p>DBFLib Package</p></li>
+<li><p>Ring-Python Package</p></li>
+<li><p>Ring-CFFI Package</p></li>
+<li><p>Better Extensions</p></li>
+<li><p>Solitaire Game</p></li>
+<li><p>RingRayLib Samples</p></li>
+<li><p>More Samples</p></li>
+<li><p>Better Functions</p></li>
+<li><p>Better Ring API</p></li>
+<li><p>More Improvements</p></li>
+</ul>
+</section>
+<section id="research-article">
+<span id="index-2"></span><h2>Research Article<a class="headerlink" href="#research-article" title="Permalink to this heading"></a></h2>
+<p>URL: <a class="reference external" href="https://doi.org/10.3390/electronics15040903">https://doi.org/10.3390/electronics15040903</a></p>
+<img alt="Research Article" src="_images/researchcover3.png" />
+</section>
+<section id="better-performance">
+<span id="index-3"></span><h2>Better Performance<a class="headerlink" href="#better-performance" title="Permalink to this heading"></a></h2>
+<p>Ring 1.27 introduces performance improvements across many core operations.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Performance Comparison: Ring 1.26 vs Ring 1.27 (Using loop from 1 to 10,000,000)</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Test Program</p></th>
+<th class="head"><p>Ring 1.26 (s)</p></th>
+<th class="head"><p>Ring 1.27 (s)</p></th>
+<th class="head"><p>Speedup</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Loop</p></td>
+<td><p>0.09</p></td>
+<td><p>0.08</p></td>
+<td><p>~1.1x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Variable read</p></td>
+<td><p>0.22</p></td>
+<td><p>0.18</p></td>
+<td><p>~1.2x</p></td>
+</tr>
+<tr class="row-even"><td><p>Variable write</p></td>
+<td><p>0.35</p></td>
+<td><p>0.24</p></td>
+<td><p>~1.5x</p></td>
+</tr>
+<tr class="row-odd"><td><p>List item read</p></td>
+<td><p>0.39</p></td>
+<td><p>0.29</p></td>
+<td><p>~1.3x</p></td>
+</tr>
+<tr class="row-even"><td><p>List item write</p></td>
+<td><p>0.43</p></td>
+<td><p>0.36</p></td>
+<td><p>~1.2x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Calling C functions</p></td>
+<td><p>0.30</p></td>
+<td><p>0.23</p></td>
+<td><p>~1.3x</p></td>
+</tr>
+<tr class="row-even"><td><p>Calling Ring functions</p></td>
+<td><p>0.53</p></td>
+<td><p>0.34</p></td>
+<td><p>~1.6x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Calling Ring methods using the dot operator</p></td>
+<td><p>3.63</p></td>
+<td><p>0.73</p></td>
+<td><p>~5.0x</p></td>
+</tr>
+<tr class="row-even"><td><p>Calling Ring methods using braces (outside the loop)</p></td>
+<td><p>2.61</p></td>
+<td><p>0.69</p></td>
+<td><p>~3.8x</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object brace open/close</p></td>
+<td><p>3.18</p></td>
+<td><p>1.05</p></td>
+<td><p>~3.0x</p></td>
+</tr>
+<tr class="row-even"><td><p>Calling Ring methods using braces (inside the loop)</p></td>
+<td><p>6.09</p></td>
+<td><p>1.88</p></td>
+<td><p>~3.2x</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The most significant improvements are in OOP method dispatch. Calling Ring methods
+via the dot operator is now <strong>~5x faster</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]</p>
+</div>
+</section>
+<section id="automatic-hash-table">
+<span id="index-4"></span><h2>Automatic Hash Table<a class="headerlink" href="#automatic-hash-table" title="Permalink to this heading"></a></h2>
+<p>Ring 1.27 introduces automatic hash table acceleration for lists used as hash maps with
+string keys. When a list is accessed using string keys with the aList[“key”] syntax, Ring
+now automatically builds an internal hash table once the number of entries reaches a
+threshold, replacing the previous linear scan with O(1) lookups.
+This happens transparently with no changes required to existing Ring code. Small lists continue
+to use the efficient linear scan, while larger lists seamlessly transition to hash table
+lookups the moment they grow beyond the threshold. The feature is fully compatible with
+all existing Ring features including add(), del(), and insert() operations on
+hash-map style lists, and preserves Ring’s case-insensitive key matching behavior so
+that aList[“Name”] and aList[“name”] correctly refer to the same entry.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="nb">Decimals</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">5</span>         <span class="c1"># [1,2,3,4,5]</span>
+
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
+        <span class="n">aList</span> <span class="o">+</span> <span class="p">[</span> <span class="s2">&quot;key&quot;</span><span class="o">+</span><span class="n">t</span> <span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span> <span class="p">]</span>
+<span class="k">next</span>
+
+<span class="o">?</span> <span class="s2">&quot;Size: &quot;</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+
+<span class="c1">// Test Performance</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">1_000_000</span>
+        <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">]</span>
+        <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key10&quot;</span><span class="p">]</span>
+        <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key100&quot;</span><span class="p">]</span>
+<span class="k">next</span>
+
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key10&quot;</span><span class="p">]</span>
+<span class="o">?</span> <span class="n">aList</span><span class="p">[</span><span class="s2">&quot;key100&quot;</span><span class="p">]</span>
+
+<span class="n">t2</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+<span class="o">?</span> <span class="s2">&quot;Time: &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; ms&quot;</span>
+</pre></div>
+</div>
+<p>Output (Using Ring 1.27):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Size: 105
+1
+100
+10000
+Time: 239 ms
+</pre></div>
+</div>
+<p>Output (Using Ring 1.26):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Size: 105
+1
+100
+10000
+Time: 2702 ms
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ring 1.27 completes in 239 ms versus 2702 ms in Ring 1.26 — a <strong>~11x faster</strong>.</p>
+</div>
+<p>The improvement comes entirely from eliminating the linear scan on a 105-entry list.
+In Ring 1.26 each aList[“key”] call walked up to 105 items comparing strings.
+In Ring 1.27 the hash table is built once on first access and every subsequent lookup is O(1).
+With 3 million lookups the difference compounds dramatically</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The 5 initial numeric items [1,2,3,4,5] at the start of the list confirm that the hash-map acceleration works correctly on a mixed list, not just a pure hash-map list.</p>
+</div>
+</section>
+<section id="faster-weblib">
+<span id="index-5"></span><h2>Faster WebLib<a class="headerlink" href="#faster-weblib" title="Permalink to this heading"></a></h2>
+<p>Ring 1.27 introduces a major performance improvement to the WebLib library through a new
+stack-based rendering engine for nested HTML elements. In previous versions, every HTML
+element created inside a brace block — such as Table, TR, TD, H1, and so on — allocated a
+separate Ring object in memory. A page with a table of 100 rows and 5 columns would silently
+create over 500 objects, each carrying hundreds of attributes, output string, and child object
+list. The overhead of allocating, initializing, and garbage-collecting all these objects was
+the dominant cost of page generation.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;weblib.ring&quot;</span>
+<span class="kn">import</span> <span class="nn">system.web</span>
+
+<span class="kd">func</span> <span class="nf">main</span>
+
+        <span class="n">t1</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+        <span class="n">cOutput</span> <span class="o">=</span> <span class="nf">createReport</span><span class="p">()</span>
+        <span class="n">t2</span> <span class="o">=</span> <span class="nb">clock</span><span class="p">()</span>
+        <span class="o">?</span> <span class="s2">&quot;Time: &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; ms&quot;</span>
+        <span class="nb">write</span><span class="p">(</span><span class="s2">&quot;report.html&quot;</span><span class="p">,</span> <span class="n">cOutput</span><span class="p">)</span>
+        <span class="nb">system</span><span class="p">(</span><span class="s2">&quot;report.html&quot;</span><span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">createReport</span>
+
+        <span class="n">nCustCount</span> <span class="o">=</span> <span class="mi">100</span>
+
+        <span class="n">oPage</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">HtmlPage</span> <span class="p">{</span>
+                <span class="n">h1</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
+                <span class="n">Table</span>
+                <span class="p">{</span>
+                        <span class="n">style</span> <span class="o">=</span> <span class="nf">styleWidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span><span class="o">+</span><span class="nf">styleGradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+                        <span class="n">TR</span>
+                        <span class="p">{</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span> <span class="o">=</span> <span class="s2">&quot;10%&quot;</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Customers Count : &quot;</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="n">nCustCount</span><span class="p">)</span> <span class="p">}</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="n">Table</span>
+                <span class="p">{</span>
+                        <span class="n">style</span> <span class="o">=</span> <span class="nf">styleWidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span><span class="o">+</span><span class="nf">styleGradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+                        <span class="n">TR</span>
+                        <span class="p">{</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="nf">styleWidth</span><span class="p">(</span><span class="s2">&quot;100%&quot;</span><span class="p">)</span><span class="o">+</span><span class="nf">styleGradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Name &quot;</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Job&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Company&quot;</span><span class="p">)</span> <span class="p">}</span>
+                        <span class="p">}</span>
+                        <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nCustCount</span>
+                                <span class="n">TR</span>
+                                <span class="p">{</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Test &quot;</span><span class="o">+</span><span class="n">t</span><span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;30&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Egypt&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Sales&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="nf">text</span><span class="p">(</span><span class="s2">&quot;Future&quot;</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="p">}</span>
+                        <span class="k">next</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">oPage</span><span class="o">.</span><span class="nf">output</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output (Using Ring 1.27):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Time: 9 ms
+</pre></div>
+</div>
+<p>Output (Using Ring 1.26):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Time: 703 ms
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ring 1.27 completes in 9 ms versus 703 ms in Ring 1.26 — a <strong>~78x faster</strong>.</p>
+</div>
+<p>Pages with deeper nesting or more rows benefit proportionally. Existing user code requires
+no changes; the brace-block syntax, attribute assignment, style functions, and all element
+names work exactly as before.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If we need better performance we can generate HTML documents using WebLib functions or HTML Templates.</p>
+</div>
+</section>
+<section id="bolt-web-framework">
+<span id="index-6"></span><h2>Bolt Web Framework<a class="headerlink" href="#bolt-web-framework" title="Permalink to this heading"></a></h2>
+<p>Bolt brings modern web development to Ring. It pairs an Express.js-like DSL with a
+Rust-powered HTTP engine, giving you a framework that is both approachable and fast.
+Write routes in Ring, run them on a Rust async runtime.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install bolt
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;bolt.ring&quot;</span>
+
+<span class="kp">new</span> <span class="nc">Bolt</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="mi">3000</span>
+
+        <span class="n">@get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="n">$bolt</span><span class="o">.</span><span class="nf">send</span><span class="p">(</span><span class="s2">&quot;Hello from Bolt!&quot;</span><span class="p">)</span>
+        <span class="p">})</span>
+
+        <span class="n">@get</span><span class="p">(</span><span class="s2">&quot;/users/:id&quot;</span><span class="p">,</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="n">$bolt</span><span class="o">.</span><span class="nf">json</span><span class="p">([</span>
+                        <span class="ss">:id</span>   <span class="o">=</span> <span class="n">$bolt</span><span class="o">.</span><span class="nf">param</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">),</span>
+                        <span class="ss">:name</span> <span class="o">=</span> <span class="s2">&quot;User &quot;</span> <span class="o">+</span> <span class="n">$bolt</span><span class="o">.</span><span class="nf">param</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+                <span class="p">])</span>
+        <span class="p">})</span>
+        <span class="nf">where</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;[0-9]+&quot;</span><span class="p">)</span>
+
+        <span class="n">@post</span><span class="p">(</span><span class="s2">&quot;/users&quot;</span><span class="p">,</span> <span class="kd">func</span> <span class="p">{</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">$bolt</span><span class="o">.</span><span class="nf">jsonBody</span><span class="p">()</span>
+                <span class="n">$bolt</span><span class="o">.</span><span class="nf">jsonWithStatus</span><span class="p">(</span><span class="mi">201</span><span class="p">,</span> <span class="p">[</span><span class="ss">:created</span> <span class="o">=</span> <span class="bp">true</span><span class="p">,</span> <span class="ss">:data</span> <span class="o">=</span> <span class="n">data</span><span class="p">])</span>
+        <span class="p">})</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring app.ring
+# [bolt] Server running on http://0.0.0.0:3000
+</pre></div>
+</div>
+</section>
+<section id="docxlib-package">
+<span id="index-7"></span><h2>DOCXLib Package<a class="headerlink" href="#docxlib-package" title="Permalink to this heading"></a></h2>
+<p>DOCXLib is a pure-Ring library for generating and reading Word (.docx) documents.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install docxlib
+</pre></div>
+</div>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Zero dependencies — Pure Ring</p></li>
+<li><p>Fluent API — Every method returns self, enabling method chaining</p></li>
+<li><p>Rich tables — Cell merging, per-side borders, row heights, text direction, images, lists inside cells</p></li>
+<li><p>Full typography — Bold/italic/colour/font/size per run, language tags, character styles, custom paragraph styles</p></li>
+<li><p>Paragraph control — Widow/orphan control, hyphenation suppression, keep-together, contextual spacing</p></li>
+<li><p>Navigation — TOC, Table of Figures, Table of Tables, bookmarks, cross-refs</p></li>
+<li><p>Forms — Checkboxes, dropdowns, and text input content controls</p></li>
+<li><p>Shapes — Rectangle, ellipse, diamond, triangle, line (DrawingML)</p></li>
+<li><p>Themes — 8 built-in colour palettes applied to all heading levels</p></li>
+<li><p>Charts — 8 native OOXML chart types with axis formatting, data tables, and style presets</p></li>
+<li><p>Mail Merge — Template engine: setMergeTemplate(), mergeRecord(), mergeAll() with {{FIELD}} tokens</p></li>
+<li><p>Image cropping — Non-destructive a:srcRect crop by percentage on inline and floating images</p></li>
+<li><p>Rich notes — Footnote and endnote bodies with full per-run formatting (bold, italic, colour, size)</p></li>
+<li><p>WordReader — Parse .docx files — extract content and styles; full round-trip reconstruct and save</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;docxlib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s2">&quot;Generate File: hello.docx&quot;</span>
+
+<span class="kp">new</span> <span class="nc">WordWriter</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">setTitle</span><span class="p">(</span><span class="s2">&quot;My First Document&quot;</span><span class="p">)</span>
+        <span class="nf">setAuthor</span><span class="p">(</span><span class="s2">&quot;Your Name&quot;</span><span class="p">)</span>
+        <span class="nf">setPageSize</span><span class="p">(</span><span class="s2">&quot;a4&quot;</span><span class="p">)</span>
+        <span class="nf">addHeading</span><span class="p">(</span><span class="s2">&quot;Hello, DOCXLib!&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="nf">addParagraph</span><span class="p">(</span><span class="s2">&quot;This document was created entirely from Ring code.&quot;</span><span class="p">,</span>
+                     <span class="p">[</span><span class="ss">:color</span> <span class="o">=</span> <span class="s2">&quot;0000FF&quot;</span><span class="p">])</span>
+        <span class="nf">addBulletList</span><span class="p">([</span><span class="s2">&quot;Feature A&quot;</span><span class="p">,</span> <span class="s2">&quot;Feature B&quot;</span><span class="p">,</span> <span class="s2">&quot;Feature C&quot;</span><span class="p">])</span>
+        <span class="nf">save</span><span class="p">(</span><span class="s2">&quot;hello.docx&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Screen Shots:</p>
+<img alt="DOCXLib1" src="_images/docxlib1.png" />
+<img alt="DOCXLib2" src="_images/docxlib2.png" />
+</section>
+<section id="xlsxlib-package">
+<span id="index-8"></span><h2>XLSXLib Package<a class="headerlink" href="#xlsxlib-package" title="Permalink to this heading"></a></h2>
+<p>XLSXLib is a pure-Ring library for creating Excel (.xlsx) files.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install xlsxlib
+</pre></div>
+</div>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Multiple Worksheets - Create workbooks with many sheets</p></li>
+<li><p>Cell Operations - Set text, numbers, dates, and formulas</p></li>
+<li><p>Styling - Fonts, colors, backgrounds, borders, alignment</p></li>
+<li><p>Number Formats - Currency, percentage, date, time, custom formats</p></li>
+<li><p>Column/Row Formatting - Custom widths and heights</p></li>
+<li><p>Merged Cells - Combine cells horizontally and vertically</p></li>
+<li><p>Auto Filter - Add filter dropdowns to data ranges</p></li>
+<li><p>Freeze Panes - Keep headers visible while scrolling</p></li>
+<li><p>Images - Embed PNG, JPG, BMP, and GIF images</p></li>
+<li><p>Formulas - Full Excel formula support</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;xlsxlib.ring&quot;</span>
+
+<span class="n">cFileName</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nb">filename</span><span class="p">(),</span><span class="s2">&quot;.ring&quot;</span><span class="p">,</span><span class="s2">&quot;.xlsx&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Generate File: &quot;</span> <span class="o">+</span> <span class="n">cFileName</span>
+
+<span class="kp">new</span> <span class="nc">ExcelWriter</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="nf">setTitle</span><span class="p">(</span><span class="s2">&quot;Sales Report 2025&quot;</span><span class="p">)</span>  <span class="nf">setAuthor</span><span class="p">(</span><span class="s2">&quot;Sales Department&quot;</span><span class="p">)</span>  <span class="nf">setCompany</span><span class="p">(</span><span class="s2">&quot;ABC Corporation&quot;</span><span class="p">)</span>
+
+        <span class="nf">addSheet</span><span class="p">(</span><span class="s2">&quot;Summary&quot;</span><span class="p">)</span>
+        <span class="n">titleStyle</span> <span class="o">=</span> <span class="nf">createStyle</span><span class="p">([</span><span class="ss">:bold</span> <span class="o">=</span> <span class="bp">true</span><span class="p">,</span> <span class="ss">:fontSize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span> <span class="ss">:align</span> <span class="o">=</span> <span class="s2">&quot;center&quot;</span><span class="p">])</span>
+        <span class="n">headerStyle</span> <span class="o">=</span> <span class="nf">createHeaderStyle</span><span class="p">()</span>
+        <span class="n">currencyStyle</span> <span class="o">=</span> <span class="nf">createStyle</span><span class="p">([</span><span class="ss">:align</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">])</span>
+        <span class="n">totalStyle</span> <span class="o">=</span> <span class="nf">createStyle</span><span class="p">([</span><span class="ss">:bold</span> <span class="o">=</span> <span class="bp">true</span><span class="p">,</span> <span class="ss">:bgColor</span> <span class="o">=</span> <span class="s2">&quot;E2EFDA&quot;</span><span class="p">])</span>
+
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Annual Sales Report 2025&quot;</span><span class="p">,</span> <span class="n">titleStyle</span><span class="p">)</span>
+        <span class="nf">mergeCells</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Quarter&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>   <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Revenue&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Expenses&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>  <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Profit&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">)</span>
+
+        <span class="nf">setCell</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Q1&quot;</span><span class="p">)</span>  <span class="nf">setCell</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Q2&quot;</span><span class="p">)</span>  <span class="nf">setCell</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Q3&quot;</span><span class="p">)</span>  <span class="nf">setCell</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Q4&quot;</span><span class="p">)</span>
+
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">250000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>  <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">180000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">280000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>  <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">190000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">310000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>  <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">200000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">350000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>  <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">220000</span><span class="p">,</span> <span class="n">currencyStyle</span><span class="p">)</span>
+
+        <span class="nf">setFormula</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;B4-C4&quot;</span><span class="p">)</span>  <span class="nf">setFormula</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;B5-C5&quot;</span><span class="p">)</span>
+        <span class="nf">setFormula</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;B6-C6&quot;</span><span class="p">)</span>  <span class="nf">setFormula</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;B7-C7&quot;</span><span class="p">)</span>
+
+        <span class="nf">setCellWithStyle</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Total&quot;</span><span class="p">,</span> <span class="n">totalStyle</span><span class="p">)</span>
+        <span class="nf">setFormula</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;SUM(B4:B7)&quot;</span><span class="p">)</span>  <span class="nf">setFormula</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;SUM(C4:C7)&quot;</span><span class="p">)</span>  <span class="nf">setFormula</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;SUM(D4:D7)&quot;</span><span class="p">)</span>
+
+        <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>  <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>  <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>  <span class="nf">setColumnWidth</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+        <span class="nf">setAutoFilter</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="nf">freezeTopRow</span><span class="p">()</span>
+
+        <span class="nf">save</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="XLSXLib" src="_images/xlsxlib.png" />
+</section>
+<section id="pptxlib-package">
+<span id="index-9"></span><h2>PPTXLib Package<a class="headerlink" href="#pptxlib-package" title="Permalink to this heading"></a></h2>
+<p>PPTXLib is a pure-Ring library for creating PowerPoint (.pptx) files.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install pptxlib
+</pre></div>
+</div>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Multiple Slides - Create presentations with many slides</p></li>
+<li><p>Text Boxes - Formatted text with fonts, colors, alignment</p></li>
+<li><p>Rich Text - Multiple formats within a single text box</p></li>
+<li><p>Shapes - Rectangles, circles, ovals, rounded rectangles, lines</p></li>
+<li><p>Images - PNG, JPG, BMP, GIF support</p></li>
+<li><p>Tables - With headers, styling, and zebra striping</p></li>
+<li><p>Lists - Bullet and numbered lists</p></li>
+<li><p>Backgrounds - Solid colors per slide</p></li>
+<li><p>Layouts - 16:9, 16:10, 4:3 aspect ratios</p></li>
+<li><p>Quick Layouts - Title slides, two-column layouts</p></li>
+<li><p>Speaker Notes - Add notes to slides</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;pptxlib.ring&quot;</span>
+
+<span class="n">cFileName</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nb">filename</span><span class="p">(),</span><span class="s2">&quot;.ring&quot;</span><span class="p">,</span><span class="s2">&quot;.pptx&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Generate File: &quot;</span> <span class="o">+</span> <span class="n">cFileName</span>
+
+<span class="kp">new</span> <span class="nc">PPTWriter</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">addTitleSlide</span><span class="p">(</span><span class="s2">&quot;My Presentation&quot;</span><span class="p">,</span> <span class="s2">&quot;Subtitle here&quot;</span><span class="p">)</span>
+        <span class="nf">addSlide</span><span class="p">()</span>
+        <span class="nf">addTitle</span><span class="p">(</span><span class="s2">&quot;First Slide&quot;</span><span class="p">)</span>
+        <span class="nf">addTextBox</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">NULL</span><span class="p">)</span>
+        <span class="nf">save</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Screen Shots:</p>
+<img alt="PPTXLib" src="_images/pptxlib.png" />
+</section>
+<section id="svglib-package">
+<span id="index-10"></span><h2>SVGLib Package<a class="headerlink" href="#svglib-package" title="Permalink to this heading"></a></h2>
+<p>A pure Ring library for creating Scalable Vector Graphics (SVG) files using the
+Ring programming language. It generates standard SVG files that can be viewed in any
+web browser, embedded in HTML, or used in other applications.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install svglib
+</pre></div>
+</div>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Basic Shapes — Rectangles, circles, ellipses, polygons, stars</p></li>
+<li><p>Lines &amp; Paths — Lines, polylines, arcs, custom paths with curves</p></li>
+<li><p>Text — Formatted text, multiline, centered, text on path</p></li>
+<li><p>Gradients — Linear and radial gradients with multiple stops</p></li>
+<li><p>Patterns — Stripes, dots, grids, custom patterns</p></li>
+<li><p>Filters — Blur, drop shadow, glow effects</p></li>
+<li><p>Transformations — Translate, rotate, scale, skew (per element)</p></li>
+<li><p>Groups — Group elements together</p></li>
+<li><p>Clipping — Clip shapes with masks</p></li>
+<li><p>Markers — Arrows and dots on lines</p></li>
+<li><p>Charts — Bar, line, pie, donut charts</p></li>
+<li><p>Diagrams — Flowcharts, org charts</p></li>
+<li><p>Icons — Checkmarks, crosses, arrows, stars</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;svglib.ring&quot;
+
+svg = new SVGWriter(600, 400) {
+
+        setBackground(&quot;#F5F5F5&quot;)
+
+        addRect(0, 0, 600, 50, [:fill = &quot;#1565C0&quot;])
+        addText(&quot;Analytics Dashboard&quot;, 20, 32,
+        [:fontSize = 20, :fontWeight = &quot;bold&quot;, :fill = &quot;white&quot;])
+
+        shadow = createShadowFilter(2, 2, 3, &quot;#CCC&quot;)
+
+        addRoundedRect(20, 70, 170, 80, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Users&quot;,  35, 95,  [:fontSize = 12, :fill = &quot;#1565C0&quot;])
+        addText(&quot;24,521&quot;, 35, 125, [:fontSize = 22, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+        addText(&quot;+12%&quot;,  120, 125, [:fontSize = 12, :fill = &quot;#4CAF50&quot;])
+
+        addRoundedRect(210, 70, 170, 80, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Revenue&quot;, 225, 95,  [:fontSize = 12, :fill = &quot;#E65100&quot;])
+        addText(&quot;$89,430&quot;, 225, 125, [:fontSize = 22, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+
+        addRoundedRect(400, 70, 180, 80, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Orders&quot;, 415, 95,  [:fontSize = 12, :fill = &quot;#7B1FA2&quot;])
+        addText(&quot;1,247&quot;,  415, 125, [:fontSize = 22, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+
+        addRoundedRect(20, 170, 350, 210, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Monthly Sales&quot;, 35, 195, [:fontSize = 14, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+        chartData = [:labels = [&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;], :values = [42, 58, 49, 72, 65]]
+        addBarChart(chartData, 25, 200, 340, 170, [:colors = [&quot;#42A5F5&quot;]])
+
+        addRoundedRect(390, 170, 190, 210, 6, [:fill = &quot;white&quot;, :filter = shadow])
+        addText(&quot;Traffic&quot;, 405, 195, [:fontSize = 14, :fontWeight = &quot;bold&quot;, :fill = &quot;#333&quot;])
+        pieData = [:labels = [&quot;Organic&quot;, &quot;Direct&quot;, &quot;Social&quot;], :values = [50, 30, 20]]
+        addPieChart(pieData, 485, 295, 60, [:colors = [&quot;#4CAF50&quot;, &quot;#2196F3&quot;, &quot;#E91E63&quot;]])
+
+        save(&quot;demo18_dashboard.svg&quot;)
+
+}
+</pre></div>
+</div>
+<p>Screen Shots:</p>
+<img alt="SVGLib" src="_images/svglib.png" />
+</section>
+<section id="pdflib-package">
+<span id="index-11"></span><h2>PDFLib Package<a class="headerlink" href="#pdflib-package" title="Permalink to this heading"></a></h2>
+<p>PDFLib is a pure Ring implementation for generating PDF 1.4 files with no external dependencies.
+Output is compatible with most PDF viewers including Adobe Acrobat, Foxit Reader, and web browsers.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install pdflib
+</pre></div>
+</div>
+<p>Features:</p>
+<ul class="simple">
+<li><p>Page management — multiple pages, sizes (A4, Letter, Legal, etc.), portrait/landscape orientation, margins</p></li>
+<li><p>Text — 14 PDF standard fonts (no font files needed; supplied by every PDF viewer), sizes, colors, left/center/right alignment</p></li>
+<li><p>Paragraphs — word-wrapping with configurable line height and alignment</p></li>
+<li><p>Arabic / Unicode text — any TTF can be loaded and embedded; full shaping and RTL pipeline for Arabic; direct glyph mapping for Latin extensions, Greek, Cyrillic, and CJK; complex scripts (Devanagari, Thai, etc.) are not supported</p></li>
+<li><p>Shapes — rectangles, circles, ellipses, lines, polygons; stroke, fill, or both</p></li>
+<li><p>Tables — headers, alternating row colors, borders, explicit or auto column widths, Arabic-aware cell rendering</p></li>
+<li><p>Lists — bullet lists and numbered lists</p></li>
+<li><p>Charts — bar charts and pie charts with legends</p></li>
+<li><p>Images — JPEG (DCTDecode), PNG (FlateDecode, all color types), BMP (24-bit); pure Ring parsers, no C library required</p></li>
+<li><p>Page numbers — configurable format and position</p></li>
+<li><p>Headers / Footers — per-document text with alignment</p></li>
+<li><p>Watermarks — rotated text at arbitrary angle</p></li>
+<li><p>Graphics state — save/restore, line width, cap, join, dash patterns</p></li>
+<li><p>Document properties — title, author, subject, keywords, creator</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;pdflib.ring&quot;
+
+items = [
+        [&quot;Description&quot;, &quot;Qty&quot;, &quot;Price&quot;, &quot;Total&quot;],
+        [&quot;Web Design&quot;, &quot;1&quot;, &quot;$2,500&quot;, &quot;$2,500&quot;],
+        [&quot;Hosting (Annual)&quot;, &quot;1&quot;, &quot;$300&quot;, &quot;$300&quot;],
+        [&quot;Domain Name&quot;, &quot;2&quot;, &quot;$15&quot;, &quot;$30&quot;]
+]
+
+new PDFWriter() {
+        setTitle(&quot;Invoice #1001&quot;)
+        setFont(PDF_HELVETICA_BOLD, 28)
+        setTextColor(&quot;navy&quot;)
+        drawText(&quot;INVOICE&quot;, 72, 760)
+        setFont(PDF_HELVETICA, 12)
+        setTextColor(&quot;gray&quot;)
+        drawTextRight(&quot;#INV-1001&quot;, 540, 760)
+        drawTextRight(&quot;Date: 2025-01-15&quot;, 540, 740)
+        drawTable(items, 72, 650, [250, 60, 80, 78], [
+                :headerBg = &quot;navy&quot;,
+                :headerFg = &quot;white&quot;
+        ])
+        setFont(PDF_HELVETICA_BOLD, 14)
+        setTextColor(&quot;black&quot;)
+        drawTextRight(&quot;Total: $2,830.00&quot;, 540, 540)
+        save(&quot;invoice.pdf&quot;)
+}
+</pre></div>
+</div>
+</section>
+<section id="dbflib-package">
+<span id="index-12"></span><h2>DBFLib Package<a class="headerlink" href="#dbflib-package" title="Permalink to this heading"></a></h2>
+<p>A pure Ring library for reading, writing, and maintaining
+Visual FoxPro .dbf database files and their companion .fpt memo files.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install dbflib
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;dbflib.ring&quot;</span>
+
+<span class="n">aFields</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span>      <span class="s2">&quot;N&quot;</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span>    <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;SALARY&quot;</span><span class="p">,</span>  <span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span>  <span class="s2">&quot;L&quot;</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;NOTES&quot;</span><span class="p">,</span>   <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="kp">new</span> <span class="nc">DBFFile</span> <span class="p">{</span>
+        <span class="nf">create</span><span class="p">(</span><span class="s2">&quot;employees.dbf&quot;</span><span class="p">,</span> <span class="n">aFields</span><span class="p">)</span>
+        <span class="nf">append</span><span class="p">()</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span>     <span class="mi">1</span><span class="p">)</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span>   <span class="s2">&quot;Ahmed Al-Rashid&quot;</span><span class="p">)</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;SALARY&quot;</span><span class="p">,</span> <span class="mf">85000.50</span><span class="p">)</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">,</span> <span class="bp">true</span><span class="p">)</span>
+        <span class="nf">replace</span><span class="p">(</span><span class="s2">&quot;NOTES&quot;</span><span class="p">,</span>  <span class="s2">&quot;Senior developer, joined 2023.&quot;</span><span class="p">)</span>
+        <span class="nf">close</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kp">new</span> <span class="nc">DBFFile</span> <span class="p">{</span>
+        <span class="nf">open</span><span class="p">(</span><span class="s2">&quot;employees.dbf&quot;</span><span class="p">)</span>
+        <span class="nf">goTop</span><span class="p">()</span>
+        <span class="k">while</span> <span class="o">!</span> <span class="nf">isEof</span><span class="p">()</span>
+                <span class="o">?</span> <span class="nb">trim</span><span class="p">(</span><span class="nf">fieldGet</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="nf">fieldGet</span><span class="p">(</span><span class="s2">&quot;SALARY&quot;</span><span class="p">)</span>
+                <span class="o">?</span> <span class="nf">fieldGet</span><span class="p">(</span><span class="s2">&quot;NOTES&quot;</span><span class="p">)</span>
+                <span class="nf">skip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">end</span>
+        <span class="nf">close</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="ring-python-package">
+<span id="index-13"></span><h2>Ring-Python Package<a class="headerlink" href="#ring-python-package" title="Permalink to this heading"></a></h2>
+<p>A library that brings the entire Python ecosystem to the Ring programming language.</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-python
+</pre></div>
+</div>
+<p>Powered by PyO3, this library allows you to seamlessly call Python functions, import Python modules (like NumPy, Pandas, or Matplotlib), and exchange data between Ring and Python directly from your Ring applications.</p>
+<p>Key Features:</p>
+<ul class="simple">
+<li><p>Full Python Embedding — Initialize the Python interpreter and execute arbitrary Python code from Ring.</p></li>
+<li><p>Two-Way Data Exchange — Pass strings, numbers, lists, and dicts between Ring and Python seamlessly.</p></li>
+<li><p>Module Import — Import any installed Python package and call its functions directly.</p></li>
+<li><p>Object-Oriented API — Clean Ring wrapper classes (<cite>Python</cite>, <cite>PyObject</cite>, <cite>PyModule</cite>, etc.) alongside low-level functions for maximum control.</p></li>
+<li><p>Method Calls — Call Python functions and methods with positional args, keyword args (kwargs), or both.</p></li>
+<li><p>Cross-Platform — Build for Windows, macOS, Linux, and FreeBSD from one codebase.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;python.ring&quot;</span>
+
+<span class="n">py</span> <span class="o">=</span> <span class="kp">new</span> <span class="nc">Python</span><span class="p">()</span>
+<span class="n">py</span><span class="o">.</span><span class="nf">exec</span><span class="p">(</span><span class="s2">&quot;import numpy as np&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create array and compute statistics</span>
+<span class="n">py</span><span class="o">.</span><span class="nf">exec</span><span class="p">(</span><span class="s2">&quot;</span>
+<span class="s2">data = np.array([1, 2, 3, 4, 5])</span>
+<span class="s2">_mean = str(np.mean(data))</span>
+<span class="s2">_std  = str(np.std(data))</span>
+<span class="s2">_dot  = str(np.dot(data, data))</span>
+<span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s2">&quot;Mean: &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_mean&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Std:  &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_std&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s2">&quot;Dot:  &quot;</span> <span class="o">+</span> <span class="n">py</span><span class="o">.</span><span class="nf">getVar</span><span class="p">(</span><span class="s2">&quot;_dot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Mean: 3.0
+Std:  1.4142135623730951
+Dot:  55
+</pre></div>
+</div>
+</section>
+<section id="ring-cffi-package">
+<span id="index-14"></span><h2>Ring-CFFI Package<a class="headerlink" href="#ring-cffi-package" title="Permalink to this heading"></a></h2>
+<p>A Foreign Function Interface library for the Ring programming language!</p>
+<p>Install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ring-cffi
+</pre></div>
+</div>
+<p>Built on libffi, Ring CFFI allows you to call C functions, manipulate C memory, work with structs/unions/enums, and pass Ring functions as C callbacks — all directly from Ring, without writing any C extension code.</p>
+<p>Key Features:</p>
+<ul class="simple">
+<li><p>Dynamic Library Loading: Load shared libraries (.so, .dll, .dylib) at runtime</p></li>
+<li><p>C Function Calls: Call C functions directly from Ring with automatic type conversion</p></li>
+<li><p>Pointer Operations: Pointer arithmetic, dereferencing, read/write access</p></li>
+<li><p>Struct Support: Define and manipulate C structs with named field access</p></li>
+<li><p>Union &amp; Enum Support: Define and use C unions and enumerations</p></li>
+<li><p>Callbacks: Pass Ring functions as C callbacks</p></li>
+<li><p>Memory Management: Allocate and manage C memory directly</p></li>
+<li><p>C String Handling: Seamless conversion between Ring and C strings</p></li>
+<li><p>Cross-Platform: Works on Windows, Linux, macOS, and FreeBSD</p></li>
+<li><p>High-Level OOP API: Clean FFI class with intuitive method names</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kn">load</span> <span class="s2">&quot;cffi.ring&quot;</span>
+
+<span class="c1"># msvcrt.dll (Windows), libSystem.B.dylib (macOS)</span>
+<span class="kp">new</span> <span class="nc">FFI</span><span class="p">(</span><span class="s2">&quot;libm.so.6&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1"># Call a simple function (sqrt)</span>
+        <span class="n">oSqrt</span> <span class="o">=</span> <span class="nf">cFunc</span><span class="p">(</span><span class="s2">&quot;sqrt&quot;</span><span class="p">,</span> <span class="s2">&quot;double&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;double&quot;</span><span class="p">])</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">oSqrt</span><span class="p">,</span> <span class="p">[</span><span class="mf">25.0</span><span class="p">])</span>
+        <span class="o">?</span> <span class="s2">&quot;sqrt(25) = &quot;</span> <span class="o">+</span> <span class="n">result</span>
+
+        <span class="c1"># Call printf (variadic function)</span>
+        <span class="n">oPrintf</span> <span class="o">=</span> <span class="nf">varFunc</span><span class="p">(</span><span class="s2">&quot;printf&quot;</span><span class="p">,</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;string&quot;</span><span class="p">])</span>
+        <span class="nf">varcall</span><span class="p">(</span><span class="n">oPrintf</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Hello, %s! Number: %d\n&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">])</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sqrt(25) = 5
+Hello, World! Number: 123
+</pre></div>
+</div>
+</section>
+<section id="better-extensions">
+<span id="index-15"></span><h2>Better Extensions<a class="headerlink" href="#better-extensions" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>RingFastPro Extension - Better Performance</p></li>
+<li><p>RingFastPro Extension - Added Transform3D() function</p></li>
+<li><p>RingQt Extension - Added: QStorageInfo class</p></li>
+<li><p>RingQt Extension - Added: QSvgWidget class</p></li>
+<li><p>RingQt Extension - Added: QSvgRenderer class</p></li>
+<li><p>RingQt Extension - Added: QSvgGenerator class</p></li>
+<li><p>RingQt Extension - Added: QQmlContext class</p></li>
+<li><p>RingQt Extension - Added: QQmlProperty class</p></li>
+<li><p>RingQt Extension - Added: QQmlExpression class</p></li>
+<li><p>RingQt Extension - Added: QQmlComponent class</p></li>
+<li><p>RingQt Extension - Added: QQmlApplicationEngine class</p></li>
+<li><p>RingQt Extension - Many classes have been converted into managed classes</p></li>
+<li><p>RingLibSDL Extension - Revised SDL_QueryTexture()</p></li>
+<li><p>RingLibSDL Extension - Revised SDL_RenderGetScale()</p></li>
+<li><p>RingLibSDL Extension - Revised SDL_GL_BindTexture()</p></li>
+<li><p>RingLibSDL Extension - Removed SDL_GetRevisionNumber()</p></li>
+<li><p>RingStbImage - stbi_load functions - Better Implementation</p></li>
+<li><p>RingSQLite - Added Parameterized Query Support</p></li>
+<li><p>RingFreeGLUT - Check event string size before usage</p></li>
+</ul>
+<p>The next samples are added to demonstrates some of the new features</p>
+<ul class="simple">
+<li><p>samples/UsingQt/SVG/test1.ring</p></li>
+<li><p>samples/UsingQt/SVG/test2.ring</p></li>
+<li><p>samples/UsingQML/WebAsm_ChatInterface/main.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/test1.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/test2.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/test3.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/AnalogClock.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/Calculator.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/ColorPicker.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/FormBuilder.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/TodoList.ring</p></li>
+<li><p>samples/UsingQML/RingQML_Communication/QuizGame.ring</p></li>
+<li><p>samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro-Transform.ring</p></li>
+</ul>
+<p>The next screen shot for the Chat Interface sample developed using Ring and QML</p>
+<img alt="Ring Chat (Android)" src="_images/ringchatandroid.png" />
+</section>
+<section id="solitaire-game">
+<span id="index-16"></span><h2>Solitaire Game<a class="headerlink" href="#solitaire-game" title="Permalink to this heading"></a></h2>
+<p>The Solitaire Game (Developed using Ring and RayLib)</p>
+<p>Install and run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install solitaire
+ringpm run solitaire
+</pre></div>
+</div>
+<img alt="Solitaire Game" src="_images/solitaire.png" />
+</section>
+<section id="ringraylib-samples">
+<span id="index-17"></span><h2>RingRayLib Samples<a class="headerlink" href="#ringraylib-samples" title="Permalink to this heading"></a></h2>
+<p>We added 70 new applications and games to the ring/samples/UsingAI/UsingClaude folder</p>
+<p>Over 62,000 lines of code automatically  generated using Claude Code for the RingRayLib samples</p>
+<img alt="RayLib Samples" src="_images/raylibsamples.png" />
+<p>This collection serves three purposes at once. First, it was born as a stress test of
+using Claude Code to develop RingRayLib games — each app and game was built during hands-on experimentation to explore
+what the tool is genuinely capable of, from simple clocks to shooters. Second, the samples
+double as a living test suite for the Ring language and RingRayLib themselves — using
+Claude Code to generate diverse programs is an effective way to surface edge cases,
+validate library coverage, and push the runtime across many different usage patterns. Third, and
+perhaps most powerfully, the collection acts as a reusable dataset for future
+development: because Claude Code can read and reason about existing code, you can point it
+at any sample here and instruct it to port a specific feature into your own project.
+This mix-and-match workflow is exactly how Ring games such as
+DaveTheFighter, Tank3D, LineDrawing3D, and CodeRooms3D were built — 100% with Claude Code,
+guided by prompts that referenced and combined ideas from samples like these.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">RingRayLib Samples</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Ring Pac-Man 2D</p></td>
+<td><p>Ring Pac-Man 3D</p></td>
+<td><p>Ring Asteroids</p></td>
+<td><p>Ring Flappy Bird</p></td>
+<td><p>Ring Space Invaders</p></td>
+</tr>
+<tr class="row-even"><td><p>Ring Donkey Kong</p></td>
+<td><p>Ring Mario</p></td>
+<td><p>Ring Mega Man</p></td>
+<td><p>Tanks 2-Player Battle</p></td>
+<td><p>Ring Battlezone</p></td>
+</tr>
+<tr class="row-odd"><td><p>Chess 2D</p></td>
+<td><p>Chess 3D</p></td>
+<td><p>Checkers 3D</p></td>
+<td><p>Go 3D</p></td>
+<td><p>Othello 3D</p></td>
+</tr>
+<tr class="row-even"><td><p>Connect Four 3D</p></td>
+<td><p>Hex Game 3D</p></td>
+<td><p>Cards Game 2D</p></td>
+<td><p>Cards Game 3D</p></td>
+<td><p>Sokoban 2D</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sokoban 3D</p></td>
+<td><p>Ice Sliding Puzzle 3D</p></td>
+<td><p>Laser Puzzle 3D</p></td>
+<td><p>Pipe Connect 3D</p></td>
+<td><p>Sliding Puzzle 3D</p></td>
+</tr>
+<tr class="row-even"><td><p>Maze 3D</p></td>
+<td><p>Tower of Hanoi 3D</p></td>
+<td><p>Ring Minesweeper 3D</p></td>
+<td><p>Knight’s Tour 3D</p></td>
+<td><p>N-Queens Puzzle 3D</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lights Out 3D</p></td>
+<td><p>Match-3 Gem Game 3D</p></td>
+<td><p>Rescue</p></td>
+<td><p>2048</p></td>
+<td><p>Ring Doom</p></td>
+</tr>
+<tr class="row-even"><td><p>Dungeon Crawler</p></td>
+<td><p>The Sword Game</p></td>
+<td><p>Helicopter Gunship</p></td>
+<td><p>Endless Runner</p></td>
+<td><p>Platformer 2D</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ring Baba</p></td>
+<td><p>Roguelike</p></td>
+<td><p>Ring Bomber</p></td>
+<td><p>Breakout</p></td>
+<td><p>Pinball</p></td>
+</tr>
+<tr class="row-even"><td><p>Racing</p></td>
+<td><p>Space Shooter</p></td>
+<td><p>Tower Defense 2D</p></td>
+<td><p>Tower Defense 3D</p></td>
+<td><p>Snake 3D</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ring Tetris 3D</p></td>
+<td><p>Analog Clock</p></td>
+<td><p>Paint Program</p></td>
+<td><p>Diagram Tool</p></td>
+<td><p>Logic Circuit Simulator</p></td>
+</tr>
+<tr class="row-even"><td><p>Sorting Algorithm Visualizer</p></td>
+<td><p>Solar System</p></td>
+<td><p>Ecosystem Simulator</p></td>
+<td><p>Traffic Simulator</p></td>
+<td><p>Weather Simulator</p></td>
+</tr>
+<tr class="row-odd"><td><p>Game of Life 2D</p></td>
+<td><p>Game of Life 3D</p></td>
+<td><p>Particle System</p></td>
+<td><p>Color Animation Screensaver</p></td>
+<td><p>Forest Explorer</p></td>
+</tr>
+<tr class="row-even"><td><p>Cards Animation 2D</p></td>
+<td><p>Cards Animation 3D</p></td>
+<td><p>Ring Witness</p></td>
+<td><p>Voxel 3D</p></td>
+<td><p>Pegblaster</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="more-samples">
+<span id="index-18"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>The samples/UsingGemini folder is moved to samples/UsingAI/UsingGemini folder</p></li>
+<li><p>The samples/UsingBingChat folder is moved to samples/UsingAI/UsingBingChat folder</p></li>
+<li><p>The next games are moved from ring/applications to samples/UsingAI/UsingClaude/games folder</p></li>
+</ol>
+<ul class="simple">
+<li><p>Tank3D</p></li>
+<li><p>DaveTheFighter</p></li>
+<li><p>LineDrawing3D</p></li>
+<li><p>CodeRooms3D</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>Many samples in samples/UsingQML folder are moved to samples/UsingQML/QML_SomeFeatures</p></li>
+<li><p>The next samples are revised</p></li>
+</ol>
+<ul class="simple">
+<li><p>samples/UsingLibCurl/test12.ring</p></li>
+<li><p>samples/UsingLibCurl/test13.ring</p></li>
+<li><p>samples/UsingQt/TableWidget/QTableWidget.ring</p></li>
+<li><p>samples/UsingQt/PrintPreview/reportusingweblib.ring</p></li>
+</ul>
+<ol class="arabic simple" start="6">
+<li><p>The next samples are added to the samples foder:</p></li>
+</ol>
+<ul class="simple">
+<li><p>samples/Language/ClassMethods/nestedanonymous.ring</p></li>
+<li><p>samples/Language/EnumConstant/EnumConstantTest.ring</p></li>
+<li><p>samples/General/RosettaCode/YinYang.ring</p></li>
+<li><p>samples/General/RosettaCode/YinYang2.ring</p></li>
+<li><p>samples/General/FindAnadromes/process.ring</p></li>
+<li><p>samples/General/FindAnadromes/process2.ring</p></li>
+<li><p>samples/General/FindAnadromes/process3.ring</p></li>
+<li><p>samples/General/Performance/ringper.ring</p></li>
+<li><p>samples/General/Performance/nqueensbitmask.ring</p></li>
+<li><p>samples/General/Orbital/Earth_Orbit_Zodiac.ring</p></li>
+<li><p>samples/General/Orbital/Earth_Orbit_Moon_Phases_Eclipses_Zodiac.ring</p></li>
+<li><p>samples/UsingArabic/WriteArabicDate/DateServices.ring</p></li>
+<li><p>samples/UsingWebLib/GenReport/genreport.ring</p></li>
+<li><p>samples/UsingFreeGLUT/Hex_Sphere.ring</p></li>
+<li><p>samples/UsingFreeGLUT/Penta_Sphere.ring</p></li>
+<li><p>samples/UsingFreeGLUT/Octagon_Sphere.ring</p></li>
+<li><p>samples/UsingFreeGLUT/SinCos_Surface.ring</p></li>
+<li><p>samples/UsingRogueUtil/matrix_rain.ring</p></li>
+<li><p>samples/UsingRayLib/more/ex11_matrix_rain.ring</p></li>
+</ul>
+<img alt="Advanced FreeGLUT Samples" src="_images/advancedfreeglut.png" />
+<img alt="Astronomy Visualization" src="_images/astronomyvisualization.png" />
+</section>
+<section id="better-functions">
+<span id="index-19"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Validate arguments and reject NaN or Inf values when they are not allowed</p></li>
+<li><p>Produce an error when arguments are passed to functions that do not accept parameters</p></li>
+<li><p>Revise each function to ensure it terminates execution after displaying an error.</p></li>
+<li><p>DiffDays()/AddDays() - Better Implementation</p></li>
+<li><p>Sort() function - Better Performance</p></li>
+<li><p>BinarySearch() - Better Performance and Allows mixing types in the list</p></li>
+<li><p>Remove() - Correct error message when the argument count is incorrect</p></li>
+<li><p>SysSleep() - Check nanosleep() output</p></li>
+<li><p>Ring_State_Main()/Ring_State_MainFile() - Check the length of the file name before usage</p></li>
+<li><p>Ring_State_MainFile() - Thread safe implementation</p></li>
+<li><p>Ring_State_Delete() - Use: RING_API_SETNULLPOINTER</p></li>
+<li><p>Ring_State_FileTokens()/Ring_State_StringTokens() - Reset: lScannerCommandsAsTokens flag</p></li>
+<li><p>Ring_State_FindVar() - Return zero if the variable is not found</p></li>
+<li><p>Ring_State_RunObjectFile() - Return True/False</p></li>
+<li><p>Unsigned() - Better Implementation - Remove unnecessary checks</p></li>
+<li><p>Unsigned() - Accept the operator before/after the numbers</p></li>
+<li><p>Unsigned() - Check variable size before the shift operation</p></li>
+<li><p>IsMethod()/IsPrivateMethod() - Produce error when the argument type is incorrect</p></li>
+<li><p>Randomize() - Produce error when the value range is not correct</p></li>
+<li><p>Randomize() - Respect C strict-aliasing rules</p></li>
+<li><p>Hex2Str() - Always move the first nibble into the high position</p></li>
+<li><p>Str2HexCStyle() - Check the string length before processing</p></li>
+<li><p>Str2HexCStyle() - Pads single-digit bytes with space instead of zero</p></li>
+<li><p>FGetPos() - Free allocated memory when the function fail</p></li>
+<li><p>FPutC()/UnGetC() - Check string size (Not less than 1 character)</p></li>
+<li><p>SubStr() - Check argument count</p></li>
+<li><p>MemCpy() - Check negative size</p></li>
+<li><p>MergeMethods() - Avoid Self-merge</p></li>
+<li><p>GetNumber() - Check fgets() output</p></li>
+<li><p>Date()/Time()/TimeList() - Check timer overflow</p></li>
+<li><p>Date()/Time()/TimeList() - Thread safe usage for localtime()</p></li>
+<li><p>Number() - Accept one e/E in the number</p></li>
+<li><p>Dir() - Check the path length before using strcat()</p></li>
+<li><p>Dir() - Check chdir() output</p></li>
+<li><p>Input() - Check fread() output</p></li>
+<li><p>GetChar() - Return an empty string when we the getchar() output is EOF</p></li>
+<li><p>LoadLib() - Close the DLL when the ringlib_init() function is missing</p></li>
+<li><p>System() - Return the function output</p></li>
+<li><p>Assert() - Follow Ring’s rules for evaluating values as True or False</p></li>
+<li><p>Sqrt()/Log()/Log10()/ASin()/ACos()/Pow() - Check values before usage</p></li>
+<li><p>Lines() - Return zero if the input is an empty string</p></li>
+<li><p>Lines() - Don’t increment the line count for a new line at the last index</p></li>
+<li><p>List2Str() - Don’t add extra line at start when processing sub list</p></li>
+</ul>
+</section>
+<section id="better-ring-api">
+<span id="index-20"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this heading"></a></h2>
+<p>The next features are added to Ring API (Useful when writing C extensions for Ring)</p>
+<ul class="simple">
+<li><p>RING_API_GETUNSIGNEDINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTUNSIGNEDINTVALUE(nParameter)</p></li>
+<li><p>RING_API_GETSHORTINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTSHORTINTVALUE(nParameter)</p></li>
+<li><p>RING_API_GETUNSIGNEDSHORTINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTUNSIGNEDSHORTINTVALUE(nParameter)</p></li>
+<li><p>RING_API_GETLONGINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTLONGINTVALUE(nParameter)</p></li>
+<li><p>RING_API_GETUNSIGNEDLONGINTPOINTER(nParameter)</p></li>
+<li><p>RING_API_ACCEPTUNSIGNEDLONGINTVALUE(nParameter)</p></li>
+</ul>
+<p>Also, the Code Generator for Extensions is revised to support the added features</p>
+<ul class="simple">
+<li><p>The aPassPointers list is used to control passing pointers to functions</p></li>
+<li><p>The aNumberTypes list is revised to detect many numeric types automatically</p></li>
+</ul>
+</section>
+<section id="more-improvements">
+<span id="index-21"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Better Documentation - Chapter: FAQ</p></li>
+<li><p>Better Documentation - Chapter: Lists</p></li>
+<li><p>Better Documentation - Chapter: Program Structure</p></li>
+<li><p>language/build/locatevc.bat - Added: VS 2026 Community Edition support</p></li>
+<li><p>language/build/buildgccstatic.bat - Build ringw.exe too</p></li>
+<li><p>language/build/builddos.bat - Set stack size to 64K</p></li>
+<li><p>Ring for Linux - Modernize build scripts using pkg-config</p></li>
+<li><p>Ring for Android - Avoid setting RING_SIMPLEHASHFUNC</p></li>
+<li><p>Ring Compiler - Detect unclosed comment error</p></li>
+<li><p>Ring Compiler - Check filename size before loading</p></li>
+<li><p>Ring Compiler - Maximum size for keyword/operator (120 characters)</p></li>
+<li><p>Ring VM - ring_general_justfilename() - Better Code</p></li>
+<li><p>Ring VM - ring_list_sortnum_gc() - Better Performance</p></li>
+<li><p>Ring VM - ring_list_sortstr_gc() - Better Performance</p></li>
+<li><p>Ring VM - ring_list_updaterefcount_gc() - Better Code</p></li>
+<li><p>Ring VM - ring_vm_statecustmutexunlock() - Better Code</p></li>
+<li><p>Ring VM - ring_vm_oop_callmethodfrombrace() - Better Code</p></li>
+<li><p>Ring VM - ring_vm_oop_preparecallmethodfrombrace() - Better Code</p></li>
+<li><p>Ring VM - ring_vm_oop_movetobeforeobjstate() - Better Performance</p></li>
+<li><p>Ring VM - ring_vm_loadfunc2() - Better Code - Logical order of instructions</p></li>
+<li><p>Ring VM - ring_objfile_processfile() - Check fseek()/ftell() output</p></li>
+<li><p>Ring VM - ring_vm_file_read() - Check fseek() output</p></li>
+<li><p>Ring VM - ring_vm_mod() - Check values before processing</p></li>
+<li><p>Ring VM - ring_hashtable_rebuild_gc() - Check overflow</p></li>
+<li><p>Ring VM - ring_hashlib_murmurthree32() - Avoid unaligned memory read</p></li>
+<li><p>Ring VM - ring_string_add2_gc() - Check string capacity overflow</p></li>
+<li><p>Ring VM - ring_vm_error2() - Better memory management (Avoid new string allocation)</p></li>
+<li><p>Ring VM - ring_vm_oop_parentmethods() - Better Code</p></li>
+<li><p>Ring VM - For Loop - Produce error if nStart/nEnd/nStep are not finite numbers</p></li>
+<li><p>Ring VM - Save/Restore state when using Braces - Better Performance</p></li>
+<li><p>Ring VM - pObjState information - Use array of structure instead of Ring Lists</p></li>
+<li><p>Ring VM - New Instruction for calling methods using the dot operator - ICO_LOADMETHODP</p></li>
+<li><p>Ring VM - New Instruction for calling methods using braces - ICO_LOADBRACEMETHODP</p></li>
+<li><p>Ring VM - Cache the This variable list in the VM structure - Better Performance</p></li>
+<li><p>Ring VM - Cache the GetTempVar/SetTempVar variable list - Better Performance</p></li>
+<li><p>Ring VM - Cache the ErrorMsg variable list - Better Performance</p></li>
+<li><p>Ring VM - Using preprocessor to access the members of the Object list</p></li>
+<li><p>Ring VM - Using preprocessor to access the members of the Variable list</p></li>
+<li><p>Ring VM - Check NULL in C extensions (RING_API_CHECKNULLPOINTER(ptr))</p></li>
+<li><p>Ring VM - Support using Computed Goto (optional feature when building Ring VM)</p></li>
+<li><p>Ring VM - Added Zero-Divisor Check to /= and %= operators</p></li>
+<li><p>Ring VM - Check values before the shift operations</p></li>
+<li><p>Ring VM - Object File - Check ring_general_fopen() output before usage</p></li>
+<li><p>Ring VM - Object File - Check buffer overflow with user-controlled filename</p></li>
+<li><p>Ring VM - Object File - Use size_t in functions used for processing the file</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="whatisnew26.html" class="btn btn-neutral float-left" title="What is new in Ring 1.26" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="codeeditors.html" class="btn btn-neutral float-right" title="Using Other Code Editors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2026, Mahmoud Fayed.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
