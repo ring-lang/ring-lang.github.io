@@ -1,0 +1,560 @@
+.. index:: 
+	single: Using RogueUtil; Introduction
+
+================
+Using RogueUtil
+================
+
+In this chapter we will learn about Using the RogueUtil extension.
+
+This extension is added to the Ring language starting from Ring 1.20.
+
+Contents:
+
+* Change the Console window title
+* Using colors
+* Change the cursor position
+* Print text at specific position
+* Respond to keypress events
+* Respond to mouse events in Windows command prompt
+* Respond to mouse events (Windows Command Prompt or Linux/macOS Terminal)
+* Defined Constants
+* List of Functions
+
+.. index:: 
+	pair: Using RogueUtil; Change the Console window title
+
+Change the Console window title
+===============================
+
+Example:
+
+.. code-block:: ring
+
+	load "rogueutil.ring"
+
+	setConsoleTitle("I Love Programming")
+
+	anykey("Press any key to continue!")
+
+.. index:: 
+	pair: Using RogueUtil; Using colors
+
+Using colors
+============
+
+Example:
+
+.. code-block:: ring
+
+
+	load "rogueutil.ring"
+
+	setConsoleTitle("Using Colors")
+
+	setBackgroundColor(Blue)
+
+	cls()
+
+	anykey("Press any key to continue!")
+
+.. index:: 
+	pair: Using RogueUtil; Change the cursor position
+
+Change the cursor position
+==========================
+
+Example:
+
+.. code-block:: ring
+
+	load "rogueutil.ring"
+
+	setConsoleTitle("Using GotoXY()")
+
+	setColor(White)
+	setBackgroundColor(Green)
+
+	cls()
+
+	gotoXY(30,2)
+	print("I Love Programming!")
+
+	for t=1 to 10
+		gotoXY(10,10+t)
+		print( "Number: " + t)
+	next
+
+	gotoxy(10,22)
+	anykey("Press any key to continue!")
+
+.. index:: 
+	pair: Using RogueUtil; Print text at specific position
+
+Print text at specific position
+===============================
+
+Example:
+
+.. code-block:: ring
+
+	load "rogueutil.ring"
+
+	saveDefaultColor()
+
+	setConsoleTitle("Using PrintXY()")
+
+	setColor(Black)
+	setBackgroundColor(Cyan)
+
+	cls()
+
+	printXY(10,2,'In Mathematics, we call multiplying a number by itself "squaring" the number.')
+
+	for t=1 to 12
+		printXY(10,5+t, "Number: " + t + " x " + t + " = " + (t*t) )
+	next
+
+	printXY(10,22,"Press any key to continue!")
+	getch()
+
+	resetcolor()
+	showCursor()
+	cls()
+
+Output:
+
+.. image:: conui1.png
+	:alt: Using RogueUtil Shot1
+
+
+.. index:: 
+	pair: Using RogueUtil; Respond to keypress events
+
+Respond to keypress events
+==========================
+
+Example:
+
+.. code-block:: ring
+
+	load "rogueutil.ring"
+
+	C_MSG = 'You Can Move Me Using Keyboard Arrows or WSAD'
+	C_MSGLEN = len(C_MSG)
+
+	C_SCREENROWS = tRows()
+	C_SCREENCOLS = tCols()
+
+	C_DEFAULTX = 10
+	C_DEFAULTY = 10
+
+	hideCursor()
+	setConsoleTitle("Moving Text")
+
+	nX = C_DEFAULTX
+	nY = C_DEFAULTY
+
+	prepareScreen()
+	showMsg()
+
+	fflush(stdout)
+
+	while True
+		if tRows() != C_SCREENROWS or tCols() != C_SCREENCOLS
+			prepareScreen()
+			nX = C_DEFAULTX
+			nY = C_DEFAULTY
+			C_SCREENROWS = tRows()
+			C_SCREENCOLS = tCols()
+			showMsg()
+		ok
+		if kbhit()
+			nKey = getkey() 
+			if nKey = KEY_ESCAPE exit ok
+			clearMsg()
+			if nKey = KEY_RIGHT or Upper(Char(nKey)) = "D"
+				nX += 1
+				if nX > tCols()-C_MSGLEN+1  nX -= 1 ok
+			but nKey = KEY_LEFT or Upper(Char(nKey)) = "A"
+				nX -= 1
+				if nX < 1  nX = 1 ok
+			but nKey = KEY_UP or Upper(Char(nKey)) = "W"
+				nY -= 1
+				if nY < 1  nY = 1 ok
+			but nKey = KEY_DOWN or Upper(Char(nKey)) = "S"
+				nY += 1
+				if nY > tRows()  nY -= 1 ok
+			ok
+			showMsg()			  
+		ok
+	end
+
+	showCursor()
+	echoON()
+
+	func prepareScreen
+		setColor(White)
+		setBackgroundColor(Red)
+		cls()
+
+	func showMsg
+		printXY(nX,nY,C_MSG)
+
+	func clearMsg
+		printXY(nX,nY,Copy(" ",C_MSGLEN))
+
+.. index:: 
+	pair: Using RogueUtil; Respond to mouse events in Windows command prompt
+
+Respond to mouse events in Windows command prompt
+=================================================
+
+Example:
+
+.. code-block:: ring
+
+	load "rogueutil.ring"
+
+	cls()
+
+	C_MSG = 'You Can Move Me Using Arrows/WSAD'
+
+	if isWindows()
+		C_MSG += ' or Mouse Left Button'
+	ok
+
+	C_MSGLEN = len(C_MSG)
+
+	C_SCREENROWS = tRows()
+	C_SCREENCOLS = tCols()
+
+	C_DEFAULTX = 10
+	C_DEFAULTY = 10
+
+	hideCursor()
+	setConsoleTitle("Using Mouse (For Windows)")
+
+	nX = C_DEFAULTX
+	nY = C_DEFAULTY
+
+	prepareScreen()
+	showMsg()
+
+	fflush(stdout)
+
+	while True
+
+		# Window resize
+		if tRows() != C_SCREENROWS or tCols() != C_SCREENCOLS
+			prepareScreen()
+			nX = C_DEFAULTX
+			nY = C_DEFAULTY
+			C_SCREENROWS = tRows()
+			C_SCREENCOLS = tCols()
+			showMsg()
+		ok
+
+		# Using the Keyboard
+		if kbhit()
+			nKey = getkey() 
+			if nKey = KEY_ESCAPE exit ok
+			clearMsg()
+			if nKey = KEY_RIGHT or Upper(Char(nKey)) = "D"
+				nX += 1
+				if nX > tCols()-C_MSGLEN+1  nX -= 1 ok
+			but nKey = KEY_LEFT or Upper(Char(nKey)) = "A"
+				nX -= 1
+				if nX < 1  nX = 1 ok
+			but nKey = KEY_UP or Upper(Char(nKey)) = "W"
+				nY -= 1
+				if nY < 1  nY = 1 ok
+			but nKey = KEY_DOWN or Upper(Char(nKey)) = "S"
+				nY += 1
+				if nY > tRows()  nY -= 1 ok
+			ok
+			showMsg()			  
+		ok
+
+		# Using the Mouse 
+		aMouse = GetMouseInfo()
+		if aMouse[MOUSEINFO_ACTIVE]
+
+			printxy(1,2,"X: " +  aMouse[MOUSEINFO_X] +
+				    " Y: " + aMouse[MOUSEINFO_Y] + 
+				    " B: " + aMouse[MOUSEINFO_BUTTONS] + "     ")
+
+			if aMouse[MOUSEINFO_EVENTS] = MOUSEINFO_WHEELEVENT
+				printxy(1,3,"Scroll Direction : " + aMouse[MOUSEINFO_SCROLLDIRECTION])
+			else 
+				printxy(1,3,Copy(" ",50))
+			ok
+
+			if aMouse[MOUSEINFO_BUTTONS] = MOUSEINFO_LEFTBUTTON
+				clearMsg()
+				nX = aMouse[MOUSEINFO_X]
+				nY = aMouse[MOUSEINFO_Y]	
+				if nX < 1  nX = 1 ok
+				if nY < 1  nY = 1 ok
+				if nY > tRows()  nY = tRows() ok
+				if nX > tCols()-C_MSGLEN+1  nX = tCols()-C_MSGLEN+1 ok
+				showMsg()
+			ok
+
+		ok
+
+	end
+
+	showCursor()
+	echoON()
+
+	func prepareScreen
+		setColor(White)
+		setBackgroundColor(Red)
+		cls()
+
+	func showMsg
+		printXY(nX,nY,C_MSG)
+
+	func clearMsg
+		printXY(nX,nY,Copy(" ",C_MSGLEN))
+
+.. index:: 
+	pair: Using RogueUtil; Respond to mouse events (Windows Command Prompt or Linux/macOS Terminal)
+
+Respond to mouse events (Windows Command Prompt or Linux/macOS Terminal)
+========================================================================
+
+Example:
+
+.. code-block:: ring
+
+	load "rogueutil.ring"
+
+	enableMouse()
+
+	cls()
+
+	C_MSG = 'You Can Move Me Using Arrows/WSAD or Mouse Left Button'
+
+	C_MSGLEN = len(C_MSG)
+
+	C_SCREENROWS = tRows()
+	C_SCREENCOLS = tCols()
+
+	C_DEFAULTX = 10
+	C_DEFAULTY = 10
+
+	hideCursor()
+	setConsoleTitle("Using Mouse (Windows/Linux/macOS)")
+
+	nX = C_DEFAULTX
+	nY = C_DEFAULTY
+
+	prepareScreen()
+	showMsg()
+
+	fflush(stdout)
+
+	while True
+
+		# Window resize
+		if tRows() != C_SCREENROWS or tCols() != C_SCREENCOLS
+			prepareScreen()
+			nX = C_DEFAULTX
+			nY = C_DEFAULTY
+			C_SCREENROWS = tRows()
+			C_SCREENCOLS = tCols()
+			showMsg()
+		ok
+
+
+		# Using the Keyboard
+		nBuffer = kbhit()
+		nKey    = 0
+		if nBuffer 
+			nKey = getKey() 
+			if nKey = KEY_ESCAPE exit ok
+			clearMsg()
+			if nKey = KEY_RIGHT or Upper(Char(nKey)) = "D"
+				nX += 1
+				if nX > tCols()-C_MSGLEN+1  nX -= 1 ok
+			but nKey = KEY_LEFT or Upper(Char(nKey)) = "A"
+				nX -= 1
+				if nX < 1  nX = 1 ok
+			but nKey = KEY_UP or Upper(Char(nKey)) = "W"
+				nY -= 1
+				if nY < 1  nY = 1 ok
+			but nKey = KEY_DOWN or Upper(Char(nKey)) = "S"
+				nY += 1
+				if nY > tRows()  nY -= 1 ok
+			ok
+			showMsg()	
+		  
+		ok
+
+
+		# Using the Mouse 
+			aMouse = MouseInfo(nBuffer,nKey)
+
+		if aMouse[MOUSEINFO_ACTIVE]
+
+			printxy(1,2,"X: " +  aMouse[MOUSEINFO_X] +
+				    " Y: " + aMouse[MOUSEINFO_Y] + 
+				    " B: " + aMouse[MOUSEINFO_BUTTONS] + "     ")
+
+			if aMouse[MOUSEINFO_EVENTS] = MOUSEINFO_WHEELEVENT
+				printxy(1,3,"Scroll Direction : " + aMouse[MOUSEINFO_SCROLLDIRECTION])
+			else 
+				printxy(1,3,Copy(" ",50))
+			ok
+
+			if aMouse[MOUSEINFO_BUTTONS] = MOUSEINFO_LEFTBUTTON
+				clearMsg()
+				nX = aMouse[MOUSEINFO_X]
+				nY = aMouse[MOUSEINFO_Y]	
+				if nX < 1  nX = 1 ok
+				if nY < 1  nY = 1 ok
+				if nY > tRows()  nY = tRows() ok
+				if nX > tCols()-C_MSGLEN+1  nX = tCols()-C_MSGLEN+1 ok
+				showMsg()
+			ok
+
+		ok
+
+	end
+
+	disableMouse()
+	showCursor()
+	echoON()
+
+	func prepareScreen
+		setColor(White)
+		setBackgroundColor(Red)
+		cls()
+
+	func showMsg
+		printXY(nX,nY,C_MSG)
+		
+	func clearMsg
+		printXY(nX,nY,Copy(" ",C_MSGLEN))
+		
+
+Output:
+
+.. image:: conui2.png
+	:alt: Using RogueUtil Shot2
+
+
+.. index:: 
+	pair: Using RogueUtil; Defined Constants
+
+Defined Constants
+=================
+
+This extension defines the next constants
+
+.. code-block:: none
+
+	BLACK
+	BLUE
+	GREEN
+	CYAN
+	RED
+	MAGENTA
+	BROWN
+	GREY
+	DARKGREY
+	LIGHTBLUE
+	LIGHTGREEN
+	LIGHTCYAN
+	LIGHTRED
+	LIGHTMAGENTA
+	YELLOW
+	WHITE
+	KEY_ESCAPE
+	KEY_ENTER
+	KEY_SPACE
+	KEY_INSERT
+	KEY_HOME
+	KEY_PGUP
+	KEY_DELETE
+	KEY_END
+	KEY_PGDOWN
+	KEY_UP
+	KEY_DOWN
+	KEY_LEFT
+	KEY_RIGHT
+	KEY_F1
+	KEY_F2
+	KEY_F3
+	KEY_F4
+	KEY_F5
+	KEY_F6
+	KEY_F7
+	KEY_F8
+	KEY_F9
+	KEY_F10
+	KEY_F11
+	KEY_F12
+	KEY_NUMDEL
+	KEY_NUMPAD0
+	KEY_NUMPAD1
+	KEY_NUMPAD2
+	KEY_NUMPAD3
+	KEY_NUMPAD4
+	KEY_NUMPAD5
+	KEY_NUMPAD6
+	KEY_NUMPAD7
+	KEY_NUMPAD8
+	KEY_NUMPAD9
+	MOUSEEVENT_START
+	MOUSEEVENT_CLICK
+	MOUSEMOVE_NOBUTTON
+	MOUSEMOVE_LEFTBTNDOWN
+	MOUSEMOVE_RIGHTBTNDOWN
+	MOUSEEVENT_SCROLL
+	MOUSEEVENT_SCROLLUP
+	MOUSEEVENT_SCROLLDOWN
+
+.. index:: 
+	pair: Using RogueUtil; List of Functions
+
+List of Functions
+=================
+
+This extension provides the next functions
+
+.. code-block:: none
+
+	void locate(int x, int y)
+	int getch(void)
+	int kbhit(void)
+	void gotoxy(int x, int y)
+	int getkey(void)
+	int nb_getch(void)
+	char *getANSIColor(const int c)
+	char *getANSIBgColor(const int c)
+	void setColor(int c)
+	void setBackgroundColor(int c)
+	int saveDefaultColor(void)
+	void resetColor(void)
+	void cls(void)
+	void setString(char *str)
+	void setChar(char ch)
+	void setCursorVisibility(char visible)
+	void hidecursor(void)
+	void showcursor(void)
+	void msleep(unsigned int ms)
+	int trows(void)
+	int tcols(void)
+	void anykey(char *msg)
+	void setConsoleTitle(char *title)
+	char *getUsername(void)
+	void printXY(int x, int y, char *msg)
+	void echoon(void)
+	void echooff(void)
+	List *getmouseinfo(void)
+	void enablemouse(void)
+	void disablemouse(void)
+

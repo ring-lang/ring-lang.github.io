@@ -1,0 +1,1506 @@
+.. index:: 
+	single: Using the Natural Library; Introduction
+
+=========================
+Using the Natural Library
+=========================
+
+In this chapter, we will learn how to use the Natural Library to quickly define a language 
+that contains a group of commands.
+
+The Natural Library is written in Ring (about one thousand lines of code) and serves as an 
+example of how to build an abstraction layer for developing domain-specific languages on top of Ring classes. 
+It demonstrates the use of braces, braceStart(), braceEnd(), braceExprEval(), braceError(), and 
+related mechanisms, while also showcasing other language features such as Eval(), callable 
+functions as methods, and syntax customization.
+
+This kind of abstraction layer can be implemented in many different ways, each enabling 
+different capabilities and supporting different styles of language grammars. Although the 
+library can be used in production, it is best viewed as a demonstration of what is 
+possible — a direction rather than a complete set of features or methodologies.
+
+If you ever find yourself fighting against the library’s features, don’t feel constrained 
+by what’s provided. Read the source code and adapt it to fit your DSL’s needs.
+And don’t let that flexibility mislead you into thinking that NaturaLib is limited or weak. 
+In reality, it is a powerful and elegant system that can be used to implement many 
+useful and expressive DSLs.
+
+To master the concepts in this chapter, you only need to understand the general pattern we follow:
+
+1. Define a group of commands.
+2. Create a DSL that uses this group of commands.
+3. Use the DSL to execute specific commands (our program).
+
+For loading commands, there are two approaches:
+
+* Compile-time loading with the loadCommand() method.
+
+* Runtime loading with the useCommand() method.
+
+For creating a DSL, we can either register commands one by one or register a whole 
+group of commands at once using a cache.
+
+For executing code written in our DSL, we also have two approaches:
+
+1. Using eval():
+
+* The DSL code is passed as a file or a string.
+* eval() executes it.
+* We can modify the Ring syntax before or after execution.
+* This approach can still use normal Ring code, but it also allows syntax changes.
+
+2. Using object access with braces (no eval):
+
+* We access an object that represents the DSL directly.
+* The DSL is mixed naturally with regular Ring code.
+* No implicit syntax changes occur before or after execution.
+
+To start using the library, We need to call naturallib.ring
+
+.. code-block:: ring
+
+	load "naturallib.ring"
+
+.. tip:: To get started quickly, check the section on the loadCommand() method.
+
+
+.. index:: 
+	pair: Using the Natural Library; The NaturalLanguage class
+
+The NaturalLanguage class
+=========================
+
+After loading the library, We can use the NaturalLanguage class that contains the 
+next methods :-
+
+* SetPackageName(cPackageName)
+* SetLanguageName(cLanguageName)
+* SetCommandsPath(cFolder)
+* UseCommand(cCommandName)
+* LoadCommand(cCommandName)
+* SetOperators(cOperators)
+* RunFile(cFileName)
+* RunString(cCode)
+* Execute(cCode)
+* @(cCode)
+* SetBeforeRun(cCode)
+* SetAfterRun(cCode)
+* SetStartKeywordsWith(cStart)
+* SetMaskKeywords(lMask)
+* SetMaskOperators(lMask) 
+* GetBeforeRun() --> cCode
+* GetAfterRun() --> cCode
+* GetStartKeywordsWith() --> cStart
+* GetMaskKeywords() --> lMask
+* GetMaskOperators() --> lMask 
+
+.. index:: 
+	pair: Using the Natural Library; Natural Library - Demo Program
+
+Natural Library - Demo Program
+==============================
+
+We will write the natural code in a Text file, for example program.txt
+
+File: program.txt
+
+.. code-block:: none
+
+	Welcome to the Ring programming language!
+	What you are reading now is not comments, I swear!
+
+	After many years of programming I decided to think different about
+	programming and solve the problems in a better way. 
+
+	We are writing commands or code and the Ring language is reading
+	it to understand us! Sure, What you are seeing now is
+	just ***part of the code - Not the Complete Program***
+	You have to write little things before and after this 
+	part to be able to run it!
+
+	It is the natural part of our code where we can write in English, 
+	Arabic or any Natural Language Then we will tell the computer 
+	through the Ring language what must happens! in a way that we can scale 
+	for large frameworks and programs.
+
+	Just imagine what will happens to the world of programming once
+	we create many powerful frameworks using the Ring language that
+	uses this way (Natural Programming).
+
+	For example When we say Hello to the Machine, It can reply! and when we
+	say count from 1 to 5 it will understand us, Also if 
+	we said count from 5 to 1 it will
+	understand us too! You can see the Output window!
+
+	This Goal is not new, but the Ring language comes
+	with an innovative solution to this problem. 	
+
+Output:
+
+.. code-block:: none
+
+	Hello, Sir!
+
+
+	The Numbers!
+
+	1
+
+	2
+
+	3
+
+	4
+
+	5
+
+	I will count Again!
+
+	5
+
+	4
+
+	3
+
+	2
+
+	1
+
+
+To execute the natural code, We have start.ring
+
+In start.ring we define the language and the commands.
+
+File: start.ring
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	load "naturallib.ring"
+
+	New NaturalLanguage {
+		SetLanguageName(:MyLanguage)
+		SetCommandsPath(CurrentDir()+"/../command")
+		SetPackageName("MyLanguage.Natural")
+		UseCommand(:Hello)
+		UseCommand(:Count)
+		RunFile("program.txt")
+	}
+
+
+We defined a language called MyLanguage, We have folder for the language commands.
+
+Each command will define a class that belong to the MyLanguage.Natural package.
+
+We will define two commands, Hello and Count.
+
+So we must have two files for defining the commands in the CurrentDir()+"/../command" folder
+
+File: hello.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsKeyword([
+		:Package = "MyLanguage.Natural",
+		:Keyword = :hello, 
+		:Function = func {
+			See  "Hello, Sir!" + nl + nl
+		}
+	])
+
+File: count.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsKeywordNumberNumber([
+		:Package = "MyLanguage.Natural",
+		:Keyword = :count, 
+		:Function = func {
+			if not isattribute(self,:count_times) {
+				AddAttribute(self,:count_times)
+				Count_Times = 0
+			}
+			if Expr(1) > Expr(2) { 
+				nStep = -1 
+			else 
+				nStep = 1
+			}
+			if Count_Times = 0 { 
+				see nl+"The Numbers!" + nl 
+				Count_Times++
+			else 
+				see nl + "I will count Again!" +nl 
+			}
+			for x = Expr(1) to Expr(2) step nStep {
+				see nl+x+nl 
+			}
+			CommandReturn(fabs(Expr(1)-Expr(2))+1)				
+		}
+	])
+
+
+.. index:: 
+	pair: Using the Natural Library; Defining Commands
+
+Defining Commands
+=================
+
+To define new command we can use the DefineNaturalCommand object
+
+This object provides the next methods :-
+
+* SetPackageName(cName)
+* StartCache(cName)
+* EndCache() 
+* SyntaxIsKeyword(aPara)
+* SyntaxIsKeywordNumber(aPara)
+* SyntaxIsKeywordNumberNumber(aPara)
+* SyntaxIsKeywordNumbers(aPara,nCount)
+* SyntaxIsKeywordString(aPara)
+* SyntaxIsKeywordStringString(aPara)
+* SyntaxIsKeywordStrings(aPara,nCount)
+* SyntaxIsKeywordExpression(aPara)
+* SyntaxIsKeywordExpressionExpression(aPara)
+* SyntaxIsKeywordExpressions(aPara,nCount)
+* SyntaxIsCommand(aPara)
+* SyntaxIsCommandNumber(aPara)
+* SyntaxIsCommandNumberNumber(aPara)
+* SyntaxIsCommandNumbers(aPara,nCount)
+* SyntaxIsCommandString(aPara)
+* SyntaxIsCommandStringString(aPara)
+* SyntaxIsCommandStrings(aPara,nCount)
+* SyntaxIsCommandExpression(aPara)
+* SyntaxIsCommandExpressionExpression(aPara)
+* SyntaxIsCommandExpressions(aPara,nCount)
+
+
+The command passes an anonymous function that becomes a method inside the class 
+representing our domain‑specific language
+
+Inside this anonymous function, we can use the following methods to access the 
+command parameters, set the command output, and control NaturalLib's behavior.
+
+* Expr(nPara) --> Value
+* isIdentifier(nPara) --> lStatus
+* commandReturn(vValue)
+* passThisCommand()
+* register(cAttribute)
+* callerGetVar(cVar)
+* callerSetVar(cVar,vValue)
+
+File: mylanguage.ring
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	load "naturallib.ring"
+
+	MyLanguage = New NaturalLanguage {
+		SetLanguageName(:MyLanguage)
+		setCommandsPath(CurrentDir()+"/../command")
+		SetPackageName("MyLanguage.Natural")
+		UseCommand(:Hello)
+		UseCommand(:Count)
+		UseCommand(:Print)
+		UseCommand(:IWantWindow)
+		UseCommand(:WindowTitleIs)
+		UseCommand(:IWantButton)
+	}
+
+
+Example (1)
+
+In the next example we will define the Print command.
+
+We will use the SyntaxIsKeywordExpression() Method.
+
+We pass list (as Hash) to the method. We determine the package name, the keyword and
+the function that will be executed.
+
+Inside this function we uses the Expr(nExprNumber) function to get the expression value that the
+user will write after the keyword.
+
+File: print.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsKeywordExpression([
+		:Package = "MyLanguage.Natural",
+		:Keyword = :print, 
+		:Function = func {
+			See  Expr(1)  
+		}
+	])
+
+Usage:
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString('
+ 		print "Hello, World!"
+	')
+
+Output:
+
+.. code-block:: none
+
+	Hello, World!
+
+Example (2)
+
+File: iwantwindow.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsCommand([
+		:Package = "MyLanguage.Natural",
+		:Command = "i want window", 
+		:Function = func {
+			See  "Command: I want window" + nl
+		}
+	])
+
+Usage:
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString('
+ 		i want window
+	')
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+
+Example (3)
+
+File: windowtitleis.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsCommandString([
+		:Package = "MyLanguage.Natural",
+		:Command = "window title is", 
+		:Function = func {
+			See  "Command: Window title is " + Expr(1) + nl
+		}	
+	])
+
+Usage:
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString('
+ 		I want window and the window title is "Hello World"
+	')
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: Window title is Hello World
+
+
+.. index:: 
+	pair: Using the Natural Library; Operators
+
+Natural Library - Operators
+===========================
+
+In the next example we uses the Count command without using operators
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString("
+		Hello	
+		Count 1 5
+		Count 5 1
+	")
+
+We can add more description
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage.RunString("
+		Hello, Please 	Count from 1 to 5 then count from 5 to 1
+	")
+
+Also we can use operators like "(" and ")" around the instruction
+
+.. code-block:: ring
+
+	load "mylanguage.ring"
+
+	MyLanguage {
+		SetOperators("()")
+		RunString("
+			Here we will play and will try something
+			that looks like Lisp Syntax
+			(count  (count 1 5)  (count 20 15))
+			Just for fun!
+		")
+	}
+
+
+.. index:: 
+	pair: Using the Natural Library; Defining commands using classes
+
+Defining commands using classes
+===============================
+
+This section is related to the implementation details.
+
+When we define new command, Each command is defined by the Natural Library as a class.
+
+We have the choice to define commands using the simple interface provided by the
+DefineNaturalCommand object or by defining new class as in the next examples.
+
+If we used DefineNaturalCommand (More Simple), The class will be defined during the runtime.
+
+File: hello.ring
+
+.. code-block:: ring
+
+	Package MyLanguage.Natural
+
+	class Hello
+
+		func AddAttributes_Hello	
+			AddAttribute(self,:hello)
+
+		func GetHello   
+			See  "Hello, Sir!" + nl + nl
+
+
+File: count.ring
+
+.. code-block:: ring
+
+	Package MyLanguage.Natural
+
+	class Count
+           
+		func Getcount
+			StartCommand()
+			CommandData()[:name] = :Count
+			CommandData()[:nExpr] = 0
+			CommandData()[:aExpr] = []
+
+		func BraceExprEval_Count nValue
+			if isCommand() and CommandData()[:name] = :Count {
+				if isNumber(nValue) {
+					CommandData()[:nExpr]++     
+					CommandData()[:aExpr] + nValue
+					if CommandData()[:nExpr] = 2 {
+						Count_Execute()
+					}
+				}
+			}
+
+		func AddAttributes_Count	
+			AddAttribute(self,:count)
+	
+		func Count_Execute
+			if not isattribute(self,:count_times) {
+				AddAttribute(self,:count_times)
+				Count_Times = 0
+			}
+			if Expr(1) > Expr(2) { 
+				nStep = -1 
+			else 
+				nStep = 1
+			}
+			if Count_Times = 0 { 
+				see nl+"The Numbers!" + nl 
+				Count_Times++
+			else 
+				see nl + "I will count Again!" +nl 
+			}
+			for x = Expr(1) to Expr(2) step nStep {
+				see nl+x+nl 
+			}
+			CommandReturn(fabs(Expr(1)-Expr(2))+1)				
+
+.. index:: 
+	pair: Using the Natural Library; loadCommand() Method
+
+loadCommand() Method
+====================
+
+Unlike the useCommand() method, which loads the command's source file at runtime, the loadCommand() method 
+allows us to achieve the same goal during compile time. This is useful when we 
+want our domain‑specific language to avoid depending on external source files at runtime
+
+Syntax:
+
+.. code-block:: none
+
+	loadCommand(cCommand)
+
+.. tip:: We can use spaces between the command keywords (optional) 
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+	
+	# Define Commands
+
+	DefineNaturalCommand.SyntaxIsCommand([
+		:Package = "MyLanguage.Natural",
+		:Command = "i want window", 
+		:Function = func {
+			?  "Command: I want window"
+		}
+	])
+	
+	MyLang = New NaturalLanguage {
+		SetPackageName("MyLanguage.Natural")
+		SetLanguageName(:MyLanguage)
+		loadCommand("i want window")
+	}
+
+	GUI = new MyLanguage 
+
+	# Usage
+
+	GUI {
+		for t=1 to 3
+			i want window
+		next	
+	}
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: I want window
+	Command: I want window
+
+.. index:: 
+	pair: Using the Natural Library; RunString and Execute() Methods
+
+RunString and Execute() Methods
+===============================
+
+Both runString() and Execute() perform the same task: they execute code provided as a 
+string containing commands defined by our domain‑specific language.
+
+.. note:: We can use the @() method too 
+
+Example:
+
+Assume we have a MyLang object, an instance from the NaturalLanguage class that 
+defines the (I want window) command.
+
+.. code-block:: ring
+
+	MyLang.RunString(' I want window ')
+
+	MyLang.Execute(' I want window ')
+
+	MyLang.@(' I want window ')
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: I want window
+	Command: I want window
+
+.. index:: 
+	pair: Using the Natural Library; SetBeforeRun() and SetAfterRun() Methods
+
+SetBeforeRun() and SetAfterRun() Methods
+========================================
+
+Using the setBeforeRun() and setAfterRun() methods, we can specify code to be executed 
+before or after running code via the runString() and execute() methods.
+
+If we don’t use these methods, NaturalLib will automatically transform all Ring 
+keywords and operators before executing the code via the runString() and execute() methods.
+
+Example:
+
+Assume we have a MyLang object, an instance from the NaturalLanguage class that 
+defines the (I want window) command.
+
+.. code-block:: ring
+
+	# Define commands
+	MyLang {
+		setBeforeRun(`ChangeRingKeyword to 	 towards  `+nl)
+		setAfterRun(` ChangeRingKeyword towards	 to       `+nl)
+	}
+
+	# Usage
+	MyLang.execute(`
+		for t=1 towards 5
+			i want window
+		next
+	`)
+	
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: I want window
+	Command: I want window
+	Command: I want window
+	Command: I want window
+
+
+.. index:: 
+	pair: Using the Natural Library; SetStartKeywordsWith() and SetMaskOperators() methods
+
+SetStartKeywordsWith() and SetMaskOperators() methods
+=====================================================
+
+If we don’t use SetBeforeRun() and SetAfterRun() methods, NaturalLib will automatically 
+transform all Ring keywords and operators before executing the code via 
+the runString() and execute() methods.
+
+Using SetStartKeywordsWith(), we can specify a symbol that will appear at the beginning of 
+all newly created keyword names.
+
+Using SetMaskKeywords() we can enable/disable changing the language keywords before code execution.
+
+Using SetMaskOperators() we can enable/disable changing the language operators before code execution.
+
+Example:
+
+Assume we have a MyLang object, an instance from the NaturalLanguage class that 
+defines the (I want window) command.
+
+.. code-block:: ring
+
+	# Define commands
+	MyLang {
+		setBeforeRun("")		// Disable Before Run
+		setAfterRun("")			// Disable After  Run
+		setStartKeywordsWith("@")
+		setMaskOperators(False) 
+	}
+
+	# Usage
+	MyLang.execute('
+	
+		@for t=1 @to 3
+ 			i want window
+		@next
+
+	')
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: I want window
+	Command: I want window
+
+.. index:: 
+	pair: Using the Natural Library; StartCache() and EndCache() methods
+
+StartCache() and EndCache() methods
+===================================
+
+Using these methods we can get better performance when loading many commands.
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+	
+	DefineNaturalCommand.startCache(:MyDSL)
+		DefineNaturalCommand.SyntaxIsCommand([
+			:Package = "MyLanguage.Natural",
+			:Command = "I want window", 
+			:Function = func {
+				?  "Command: I want window" 
+			}
+		])
+		DefineNaturalCommand.SyntaxIsCommand([
+			:Package = "MyLanguage.Natural",
+			:Command = "I want button", 
+			:Function = func {
+				?  "Command: I want button" 
+			}
+		])
+	DefineNaturalCommand.endCache()
+
+	MyLang = New NaturalLanguage {
+		SetPackageName("MyLanguage.Natural")
+		SetLanguageName(:MyLanguage)
+		loadCommand(:MyDSL)
+	}
+
+	new MyLanguage {
+	 	I want window	
+		I want button
+	}
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: I want button
+
+.. index:: 
+	pair: Using the Natural Library; SetPackageName() Method
+
+SetPackageName() Method
+=======================
+
+If many commands share the same package we can use the SetPackageName() method
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+
+	DefineNaturalCommand {
+		setPackageName("MyLanguage.Natural")
+		startCache(:MyDSL)
+		SyntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				?  "Command: I want window" 
+			}
+		])
+		SyntaxIsCommand([
+			:Command = "I want button", 
+			:Function = func {
+				?  "Command: I want button" 
+			}
+		])
+		endCache()
+	}
+
+	MyLang = New NaturalLanguage {
+		SetPackageName("MyLanguage.Natural")
+		SetLanguageName(:MyLanguage)
+		loadCommand(:MyDSL)
+	}
+
+	new MyLanguage {
+ 		I want window	
+		I want button
+	}
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: I want button
+
+.. index:: 
+	pair: Using the Natural Library; Expr() and isIdentifier() methods
+
+Expr() and isIdentifier() methods
+=================================
+
+Using Expr() and isIdentifer() methods, we can process the command parameters.
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+
+	DefineNaturalCommand {
+		startCache(:MyDSL)
+		setPackageName("MyLanguage.Natural")
+		SyntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				?  "Command: I want window" 
+			}
+		])
+		SyntaxIsCommandExpression([
+			:Command = "Window backcolor is", 
+			:Function = func {
+				? "Command: Window backcolor is " + Expr(1) 
+				? "Is Identifier: " + isIdentifier(1)
+			}
+		])
+		endCache()
+	}
+
+	MyLang = New NaturalLanguage {
+		SetLanguageName(:MyLanguage)
+		SetPackageName("MyLanguage.Natural")
+		loadCommand(:MyDSL)
+	}
+
+	new MyLanguage {
+ 		I want window	
+		window backcolor is "white"
+		window backcolor is red 
+	}
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: Window backcolor is white
+	Is Identifier: 0
+	Command: Window backcolor is red
+	Is Identifier: 1
+
+.. index:: 
+	pair: Using the Natural Library; Commands with multiple keywords
+
+Commands with multiple keywords 
+===============================
+
+Using isIdentifier(), we can define commands that use multiple keywords.
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+
+	func main 
+
+		defineDSL()
+		testDSL()
+
+	func defineDSL 
+
+		DefineNaturalCommand {
+			startCache(:MyDSL)
+			setPackageName("MyLanguage.Natural")
+			syntaxIsKeywordExpressions([
+				:keyword = "replace", 
+				:Function = func {
+					if ! ( isIdentifier(2) && lower(Expr(2)) = :with ) {
+						? "WITH keyword is missing!"
+						return 
+					}
+					? Expr(1) + " ===> " + Expr(3)
+				}	
+			],3)	
+			endCache()
+		}
+	
+		new NaturalLanguage {
+			setLanguageName(:MyLanguage)
+			setPackageName("MyLanguage.Natural")
+			loadCommand(:MyDSL)
+		}
+
+	func testDSL
+
+		# Define aLangs as local variable 
+
+		aLangs = [	[:name = "C",:year = 1972, :age = 2026-1972],
+				[:name = "Python",:year = 1990, :age = 2026-1990],
+				[:name = "Ring",:year = 2016,:age = 2026-2016]  ]
+
+		# Using our DSL object inside braces enables sharing the local scope
+
+		new MyLanguage {
+
+			for aLang in aLangs 
+				Replace name with aLang[:Name]
+				Replace year with aLang[:Year]
+				Replace age  with aLang[:Age]
+			next
+
+		}
+
+Output:
+
+.. code-block:: none
+
+	name ===> C
+	year ===> 1972
+	age ===> 54
+	name ===> Python
+	year ===> 1990
+	age ===> 36
+	name ===> Ring
+	year ===> 2016
+	age ===> 10
+
+.. index:: 
+	pair: Using the Natural Library; Sharing Data Between Commands
+
+Sharing Data Between Commands
+=============================
+
+Each command can access the aCommandMemory list, which is defined as an attribute of the object. 
+
+Using this list, the commands can share data with one another.
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+
+	DefineNaturalCommand {
+		startCache(:MyDSL)
+		setPackageName("MyLanguage.Natural")
+		syntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				aCommandMemory[:window] = True
+				?  "Command: I want window" 
+			}
+		])
+		syntaxIsCommand([
+			:Command = "I want button", 
+			:Function = func {
+				if ! aCommandMemory[:window] {
+					? "Please create the window first!"
+					return 
+				}
+				?  "Command: I want button" 
+			}
+		])
+		endCache()
+	}
+
+	new NaturalLanguage {
+		setLanguageName(:GUI)
+		setPackageName("MyLanguage.Natural")
+		loadCommand(:MyDSL)
+	}
+
+	new GUI  {
+ 		I Want Window	
+		I want Button
+	}						
+
+	? copy("*",25)
+
+	new GUI  {
+		I want Button
+	}		
+
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: I want button
+	*************************
+	Please create the window first!
+
+
+.. index:: 
+	pair: Using the Natural Library; SetPassError() Method
+
+SetPassError() Method
+=====================
+
+Using the SetPassError(lStatus) method, we can control how the Natural Library behaves when an 
+error occurs, either by passing the error or by displaying it and terminating the program.
+
+The default behavior is to pass the error.
+
+A related method is setTreatIdentifierAsString(lStatus), which controls whether uninitialized 
+identifiers should be passed by converting the identifier to a string.
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+	
+	DefineNaturalCommand {
+		startCache(:MyDSL)
+		setPackageName("MyLanguage.Natural")
+		syntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				?  "Command: I want window" 
+			}
+		])
+		syntaxIsCommand([
+			:Command = "I want button", 
+			:Function = func {
+				?  "Command: I want button" 
+			}
+		])
+		endCache()
+	}
+
+	new NaturalLanguage {
+		setLanguageName(:MyLanguage)
+		setPackageName("MyLanguage.Natural")
+		loadCommand(:MyDSL)
+	}
+
+	GUI = new MyLanguage {
+		setPassError(False)
+		setTreatIdentifierAsString(False)
+	}
+
+	GUI {
+
+ 		I 
+		Want 
+		Window	
+	
+		I want 
+		Button
+	
+		I want                          // Produce error at braceEnd()
+	
+	}                                       // Call braceEnd() and check Errors
+
+
+.. index:: 
+	pair: Using the Natural Library; PassThisCommand() Method
+
+PassThisCommand() Method
+========================
+
+Using this method, we can support commands that share the same keywords, even when all 
+of a command's keywords may also appear in another command. Then, by using BraceNewLine(),
+we can determine which command should be executed.
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+
+	DefineNaturalCommand {
+		startCache(:MyDSL)
+		setPackageName("MyLanguage.Natural")
+		syntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				aCommandMemory[:IWantWindow] = :Normal
+				passThisCommand()
+			}
+		])
+		syntaxIsCommand([
+			:Command = "I want window now", 
+			:Function = func {
+				aCommandMemory[:IWantWindow] = :Now
+			}
+		])
+		endCache()
+	}
+
+	new NaturalLanguage {
+		setLanguageName(:GUI)
+		setPackageName("MyLanguage.Natural")
+		loadCommand(:MyDSL)
+	}
+
+	GUI = new GUI
+
+	addMethod(GUI, :braceNewLine, func { 
+		switch aCommandMemory[:IWantWindow] {
+			case :Normal 
+				?  "Command: I want window" 
+			case :Now
+				?  "Command: I want window now" 
+		} 
+		aCommandMemory[:IWantWindow] = NULL
+	} )
+
+	GUI  {
+ 		I want Window	
+		I want Window now
+		I want window now 
+		I want window
+	}						
+
+Output:
+
+.. code-block:: none
+
+	Command: I want window
+	Command: I want window now
+	Command: I want window now
+	Command: I want window
+
+.. index:: 
+	pair: Using the Natural Library; The Command Output
+
+The Command Output
+==================
+
+There are several ways to get output after executing commands in our DSL.
+
+One option is to use the commandReturn() method, which returns a value produced by the command.
+
+To execute the command itself, we can use the runString(), execute(), or @() methods
+
+Example (1):
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+
+	DefineNaturalCommand {
+		startCache(:MyDSL)
+		setPackageName("MyLanguage.Natural")	
+		syntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				aCommandMemory[:window] = True
+			}
+		])	
+		syntaxIsCommand([
+			:Command = "Window title", 
+			:Function = func {
+				passThisCommand()
+				commandReturn(aCommandMemory[:windowtitle])
+			}
+		])
+		syntaxIsCommandExpression([
+			:Command = "Window title is", 
+			:Function = func {
+				if ! aCommandMemory[:window] {
+					? "Please create the window first!"
+					return 
+				}
+				aCommandMemory[:windowtitle] = Expr(1) 
+			}
+		])
+		endCache()
+	}
+
+	new NaturalLanguage {
+		setLanguageName(:GUI)
+		setPackageName("MyLanguage.Natural")
+		loadCommand(:MyDSL)
+	}
+
+	GUI = new GUI
+
+	GUI {
+ 		I Want Window and the window title is "welcome" 
+		? "Window title: " + @("window title")
+	}
+
+	? copy("*",21)
+	mylang.runstring(`I want window and the window title is "one" `)
+	? mylang.runstring("window title")
+
+	? copy("*",21)				
+	mylang.execute(`I want window and the window title is "two" `)
+	? mylang.execute("window title")
+
+	? copy("*",21)				
+	mylang.@(`I want window and the window title is "three" `)
+	? mylang.@("window title")
+
+
+Output (1):
+
+.. code-block:: none
+
+	Window title: welcome
+	*********************
+	one
+	*********************
+	two
+	*********************
+	three
+
+
+We can use the V list, defined as an object attribute, to share state with the DSL user or caller.
+
+Example (2):
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+
+	DefineNaturalCommand {
+		startCache(:MyDSL)
+		setPackageName("MyLanguage.Natural")
+		syntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				aCommandMemory[:window] = True
+			}
+		])
+		syntaxIsCommandExpression([
+			:Command = "Window title is", 
+			:Function = func {
+				if ! aCommandMemory[:window] {
+					? "Please create the window first!"
+					return 
+				}
+				v["Window Title"] = Expr(1)
+			}
+		])
+		endCache()
+	}
+
+	new NaturalLanguage {
+		setLanguageName(:GUI)
+		setPackageName("MyLanguage.Natural")
+		loadCommand(:MyDSL)
+	}
+
+	GUI = new GUI
+
+	GUI  {
+ 		I Want Window and the window title is "welcome" 
+		? "Window title: " + v["window title"]
+	}
+
+
+Output (2):
+
+.. code-block:: none
+
+	Window title: welcome
+
+Another way to share state with the DSL user or caller is to define or use a custom object attribute.
+
+We can do this inside the command by using the isAttribute() and addAttribute() functions.
+
+We can also use the register() function, which internally uses isAttribute() and addAttribute().
+
+Example (3):
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+	
+	DefineNaturalCommand {
+		startCache(:MyDSL)
+		setPackageName("MyLanguage.Natural")
+		syntaxIsCommand([
+			:Command = "I want window", 
+			:Function = func {
+				aCommandMemory[:Window] = True
+			}
+		])
+		syntaxIsCommandExpression([
+			:Command = "Window title is", 
+			:Function = func {
+				if ! aCommandMemory[:Window] {
+					? "Please create the window first!"
+					return 
+				}
+				register(:windowTitle)
+				windowTitle = Expr(1) 
+			}
+		])
+		endCache()
+	}
+
+	new NaturalLanguage {
+		setLanguageName(:GUI)
+		setPackageName("MyLanguage.Natural")
+		loadCommand(:MyDSL)
+	}
+	
+	new GUI {
+	 	I Want Window and the window title is "I Love Programming!" 
+		? "The window title is: " + windowTitle
+	}			
+
+
+Output (3):
+
+.. code-block:: none
+
+	The window title is: I Love Programming!
+
+More ideas:
+
+* Using Setter/Getter methods for new attributes defined through the Register() method.
+
+* Defining the V list as an object (instead of a list) and apply operator overloading. 
+
+
+.. index:: 
+	pair: Using the Natural Library; CallerGetVar() and CallerSetVar() methods
+
+CallerGetVar() and CallerSetVar() methods
+=========================================
+
+By using the callerGetVar() and callerSetVar() methods, we can access the caller's scope.
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+	load "naturallib.ring"
+	
+	DefineNaturalCommand {
+		startCache(:MyDSL)
+		setPackageName("MyLanguage.Natural")
+		syntaxIsCommand([
+			:Command = "I have a secret", 
+			:Function = func {
+				? "Your secret is: " 
+				? callerGetVar(:mysecret)
+				? copy("*",30)
+				callerSetVar(:yoursecret,"The Natural Library is GREAT!")
+			}
+		])
+		endCache()
+	}
+
+	MyLang = new NaturalLanguage {
+		setLanguageName(:Chat)
+		setPackageName("MyLanguage.Natural")
+		loadCommand(:MyDSL)
+		setMaskOperators(False)			// So we can use ? and = operators 
+	}
+
+	func main
+
+		test1()
+		test2()
+
+	func test1
+
+
+		? copy("=",30)
+
+		mySecret = "Ring Programming is Fun!"
+
+		new Chat {
+			I have a secret
+		}
+	
+		? "Mmm...."
+		? "I know your secret too"
+
+		? yourSecret
+
+		? copy("=",30)
+					
+
+	func test2
+
+		MyLang.@(`
+
+			? copy("=",30)
+
+			mySecret = "Ring Programming is Fun!"
+
+			I have a secret
+	
+			? "Mmm...."
+			? "I know your secret too"
+
+			? yourSecret
+
+			? copy("=",30)
+					
+		`)
+
+Output:
+
+.. code-block:: none
+
+	==============================
+	Your secret is:
+	Ring Programming is Fun!
+	******************************
+	Mmm....
+	I know your secret too
+	The Natural Library is GREAT!
+	==============================
+	==============================
+	Your secret is:
+	Ring Programming is Fun!
+	******************************
+	Mmm....
+	I know your secret too
+	The Natural Library is GREAT!
+	==============================
+
+
+.. index:: 
+	pair: Using the Natural Library; The Art Behind NaturalLib
+
+The Art Behind NaturalLib
+=========================
+
+Working with the Natural Library is not only a technical activity. It is also a creative process. 
+The library gives you tools for parsing, evaluating expressions, and defining commands, but 
+these tools are only the foundation. The moment you decide how your DSL should read and 
+feel, you are making artistic choices.
+
+A DSL is not just a set of rules. It is a user experience. You decide whether commands 
+should look formal, conversational, minimal, or natural. You also choose whether the 
+language resembles an existing language or something entirely new. These decisions shape 
+how people think while writing code.
+
+The Natural Library gives you great freedom. You can define commands at runtime or 
+compile time, accept expressions or identifiers, and mix DSL code with normal Ring code. 
+This flexibility means there is no single correct design. You must balance structure 
+with readability, and precision with expressiveness.
+
+Designing a DSL also means translating human intention into machine action. When someone 
+writes (I want window) or (count from 1 to 5) they are expressing ideas in natural 
+language. Turning those ideas into executable behavior requires intuition and 
+imagination, not just technical skill.
+
+A language also has tone and rhythm. Some DSLs feel direct and mechanical. Others feel 
+friendly or narrative. The Natural Library allows you to shape this voice by choosing 
+keywords, command patterns, and the overall flow of the language.
+
+A good DSL should be both technically sound and pleasant to read. If the structure is 
+too strict, the language becomes rigid and difficult to write. If it is too loose, the 
+meaning becomes unclear. In the same way, precise rules help the computer understand 
+the command, but expressive wording helps the human understand it. A successful DSL 
+finds the middle ground: clear enough for the machine, natural enough for the user.
+
+In short, the library provides the mechanisms, but the art lies in deciding how humans 
+should communicate with the computer. The Natural Library supports both sides, yet the 
+creative vision remains yours.
+
+.. index:: 
+	pair: Using the Natural Library; The Samples and the Source Code
+
+The Samples and the Source Code
+===============================
+
+You can find the samples in the ring/samples/UsingNaturalLib folder.
+
+You can find the source code in the ring/libraries/naturallib folder.
